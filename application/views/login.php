@@ -31,7 +31,7 @@
         <div class="animate form login_form">
           <section class="login_content">
             <form>
-              <h1>Login porm</h1>
+              <h1>Login form</h1>
               <div>
                 <input type="text" class="form-control" placeholder="Username" required="" />
               </div>
