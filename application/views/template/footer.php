@@ -21,6 +21,10 @@
     <script src="../application/vendors/nprogress/nprogress.js"></script>
     <!-- jQuery custom content scroller -->
     <script src="../application/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- Pnotify -->
+    <script src="../vendors/pnotify/dist/pnotify.js" type="text/javascript"></script>
+    <script src="../vendors/pnotify/dist/pnotify.buttons.js" type="text/javascript"></script>
+    <script src="../vendors/pnotify/dist/pnotify.nonblock.js" type="text/javascript"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="../application/build/js/custom.min.js"></script>

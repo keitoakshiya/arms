@@ -19,9 +19,14 @@
     <link href="../application/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- jQuery custom content scroller -->
     <link href="../application/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+    <!-- Pnotify -->
+    <link href="../vendors/pnotify/dist/pnotify.css" rel="stylesheet">
+    <link href="../vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+    <link href="../vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
     <link href="../application/build/css/custom.min.css" rel="stylesheet">
+    <link href="../application/build/css/ew.css" rel="stylesheet">
   </head>
 
   <body class="nav-md">
@@ -56,7 +61,8 @@
 
                 <ul class="nav side-menu">
                   <li><a href="dashboard"><i class="fa fa-home"></i> Dashboard </a></li>
-                  <li><a href="billing"><i class="fa fa-edit"></i> Billing Registry </a></li>
+                  <li><a href="patients"><i class="fa fa-edit"></i> Patient List </a></li>
+                  <li><a href="add_patient"><i class="fa fa-edit"></i> Register Patient </a></li>
                   <li><a><i class="fa fa-home"></i> Summary <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="index.html">Accounts Receivable</a></li>

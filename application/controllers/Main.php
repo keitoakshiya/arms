@@ -42,5 +42,46 @@ class Main extends CI_Controller {
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
 	}
+	public function patients(){
+		$data = array(
+		    'title' => 'Patients',
+		    'description' => ' '
+		);
+		$this->load->view('template/header',$data);
+		$this->load->view('template/container_header',$data);
+		$this->load->view('patients');
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer');
+	}
+	public function add_patient(){
+		$data = array(
+		    'title' => 'Patient Registration',
+		    'description' => ' '
+		);
+		$this->load->view('template/header',$data);
+		$this->load->view('template/container_header',$data);
+		$this->load->view('add_patient');
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer');
+	}
+	public function insert_patient(){
+
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('first-name','first-name','required');
+		$this->form_validation->set_rules('middle-name','middle-name','required');
+		$this->form_validation->set_rules('last-name','last-name','required');
+
+		
+		if ($this->form_validation->run()) {
+
+
+			$firstname = $this->input->post('first-name');
+			$middlename = $this->input->post('middle-name');
+			$lastname = $this->input->post('last-name');
+			$this->load->model('add_patient_model');
+
+			$this->add_patient_model->insert_patient($firstname,$middlename,$lastname);
+		}
+	}
 
 }
