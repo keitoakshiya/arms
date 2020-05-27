@@ -36,6 +36,7 @@
               <h2>Message here: Testing!!</h2>
               <h2>Message here: trying to push using nam-git</h2>
               <h2>Message here: trying to push using nam-git - last try</h2>
+              <h2>Message here: trying command git push master using nam-git - last last try</h2>
               <div>
                 <input type="text" class="form-control" placeholder="Username" name="username" required="" />
               </div>
