@@ -33,6 +33,7 @@
             <form method="post" action="/index/main/login_validation">
               <h1>Login Form</h1>
               <h1>Message here: git pulled file from may 25</h1>
+              <h2>Message here: Testing!!</h2>
               <div>
                 <input type="text" class="form-control" placeholder="Username" name="username" required="" />
               </div>
