@@ -32,6 +32,7 @@
           <section class="login_content">
             <form method="post" action="/index/main/login_validation">
               <h1>Login Form</h1>
+              <h1>Message here! git pulled file from may 25</h1>
               <div>
                 <input type="text" class="form-control" placeholder="Username" name="username" required="" />
               </div>
