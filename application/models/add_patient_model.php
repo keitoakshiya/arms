@@ -8,6 +8,7 @@
             );
             $this->db->insert('patient', $data);
             echo "<script>alert('Patient Added')</script>";
+            header("Location: /index/main/add_patient");
         }      
     }  
 ?>  

@@ -19,10 +19,16 @@
     <link href="../application/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- jQuery custom content scroller -->
     <link href="../application/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+    <!-- jQuery -->
+    <script src="../application/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Pnotify -->
     <link href="../vendors/pnotify/dist/pnotify.css" rel="stylesheet">
     <link href="../vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
     <link href="../vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+        <!-- Pnotify -->
+    <script src="../vendors/pnotify/dist/pnotify.js" type="text/javascript"></script>
+    <script src="../vendors/pnotify/dist/pnotify.buttons.js" type="text/javascript"></script>
+    <script src="../vendors/pnotify/dist/pnotify.nonblock.js" type="text/javascript"></script>
 
     <!-- Custom Theme Style -->
     <link href="../application/build/css/custom.min.css" rel="stylesheet">
