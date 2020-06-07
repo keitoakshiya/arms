@@ -69,6 +69,7 @@
                   <li><a href="dashboard"><i class="fa fa-home"></i> Dashboard </a></li>
                   <li><a href="patients"><i class="fa fa-edit"></i> Patient List </a></li>
                   <li><a href="add_patient"><i class="fa fa-edit"></i> Register Patient </a></li>
+                  <li><a href="add_bill"><i class="fa fa-edit"></i> Recent Registered patient </a></li>
                   <li><a><i class="fa fa-home"></i> Summary <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="index.html">Accounts Receivable</a></li>
@@ -132,7 +133,7 @@
                           <span>Settings</span>
                         </a>
                     <a class="dropdown-item"  href="javascript:;">Help</a>
-                      <a class="dropdown-item"  href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                      <a class="dropdown-item"  href="/index/main/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                     </div>
                   </li>
   
