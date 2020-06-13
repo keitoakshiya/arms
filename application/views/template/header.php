@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -9,6 +10,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title><?=$title?> </title>
+    <!-- jQuery -->
+    <script src="../application/vendors/jquery/dist/jquery.min.js"></script>
+        <!-- DataTables -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="../application/views/assets/images/favicon.ico" />
     <!-- Bootstrap -->
@@ -19,8 +26,6 @@
     <link href="../application/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- jQuery custom content scroller -->
     <link href="../application/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
-    <!-- jQuery -->
-    <script src="../application/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Pnotify -->
     <link href="../vendors/pnotify/dist/pnotify.css" rel="stylesheet">
     <link href="../vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">

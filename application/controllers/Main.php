@@ -120,10 +120,18 @@ class Main extends CI_Controller {
 		}
 	}
 	public function logout(){
+		
 	    $this->session->unset_userdata($session_data);
 	    $this->session->sess_destroy();
 	    echo "<script>alert('HINDI NAGANA LOGOUT');</script>";
 	    header('Location: /index');
+	}
+	public function patient_json(){
+		
+		$this->load->model('patient_json');
+		$res = $this->patient_json->get_patient_json();
+		echo $res;
+		 
 	}
 
 }

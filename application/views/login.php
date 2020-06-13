@@ -33,7 +33,7 @@
             <form method="post" action="/index/main/login_validation">
               <h1>Login Form</h1>
 
-		<h2>Message here: ez ez</h2>
+		<h2>Message here:</h2>
               <div>
                 <input type="text" class="form-control" placeholder="Username" name="username" required="" />
               </div>

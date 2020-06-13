@@ -10,15 +10,13 @@
 
             $this->db->insert('patient', $data);
                $insert_id = $this->db->insert_id();
-/*               echo "<script>alert(".$insert_id.")</script>";
-            return  $insert_id;*/
+
             $data2 = array(
                 'patient_id' => $insert_id
             );
 
             $this->db->insert('bill', $data2);
-
-            echo "<script>alert('Patient Added')</script>";
+            echo "<script>alert('asdasd');</script>";
             header("Location: /index/main/add_patient");
 
         }      

@@ -15,11 +15,11 @@
         }
 
         public function insert_bill($hostpital_bill,$professional_bill,$id){
-            echo $id;
             $this->db->set('hostpital_bill', $hostpital_bill);
             $this->db->set('professional_bill', $professional_bill);
             $this->db->where('patient_id', $id);
             $this->db->update('bill');
+            header("Location: /index/main/add_bill");
         }
 
     }

@@ -21,7 +21,6 @@
     <!-- jQuery custom content scroller -->
     <script src="../application/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
 
-
     <!-- Custom Theme Scripts -->
     <script src="../application/build/js/custom.min.js"></script>
   </body>
