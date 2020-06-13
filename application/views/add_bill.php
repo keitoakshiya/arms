@@ -22,7 +22,7 @@
 		                </div>
 			                <div class="x_content">
 		                  <div class="dashboard-widget-content">
-			                  <form method="post" action="/index/main/insert_bill">
+			                  <form method="post" action="/arms/main/insert_bill">
 			                  	<input type="hidden" name="id" value="'.$row->id.'">
 			                   	Hospital Bill: <input type="text" class="form-control" value = "'.$row->hostpital_bill.'" name="hostpital_bill">
 			                   	Professional Fee: <input type="text" class="form-control" value = "'.$row->professional_bill.'" name="professional_bill">

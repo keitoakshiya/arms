@@ -1,4 +1,4 @@
-<?php
+	<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Main extends CI_Controller {
@@ -21,7 +21,7 @@ class Main extends CI_Controller {
 			if ($this->login_model->valid_login($username,$password)) {
 				$session_data = array('username' => $username);
 				$this->session->set_userdata($session_data);
-				header('Location:/index/main/dashboard');	
+				header('Location:/arms/main/dashboard');	
 				echo "tamang password";
 			}
 			else{
@@ -124,7 +124,7 @@ class Main extends CI_Controller {
 	    $this->session->unset_userdata($session_data);
 	    $this->session->sess_destroy();
 	    echo "<script>alert('HINDI NAGANA LOGOUT');</script>";
-	    header('Location: /index');
+	    header('Location: /arms');
 	}
 	public function patient_json(){
 		

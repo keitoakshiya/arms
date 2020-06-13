@@ -19,7 +19,7 @@
             $this->db->set('professional_bill', $professional_bill);
             $this->db->where('patient_id', $id);
             $this->db->update('bill');
-            header("Location: /index/main/add_bill");
+            header("Location: /arms/main/add_bill");
         }
 
     }

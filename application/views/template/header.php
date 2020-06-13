@@ -138,7 +138,7 @@
                           <span>Settings</span>
                         </a>
                     <a class="dropdown-item"  href="javascript:;">Help</a>
-                      <a class="dropdown-item"  href="/index/main/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                      <a class="dropdown-item"  href="/arms/main/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                     </div>
                   </li>
   
