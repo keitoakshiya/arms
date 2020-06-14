@@ -13,13 +13,19 @@
     <!-- jQuery -->
     <script src="../application/vendors/jquery/dist/jquery.min.js"></script>
         <!-- DataTables -->
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+
+
 
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="../application/views/assets/images/favicon.ico" />
     <!-- Bootstrap -->
     <link href="../application/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Bootstrap -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="../application/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
