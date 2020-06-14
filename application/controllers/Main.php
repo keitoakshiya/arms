@@ -113,20 +113,20 @@ class Main extends CI_Controller {
 
 	public function insert_bill(){
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('hostpital_bill','hostpital_bill','required');
+		$this->form_validation->set_rules('hospital_bill','hospital_bill','required');
 		$this->form_validation->set_rules('professional_bill','professional_bill','required');
 		$this->form_validation->set_rules('id','id','required');
 
 		if ($this->form_validation->run()) {
 			
 
-			$hostpital_bill = $this->input->post('hostpital_bill');
+			$hospital_bill = $this->input->post('hospital_bill');
 			$professional_bill = $this->input->post('professional_bill');
 			$id = $this->input->post('id');
 
 			$this->load->model('add_bill_model');
 
-			$this->add_bill_model->insert_bill($hostpital_bill,$professional_bill,$id);
+			$this->add_bill_model->insert_bill($hospital_bill,$professional_bill,$id);
 		}
 	}
 

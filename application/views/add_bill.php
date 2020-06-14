@@ -31,7 +31,7 @@
 								    <option value="3">Emergency</option>
 								  </select>
 			                  	<input type="hidden" name="id" value="'.$row->id.'">
-			                   	Hospital Bill: <input type="text" class="form-control" value = "'.$row->hostpital_bill.'" name="hostpital_bill">
+			                   	Hospital Bill: <input type="text" class="form-control" value = "'.$row->hospital_bill.'" name="hospital_bill">
 			                   	Professional Fee: <input type="text" class="form-control" value = "'.$row->professional_bill.'" name="professional_bill">
 			                   	<input type="submit" class=" form form-control btn btn-success submit-btn">
 			                  </form>
