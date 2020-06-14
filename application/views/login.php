@@ -10,16 +10,16 @@
     <title>Login</title>
 
     <!-- Bootstrap -->
-    <link href="/index/application/views/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="/index/application/views/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="/index/application/views/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- Animate.css -->
-    <link href="/index/application/views/vendors/animate.css/animate.min.css" rel="stylesheet">
+    <link href="vendors/animate.css/animate.min.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="/index/application/views/build/css/custom.min.css" rel="stylesheet">
+    <link href="build/css/custom.min.css" rel="stylesheet">
   </head>
 
   <body class="login">
@@ -30,7 +30,7 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form method="post" action="/index/main/login_validation">
+            <form method="post" action="/arms/main/login_validation">
               <h1>Login Form</h1>
 
 		<h2>Message here:</h2>

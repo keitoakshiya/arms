@@ -17,7 +17,7 @@
 
             $this->db->insert('bill', $data2);
             echo "<script>alert('asdasd');</script>";
-            header("Location: /index/main/add_patient");
+            header("Location: /arns/main/add_patient");
 
         }      
     }  
