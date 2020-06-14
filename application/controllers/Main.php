@@ -138,6 +138,24 @@ class Main extends CI_Controller {
 	    header('Location: /arms');
 	}
 
+	public function accounts_receivable(){
+		$data = array(
+		    'title' => 'Accounts Receivable',
+		    'description' => ' '
+		);
+		$this->load->model('accounts_receivable_model');
+		$res = $this->accounts_receivable_model->get_bill();
+		$this->load->view('template/header',$data);
+		$this->load->view('template/container_header',$data);
+		
+		if($res){	$data2['result'] = $res;
+        	$this->load->view('accounts_receivable',$data2);
+		}
+		else {"Fail";}
+		
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer');
+	}
 
 
 }
