@@ -18,7 +18,6 @@
 						echo "<td>".$row->professional_bill."</td>";
 						echo "<td>".($row->hospital_bill+$row->professional_bill)."</td>";
 						echo "<td>".$row->date."</td>";
-	
 					echo "</tr>";
 				}
 			}
