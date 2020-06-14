@@ -47,12 +47,20 @@ class Main extends CI_Controller {
 		    'title' => 'Patients',
 		    'description' => ' '
 		);
+		$this->load->model('patients_model');
+		$res = $this->patients_model->get_patients();
 		$this->load->view('template/header',$data);
 		$this->load->view('template/container_header',$data);
-		$this->load->view('patients');
+
+		if($res){	$data2['result'] = $res;
+        	$this->load->view('patients',$data2);
+		}
+		else {"Fail";}
+
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
 	}
+
 	public function add_patient(){
 		$data = array(
 		    'title' => 'Patient Registration',
@@ -81,6 +89,7 @@ class Main extends CI_Controller {
 
 		$this->load->view('template/footer');
 	}
+
 	public function insert_patient(){
 
 		$this->load->library('form_validation');
@@ -101,6 +110,7 @@ class Main extends CI_Controller {
 				$lastname);
 		}
 	}
+
 	public function insert_bill(){
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('hostpital_bill','hostpital_bill','required');
@@ -119,6 +129,7 @@ class Main extends CI_Controller {
 			$this->add_bill_model->insert_bill($hostpital_bill,$professional_bill,$id);
 		}
 	}
+
 	public function logout(){
 		
 	    $this->session->unset_userdata($session_data);
@@ -126,12 +137,7 @@ class Main extends CI_Controller {
 	    echo "<script>alert('HINDI NAGANA LOGOUT');</script>";
 	    header('Location: /arms');
 	}
-	public function patient_json(){
-		
-		$this->load->model('patient_json');
-		$res = $this->patient_json->get_patient_json();
-		echo $res;
-		 
-	}
+
+
 
 }
