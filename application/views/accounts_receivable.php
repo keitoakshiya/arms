@@ -1,4 +1,4 @@
-<table>
+<table id="accounts_receivable_list" class="display" style="width:100%">
 	<thead>
 		<th>Full Name</th>
 		<th>Patient Type</th>
@@ -18,7 +18,7 @@
 						echo "<td>".$row->professional_bill."</td>";
 						echo "<td>".($row->hospital_bill+$row->professional_bill)."</td>";
 						echo "<td>".$row->date."</td>";
-						echo "<td><button class='btn-success'>View</button></td>";
+	
 					echo "</tr>";
 				}
 			}
@@ -26,3 +26,8 @@
 
 	</tbody>
 </table>
+<script type="text/javascript">
+	$(document).ready( function () {
+	    $('#accounts_receivable_list').DataTable();
+	} );
+</script>

@@ -143,9 +143,9 @@ class Main extends CI_Controller {
 		    'title' => 'Accounts Receivable',
 		    'description' => ' '
 		);
+		$this->load->view('template/header',$data);
 		$this->load->model('accounts_receivable_model');
 		$res = $this->accounts_receivable_model->get_bill();
-		$this->load->view('template/header',$data);
 		$this->load->view('template/container_header',$data);
 		
 		if($res){	$data2['result'] = $res;
