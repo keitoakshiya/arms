@@ -84,14 +84,14 @@
                   <li><a><i class="fa fa-home"></i> Summary <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="accounts_receivable">Accounts Receivable</a></li>
-                      <li><a href="index2.html">Payment</a></li>
-                      <li><a href="index3.html">Balance</a></li>
+                      <li><a href="payment_summary">Total Payment</a></li>
+                      <li><a href="remaining_balance">Remaining Balance</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-edit"></i> Di ko sure <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-edit"></i> Add Payment <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="form.html">Official Receipts</a></li>
-                      <li><a href="form_advanced.html">Payment Application</a></li>
+                      <li><a href="add_payment">Payment Application</a></li>
                     </ul>
                   </li>
 

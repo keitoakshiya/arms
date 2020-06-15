@@ -1,11 +1,13 @@
-<table id="accounts_receivable_list" class="display" style="width:100%">
+<table id="payment_summary" class="display" style="width:100%">
 	<thead>
 		<th>Full Name</th>
 		<th>Patient Type</th>
 		<th>Hospital Bill</th>
+		<th>Paid Hospital Bill</th>
 		<th>Professional Bill</th>
-		<th>Total</th>
-		<th>Date</th>
+		<th>Paid Professional Bill</th>
+		<th>Total Paid Bill</th>
+
 	</thead>
 	<tbody>
 		        <?php
@@ -15,9 +17,13 @@
 						echo "<td>".$row->first_name." ".$row->middle_name." ".$row->last_name."</td>";
 						echo "<td>".$row->patient_type."</td>";
 						echo "<td>&#8369; ".$row->hospital_bill."</td>"; /*DON"T FORGET TO ADD PESO SIGN ON OTHER PAGES*/
+						echo "<td></td>";
 						echo "<td>&#8369; ".$row->professional_bill."</td>";
-						echo "<td>&#8369; ".($row->hospital_bill+$row->professional_bill)."</td>";
-						echo "<td>".$row->date."</td>";
+						echo "<td></td>";
+						echo "<td></td>";
+
+
+
 					echo "</tr>";
 				}
 			}
@@ -27,6 +33,6 @@
 </table>
 <script type="text/javascript">
 	$(document).ready( function () {
-	    $('#accounts_receivable_list').DataTable();
+	    $('#payment_summary').DataTable();
 	} );
 </script>

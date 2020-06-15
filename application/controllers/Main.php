@@ -141,7 +141,7 @@ class Main extends CI_Controller {
 	public function accounts_receivable(){
 		$data = array(
 		    'title' => 'Accounts Receivable',
-		    'description' => ' '
+		    'description' => ' Summary of Accounts Receivable '
 		);
 		$this->load->view('template/header',$data);
 		$this->load->model('accounts_receivable_model');
@@ -150,6 +150,67 @@ class Main extends CI_Controller {
 		
 		if($res){	$data2['result'] = $res;
         	$this->load->view('accounts_receivable',$data2);
+		}
+		else {"Fail";}
+		
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer');
+	}
+
+
+	public function payment_summary(){
+		$data = array(
+		    'title' => 'Payment Summary',
+		    'description' => ' Total Payment of Bills '
+		);
+		$this->load->view('template/header',$data);
+		$this->load->model('payment_summary_model');
+		$res = $this->payment_summary_model->get_bill();
+		$this->load->view('template/container_header',$data);
+		
+		if($res){	$data2['result'] = $res;
+        	$this->load->view('payment_summary',$data2);
+		}
+		else {"Fail";}
+		
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer');
+
+
+	}
+
+	public function remaining_balance(){
+		$data = array(
+		    'title' => 'Balance',
+		    'description' => ' Total Remaining of Balance '
+		);
+		$this->load->view('template/header',$data);
+		$this->load->model('remaining_balance_model');
+		$res = $this->remaining_balance_model->get_bill();
+		$this->load->view('template/container_header',$data);
+		
+		if($res){	$data2['result'] = $res;
+        	$this->load->view('remaining_balance',$data2);
+		}
+		else {"Fail";}
+		
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer');
+	}
+
+
+	public function add_payment(){
+		$data = array(
+		    'title' => 'Add Payment',
+		    'description' => ' Add payment '
+		);
+		$this->load->view('template/header',$data);
+		$this->load->model('add_payment_model');
+		$res = $this->add_payment_model->get_bill();
+		$this->load->view('template/container_header',$data);
+		
+		if($res){	$data2['result'] = $res;
+        	$this->load->view('add_payment',$data2);
 		}
 		else {"Fail";}
 		
