@@ -11,39 +11,39 @@
 
     <title><?=$title?> </title>
     <!-- jQuery -->
-    <script src="../application/vendors/jquery/dist/jquery.min.js"></script>
+    <script src="../../application/vendors/jquery/dist/jquery.min.js"></script>
         <!-- DataTables -->
 
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     
-    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="..///cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
 
 
 
     <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="../application/views/assets/images/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../application/views/assets/images/favicon.ico" />
     <!-- Bootstrap -->
-    <link href="../application/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../application/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <!-- Bootstrap -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="../application/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../../application/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="../application/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="../../application/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- jQuery custom content scroller -->
-    <link href="../application/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
+    <link href="../../application/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
     <!-- Pnotify -->
-    <link href="../vendors/pnotify/dist/pnotify.css" rel="stylesheet">
-    <link href="../vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
-    <link href="../vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
+    <link href="../../vendors/pnotify/dist/pnotify.css" rel="stylesheet">
+    <link href="../../vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
+    <link href="../../vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
         <!-- Pnotify -->
-    <script src="../vendors/pnotify/dist/pnotify.js" type="text/javascript"></script>
-    <script src="../vendors/pnotify/dist/pnotify.buttons.js" type="text/javascript"></script>
-    <script src="../vendors/pnotify/dist/pnotify.nonblock.js" type="text/javascript"></script>
+    <script src="../../vendors/pnotify/dist/pnotify.js" type="text/javascript"></script>
+    <script src="../../vendors/pnotify/dist/pnotify.buttons.js" type="text/javascript"></script>
+    <script src="../../vendors/pnotify/dist/pnotify.nonblock.js" type="text/javascript"></script>
 
     <!-- Custom Theme Style -->
-    <link href="../application/build/css/custom.min.css" rel="stylesheet">
-    <link href="../application/build/css/ew.css" rel="stylesheet">
+    <link href="../../application/build/css/custom.min.css" rel="stylesheet">
+    <link href="../../application/build/css/ew.css" rel="stylesheet">
     
   </head>
 
@@ -53,7 +53,7 @@
         <div class="col-md-3 left_col menu_fixed">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="index.html" class="site_title" style="padding-left: 20px"><link rel="icon" href="../application/views/assets/images/favicon.ico"> <span>  A R M S</span></a>
+              <a href="../index.html" class="site_title" style="padding-left: 20px"><link rel="icon" href="../../application/views/assets/images/favicon.ico"> <span>  A R M S</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -78,21 +78,21 @@
                 <h3>Menu</h3>
 
                 <ul class="nav side-menu">
-                  <li><a href="dashboard"><i class="fa fa-home"></i> Dashboard </a></li>
-                  <li><a href="patients"><i class="fa fa-edit"></i> Patient List </a></li>
-                  <li><a href="add_patient"><i class="fa fa-edit"></i> Register Patient </a></li>
-                  <li><a href="add_bill"><i class="fa fa-edit"></i> Recent Registered patient </a></li>
+                  <li><a href="../dashboard"><i class="fa fa-home"></i> Dashboard </a></li>
+                  <li><a href="../patients"><i class="fa fa-edit"></i> Patient List </a></li>
+                  <li><a href="../add_patient"><i class="fa fa-edit"></i> Register Patient </a></li>
+                  <li><a href="../add_bill"><i class="fa fa-edit"></i> Recent Registered patient </a></li>
                   <li><a><i class="fa fa-home"></i> Summary <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="accounts_receivable">Accounts Receivable</a></li>
-                      <li><a href="payment_summary">Total Payment</a></li>
-                      <li><a href="remaining_balance">Remaining Balance</a></li>
+                      <li><a href="../accounts_receivable">Accounts Receivable</a></li>
+                      <li><a href="../payment_summary">Total Payment</a></li>
+                      <li><a href="../remaining_balance">Remaining Balance</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-edit"></i> Add Payment <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="form.html">Official Receipts</a></li>
-                      <li><a href="add_payment">Payment Application</a></li>
+                      <li><a href="../form.html">Official Receipts</a></li>
+                      <li><a href="../add_payment">Payment Application</a></li>
                     </ul>
                   </li>
 
@@ -101,7 +101,7 @@
               </div>
               <div class="menu_section">
                 <ul class="nav side-menu">
-                  <li><a href="Archive"><i class="fa fa-home"></i> Archive </a></li>
+                  <li><a href="../Archive"><i class="fa fa-home"></i> Archive </a></li>
                 </ul>
               </div>
             </div>
@@ -118,7 +118,7 @@
               <a data-toggle="tooltip" data-placement="top" title="Lock">
                 <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="../login.html">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div> -->
@@ -135,22 +135,22 @@
                 <nav class="nav navbar-nav">
                 <ul class=" navbar-right">
                   <li class="nav-item dropdown open" style="padding-left: 15px;">
-                    <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                    <a href="../javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
                       <img src="images/img.jpg" alt=""><?echo $session_data['username'];?>
                     </a>
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item"  href="javascript:;"> Profile</a>
-                        <a class="dropdown-item"  href="javascript:;">
+                      <a class="dropdown-item"  href="../javascript:;"> Profile</a>
+                        <a class="dropdown-item"  href="../javascript:;">
                           <span class="badge bg-red pull-right">50%</span>
                           <span>Settings</span>
                         </a>
-                    <a class="dropdown-item"  href="javascript:;">Help</a>
-                      <a class="dropdown-item"  href="/arms/main/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                    <a class="dropdown-item"  href="../javascript:;">Help</a>
+                      <a class="dropdown-item"  href="..//arms/main/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                     </div>
                   </li>
   
                   <li role="presentation" class="nav-item dropdown open">
-                    <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
+                    <a href="../javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
                       <i class="fa fa-envelope-o"></i>
                       <span class="badge bg-green">6</span>
                     </a>

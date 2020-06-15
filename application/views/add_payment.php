@@ -16,7 +16,7 @@
 						echo "<td>".$row->first_name." ".$row->middle_name." ".$row->last_name."</td>";
 						echo "<td>".$row->patient_type."</td>";
 						echo "<td></td>"; /*DON"T FORGET TO ADD PESO SIGN ON OTHER PAGES*/
-						echo "<td><button class='btn-success'>View</button></td>"; 
+						echo "<td><button class='btn-success'><a href='view_bill_by_patient/".$row->id."'>View</a></button></td>"; 
 
 
 					echo "</tr>";

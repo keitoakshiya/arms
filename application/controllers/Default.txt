@@ -1,0 +1,13 @@
+	public function CHANGE_THIS(){
+		$data = array(
+		    'title' => 'Patient Registration',
+		    'description' => ' '
+		);
+		$this->load->view('template/header',$data);
+		$this->load->view('template/container_header',$data);
+		$this->load->view('CHANGE_THIS');
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer');
+	}
+
+/*CHANGE INDENT*/

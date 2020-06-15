@@ -218,5 +218,21 @@ class Main extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
+	public function view_bill_by_patient($id){
+		$data = array(
+		    'title' => 'Payment Application Page 2',
+		    'description' => ' '
+		);
+		$this->load->view('template/header2',$data);
+		$this->load->model('view_bill_by_patient_model');
+		$res = $this->view_bill_by_patient_model->get_view_bill_by_patient($id);
+
+		if($res){	$data2['result'] = $res;
+        			$this->load->view('view_bill_by_patient',$data2);
+		}
+		else {"Fail";}
+
+		$this->load->view('template/footer');
+	}
 
 }

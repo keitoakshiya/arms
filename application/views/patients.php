@@ -17,7 +17,7 @@
 						echo "<td>".$row->middle_name."</td>";
 						echo "<td>".$row->last_name."</td>";
 						echo "<td>".$row->date_created."</td>";
-						echo "<td><button class='btn-success'>View</button></td>";
+						echo "<td><button class='btn-success'>Add</button></td>";
 					echo "</tr>";
 				}
 			}
