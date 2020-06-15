@@ -30,4 +30,4 @@
 	$(document).ready( function () {
 	    $('#add_payment').DataTable();
 	} );
-</script>
+</script> 
