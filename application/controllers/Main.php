@@ -111,25 +111,6 @@ class Main extends CI_Controller {
 		}
 	}
 
-	public function insert_bill(){
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules('hospital_bill','hospital_bill','required');
-		$this->form_validation->set_rules('professional_bill','professional_bill','required');
-		$this->form_validation->set_rules('id','id','required');
-
-		if ($this->form_validation->run()) {
-			
-
-			$hospital_bill = $this->input->post('hospital_bill');
-			$professional_bill = $this->input->post('professional_bill');
-			$id = $this->input->post('id');
-
-			$this->load->model('add_bill_model');
-
-			$this->add_bill_model->insert_bill($hospital_bill,$professional_bill,$id);
-		}
-	}
-
 	public function logout(){
 		
 	    $this->session->unset_userdata($session_data);
@@ -231,8 +212,45 @@ class Main extends CI_Controller {
         			$this->load->view('view_bill_by_patient',$data2);
 		}
 		else {"Fail";}
+		$this->load->view('template/footer2');
+	}
 
-		$this->load->view('template/footer');
+	public function insert_bill(){
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('hospital_bill','hospital_bill','required');
+		$this->form_validation->set_rules('professional_bill','professional_bill','required');
+		$this->form_validation->set_rules('id','id','required');
+
+		if ($this->form_validation->run()) {
+			
+
+			$hospital_bill = $this->input->post('hospital_bill');
+			$professional_bill = $this->input->post('professional_bill');
+			$id = $this->input->post('id');
+
+			$this->load->model('add_bill_model');
+
+			$this->add_bill_model->insert_bill($hospital_bill,$professional_bill,$id);
+		}
+	}
+
+	public function insert_transaction(){
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('hospital_bill_payment','hospital_bill_payment','required');
+		$this->form_validation->set_rules('professional_bill_payment','professional_bill_payment','required');
+		$this->form_validation->set_rules('id','id','required');
+
+		if ($this->form_validation->run()) {
+			
+
+			$hospital_bill_payment = $this->input->post('hospital_bill_payment');
+			$professional_bill_payment = $this->input->post('professional_bill_payment');
+			$id = $this->input->post('id');
+
+			$this->load->model('view_bill_by_patient_model');
+
+			$this->view_bill_by_patient_model->insert_transaction($professional_bill_payment,$professional_bill_payment,$id);
+		}
 	}
 
 }

@@ -23,7 +23,7 @@
 			                <div class="x_content">
 		                  <div class="dashboard-widget-content">
 			                   	Patient Type:
-			                  <form method="post" action="/arms/main/insert_bill">
+			                  <form method="post" action="/arms/main/insert_transaction">
 			                   	  <select name="patient-type" class="form-control" required>
 			                   	  	<option selected disabled value="">Select Patient Type</option>
 								    <option value="1">Inpatient</option>
@@ -31,8 +31,8 @@
 								    <option value="3">Emergency</option>
 								  </select>
 			                  	<input type="hidden" name="id" value="'.$row->id.'">
-			                   	Hospital Bill: <input type="text" class="form-control" value = "&#8369; '.$row->hospital_bill.'" name="hospital_bill">
-			                   	Professional Fee: <input type="text" class="form-control" value = "&#8369; '.$row->professional_bill.'" name="professional_bill">
+			                   	Hospital Bill: <input type="text" class="form-control" value = "'.$row->hospital_bill.'" name="hospital_bill">
+			                   	Professional Fee: <input type="text" class="form-control" value = "'.$row->professional_bill.'" name="professional_bill">
 			                   	<input type="submit" class=" form form-control btn btn-success submit-btn">
 			                  </form>
 		                  </div>
