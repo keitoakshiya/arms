@@ -95,7 +95,7 @@
                       <li><a href="../add_payment">Payment Application</a></li>
                     </ul>
                   </li>
-
+                  <li><a href="../add_company"><i class="fa fa-home"></i> Add Company </a></li>
 
                 </ul>
               </div>

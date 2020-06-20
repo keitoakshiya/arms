@@ -1,5 +1,6 @@
 <table id="accounts_receivable_list" class="display" style="width:100%">
 	<thead>
+		<th>Company</th>
 		<th>Full Name</th>
 		<th>Patient Type</th>
 		<th>Hospital Bill</th>
@@ -12,10 +13,16 @@
 			if ($result) {
 				foreach ($result as $key => $row) {
 					echo "<tr>";
+						echo "<td>".$row->name."</td>";
+
 						echo "<td>".$row->first_name." ".$row->middle_name." ".$row->last_name."</td>";
 /*						echo "<td>".$row->patient_type."</td>";*/
 
-						if ($row->patient_type==1) {
+						if ($row->patient_type==0) {
+							echo "<td>Not Registered</td>";
+						}
+
+						else if ($row->patient_type==1) {
 							echo "<td>Inpatient</td>";
 						}
 

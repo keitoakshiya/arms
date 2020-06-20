@@ -258,4 +258,31 @@ class Main extends CI_Controller {
 		}
 	}
 
+	public function add_company(){
+		$data = array(
+		    'title' => 'Add Company',
+		    'description' => ' This is where you can add Company '
+		);
+		$this->load->view('template/header',$data);
+        $this->load->view('add_company');
+		$this->load->view('template/footer');
+	}
+
+	public function insert_company(){
+
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('name','name','required');
+		$this->form_validation->set_rules('type','type','required');
+
+		if ($this->form_validation->run()) {	
+
+			$name = $this->input->post('name');
+			$type = $this->input->post('type');
+
+			$this->load->model('add_company_model');
+			$this->add_company_model->insert_company($name,$type);
+		}
+	}
+
+
 }
