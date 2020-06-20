@@ -22,17 +22,44 @@
 		                </div>
 			                <div class="x_content">
 		                  <div class="dashboard-widget-content">
-			                   	Patient Type:
+
 			                  <form method="post" action="/arms/main/insert_transaction">
-			                   	  <select name="patient-type" class="form-control" required>
-			                   	  	<option selected disabled value="">Select Patient Type</option>
-								    <option value="1">Inpatient</option>
-								    <option value="2">Outpatient</option>
-								    <option value="3">Emergency</option>
-								  </select>
-			                  	<input type="hidden" name="id" value="'.$row->id.'">
-			                   	Hospital Bill: <input type="text" class="form-control" value = "'.$row->hospital_bill.'" name="hospital_bill">
-			                   	Professional Fee: <input type="text" class="form-control" value = "'.$row->professional_bill.'" name="professional_bill">
+
+			                  	<input type="hidden" name="patient_id" value="'.$row->patient_id.'">
+			                  	<input type="hidden" name="bill_id" value="'.$row->bill_id.'">
+
+									<table>
+							        <thead>
+							        <div class="col-md-10">
+							        	<tr>
+							        		<th></th>
+											<th>Hospital Bill</th>
+											<th>'.$row->professional_bill.'</th>
+											
+
+							        	</tr>
+							        </div>
+							        </thead>
+							        <tbody>
+							        <div class="col-md-6">
+							        	<tr>
+							        		<td></td>
+							        		<td>Professional Bill</td>
+								        	<td>'.$row->hospital_bill.'</td>
+                        				</tr>
+                        			</div>
+
+									<div class="col-md-2">
+                        				<tr>
+                        					<td></td>
+							        		<td>Hospital Bill Payment: <input type="text" class="form-control" name="hospital_bill_payment"></td>
+
+								        	<td>Professional Fee Payment: <input type="text" class="form-control" name="professional_bill_payment"></td>
+                        				</tr>
+									</div>
+							        </tbody>
+						        </table>
+
 			                   	<input type="submit" class=" form form-control btn btn-success submit-btn">
 			                  </form>
 		                  </div>

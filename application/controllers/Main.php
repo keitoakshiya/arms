@@ -235,21 +235,26 @@ class Main extends CI_Controller {
 	}
 
 	public function insert_transaction(){
+
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('hospital_bill_payment','hospital_bill_payment','required');
 		$this->form_validation->set_rules('professional_bill_payment','professional_bill_payment','required');
-		$this->form_validation->set_rules('id','id','required');
+		$this->form_validation->set_rules('patient_id','patient_id','required');
+		$this->form_validation->set_rules('bill_id','bill_id','required');
 
 		if ($this->form_validation->run()) {
-			
+				
 
+			$patient_id = $this->input->post('patient_id');
+			$bill_id = $this->input->post('bill_id');
 			$hospital_bill_payment = $this->input->post('hospital_bill_payment');
 			$professional_bill_payment = $this->input->post('professional_bill_payment');
-			$id = $this->input->post('id');
+			
 
 			$this->load->model('view_bill_by_patient_model');
 
-			$this->view_bill_by_patient_model->insert_transaction($professional_bill_payment,$professional_bill_payment,$id);
+			$this->view_bill_by_patient_model->insert_transaction($hospital_bill_payment,$professional_bill_payment,$patient_id, $bill_id);
+
 		}
 	}
 
