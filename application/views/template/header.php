@@ -11,7 +11,10 @@
 
     <title><?=$title?> </title>
     <!-- jQuery -->
-    <script src="../application/vendors/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
         <!-- DataTables -->
 
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
@@ -36,14 +39,22 @@
     <link href="../vendors/pnotify/dist/pnotify.css" rel="stylesheet">
     <link href="../vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
     <link href="../vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
-        <!-- Pnotify -->
+    <!-- Pnotify -->
     <script src="../vendors/pnotify/dist/pnotify.js" type="text/javascript"></script>
     <script src="../vendors/pnotify/dist/pnotify.buttons.js" type="text/javascript"></script>
     <script src="../vendors/pnotify/dist/pnotify.nonblock.js" type="text/javascript"></script>
 
+    <!-- Moments -->
+    <link href="../vendors/moment/min/moment.min.js" rel="stylesheet">
+
+    <!-- daterangerpicker Js -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
     <!-- Custom Theme Style -->
     <link href="../application/build/css/custom.min.css" rel="stylesheet">
     <link href="../application/build/css/ew.css" rel="stylesheet">
+
     
   </head>
 

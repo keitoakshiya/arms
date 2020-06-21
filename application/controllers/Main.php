@@ -50,7 +50,7 @@ class Main extends CI_Controller {
 		$this->load->model('patients_model');
 		$res = $this->patients_model->get_patients();
 		$this->load->view('template/header',$data);
-		$this->load->view('template/container_header',$data);
+		$this->load->view('template/container_header_daterange',$data);
 
 		if($res){	$data2['result'] = $res;
         	$this->load->view('patients',$data2);
