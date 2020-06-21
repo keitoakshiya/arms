@@ -1,9 +1,7 @@
 	        <div class="right_col" style="">
 	         <div class="row">
 
-
 				<!-- page content -->
-
 		            <div class="col-md-4 col-sm-4 ">
 		              <div class="x_panel">
 		                <div class="x_title">
@@ -31,6 +29,6 @@
 		              </div>
 		            </div>
 		        <!-- /page content -->
-
+		        
 	          </div>
-	          </div>
+	          </div> 

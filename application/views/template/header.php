@@ -102,7 +102,7 @@
                   </li>
                   <li><a><i class="fa fa-edit"></i> Add Payment <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="form.html">Official Receipts</a></li>
+                      <li><a href="official_receipt">Official Receipts</a></li>
                       <li><a href="add_payment">Payment Application</a></li>
                     </ul>
                   </li>
