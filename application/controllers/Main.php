@@ -284,5 +284,16 @@ class Main extends CI_Controller {
 		}
 	}
 
+	public function official_receipt(){
+		$data = array(
+		    'title' => 'Official Receipt',
+		    'description' => ' This is the Official Receipt page'
+		);
+		$this->load->view('template/header',$data);
+		$this->load->view('template/container_header',$data);
+		$this->load->view('official_receipt');
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer');
+	}
 
 }
