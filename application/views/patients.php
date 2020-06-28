@@ -24,7 +24,7 @@
 		?>
         </tbody>
 </table>
- 
+
 <script type="text/javascript">
 	$(document).ready( function () {
 	    $('#patient_list').DataTable();
@@ -39,6 +39,10 @@ $(function() {
 
     function cb(start, end) {
         $('#date span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        document.getElementById("start").value = start.format('YYYY-MM-DD');
+        document.getElementById("end").value = end.format('YYYY-MM-DD');
+/*        document.getElementById('form-id').action = "patients_filtered/"+document.getElementById('start').value+"/"+document.getElementById('end').value;*/
+        //document.getElementById("form-id").submit();
     }
 
     $('#date').daterangepicker({
@@ -54,7 +58,9 @@ $(function() {
         }
     }, cb);
 
+
     cb(start, end);
+
 
 });
 </script>

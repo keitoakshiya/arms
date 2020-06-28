@@ -8,5 +8,17 @@
             return $res;
         }
 
+        public function get_patients_filtered($start,$end){
+
+
+            $where = "date_created NETWEEN 'boss' AND 'active'";
+        	
+            $query = $this->db->get('patient');
+            $res   = $query->result();
+
+            return $res;
+        }
+
+
     }
 ?>  

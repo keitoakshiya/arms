@@ -14,6 +14,13 @@
                           <span></span> <i class="fa fa-caret-down"></i>
                       </div>
                     </li>
+                    <li>
+                       <form id="form-id" method="post" action="patients_filtered">
+                          <input type="hidden" name="start" id="start">
+                          <input type="hidden" name="end" id="end">
+                          <input type="submit" name="" value="Filter" class="form-control" style="height: 30px">
+                       </form>
+                    </li>
                     <li style="padding-left: 10px;"><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                     </li>
                   </ul>

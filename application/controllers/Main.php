@@ -42,7 +42,8 @@ class Main extends CI_Controller {
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
 	}
-	public function patients(){
+
+	public function patients() {
 		$data = array(
 		    'title' => 'Patients',
 		    'description' => ' '
@@ -59,6 +60,43 @@ class Main extends CI_Controller {
 
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
+	}
+
+	public function patients_filtered() {
+
+				$data = array(
+		    'title' => 'Patients',
+		    'description' => ' '
+		);
+
+
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('start','start','required');
+		$this->form_validation->set_rules('end','end','required');
+
+		if ($this->form_validation->run()) {
+
+			$start = $this->input->post('start');
+			$end = $this->input->post('end');
+			$this->load->model('patients_model');
+
+		$res = $this->patients_model->get_patients_filtered($start,$end);
+
+
+		$this->load->view('template/header',$data);
+		$this->load->view('template/container_header_daterange',$data);
+
+        if($res){	$data2['result'] = $res;
+        	$this->load->view('patients',$data2);
+		}
+		else {"Fail";}
+		
+
+
+
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer');
+		}
 	}
 
 	public function add_patient(){

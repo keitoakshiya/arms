@@ -31,8 +31,8 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link href="../application/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="../application/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- NProgress -->  
+    <!-- <link href="../application/vendors/nprogress/nprogress.css" rel="stylesheet"> -->
     <!-- jQuery custom content scroller -->
     <link href="../application/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
     <!-- Pnotify -->
@@ -44,7 +44,7 @@
     <script src="../vendors/pnotify/dist/pnotify.buttons.js" type="text/javascript"></script>
     <script src="../vendors/pnotify/dist/pnotify.nonblock.js" type="text/javascript"></script>
 
-    <!-- Moments -->
+<!--    Moments -->
     <link href="../vendors/moment/min/moment.min.js" rel="stylesheet">
 
     <!-- daterangerpicker Js -->
