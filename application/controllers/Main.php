@@ -89,7 +89,9 @@ class Main extends CI_Controller {
         if($res){	$data2['result'] = $res;
         	$this->load->view('patients',$data2);
 		}
-		else {"Fail";}
+		else {
+			$this->load->view('patients');
+		}
 		
 
 

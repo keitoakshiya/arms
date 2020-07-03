@@ -10,7 +10,10 @@
         </thead>
         <tbody>
         <?php
-			if ($result) {
+            if (!isset($result)) {
+
+            }
+			else if ($result) {
 				foreach ($result as $key => $row) {
 					echo "<tr>";
 						echo "<td>".$row->first_name."</td>";
