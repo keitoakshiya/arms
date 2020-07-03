@@ -107,10 +107,16 @@
                     </ul>
                   </li>
                   <li><a href="add_company"><i class="fa fa-home"></i> Add Company </a></li>
+                  <li><a href="add_account"><i class="fa fa-edit"></i> Add Account </a></li>
+
 
 
                 </ul>
               </div>
+
+              
+              
+
               <div class="menu_section">
                 <ul class="nav side-menu">
                   <li><a href="Archive"><i class="fa fa-home"></i> Archive </a></li>

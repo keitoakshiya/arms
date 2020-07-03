@@ -5,7 +5,7 @@
 		<th>Patient Type</th>
 		<th>Hospital Bill</th>
 		<th>Professional Bill</th>
-		<th>Total</th>
+		<th>Total Bill</th>
 		<th>Date</th>
 	</thead>
 	<tbody>

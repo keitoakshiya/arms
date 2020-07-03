@@ -1,6 +1,7 @@
 <table id="patient_list" class="display" style="width:100%">
         <thead>
             <tr>
+                <th>Company</th>
                 <th>First name</th>
                 <th>Middle name</th>
                 <th>Last name</th>
@@ -16,6 +17,7 @@
 			else if ($result) {
 				foreach ($result as $key => $row) {
 					echo "<tr>";
+                        echo "<td>".$row->name."</td>";
 						echo "<td>".$row->first_name."</td>";
 						echo "<td>".$row->middle_name."</td>";
 						echo "<td>".$row->last_name."</td>";

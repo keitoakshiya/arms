@@ -2,7 +2,8 @@
     class patients_model extends CI_Model {
 
         public function get_patients(){
-
+            $this->db->join('bill', 'patient.id = patient_id');
+            $this->db->join('guarantor', 'guarantor.id = guarantor_id', 'left');
             $query = $this->db->get('patient');
             $res   = $query->result();
             return $res;

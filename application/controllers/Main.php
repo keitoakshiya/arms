@@ -336,4 +336,35 @@ class Main extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
+	public function add_account(){
+		$data = array(
+		    'title' => 'Add Account',
+		    'description' => ' This is where you can add accounts '
+		);
+		$this->load->view('template/header',$data);
+		$this->load->view('template/container_header',$data);
+        $this->load->view('add_account');
+        $this->load->view('template/container_footer');
+		$this->load->view('template/footer');
+	}
+
+	public function insert_account(){
+
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('username','username','required');
+		$this->form_validation->set_rules('password','password','required');
+		$this->form_validation->set_rules('email','email','required');
+
+		if ($this->form_validation->run()) {	
+
+			$username = $this->input->post('username');
+			$password = $this->input->post('password');
+			$email = $this->input->post('email');
+
+
+			$this->load->model('add_account_model');
+			$this->add_account_model->insert_account($username,$password,$email);
+		}
+	}
+
 }
