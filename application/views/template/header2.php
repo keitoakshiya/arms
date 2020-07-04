@@ -27,6 +27,7 @@
         <!-- Bootstrap -->
     <link href="../https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
+    <script src="https://use.fontawesome.com/c469f4bd9f.js"></script>
     <link href="../../application/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
     <link href="../../application/vendors/nprogress/nprogress.css" rel="stylesheet">

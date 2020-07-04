@@ -17,12 +17,13 @@
 			else if ($result) {
 				foreach ($result as $key => $row) {
 					echo "<tr>";
-                        echo "<td>".$row->name."</td>";
+                        echo "<td>".$row->guarantor_name."</td>";
 						echo "<td>".$row->first_name."</td>";
 						echo "<td>".$row->middle_name."</td>";
 						echo "<td>".$row->last_name."</td>";
 						echo "<td>".$row->date_created."</td>";
-						echo "<td><button class='btn-success'>Add</button></td>";
+						echo "<td><a href='archive_patient/".$row->patient_id."'><i class='fa fa-trash' 
+                        style='color: #c93434; font-size: 16px'></i></a></td>";
 					echo "</tr>";
 				}
 			}

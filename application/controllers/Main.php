@@ -1,4 +1,4 @@
-	<?php
+		<?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Main extends CI_Controller {
@@ -61,6 +61,8 @@ class Main extends CI_Controller {
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
 	}
+
+
 
 	public function patients_filtered() {
 
@@ -365,6 +367,31 @@ class Main extends CI_Controller {
 			$this->load->model('add_account_model');
 			$this->add_account_model->insert_account($username,$password,$email);
 		}
+	}
+
+
+	public function archive() {
+		$data = array(
+		    'title' => 'Patients',
+		    'description' => ' '
+		);
+		$this->load->model('archive_model');
+		$res = $this->archive_model->get_patients();
+		$this->load->view('template/header',$data);
+		$this->load->view('template/container_header_daterange',$data);
+
+		if($res){	$data2['result'] = $res;
+        	$this->load->view('patients',$data2);
+		}
+		else {"Fail";}
+
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer');
+	}
+
+	public function archive_patient($id){
+		$this->load->model('archive_model');
+		$this->archive_model->archive_patient($id);
 	}
 
 }
