@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2020 at 01:16 PM
+-- Generation Time: Jul 16, 2020 at 09:58 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -74,7 +74,8 @@ CREATE TABLE `guarantor` (
 
 INSERT INTO `guarantor` (`id`, `name`, `type`, `deleted`) VALUES
 (2, 'DSWD', 2, 0),
-(3, 'Philhealth', 2, 0);
+(3, 'Philhealth', 2, 0),
+(4, 'MediCard', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -104,7 +105,7 @@ INSERT INTO `patient` (`id`, `first_name`, `last_name`, `middle_name`, `date_cre
 (6, 'Armel', 'Gamore', 'L.', '2020-06-06 00:00:00', 0),
 (7, 'Edward', 'Elric', 'S', '2020-06-06 00:00:00', 0),
 (8, 'Tudor', 'Ponce', 'S', '2020-06-06 00:00:00', 0),
-(9, 'Tudor', 'Ponce', 'S', '2020-06-06 00:00:00', 0),
+(9, 'Tudor', 'Ponce', 'S', '2020-06-06 00:00:00', 1),
 (10, 'Kyron', '', 'Watkins', '2020-06-06 00:00:00', 0),
 (11, 'Trixie ', 'Delaney', '', '0000-00-00 00:00:00', 0),
 (12, 'Jillian ', '', 'Nicholson', '0000-00-00 00:00:00', 0),
@@ -113,14 +114,14 @@ INSERT INTO `patient` (`id`, `first_name`, `last_name`, `middle_name`, `date_cre
 (15, 'Aadil ', 'Greig', '', '2020-06-06 22:11:26', 0),
 (16, 'Branden', 'Ireland', '', '2020-06-06 22:36:07', 0),
 (17, 'Onur ', 'Haas', '', '2020-06-06 22:37:44', 0),
-(18, 'Onur ', 'Haas', '', '2020-06-06 22:37:51', 0),
-(19, 'Arham ', 'Burke', '', '2020-06-06 22:38:26', 0),
-(20, 'Keanu', 'Ferreira', '', '2020-06-07 00:10:25', 0),
-(21, 'Ramzes', 'Yeet', '', '2020-06-07 21:13:19', 0),
+(18, 'Onur ', 'Haas', '', '2020-06-06 22:37:51', 1),
+(19, 'Arham ', 'Burke', '', '2020-06-06 22:38:26', 1),
+(20, 'Keanu', 'Ferreira', '', '2020-06-07 00:10:25', 1),
+(21, 'Ramzes', 'Yeet', '', '2020-06-07 21:13:19', 1),
 (22, 'Steve', 'Montana', '', '2020-06-07 21:19:10', 0),
 (23, 'Steve', 'Montana', '', '2020-06-07 21:20:03', 0),
 (24, 'Meerab', 'Barton', '', '2020-06-07 21:20:13', 0),
-(25, 'Lucia ', ' Davies', '', '2020-06-07 21:22:03', 0),
+(25, 'Lucia ', ' Davies', '', '2020-06-07 21:22:03', 1),
 (26, 'Hafsah', 'Wade', '', '2020-06-07 21:22:53', 0),
 (27, 'Cora ', 'Fenton', '', '2020-06-07 21:44:10', 0),
 (28, 'Sanna', 'Hutchinson', '', '2020-06-07 21:44:15', 0),
@@ -156,15 +157,21 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `username` varchar(40) NOT NULL,
   `password` varchar(40) NOT NULL,
-  `email` varchar(40) NOT NULL
+  `email` varchar(40) NOT NULL,
+  `view_data` tinyint(1) NOT NULL,
+  `add_data` tinyint(1) NOT NULL,
+  `edit_data` tinyint(1) NOT NULL,
+  `delete_data` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `email`) VALUES
-(1, 'admin', 'admin', 'sample@sample.com');
+INSERT INTO `user` (`id`, `username`, `password`, `email`, `view_data`, `add_data`, `edit_data`, `delete_data`) VALUES
+(1, 'admin', 'admin', 'sample@sample.com', 1, 1, 1, 1),
+(2, 'user1', 'user1', '', 1, 1, 1, 1),
+(3, 'user2', 'user2', '', 1, 1, 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -216,7 +223,7 @@ ALTER TABLE `bill`
 -- AUTO_INCREMENT for table `guarantor`
 --
 ALTER TABLE `guarantor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `patient`
@@ -234,7 +241,7 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables

@@ -121,6 +121,7 @@
               <div class="menu_section">
                 <ul class="nav side-menu">
                   <li><a href="Archive"><i class="fa fa-home"></i> Archive </a></li>
+                  <li><a href="roles"><i class="fa fa-home"></i> Roles </a></li>
                 </ul>
               </div>
             </div>

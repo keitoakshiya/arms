@@ -3,6 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Main extends CI_Controller {
 
+
+
 	public function index(){
 		$this->load->view('login');
 	}
@@ -32,6 +34,10 @@ class Main extends CI_Controller {
 	}
 
 	public function dashboard(){
+		$this->load->model('roles_model');
+		if ($this->roles_model->can_read()==0) {
+			header("Location: denied");
+		}
 		$data = array(
 		    'title' => 'Dashboard',
 		    'description' => ' This is the dashboard of Accounts recieivable system'
@@ -44,6 +50,10 @@ class Main extends CI_Controller {
 	}
 
 	public function patients() {
+		$this->load->model('roles_model');
+		if ($this->roles_model->can_read()==0) {
+			header("Location: denied");
+		}
 		$data = array(
 		    'title' => 'Patients',
 		    'description' => ' '
@@ -62,15 +72,12 @@ class Main extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
-
-
 	public function patients_filtered() {
 
 				$data = array(
 		    'title' => 'Patients',
 		    'description' => ' '
 		);
-
 
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('start','start','required');
@@ -94,9 +101,6 @@ class Main extends CI_Controller {
 		else {
 			$this->load->view('patients');
 		}
-		
-
-
 
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
@@ -162,6 +166,10 @@ class Main extends CI_Controller {
 	}
 
 	public function accounts_receivable(){
+		$this->load->model('roles_model');
+		if ($this->roles_model->can_read()==0) {
+			header("Location: denied");
+		}
 		$data = array(
 		    'title' => 'Accounts Receivable',
 		    'description' => ' Summary of Accounts Receivable '
@@ -182,6 +190,10 @@ class Main extends CI_Controller {
 
 
 	public function payment_summary(){
+		$this->load->model('roles_model');
+		if ($this->roles_model->can_read()==0) {
+			header("Location: denied");
+		}
 		$data = array(
 		    'title' => 'Payment Summary',
 		    'description' => ' Total Payment of Bills '
@@ -203,6 +215,10 @@ class Main extends CI_Controller {
 	}
 
 	public function remaining_balance(){
+		$this->load->model('roles_model');
+		if ($this->roles_model->can_read()==0) {
+			header("Location: denied");
+		}
 		$data = array(
 		    'title' => 'Balance',
 		    'description' => ' Total Remaining of Balance '
@@ -223,6 +239,10 @@ class Main extends CI_Controller {
 
 
 	public function add_payment(){
+		$this->load->model('roles_model');
+		if ($this->roles_model->can_read()==0) {
+			header("Location: denied");
+		}
 		$data = array(
 		    'title' => 'Add Payment',
 		    'description' => ' Add payment '
@@ -393,5 +413,50 @@ class Main extends CI_Controller {
 		$this->load->model('archive_model');
 		$this->archive_model->archive_patient($id);
 	}
+
+	public function roles(){
+
+		$data = array(
+		    'title' => 'Add roles',
+		    'description' => ' This is where you can add roles '
+		);
+		$this->load->view('template/header',$data);
+		$this->load->view('template/container_header',$data);
+		$this->load->model('roles_model');
+		if ($this->roles_model->can_read()==0) {
+			header("Location: denied");
+		}
+		$res = $this->roles_model->get_users();
+       	if($res){	$data2['result'] = $res;
+        	$this->load->view('roles',$data2);
+		}
+        $this->load->view('template/container_footer');
+		$this->load->view('template/footer');
+	}
+
+	public function edit_roles(){
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('id','id','required');
+
+
+
+			$id = $this->input->post('id');
+			$view_data = $this->input->post('view_data');
+			$add_data = $this->input->post('add_data');
+			$edit_data = $this->input->post('edit_data');
+			$delete_data = $this->input->post('delete_data');
+
+
+
+			$view_data2 = $view_data == 'on' ? 1 : 0;
+			$add_data2 = $add_data == 'on' ? 1 : 0;
+			$edit_data2 = $edit_data == 'on' ? 1 : 0;
+			$delete_data2 = $delete_data == 'on' ? 1 : 0;
+			$this->load->model('roles_model');
+
+			$this->roles_model->update_role($id,$view_data2,$add_data2,$edit_data2,$delete_data2);
+	}
+
+
 
 }
