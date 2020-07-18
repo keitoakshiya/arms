@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 16, 2020 at 09:58 PM
+-- Generation Time: Jul 18, 2020 at 12:35 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -105,7 +105,7 @@ INSERT INTO `patient` (`id`, `first_name`, `last_name`, `middle_name`, `date_cre
 (6, 'Armel', 'Gamore', 'L.', '2020-06-06 00:00:00', 0),
 (7, 'Edward', 'Elric', 'S', '2020-06-06 00:00:00', 0),
 (8, 'Tudor', 'Ponce', 'S', '2020-06-06 00:00:00', 0),
-(9, 'Tudor', 'Ponce', 'S', '2020-06-06 00:00:00', 1),
+(9, 'Tudor', 'Ponce', 'S', '2020-06-06 00:00:00', 0),
 (10, 'Kyron', '', 'Watkins', '2020-06-06 00:00:00', 0),
 (11, 'Trixie ', 'Delaney', '', '0000-00-00 00:00:00', 0),
 (12, 'Jillian ', '', 'Nicholson', '0000-00-00 00:00:00', 0),
@@ -114,19 +114,40 @@ INSERT INTO `patient` (`id`, `first_name`, `last_name`, `middle_name`, `date_cre
 (15, 'Aadil ', 'Greig', '', '2020-06-06 22:11:26', 0),
 (16, 'Branden', 'Ireland', '', '2020-06-06 22:36:07', 0),
 (17, 'Onur ', 'Haas', '', '2020-06-06 22:37:44', 0),
-(18, 'Onur ', 'Haas', '', '2020-06-06 22:37:51', 1),
-(19, 'Arham ', 'Burke', '', '2020-06-06 22:38:26', 1),
-(20, 'Keanu', 'Ferreira', '', '2020-06-07 00:10:25', 1),
-(21, 'Ramzes', 'Yeet', '', '2020-06-07 21:13:19', 1),
+(18, 'Onur ', 'Haas', '', '2020-06-06 22:37:51', 0),
+(19, 'Arham ', 'Burke', '', '2020-06-06 22:38:26', 0),
+(20, 'Keanu', 'Ferreira', '', '2020-06-07 00:10:25', 0),
+(21, 'Ramzes', 'Yeet', '', '2020-06-07 21:13:19', 0),
 (22, 'Steve', 'Montana', '', '2020-06-07 21:19:10', 0),
 (23, 'Steve', 'Montana', '', '2020-06-07 21:20:03', 0),
 (24, 'Meerab', 'Barton', '', '2020-06-07 21:20:13', 0),
 (25, 'Lucia ', ' Davies', '', '2020-06-07 21:22:03', 1),
-(26, 'Hafsah', 'Wade', '', '2020-06-07 21:22:53', 0),
-(27, 'Cora ', 'Fenton', '', '2020-06-07 21:44:10', 0),
-(28, 'Sanna', 'Hutchinson', '', '2020-06-07 21:44:15', 0),
-(29, 'Alfie ', 'Odling', '', '2020-06-07 21:45:13', 0),
-(30, 'Corban ', 'Dudley', '', '2020-06-07 21:46:48', 0);
+(26, 'Hafsah', 'Wade', '', '2020-06-07 21:22:53', 1),
+(27, 'Cora ', 'Fenton', '', '2020-06-07 21:44:10', 1),
+(28, 'Sanna', 'Hutchinson', '', '2020-06-07 21:44:15', 1),
+(29, 'Alfie ', 'Odling', '', '2020-06-07 21:45:13', 1),
+(30, 'Corban ', 'Dudley', '', '2020-06-07 21:46:48', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `receipt`
+--
+
+CREATE TABLE `receipt` (
+  `id` int(11) NOT NULL,
+  `company` int(11) NOT NULL,
+  `or_date` date NOT NULL,
+  `or_number` int(11) NOT NULL,
+  `or_amount` decimal(10,0) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `receipt`
+--
+
+INSERT INTO `receipt` (`id`, `company`, `or_date`, `or_number`, `or_amount`) VALUES
+(0, 0, '0000-00-00', 1, '1');
 
 -- --------------------------------------------------------
 
@@ -195,6 +216,12 @@ ALTER TABLE `guarantor`
 -- Indexes for table `patient`
 --
 ALTER TABLE `patient`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `receipt`
+--
+ALTER TABLE `receipt`
   ADD PRIMARY KEY (`id`);
 
 --
