@@ -2,7 +2,7 @@
 	
 			echo "
 		Company:
-		<select class='form-control'>
+		<select class='form-control' name='company'>
 			<option selected disabled>Select Company</option>";
 			if($_GET['value']){
 				$sql = "SELECT * FROM guarantor WHERE type=".$_GET['value'];

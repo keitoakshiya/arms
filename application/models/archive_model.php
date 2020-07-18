@@ -8,7 +8,15 @@
 	    		header("Location: /arms/main/patients");
 	    	}
 
-	    		             public function get_patients(){
+            public function restore_patient($id){
+                $this->db->set('deleted', '0');
+                $this->db->where('id', $id);
+                $this->db->update('patient');
+                print_r($this->db->last_query());
+                header("Location: /arms/main/archive");
+            }
+
+	     public function get_patients(){
             $this->db->select('`patient`.`id` as patient_id,
                 `patient`.`first_name` as first_name,
                 `patient`.`last_name` as last_name,

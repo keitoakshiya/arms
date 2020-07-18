@@ -108,6 +108,11 @@ class Main extends CI_Controller {
 	}
 
 	public function add_patient(){
+				$this->load->model('roles_model');
+		if ($this->roles_model->can_add()==0) {
+			header("Location: denied");
+		}
+
 		$data = array(
 		    'title' => 'Patient Registration',
 		    'description' => ' '
@@ -120,6 +125,10 @@ class Main extends CI_Controller {
 	}
 
 	public function add_bill(){
+				$this->load->model('roles_model');
+		if ($this->roles_model->can_add()==0) {
+			header("Location: denied");
+		}
 		$data = array(
 		    'title' => 'Recent Registration',
 		    'description' => ' This is where you can add bill to recently registered patient '
@@ -321,6 +330,10 @@ class Main extends CI_Controller {
 	}
 
 	public function add_company(){
+				$this->load->model('roles_model');
+		if ($this->roles_model->can_add()==0) {
+			header("Location: denied");
+		}
 		$data = array(
 		    'title' => 'Add Company',
 		    'description' => ' This is where you can add Company '
@@ -347,6 +360,10 @@ class Main extends CI_Controller {
 	}
 
 	public function official_receipt(){
+				$this->load->model('roles_model');
+		if ($this->roles_model->can_add()==0) {
+			header("Location: denied");
+		}
 		$data = array(
 		    'title' => 'Official Receipt',
 		    'description' => ' This is the Official Receipt page'
@@ -359,6 +376,10 @@ class Main extends CI_Controller {
 	}
 
 	public function add_account(){
+		$this->load->model('roles_model');
+		if ($this->roles_model->can_add()==0) {
+			header("Location: denied");
+		}
 		$data = array(
 		    'title' => 'Add Account',
 		    'description' => ' This is where you can add accounts '
@@ -401,7 +422,7 @@ class Main extends CI_Controller {
 		$this->load->view('template/container_header_daterange',$data);
 
 		if($res){	$data2['result'] = $res;
-        	$this->load->view('patients',$data2);
+        	$this->load->view('archive',$data2);
 		}
 		else {"Fail";}
 
@@ -410,8 +431,27 @@ class Main extends CI_Controller {
 	}
 
 	public function archive_patient($id){
-		$this->load->model('archive_model');
-		$this->archive_model->archive_patient($id);
+				$this->load->model('roles_model');
+		if ($this->roles_model->can_delete()==0) {
+			header("Location: ../denied");
+		}
+		else{
+			$this->load->model('archive_model');
+			$this->archive_model->archive_patient($id);
+		}
+
+	}
+
+	public function restore_patient($id){
+				$this->load->model('roles_model');
+		if ($this->roles_model->can_delete()==0) {
+			header("Location: ../denied");
+		}
+		else{
+			$this->load->model('archive_model');
+			$this->archive_model->restore_patient($id);
+		}
+
 	}
 
 	public function roles(){
@@ -455,6 +495,26 @@ class Main extends CI_Controller {
 			$this->load->model('roles_model');
 
 			$this->roles_model->update_role($id,$view_data2,$add_data2,$edit_data2,$delete_data2);
+	}
+
+	public function insert_receipt(){
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('company','company','required');
+		$this->form_validation->set_rules('or_date','or_date','required');
+		$this->form_validation->set_rules('or_number','or_number','required');
+		$this->form_validation->set_rules('or_amount','or_amount','required');
+
+
+
+		$company = $this->input->post('company');
+		$or_date = $this->input->post('or_date');
+		$or_number = $this->input->post('or_number');
+		$or_amount = $this->input->post('or_amount');
+
+		$this->load->model('add_or_model');
+		$this->add_or_model->insert_receipt($company,$or_date,$or_number,$or_amount);
+
+
 	}
 
 
