@@ -1,5 +1,8 @@
 <form method="post" action="edit_roles">
-	<select onchange="get_role(this.value)" name="id">
+	<div style="font-size: 16px;"><p> You are logged in as: <b> 
+		<?php echo $this->session->userdata('username');?> </p></b></div>
+
+	<p><select onchange="get_role(this.value)" name="id" class="form-control">
 		<option >Please select a user</option>
 		<?php
 		    if (!isset($result)) {
@@ -12,12 +15,13 @@
 			}
 		?>
 
-	</select>
-	<div id="checkboxes"></div>
+	</select></p>
+
+	<div id="checkboxes" style="font-size: 15px;"></div>
 
 </form>
 
-<?php echo $this->session->userdata('username');?>
+
 
 <script type="text/javascript">
 	function get_role(val) {

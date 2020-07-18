@@ -280,7 +280,7 @@ class Main extends CI_Controller {
 		$res = $this->view_bill_by_patient_model->get_view_bill_by_patient($id);
 
 		if($res){	$data2['result'] = $res;
-        			$this->load->view('view_bill_by_patient',$data2);
+        $this->load->view('view_bill_by_patient',$data2);
 		}
 		else {"Fail";}
 		$this->load->view('template/footer2');
@@ -339,7 +339,9 @@ class Main extends CI_Controller {
 		    'description' => ' This is where you can add Company '
 		);
 		$this->load->view('template/header',$data);
+		$this->load->view('template/container_header',$data);
         $this->load->view('add_company');
+        $this->load->view('template/container_footer');
 		$this->load->view('template/footer');
 	}
 
@@ -504,8 +506,6 @@ class Main extends CI_Controller {
 		$this->form_validation->set_rules('or_number','or_number','required');
 		$this->form_validation->set_rules('or_amount','or_amount','required');
 
-
-
 		$company = $this->input->post('company');
 		$or_date = $this->input->post('or_date');
 		$or_number = $this->input->post('or_number');
@@ -513,10 +513,28 @@ class Main extends CI_Controller {
 
 		$this->load->model('add_or_model');
 		$this->add_or_model->insert_receipt($company,$or_date,$or_number,$or_amount);
+	}	
 
 
+	public function official_receipt2(){
+
+		$data = array(
+		    'title' => 'Official Receipt Page 2',
+		    'description' => ' The second page of official receipt '
+		);
+		$this->load->view('template/header2',$data);
+		$this->load->model('add_payment_model');
+		$res = $this->add_payment_model->get_bill();
+		$this->load->view('template/container_header',$data);
+		
+		if($res){	$data2['result'] = $res;
+        	$this->load->view('official_receipt2',$data2);
+		}
+		else {"Fail";}
+		
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer2');
 	}
-
 
 
 }

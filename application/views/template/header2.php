@@ -16,7 +16,7 @@
 
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     
-    <link rel="stylesheet" type="text/css" href="..///cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="..//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
 
 
 
@@ -112,6 +112,7 @@
               <div class="menu_section">
                 <ul class="nav side-menu">
                   <li><a href="../Archive"><i class="fa fa-home"></i> Archive </a></li>
+                    <li><a href="../roles"><i class="fa fa-home"></i> Manage Roles </a></li>
                 </ul>
               </div>
             </div>

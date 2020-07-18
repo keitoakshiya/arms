@@ -9,14 +9,14 @@
 
 
 			while ($row = mysqli_fetch_array($query)) {
-				echo "View Data:<input type='checkbox' name='view_data'";
-				echo $row['view_data'] == 0 ?  ">" :  "checked>";
-				echo "Add Data:<input type='checkbox' name='add_data'";
+				echo "<p>View Data:  <input type='checkbox' name='view_data'";
+				echo $row['view_data'] == 0 ?  ">" :  "checked>"; 
+				echo "<br>  Add Data:  <input type='checkbox' name='add_data'";
 				echo $row['add_data'] == 0 ?  ">" :  "checked>";
-				echo "Edit Data:<input type='checkbox' name='edit_data'";
+				echo "<br>  Edit Data:  <input type='checkbox' name='edit_data'";
 				echo $row['edit_data'] == 0 ?  ">" :  "checked>";
-				echo "Delete Data:<input type='checkbox' name='delete_data'";
-				echo $row['delete_data'] == 0 ?  ">" :  "checked>";
+				echo "<br>  Delete Data:  <input type='checkbox' name='delete_data'";
+				echo $row['delete_data'] == 0 ?  ">" :  "checked> </p>";
 			}
 			echo "<input type='submit' class='btn btn-success'>";
 		}

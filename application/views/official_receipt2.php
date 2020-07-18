@@ -1,4 +1,4 @@
-<table id="add_payment" class="display" style="width:100%">
+<table id="official_receipt2" class="display" style="width:100%">
 	<thead>
 		<th>Company</th>
 		<th>Full Name</th>
@@ -12,6 +12,7 @@
 			if ($result) {
 				foreach ($result as $key => $row) {
 					echo "<tr>";
+
 						echo "<td>".$row->name."</td>";
 						echo "<td>".$row->first_name." ".$row->middle_name." ".$row->last_name."</td>";
 												if ($row->patient_type==0) {
@@ -34,8 +35,6 @@
 							echo "<td></td>";
 						}
 						echo "<td>&#8369;".($row->hospital_bill_payment+$row->professional_bill_payment)."</td>";
-						
-						echo "<td><button class='btn-success'><a href='view_bill_by_patient/".$row->id."'>Add Payment</a></button></td>"; 
 
 
 					echo "</tr>";
@@ -47,6 +46,6 @@
 </table>
 <script type="text/javascript">
 	$(document).ready( function () {
-	    $('#add_payment').DataTable();
+	    $('#official_receipt2').DataTable();
 	} );
 </script> 

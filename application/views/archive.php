@@ -22,7 +22,7 @@
 						echo "<td>".$row->middle_name."</td>";
 						echo "<td>".$row->last_name."</td>";
 						echo "<td>".$row->date_created."</td>";
-						echo "<td><a href='restore_patient/".$row->patient_id."'><i class='fa fa-trash' 
+						echo "<td><a href='restore_patient/".$row->patient_id."'><i class='fa fa-recycle' 
                         style='color: #c93434; font-size: 16px'></i></a></td>";
 					echo "</tr>";
 				}
