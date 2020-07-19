@@ -1,5 +1,5 @@
 <?php  
-    class add_payment_model extends CI_Model {
+    class official_receipt2_model extends CI_Model {
 
         public function get_bill(){
 

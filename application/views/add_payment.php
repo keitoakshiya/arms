@@ -12,7 +12,7 @@
 			if ($result) {
 				foreach ($result as $key => $row) {
 					echo "<tr>";
-						echo "<td>".$row->name."</td>";
+						echo "<td>".$row->guarantor_name."</td>";
 						echo "<td>".$row->first_name." ".$row->middle_name." ".$row->last_name."</td>";
 												if ($row->patient_type==0) {
 							echo "<td>Not Registered</td>";
@@ -35,16 +35,18 @@
 						}
 						echo "<td>&#8369;".($row->hospital_bill_payment+$row->professional_bill_payment)."</td>";
 						
-						echo "<td><button class='btn-success'><a href='view_bill_by_patient/".$row->id."'>Add Payment</a></button></td>"; 
+						echo "<td><button class='btn-success'><a href='view_bill_by_patient/".$row->patient_id."'>Add Payment</a></button></td>"; 
 
 
 					echo "</tr>";
+
 				}
 			}
 		?>
 
 	</tbody>
 </table>
+
 <script type="text/javascript">
 	$(document).ready( function () {
 	    $('#add_payment').DataTable();

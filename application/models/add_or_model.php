@@ -10,7 +10,7 @@
             $this->db->set('or_amount', $or_amount);
             $this->db->insert('receipt');
             print_r($this->db->last_query());
-            header("Location: /arms/main/official_receipt2/");
+            header("Location: /arms/main/official_receipt2/".$or_number."/".$or_amount);
         }
 
 

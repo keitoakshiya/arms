@@ -28,13 +28,47 @@
 				}
 			}
 		?>
+        <tfoot>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tfoot>
         </tbody>
 </table>
 
 <script type="text/javascript">
-	$(document).ready( function () {
-	    $('#patient_list').DataTable();
-	} );
+
+
+        $('#patient_list').DataTable( {
+                                dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
+
+        initComplete: function () {
+            this.api().columns([0,1]).every( function () {
+                var column = this;
+                var select = $('<select><option value="">All</option></select>')
+                    .appendTo( $(column.footer()).empty() )
+                    .on( 'change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+ 
+                        column
+                            .search( val ? '^'+val+'$' : '', true, false )
+                            .draw();
+                    } );
+ 
+                column.data().unique().sort().each( function ( d, j ) {
+                    select.append( '<option value="'+d+'">'+d+'</option>' )
+                } );
+            } );
+        }
+    } );
 </script>
 
 <script type="text/javascript">
@@ -45,15 +79,17 @@ $(function() {
 
     function cb(start, end) {
         $('#date span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-        document.getElementById("start").value = start.format('YYYY-MM-DD');
-        document.getElementById("end").value = end.format('YYYY-MM-DD');
-/*        document.getElementById('form-id').action = "patients_filtered/"+document.getElementById('start').value+"/"+document.getElementById('end').value;*/
-        //document.getElementById("form-id").submit();
+        document.getElementById("start").value = start.format('YYYY-MM-DD HH:mm:s');
+        document.getElementById("end").value = end.format('YYYY-MM-DD HH:mm:s');
+
     }
 
     $('#date').daterangepicker({
         startDate: start,
         endDate: end,
+          locale: {
+            format: 'YYYY/MM/DD HH:mm'
+          },
         ranges: {
            'Today': [moment(), moment()],
            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
@@ -62,6 +98,7 @@ $(function() {
            'This Month': [moment().startOf('month'), moment().endOf('month')],
            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
         }
+
     }, cb);
 
 

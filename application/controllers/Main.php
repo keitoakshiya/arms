@@ -186,7 +186,7 @@ class Main extends CI_Controller {
 		$this->load->view('template/header',$data);
 		$this->load->model('accounts_receivable_model');
 		$res = $this->accounts_receivable_model->get_bill();
-		$this->load->view('template/container_header',$data);
+		$this->load->view('template/container_header_daterange_accounts_receivable',$data);
 		
 		if($res){	$data2['result'] = $res;
         	$this->load->view('accounts_receivable',$data2);
@@ -195,6 +195,41 @@ class Main extends CI_Controller {
 		
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
+	}
+
+
+	public function accounts_receivable_filtered(){
+		$data = array(
+		    'title' => 'Patients',
+		    'description' => ' '
+		);
+
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('start','start','required');
+		$this->form_validation->set_rules('end','end','required');
+
+		if ($this->form_validation->run()) {
+
+			$start = $this->input->post('start');
+			$end = $this->input->post('end');
+			$this->load->model('accounts_receivable_model');
+
+		$res = $this->accounts_receivable_model->get_bill_filtered($start,$end);
+
+
+		$this->load->view('template/header',$data);
+		$this->load->view('template/container_header_daterange',$data);
+
+        if($res){	$data2['result'] = $res;
+        	$this->load->view('accounts_receivable',$data2);
+		}
+		else {
+			$this->load->view('accounts_receivable');
+		}
+
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer');
+		}
 	}
 
 
@@ -210,7 +245,7 @@ class Main extends CI_Controller {
 		$this->load->view('template/header',$data);
 		$this->load->model('payment_summary_model');
 		$res = $this->payment_summary_model->get_bill();
-		$this->load->view('template/container_header',$data);
+		$this->load->view('template/container_header_daterange_payment_summary',$data);
 		
 		if($res){	$data2['result'] = $res;
         	$this->load->view('payment_summary',$data2);
@@ -221,6 +256,41 @@ class Main extends CI_Controller {
 		$this->load->view('template/footer');
 
 
+	}
+
+	public function payment_summary_filtered(){
+		
+		$data = array(
+		    'title' => 'Payment Summary',
+		    'description' => 'Total Payment of Bills '
+		);
+
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('start','start','required');
+		$this->form_validation->set_rules('end','end','required');
+
+		if ($this->form_validation->run()) {
+
+			$start = $this->input->post('start');
+			$end = $this->input->post('end');
+			$this->load->model('payment_summary_model');
+
+		$res = $this->payment_summary_model->get_bill_filtered($start,$end);
+
+
+		$this->load->view('template/header',$data);
+		$this->load->view('template/container_header_daterange',$data);
+
+        if($res){	$data2['result'] = $res;
+        	$this->load->view('payment_summary',$data2);
+		}
+		else {
+			$this->load->view('payment_summary');
+		}
+
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer');
+		}
 	}
 
 	public function remaining_balance(){
@@ -235,7 +305,7 @@ class Main extends CI_Controller {
 		$this->load->view('template/header',$data);
 		$this->load->model('remaining_balance_model');
 		$res = $this->remaining_balance_model->get_bill();
-		$this->load->view('template/container_header',$data);
+		$this->load->view('template/container_header_daterange_remaining_balance',$data);
 		
 		if($res){	$data2['result'] = $res;
         	$this->load->view('remaining_balance',$data2);
@@ -244,6 +314,42 @@ class Main extends CI_Controller {
 		
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
+	}
+
+	public function remaining_balance_filtered(){
+
+
+		$data = array(
+		    'title' => 'Patients',
+		    'description' => ' '
+		);
+
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('start','start','required');
+		$this->form_validation->set_rules('end','end','required');
+
+		if ($this->form_validation->run()) {
+
+			$start = $this->input->post('start');
+			$end = $this->input->post('end');
+			$this->load->model('remaining_balance_model');
+
+		$res = $this->remaining_balance_model->get_bill_filtered($start,$end);
+
+
+		$this->load->view('template/header',$data);
+		$this->load->view('template/container_header_daterange_remaining_balance.php',$data);
+
+        if($res){	$data2['result'] = $res;
+        	$this->load->view('remaining_balance',$data2);
+		}
+		else {
+			$this->load->view('remaining_balance');
+		}
+
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer');
+		}
 	}
 
 
@@ -516,15 +622,15 @@ class Main extends CI_Controller {
 	}	
 
 
-	public function official_receipt2(){
+	public function official_receipt2($or_number,$or_amount){
 
 		$data = array(
-		    'title' => 'Official Receipt Page 2',
-		    'description' => ' The second page of official receipt '
+		    'title' => $or_number,
+		    'description' => $or_amount
 		);
-		$this->load->view('template/header2',$data);
-		$this->load->model('add_payment_model');
-		$res = $this->add_payment_model->get_bill();
+		$this->load->view('template/header3',$data);
+		$this->load->model('official_receipt2_model');
+		$res = $this->official_receipt2_model->get_bill();
 		$this->load->view('template/container_header',$data);
 		
 		if($res){	$data2['result'] = $res;
@@ -533,8 +639,20 @@ class Main extends CI_Controller {
 		else {"Fail";}
 		
 		$this->load->view('template/container_footer');
-		$this->load->view('template/footer2');
+		$this->load->view('template/footer3');
 	}
 
+
+	public function delete_bill($a){
+		$this->load->model('roles_model');
+		if ($this->roles_model->can_delete()==0) {
+			header("Location: ../denied");
+		}
+		else{
+		$this->load->model('delete_bill_model');
+		$this->delete_bill_model->delete_bill($a);
+		}
+
+	}
 
 }

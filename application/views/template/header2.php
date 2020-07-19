@@ -12,11 +12,26 @@
     <title><?=$title?> </title>
     <!-- jQuery -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+          <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+         rel = "stylesheet">
+         <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
         <!-- DataTables -->
 
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script  src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.flash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/1.6.2/js/buttons.print.min.js"></script>
     
-    <link rel="stylesheet" type="text/css" href="..//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
 
 
 
@@ -25,34 +40,34 @@
     <!-- Bootstrap -->
     <link href="../../application/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
         <!-- Bootstrap -->
-    <link href="../https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <script src="https://use.fontawesome.com/c469f4bd9f.js"></script>
     <link href="../../application/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="../../application/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- NProgress -->  
+    <!-- <link href="../../application/vendors/nprogress/nprogress.css" rel="stylesheet"> -->
     <!-- jQuery custom content scroller -->
     <link href="../../application/vendors/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css" rel="stylesheet"/>
     <!-- Pnotify -->
     <link href="../../vendors/pnotify/dist/pnotify.css" rel="stylesheet">
     <link href="../../vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
     <link href="../../vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
-        <!-- Pnotify -->
+    <!-- Pnotify -->
     <script src="../../vendors/pnotify/dist/pnotify.js" type="text/javascript"></script>
     <script src="../../vendors/pnotify/dist/pnotify.buttons.js" type="text/javascript"></script>
     <script src="../../vendors/pnotify/dist/pnotify.nonblock.js" type="text/javascript"></script>
 
-    <!-- Moments Js -->
+<!--    Moments -->
     <link href="../../vendors/moment/min/moment.min.js" rel="stylesheet">
 
     <!-- daterangerpicker Js -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
-
     <!-- Custom Theme Style -->
     <link href="../../application/build/css/custom.min.css" rel="stylesheet">
     <link href="../../application/build/css/ew.css" rel="stylesheet">
+
     
   </head>
 
@@ -62,7 +77,7 @@
         <div class="col-md-3 left_col menu_fixed">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="../index.html" class="site_title" style="padding-left: 20px"><link rel="icon" href="../../application/views/assets/images/favicon.ico"> <span>  A R M S</span></a>
+              <a href="../index.html" class="site_title" style="padding-left: 20px"><link rel="icon" href="../application/views/assets/images/favicon.ico"> <span>  A R M S</span></a>
             </div>
 
             <div class="clearfix"></div>
@@ -107,12 +122,18 @@
                   <li><a href="../add_company"><i class="fa fa-home"></i> Add Company </a></li>
                   <li><a href="../add_account"><i class="fa fa-edit"></i> Add Account </a></li>
 
+
+
                 </ul>
               </div>
+
+              
+              
+
               <div class="menu_section">
                 <ul class="nav side-menu">
                   <li><a href="../Archive"><i class="fa fa-home"></i> Archive </a></li>
-                    <li><a href="../roles"><i class="fa fa-home"></i> Manage Roles </a></li>
+                  <li><a href="../roles"><i class="fa fa-home"></i> Manage Roles </a></li>
                 </ul>
               </div>
             </div>
@@ -129,7 +150,7 @@
               <a data-toggle="tooltip" data-placement="top" title="Lock">
                 <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
               </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="../login.html">
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div> -->
@@ -146,22 +167,22 @@
                 <nav class="nav navbar-nav">
                 <ul class=" navbar-right">
                   <li class="nav-item dropdown open" style="padding-left: 15px;">
-                    <a href="../javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                    <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
                       <img src="images/img.jpg" alt=""><?echo $session_data['username'];?>
                     </a>
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item"  href="../javascript:;"> Profile</a>
-                        <a class="dropdown-item"  href="../javascript:;">
+                      <a class="dropdown-item"  href="javascript:;"> Profile</a>
+                        <a class="dropdown-item"  href="javascript:;">
                           <span class="badge bg-red pull-right">50%</span>
                           <span>Settings</span>
                         </a>
-                    <a class="dropdown-item"  href="../javascript:;">Help</a>
-                      <a class="dropdown-item"  href="..//arms/main/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                    <a class="dropdown-item"  href="javascript:;">Help</a>
+                      <a class="dropdown-item"  href="/arms/main/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                     </div>
                   </li>
   
                   <li role="presentation" class="nav-item dropdown open">
-                    <a href="../javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
+                    <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
                       <i class="fa fa-envelope-o"></i>
                       <span class="badge bg-green">6</span>
                     </a>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 18, 2020 at 12:35 PM
+-- Generation Time: Jul 19, 2020 at 02:07 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -50,10 +50,10 @@ INSERT INTO `bill` (`id`, `date`, `patient_id`, `guarantor_id`, `patient_type`, 
 (7, '2020-06-07', 21, 0, 0, 300.00, '500.00', 0),
 (8, '2020-06-07', 25, 0, 0, 500.00, '600.00', 0),
 (9, '2020-06-07', 26, 0, 0, 400.00, '500.00', 0),
-(10, '2020-06-07', 27, 0, 0, 0.00, '0.00', 0),
-(11, '2020-06-07', 28, 0, 0, 0.00, '0.00', 0),
-(12, '2020-06-07', 29, 0, 0, 0.00, '0.00', 0),
-(13, '2020-06-07', 30, 0, 0, 0.00, '0.00', 0);
+(14, '2020-07-19', 31, 0, 0, 1.00, '1.00', 0),
+(15, '2020-07-19', 32, 0, 0, 6000.00, '7000.00', 0),
+(16, '2020-07-19', 33, 0, 0, 9000.00, '9000.00', 0),
+(17, '2020-07-19', 34, 0, 0, 0.00, '0.00', 0);
 
 -- --------------------------------------------------------
 
@@ -105,7 +105,7 @@ INSERT INTO `patient` (`id`, `first_name`, `last_name`, `middle_name`, `date_cre
 (6, 'Armel', 'Gamore', 'L.', '2020-06-06 00:00:00', 0),
 (7, 'Edward', 'Elric', 'S', '2020-06-06 00:00:00', 0),
 (8, 'Tudor', 'Ponce', 'S', '2020-06-06 00:00:00', 0),
-(9, 'Tudor', 'Ponce', 'S', '2020-06-06 00:00:00', 0),
+(9, 'Tudor', 'Ponce', 'S', '2020-06-06 00:00:00', 1),
 (10, 'Kyron', '', 'Watkins', '2020-06-06 00:00:00', 0),
 (11, 'Trixie ', 'Delaney', '', '0000-00-00 00:00:00', 0),
 (12, 'Jillian ', '', 'Nicholson', '0000-00-00 00:00:00', 0),
@@ -121,12 +121,13 @@ INSERT INTO `patient` (`id`, `first_name`, `last_name`, `middle_name`, `date_cre
 (22, 'Steve', 'Montana', '', '2020-06-07 21:19:10', 0),
 (23, 'Steve', 'Montana', '', '2020-06-07 21:20:03', 0),
 (24, 'Meerab', 'Barton', '', '2020-06-07 21:20:13', 0),
-(25, 'Lucia ', ' Davies', '', '2020-06-07 21:22:03', 1),
-(26, 'Hafsah', 'Wade', '', '2020-06-07 21:22:53', 1),
-(27, 'Cora ', 'Fenton', '', '2020-06-07 21:44:10', 1),
-(28, 'Sanna', 'Hutchinson', '', '2020-06-07 21:44:15', 1),
-(29, 'Alfie ', 'Odling', '', '2020-06-07 21:45:13', 1),
-(30, 'Corban ', 'Dudley', '', '2020-06-07 21:46:48', 1);
+(25, 'Lucia ', ' Davies', '', '2020-06-07 21:22:03', 0),
+(26, 'Hafsah', 'Wade', '', '2020-06-07 21:22:53', 0),
+(30, 'Corban ', 'Dudley', '', '2020-06-07 21:46:48', 0),
+(31, 'Jose', 'Bony', '', '2020-07-19 14:52:31', 0),
+(32, 'Keith', 'Ramirez', '', '2020-07-19 15:38:53', 0),
+(33, 'Katherine', 'Razon', '', '2020-07-19 15:48:11', 0),
+(34, 'Kiko', 'Arthuro', '', '2020-07-19 15:48:59', 0);
 
 -- --------------------------------------------------------
 
@@ -135,7 +136,7 @@ INSERT INTO `patient` (`id`, `first_name`, `last_name`, `middle_name`, `date_cre
 --
 
 CREATE TABLE `receipt` (
-  `id` int(11) NOT NULL,
+  `id` int(11) UNSIGNED NOT NULL,
   `company` int(11) NOT NULL,
   `or_date` date NOT NULL,
   `or_number` int(11) NOT NULL,
@@ -147,7 +148,15 @@ CREATE TABLE `receipt` (
 --
 
 INSERT INTO `receipt` (`id`, `company`, `or_date`, `or_number`, `or_amount`) VALUES
-(0, 0, '0000-00-00', 1, '1');
+(1, 0, '0000-00-00', 9, '8'),
+(2, 0, '0000-00-00', 6, '6'),
+(3, 0, '0000-00-00', 1, '2'),
+(4, 0, '0000-00-00', 4, '3'),
+(5, 0, '0000-00-00', 34, '99000'),
+(6, 0, '0000-00-00', 23, '23'),
+(7, 0, '0000-00-00', 23, '5645'),
+(8, 0, '0000-00-00', 6456, '456'),
+(9, 0, '0000-00-00', 234, '234');
 
 -- --------------------------------------------------------
 
@@ -167,6 +176,16 @@ CREATE TABLE `transaction` (
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   `deleted` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `transaction`
+--
+
+INSERT INTO `transaction` (`id`, `patient_id`, `bill_id`, `hospital_bill_payment`, `professional_bill_payment`, `or_amount`, `or_number`, `or_date`, `date_created`, `deleted`) VALUES
+(1, 9, 1, 1000.00, '1078.00', 0.00, 0, '2020-07-19 19:45:25', '2020-07-19 19:45:25', 0),
+(2, 9, 1, 500.00, '400.00', 0.00, 0, '2020-07-19 19:47:45', '2020-07-19 19:47:45', 0),
+(3, 9, 1, 500.00, '400.00', 0.00, 0, '2020-07-19 19:48:33', '2020-07-19 19:48:33', 0),
+(4, 9, 1, 500.00, '400.00', 0.00, 0, '2020-07-19 19:48:41', '2020-07-19 19:48:41', 0);
 
 -- --------------------------------------------------------
 
@@ -244,7 +263,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `guarantor`
@@ -256,13 +275,19 @@ ALTER TABLE `guarantor`
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT for table `receipt`
+--
+ALTER TABLE `receipt`
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user`

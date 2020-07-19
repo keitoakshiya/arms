@@ -10,7 +10,7 @@
 
 				<!-- page content -->
 
-		            <div class="col-md-4 col-sm-4 ">
+		            <div class="col-md-5 col-sm-5 ">
 		              <div class="x_panel">
 		                <div class="x_title">
 		                  <h2>'.$row->first_name.' '.$row->last_name.' <small><?=$description?></small></h2>
@@ -30,33 +30,48 @@
 
 									<table>
 							        <thead>
-							        <div class="col-md-10">
+							       
 							        	<tr>
-							        		<th></th>
-											<th>Hospital Bill</th>
-											<th>'.$row->professional_bill.'</th>
+
+											<th style="border-bottom: 1px solid #ddd;"></th>
+											<th style="border-bottom: 1px solid #ddd;text-align:center">Amount</th>
 											
 
 							        	</tr>
-							        </div>
+							  
 							        </thead>
-							        <tbody>
-							        <div class="col-md-6">
+							        <tbody >
 							        	<tr>
-							        		<td></td>
-							        		<td>Professional Bill</td>
-								        	<td>'.$row->hospital_bill.'</td>
-                        				</tr>
-                        			</div>
 
-									<div class="col-md-2">
+											<td style="border-bottom: 1px solid #ddd;">Hospital Bill</td>
+											<td style="border-bottom: 1px solid #ddd;text-align:center">'.$row->professional_bill.'</td>
+											
+
+							        	</tr>
+							        
+							        	<tr>
+							        		
+							        		<td style="border-bottom: 1px solid #ddd;">Professional Bill</td>
+							        
+								        	<td style="border-bottom: 1px solid #ddd;text-align:center">'.$row->hospital_bill.'</td>
+								        	
+                        				</tr>
+                        		
+
+
                         				<tr>
-                        					<td></td>
-							        		<td>Hospital Bill Payment: <input type="text" class="form-control" name="hospital_bill_payment"></td>
+                        					
+							        		<td style="border-bottom: 1px solid #ddd;">Hospital Bill Payment: </td>
+							        		<td style="border-bottom: 1px solid #ddd;"><input type="text" class="form-control" placeholder = "please enter amount" name="hospital_bill_payment"></td>
 
-								        	<td>Professional Fee Payment: <input type="text" class="form-control" name="professional_bill_payment"></td>
                         				</tr>
-									</div>
+                        				<tr  border: 1px solid black;>
+
+
+								        	<td style="border-bottom: 1px solid #ddd;">Professional Fee Payment: </td><td style="border-bottom: 1px solid #ddd;"><input type="text" placeholder = "please enter amount" class="form-control" name="professional_bill_payment"></td>
+
+                        				</tr>
+
 							        </tbody>
 						        </table>
 

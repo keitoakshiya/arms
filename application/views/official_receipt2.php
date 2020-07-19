@@ -4,7 +4,7 @@
 		<th>Full Name</th>
 		<th>Patient Type</th>
 		<th>Total Paid Bill</th>
-		<th></th>
+
 
 	</thead>
 	<tbody>
@@ -12,8 +12,7 @@
 			if ($result) {
 				foreach ($result as $key => $row) {
 					echo "<tr>";
-
-						echo "<td>".$row->name."</td>";
+						echo "<td>".$row->guarantor_name."</td>";
 						echo "<td>".$row->first_name." ".$row->middle_name." ".$row->last_name."</td>";
 												if ($row->patient_type==0) {
 							echo "<td>Not Registered</td>";
@@ -35,17 +34,53 @@
 							echo "<td></td>";
 						}
 						echo "<td>&#8369;".($row->hospital_bill_payment+$row->professional_bill_payment)."</td>";
+						
+
 
 
 					echo "</tr>";
+
 				}
 			}
 		?>
 
 	</tbody>
+	<tfoot>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tfoot>
 </table>
+
 <script type="text/javascript">
-	$(document).ready( function () {
-	    $('#official_receipt2').DataTable();
-	} );
-</script> 
+
+
+        $('#official_receipt2').DataTable( {
+                                dom: 'Bfrtip',
+        buttons: [
+            'copy', 'csv', 'excel', 'pdf', 'print'
+        ],
+
+        initComplete: function () {
+            this.api().columns([0,2]).every( function () {
+                var column = this;
+                var select = $('<select><option value="">All</option></select>')
+                    .appendTo( $(column.footer()).empty() )
+                    .on( 'change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+ 
+                        column
+                            .search( val ? '^'+val+'$' : '', true, false )
+                            .draw();
+                    } );
+ 
+                column.data().unique().sort().each( function ( d, j ) {
+                    select.append( '<option value="'+d+'">'+d+'</option>' )
+                } );
+            } );
+        }
+    } );
+</script>

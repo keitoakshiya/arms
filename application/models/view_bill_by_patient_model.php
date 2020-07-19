@@ -16,6 +16,7 @@
             $this->db->select('`patient`.id as patient_id, `patient`.first_name, `patient`.last_name, `patient`.middle_name, `patient`.date_created, `bill`.id as bill_id, `bill`.date, `bill`.patient_id, `bill`.guarantor_id, `bill`.patient_type, `bill`.hospital_bill, `bill`.professional_bill');
 
             $this->db->where('`patient_id`', $id);
+            $this->db->where('`patient_id`', $id);
             $this->db->order_by('date_created', 'DESC');
             $this->db->join('patient', 'patient.id = patient_id');
 
@@ -30,7 +31,7 @@
             $this->db->set('patient_id', $patient_id);
             $this->db->set('bill_id', $bill_id);
             $this->db->insert('transaction');
-            header("Location: /arms/main/view_bill_by_patient/".$patient_id);
+            header("Location: add_payment");
         }
 
     }

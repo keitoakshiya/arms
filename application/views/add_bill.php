@@ -38,10 +38,16 @@
 								    <option value="2">Outpatient</option>
 								    <option value="3">Emergency</option>
 								  </select>
-			                  	<input type="hidden" name="id" value="'.$row->id.'">
+			                  	<input type="hidden" name="id" value="'.$row->patient_id.'">
 			                   	Hospital Bill: <input type="text" class="form-control" value = "'.$row->hospital_bill.'" name="hospital_bill">
 			                   	Professional Fee: <input type="text" class="form-control" value = "'.$row->professional_bill.'" name="professional_bill">
-			                   	<input type="submit" class=" form form-control btn btn-success submit-btn">
+			                   	<div class="col-md-6" style="margin-top:20px">
+			                   		<a href="delete_bill/'.$row->patient_id2.'" class="form-control btn btn-danger">Delete</a>
+			                   	</div>
+			                   	<div class="col-md-6">
+			                   		<input type="submit" value="Save" class=" form form-control btn btn-success submit-btn">
+			                   	</div>
+			                   
 			                  </form>
 		                  </div>
 		                </div>
