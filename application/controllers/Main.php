@@ -44,16 +44,24 @@ class Main extends CI_Controller {
 		);
 		$this->load->view('template/header',$data);
 		$this->load->view('template/container_header',$data);
-		$this->load->view('dashboard');
+
+		$this->load->model('dashboard_model');
+		$res = $this->dashboard_model->top_10_bar();
+		$data2['result'] = $res;
+		$this->load->view('dashboard',$data2);
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
 	}
 
 	public function patients() {
 		$this->load->model('roles_model');
+
 		if ($this->roles_model->can_read()==0) {
 			header("Location: denied");
 		}
+
+		$this->load->model('patients_model');
+		$res = $this->patients_model->get_patients();
 		$data = array(
 		    'title' => 'Patients',
 		    'description' => ' '
