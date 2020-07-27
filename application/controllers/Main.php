@@ -40,7 +40,7 @@ class Main extends CI_Controller {
 		}
 		$data = array(
 		    'title' => 'Dashboard',
-		    'description' => ' This is the dashboard of Accounts recieivable system'
+		    'description' => ' '
 		);
 		$this->load->view('template/header',$data);
 		$this->load->view('template/container_header',$data);
@@ -529,8 +529,8 @@ class Main extends CI_Controller {
 
 	public function archive() {
 		$data = array(
-		    'title' => 'Patients',
-		    'description' => ' '
+		    'title' => 'Archive',
+		    'description' => '  '
 		);
 		$this->load->model('archive_model');
 		$res = $this->archive_model->get_patients();
@@ -632,14 +632,16 @@ class Main extends CI_Controller {
 
 	public function official_receipt2($or_number,$or_amount){
 
+
 		$data = array(
 		    'title' => $or_number,
 		    'description' => $or_amount
 		);
+
 		$this->load->view('template/header3',$data);
 		$this->load->model('official_receipt2_model');
 		$res = $this->official_receipt2_model->get_bill();
-		$this->load->view('template/container_header',$data);
+		$this->load->view('template/container_header2',$data);
 		
 		if($res){	$data2['result'] = $res;
         	$this->load->view('official_receipt2',$data2);

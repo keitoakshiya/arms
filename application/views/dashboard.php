@@ -8,15 +8,13 @@
 
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7],
+          ['Inpatient',     11],
+          ['Outpatient',      2],
+          ['Emergency',  2],
         ]);
 
         var options = {
-          title: 'Total ng mga patients under inpatient, emergency, outpatient'
+          title: 'Total percentage of patients under Inpatient, Outpatient, Emergency'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -34,15 +32,14 @@
 
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
-          ['Work',     5],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
+          ['HMO',     5],
+          ['Government',      2],
+          ['Corporate',  2],
+
         ]);
 
         var options = {
-          title: 'total ng kung ilan ang nakakabayad sa hmo, government, corporate ang'
+          title: 'Total percentage of paid bills of HMO, Government, Corporate '
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
@@ -59,7 +56,7 @@
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable( 
-        	<?php echo "[['guarantorID','inpatient','outpatient','emergency'],";
+        	<?php echo "[['guarantorID','Inpatient','Outpatient','Emergency'],";
         		foreach ($result as $key => $row) {
         			echo "['".$row->g_name."',";
         			echo $row->inpatient.",";
@@ -72,8 +69,8 @@
 
         var options = {
           chart: {
-            title: 'Top 10 guarantors',
-            subtitle: 'This is the the highest cost guarantors',
+            title: 'Top 10 Company',
+            subtitle: 'This Column Chart shows the top 10 companies with the highest total amount of bill',
           }
         };
 
