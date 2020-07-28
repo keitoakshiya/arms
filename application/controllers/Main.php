@@ -39,7 +39,7 @@ class Main extends CI_Controller {
 			header("Location: denied");
 		}
 		$data = array(
-		    'title' => 'Dashboard',
+		    'title' => 'Graph Report',
 		    'description' => ' '
 		);
 		$this->load->view('template/header',$data);
@@ -63,7 +63,7 @@ class Main extends CI_Controller {
 		$this->load->model('patients_model');
 		$res = $this->patients_model->get_patients();
 		$data = array(
-		    'title' => 'Patients',
+		    'title' => 'Patients List',
 		    'description' => ' '
 		);
 		$this->load->model('patients_model');
@@ -83,7 +83,7 @@ class Main extends CI_Controller {
 	public function patients_filtered() {
 
 				$data = array(
-		    'title' => 'Patients',
+		    'title' => 'Patients List',
 		    'description' => ' '
 		);
 
@@ -208,7 +208,7 @@ class Main extends CI_Controller {
 
 	public function accounts_receivable_filtered(){
 		$data = array(
-		    'title' => 'Patients',
+		    'title' => 'Accounts Receivable',
 		    'description' => ' '
 		);
 
@@ -270,7 +270,7 @@ class Main extends CI_Controller {
 		
 		$data = array(
 		    'title' => 'Payment Summary',
-		    'description' => 'Total Payment of Bills '
+		    'description' => ''
 		);
 
 		$this->load->library('form_validation');
@@ -307,7 +307,7 @@ class Main extends CI_Controller {
 			header("Location: denied");
 		}
 		$data = array(
-		    'title' => 'Balance',
+		    'title' => 'Remaining Balance',
 		    'description' => ' Total Remaining of Balance '
 		);
 		$this->load->view('template/header',$data);
@@ -328,7 +328,7 @@ class Main extends CI_Controller {
 
 
 		$data = array(
-		    'title' => 'Patients',
+		    'title' => 'Remaining Balance',
 		    'description' => ' '
 		);
 
@@ -368,7 +368,7 @@ class Main extends CI_Controller {
 		}
 		$data = array(
 		    'title' => 'Add Payment',
-		    'description' => ' Add payment '
+		    'description' => ' '
 		);
 		$this->load->view('template/header',$data);
 		$this->load->model('add_payment_model');
@@ -450,7 +450,7 @@ class Main extends CI_Controller {
 		}
 		$data = array(
 		    'title' => 'Add Company',
-		    'description' => ' This is where you can add Company '
+		    'description' => ' This is where you can add company '
 		);
 		$this->load->view('template/header',$data);
 		$this->load->view('template/container_header',$data);
@@ -498,7 +498,7 @@ class Main extends CI_Controller {
 		}
 		$data = array(
 		    'title' => 'Add Account',
-		    'description' => ' This is where you can add accounts '
+		    'description' => ' This is where you can add user accounts '
 		);
 		$this->load->view('template/header',$data);
 		$this->load->view('template/container_header',$data);
@@ -529,8 +529,8 @@ class Main extends CI_Controller {
 
 	public function archive() {
 		$data = array(
-		    'title' => 'Archive',
-		    'description' => '  '
+		    'title' => 'Archive History',
+		    'description' => ' '
 		);
 		$this->load->model('archive_model');
 		$res = $this->archive_model->get_patients();
@@ -574,7 +574,7 @@ class Main extends CI_Controller {
 
 		$data = array(
 		    'title' => 'Add roles',
-		    'description' => ' This is where you can add roles '
+		    'description' => ' Manage user permission '
 		);
 		$this->load->view('template/header',$data);
 		$this->load->view('template/container_header',$data);

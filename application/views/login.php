@@ -33,16 +33,16 @@
             <form method="post" action="/arms/main/login_validation">
               <h1>Login Form</h1>
 
-		<h2>Message here:</h2>
+		          <h2>Accounts Receivable Management System</h2>
               <div>
                 <input type="text" class="form-control" placeholder="Username" name="username" required="" />
               </div>
               <div>
                 <input type="password" class="form-control" placeholder="Password" name="password" required="" />
               </div>
-              <div>
-                <input type="submit" name="login" class="btn btn-success" value="Login">
-                <a class="reset_pass" href="#">Lost your password?</a>
+              <div style="padding-left: 10px;">
+                <input type="submit" name="login" class="form-control btn btn-success submit-btn" value="Login" style="float: right; ">
+                <!-- <a class="reset_pass" href="#">Lost your password?</a> -->
               </div>
 
               <div class="clearfix"></div>
@@ -53,9 +53,8 @@
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-		  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Term
-		Added Text Here</p>
+                  <h1><i class="fa fa-paw"></i> ARMS</h1>
+		  <p></p>
                 </div>
               </div>
             </form>

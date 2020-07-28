@@ -102,25 +102,25 @@
                 <h3>Menu</h3>
 
                 <ul class="nav side-menu">
-                  <li><a href="../../dashboard"><i class="fa fa-home"></i> Graph Report </a></li>
-                  <li><a href="../../patients"><i class="fa fa-edit"></i> Patient List </a></li>
+                  <li><a href="../../dashboard"><i class="fa fa-bar-chart"></i> Graph Report </a></li>
+                  <li><a href="../../patients"><i class="fa fa-list-alt"></i> Patient List </a></li>
                   <li><a href="../../add_patient"><i class="fa fa-edit"></i> Register Patient </a></li>
                   <li><a href="../../add_bill"><i class="fa fa-edit"></i> Recent Registered patient </a></li>
-                  <li><a><i class="fa fa-home"></i> Summary <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-table"></i> Summary <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="../../accounts_receivable">Accounts Receivable</a></li>
                       <li><a href="../../payment_summary">Total Payment</a></li>
                       <li><a href="../../remaining_balance">Remaining Balance</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-edit"></i> Add Payment <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-plus-square-o"></i> Add Payment <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="../../official_receipt">Official Receipts</a></li>
                       <li><a href="../../add_payment">Payment Application</a></li>
                     </ul>
                   </li>
-                  <li><a href="../../add_company"><i class="fa fa-home"></i> Add Company </a></li>
-                  <li><a href="../../add_account"><i class="fa fa-edit"></i> Add Account </a></li>
+                  <li><a href="../../add_company"><i class="fa fa-building-o"></i> Add Company </a></li>
+                  
 
 
 
@@ -132,8 +132,9 @@
 
               <div class="menu_section">
                 <ul class="nav side-menu">
-                  <li><a href="../../Archive"><i class="fa fa-home"></i> Archive </a></li>
-                  <li><a href="../../roles"><i class="fa fa-home"></i> Manage Roles </a></li>
+                  <li><a href="../../Archive"><i class="fa fa-file-archive-o"></i> Archive </a></li>
+                  <li><a href="../../add_account"><i class="fa fa-edit"></i> Add Account </a></li>
+                  <li><a href="../../roles"><i class="fa fa-users"></i> Manage Roles </a></li>
                 </ul>
               </div>
             </div>
@@ -171,12 +172,12 @@
                       <img src="images/img.jpg" alt=""><?echo $session_data['username'];?>
                     </a>
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item"  href="javascript:;"> Profile</a>
+                      <!-- <a class="dropdown-item"  href="javascript:;"> Profile</a>
                         <a class="dropdown-item"  href="javascript:;">
                           <span class="badge bg-red pull-right">50%</span>
                           <span>Settings</span>
                         </a>
-                    <a class="dropdown-item"  href="javascript:;">Help</a>
+                    <a class="dropdown-item"  href="javascript:;">Help</a> -->
                       <a class="dropdown-item"  href="../../logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                     </div>
                   </li>
