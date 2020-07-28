@@ -404,6 +404,8 @@ class Main extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('hospital_bill','hospital_bill','required');
 		$this->form_validation->set_rules('professional_bill','professional_bill','required');
+		$this->form_validation->set_rules('company','company','required');
+		$this->form_validation->set_rules('patient_type','patient_type','required');
 		$this->form_validation->set_rules('id','id','required');
 
 		if ($this->form_validation->run()) {
@@ -411,11 +413,13 @@ class Main extends CI_Controller {
 
 			$hospital_bill = $this->input->post('hospital_bill');
 			$professional_bill = $this->input->post('professional_bill');
+			$company = $this->input->post('company');
+			$patient_type = $this->input->post('patient_type');
 			$id = $this->input->post('id');
 
 			$this->load->model('add_bill_model');
 
-			$this->add_bill_model->insert_bill($hospital_bill,$professional_bill,$id);
+			$this->add_bill_model->insert_bill($hospital_bill,$professional_bill,$company,$patient_type,$id);
 		}
 	}
 
@@ -535,7 +539,7 @@ class Main extends CI_Controller {
 		$this->load->model('archive_model');
 		$res = $this->archive_model->get_patients();
 		$this->load->view('template/header',$data);
-		$this->load->view('template/container_header_daterange',$data);
+		$this->load->view('template/container_header',$data);
 
 		if($res){	$data2['result'] = $res;
         	$this->load->view('archive',$data2);

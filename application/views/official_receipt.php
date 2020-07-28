@@ -1,7 +1,5 @@
 
 <form method="post" action="insert_receipt">
-	
-
 				<!-- page content -->
             				Guarantor
             				<select name="type" class="form-control" onchange="companydropdown(this.value);" required>

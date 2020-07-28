@@ -32,7 +32,7 @@
 								  </select>
 								  <div id="guarantor_dropdown'.$row->id.'"></div>
 			                   	Patient Type:
-			                   	  <select name="patient-type" class="form-control" required>
+			                   	  <select name="patient_type" class="form-control" required>
 			                   	  	<option selected disabled value="">Select Patient Type</option>
 								    <option value="1">Inpatient</option>
 								    <option value="2">Outpatient</option>

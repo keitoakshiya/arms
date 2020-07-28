@@ -10,7 +10,7 @@
 				$query = mysqli_query($con,$sql); 
 
 				while ($row = mysqli_fetch_array($query)) {
-					echo "<option>".$row['name']."</option>";
+					echo "<option value='".$row['id']."' >".$row['name']."</option>";
 				}
 			}
 		echo "<select>";

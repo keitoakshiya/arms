@@ -29,12 +29,14 @@ patient.deleted as patient_deleted,
             return $res;
         }
 
-        public function insert_bill($hospital_bill,$professional_bill,$id){
+        public function insert_bill($hospital_bill,$professional_bill,$company,$patient_type,$id){
             $this->db->set('hospital_bill', $hospital_bill);
             $this->db->set('professional_bill', $professional_bill);
+            $this->db->set('guarantor_id', $company);
+            $this->db->set('patient_type', $patient_type);
             $this->db->where('patient_id', $id);
             $this->db->update('bill');
-            print_r($this->db->last_query());
+            //print_r($this->db->last_query());
             header("Location: /arms/main/add_bill");
         }
 
