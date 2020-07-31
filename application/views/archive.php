@@ -5,7 +5,7 @@
                 <th>First name</th>
                 <th>Middle name</th>
                 <th>Last name</th>
-                <th>Date created</th>
+                <th>Date Deleted</th>
                 <th></th>
             </tr>
         </thead>
@@ -21,7 +21,7 @@
 						echo "<td>".$row->first_name."</td>";
 						echo "<td>".$row->middle_name."</td>";
 						echo "<td>".$row->last_name."</td>";
-						echo "<td>".$row->date_created."</td>";
+						echo "<td>".$row->date_deleted."</td>";
 						echo "<td><a href='restore_patient/".$row->patient_id."'><i class='fa fa-window-restore' 
                         style='color: #40b336; font-size: 16px'></i></a></td>";
 					echo "</tr>";

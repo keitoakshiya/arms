@@ -7,10 +7,15 @@
       function drawChart() {
 
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['Inpatient',     11],
-          ['Outpatient',      2],
-          ['Emergency',  2],
+        	<?php echo "['Guarantor name','Count'],";
+        		foreach ($result3 as $key => $row) {
+        			echo "['".$row->patient_type2."',";
+        			echo $row->count."],";
+        		}
+
+
+
+        	 ?>
         ]);
 
         var options = {
@@ -31,10 +36,13 @@
       function drawChart() {
 
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'Hours per Day'],
-          ['HMO',     5],
-          ['Government',      2],
-          ['Corporate',  2],
+        	<?php echo "['Guarantor name','Count'],";
+        		foreach ($result2 as $key => $row) {
+        			echo "['".$row->name."',";
+        			echo $row->count."],";
+        		}
+
+        	 ?>
 
         ]);
 

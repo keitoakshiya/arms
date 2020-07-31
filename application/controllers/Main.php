@@ -48,6 +48,10 @@ class Main extends CI_Controller {
 		$this->load->model('dashboard_model');
 		$res = $this->dashboard_model->top_10_bar();
 		$data2['result'] = $res;
+		$res2 = $this->dashboard_model->guarantor_distribution();
+		$data2['result2'] = $res2;
+		$res3 = $this->dashboard_model->patient_type_distribution();
+		$data2['result3'] = $res3;
 		$this->load->view('dashboard',$data2);
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');

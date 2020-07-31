@@ -2,9 +2,10 @@
     class archive_model extends CI_Model {
 	     public function archive_patient($id){
 	    		$this->db->set('deleted', '1');
+                $this->db->set('date_deleted','NOW()',FALSE);
 	    		$this->db->where('id', $id);
 	    		$this->db->update('patient');
-	    		print_r($this->db->last_query());
+	    		//print_r($this->db->last_query());
 	    		header("Location: /arms/main/patients");
 	    	}
 
@@ -21,7 +22,7 @@
                 `patient`.`first_name` as first_name,
                 `patient`.`last_name` as last_name,
                 `patient`.`middle_name` as middle_name,
-                `patient`.`date_created` as date_created,
+                `patient`.`date_deleted` as date_deleted,
                 `patient`.`deleted` as patient_deleted,
                 `bill`.`id` as bill_id,
                 `bill`.`date` as bill_date,
