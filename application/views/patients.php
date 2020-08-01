@@ -22,8 +22,8 @@
 						echo "<td>".$row->middle_name."</td>";
 						echo "<td>".$row->last_name."</td>";
 						echo "<td>".$row->date_created."</td>";
-						echo "<td><a href='archive_patient/".$row->patient_id."'><i class='fa fa-trash' 
-                        style='color: #c93434; font-size: 16px'></i></a></td>";
+						echo "<td><button onclick='archive_patient(".$row->patient_id.")'><i class='fa fa-trash' 
+                        style='color: #c93434; font-size: 16px'></i></button></td>";
 					echo "</tr>";
 				}
 			}
@@ -108,3 +108,16 @@ $(function() {
 });
 </script>
 
+
+<script type="text/javascript">
+    function archive_patient(id) {
+          var r = confirm("Do you really want to Delete this patient");
+  if (r == true) {
+    window.location.href ="archive_patient/"+id ;
+  } else {
+    //window.location.href ="patients";
+  }
+        
+
+    }
+</script>

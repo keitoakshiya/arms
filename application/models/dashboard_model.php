@@ -26,7 +26,7 @@
             $this->db->join('guarantor','bill.guarantor_id = guarantor.id','left');
             $query = $this->db->get('bill');
             $res   = $query->result();
-            print_r($this->db->last_query());  
+            //print_r($this->db->last_query());  
             return $res;
         }
         public function patient_type_distribution() {

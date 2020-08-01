@@ -34,5 +34,12 @@
             header("Location: add_payment");
         }
 
+        public function get_transaction($bill_id){
+
+            $this->db->WHERE('bill_id', $bill_id);
+            $this->db->get('transaction');
+            header("Location: add_payment");
+        }
+
     }
 ?>  

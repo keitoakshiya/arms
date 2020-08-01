@@ -10,7 +10,7 @@
             $this->db->where('id', $a);
             $this->db->delete('patient');
 
-            header("Location: add_bill");
+            header("Location: ../add_bill");
 
         }
     }

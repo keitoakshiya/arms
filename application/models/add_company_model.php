@@ -2,11 +2,32 @@
     class add_company_model extends CI_Model {
 
         public function insert_company($name, $type){
-            $this->db->set('name', $name);
-            $this->db->set('type', $type);
-            $this->db->insert('guarantor');
-            header("Location: /arms/main/add_company");
+        	if ($this->checkDuplicateCompany) {
+        		$this->db->set('name', $name);
+	            $this->db->set('type', $type);
+	            $this->db->insert('guarantor');
+	            header("Location: /arms/main/add_company");
+        	}else{
+        		header("Location: /arms/main/duplicate_data");
+        	}
+
         
         }
+        public function checkDuplicateCompany($company) {
+
+		    $this->db->where('name', $company);
+
+		    $query = $this->db->get('guarantor');
+
+		    $count_row = $query->num_rows();
+
+		    if ($count_row > 0) {
+		      //if count row return any row; that means you have already this email address in the database. so you must set false in this sense.
+		        return FALSE; // here I change TRUE to false.
+		     } else {
+		      // doesn't return any row means database doesn't have this email
+		        return TRUE; // And here false to TRUE
+		     }
+		}
     }
 ?>
