@@ -10,7 +10,7 @@
 
 				<!-- page content -->
 
-		            <div class="col-md-5 col-sm-5 ">
+		            <div class="col-md-8 col-sm-8 ">
 		              <div class="x_panel">
 		                <div class="x_title">
 		                  <h2>'.$row->first_name.' '.$row->last_name.' <small><?=$description?></small></h2>
@@ -35,47 +35,44 @@
 
 											<th style="border-bottom: 1px solid #ddd;"></th>
 											<th style="border-bottom: 1px solid #ddd;text-align:center">Amount</th>
-											
-
+											<th style="border-bottom: 1px solid #ddd;text-align:center">Payment</th>
+											<th style="border-bottom: 1px solid #ddd;text-align:center">Balance</th>
 							        	</tr>
 							  
 							        </thead>
 							        <tbody >
 							        	<tr>
 
-											<td style="border-bottom: 1px solid #ddd;">Hospital Bill</td>
-											<td style="border-bottom: 1px solid #ddd;text-align:center">'.$row->professional_bill.'</td>
+											<td style="border-bottom: 1px solid #ddd; padding-right:26px">Hospital Bill</td>
+											<td style="border-bottom: 1px solid #ddd;text-align:center;padding-right:26px">'.$row->professional_bill.'</td>
+
+							        		<td style="border-bottom: 1px solid #ddd; direction: ltr;">
+							        		 <input type="text" onkeyup="change_pro_bal(this.value,'.$row->professional_bill.');" placeholder = "0.00" name="hospital_bill_payment"></td>
+							        		<td><input type="text" id="pro_bill" disabled></td>
+
 											
 
 							        	</tr>
 							        
 							        	<tr>
 							        		
-							        		<td style="border-bottom: 1px solid #ddd;">Professional Bill</td>
+							        		<td style="border-bottom: 1px solid #ddd;padding-right:26px">Professional Bill</td>
 							        
-								        	<td style="border-bottom: 1px solid #ddd;text-align:center">'.$row->hospital_bill.'</td>
+								        	<td style="border-bottom: 1px solid #ddd;text-align:center;padding-right:26px">'.$row->hospital_bill.'</td>
+								        	<td style="border-bottom: 1px solid #ddd; direction: ltr;">
+								        	 <input type="text" onkeyup="change_hosp_bal(this.value,'.$row->hospital_bill.');"  placeholder = "0.00" name="professional_bill_payment"></td>
+								        	<td><input type="text" id="hosp_bill" disabled></td>
 								        	
                         				</tr>
                         		
 
 
-                        				<tr>
-                        					
-							        		<td style="border-bottom: 1px solid #ddd;">Hospital Bill Payment: </td>
-							        		<td style="border-bottom: 1px solid #ddd;"><input type="text" class="form-control" placeholder = "please enter amount" name="hospital_bill_payment"></td>
 
-                        				</tr>
-                        				<tr  border: 1px solid black;>
-
-
-								        	<td style="border-bottom: 1px solid #ddd;">Professional Fee Payment: </td><td style="border-bottom: 1px solid #ddd;"><input type="text" placeholder = "please enter amount" class="form-control" name="professional_bill_payment"></td>
-
-                        				</tr>
 
 							        </tbody>
 						        </table>
 
-			                   	<input type="submit" class=" form form-control btn btn-success submit-btn">
+			                   	<input type="submit" id="submit" class=" form form-control btn btn-success submit-btn">
 			                  </form>
 		                  </div>
 		                </div>
@@ -91,3 +88,30 @@
 
 	          </div>
 	          </div>
+
+
+<script type="text/javascript">
+	function change_pro_bal(a,b) {
+		x = b-a;
+		document.getElementById('pro_bill').value = x;
+		isValid();
+	}
+
+	function change_hosp_bal(a,b) {
+		x = b-a;
+		document.getElementById('hosp_bill').value = x;
+		isValid();
+	}
+
+	function isValid(){
+		x = document.getElementById('hosp_bill').value;
+		y = document.getElementById('pro_bill').value;
+		if (x<0||y<0) {
+			document.getElementById('submit').setAttribute("disabled","1");
+		}else{
+			document.getElementById('submit').removeAttribute("disabled");
+		}
+
+	}
+
+</script>
