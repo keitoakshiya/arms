@@ -1,5 +1,6 @@
 <table id="add_payment" class="display" style="width:100%">
 	<thead>
+		<th>Date of Transaction</th>
 		<th>Company</th>
 		<th>Full Name</th>
 		<th>Patient Type</th>
@@ -12,6 +13,7 @@
 			if ($result) {
 				foreach ($result as $key => $row) {
 					echo "<tr>";
+						echo "<td>".$row->transaction_datecreated."</td>";
 						echo "<td>".$row->guarantor_name."</td>";
 						echo "<td>".$row->first_name." ".$row->middle_name." ".$row->last_name."</td>";
 												if ($row->patient_type==0) {
@@ -35,7 +37,7 @@
 						}
 						echo "<td>&#8369;".($row->hospital_bill_payment+$row->professional_bill_payment)."</td>";
 						
-						echo "<td><button class='btn-success'><a href='view_bill_by_patient/".$row->patient_id."'>Add Payment</a></button></td>"; 
+						echo "<td><button class='btn-success'><a href='view_bill_by_patient/".$row->patient_id."' style = 'color:white;'>Add Payment</a></button></td>"; 
 
 
 					echo "</tr>";

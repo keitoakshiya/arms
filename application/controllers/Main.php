@@ -396,12 +396,15 @@ class Main extends CI_Controller {
 		$this->load->view('template/header2',$data);
 		$this->load->model('view_bill_by_patient_model');
 		$res = $this->view_bill_by_patient_model->get_view_bill_by_patient($id);
+		$res2 = $this->view_bill_by_patient_model->get_transaction($id);
 
-		if($res){	$data2['result'] = $res;
-        $this->load->view('view_bill_by_patient',$data2);
+		if($res){	
+			$data2['result'] = $res;
+			$data2['result2'] = $res2;
+	        $this->load->view('view_bill_by_patient',$data2);
 		}
 		else {"Fail";}
-		$this->load->view('template/footer2');
+			$this->load->view('template/footer2');
 	}
 
 	public function insert_bill(){
@@ -435,7 +438,7 @@ class Main extends CI_Controller {
 		$this->form_validation->set_rules('patient_id','patient_id','required');
 		$this->form_validation->set_rules('bill_id','bill_id','required');
 
-		if ($this->form_validation->run()) {
+
 				
 
 			$patient_id = $this->input->post('patient_id');
@@ -446,9 +449,11 @@ class Main extends CI_Controller {
 
 			$this->load->model('view_bill_by_patient_model');
 
-			$this->view_bill_by_patient_model->insert_transaction($hospital_bill_payment,$professional_bill_payment,$patient_id, $bill_id);
+			$this->view_bill_by_patient_model->insert_transaction($professional_bill_payment,$hospital_bill_payment,$patient_id, $bill_id);
 
-		}
+
+
+		
 	}
 
 	public function add_company(){

@@ -10,7 +10,7 @@
 
 				<!-- page content -->
 
-		            <div class="col-md-8 col-sm-8 ">
+		            <div class="col-md-10 col-sm-10s ">
 		              <div class="x_panel">
 		                <div class="x_title">
 		                  <h2>'.$row->first_name.' '.$row->last_name.' <small><?=$description?></small></h2>
@@ -37,31 +37,41 @@
 											<th style="border-bottom: 1px solid #ddd;text-align:center">Amount</th>
 											<th style="border-bottom: 1px solid #ddd;text-align:center">Payment</th>
 											<th style="border-bottom: 1px solid #ddd;text-align:center">Balance</th>
+											<th style="border-bottom: 1px solid #ddd;text-align:center">Total Paid</th>
 							        	</tr>
 							  
 							        </thead>
 							        <tbody >
 							        	<tr>
 
-											<td style="border-bottom: 1px solid #ddd; padding-right:26px">Hospital Bill</td>
+											<td style="border-bottom: 1px solid #ddd; padding-right:26px">Professional Bill</td>
 											<td style="border-bottom: 1px solid #ddd;text-align:center;padding-right:26px">'.$row->professional_bill.'</td>
 
 							        		<td style="border-bottom: 1px solid #ddd; direction: ltr;">
-							        		 <input type="text" onkeyup="change_pro_bal(this.value,'.$row->professional_bill.');" placeholder = "0.00" name="hospital_bill_payment"></td>
-							        		<td><input type="text" id="pro_bill" disabled></td>
 
+							        		 <input type="number" onkeyup="change_pro_bal(this.value,'.$row->professional_bill.','.$row->SUM1.');"  placeholder = "0.00" name="professional_bill_payment"></td>
+
+							        		<td><input type="text" min="1" value = '.($row->professional_bill -$row->SUM1).' id="pro_bill" disabled>
+							        		</td>
+							        		<td>
+							        		<input type="text" value = '.$row->SUM1.' id="prof_bill_transaction" disabled>
+							        		</td>
 											
 
 							        	</tr>
 							        
 							        	<tr>
 							        		
-							        		<td style="border-bottom: 1px solid #ddd;padding-right:26px">Professional Bill</td>
+							        		<td style="border-bottom: 1px solid #ddd;padding-right:26px">Hospital Bill</td>
 							        
 								        	<td style="border-bottom: 1px solid #ddd;text-align:center;padding-right:26px">'.$row->hospital_bill.'</td>
 								        	<td style="border-bottom: 1px solid #ddd; direction: ltr;">
-								        	 <input type="text" onkeyup="change_hosp_bal(this.value,'.$row->hospital_bill.');"  placeholder = "0.00" name="professional_bill_payment"></td>
-								        	<td><input type="text" id="hosp_bill" disabled></td>
+								        	 <input type="number" min="1" onkeyup="change_hosp_bal(this.value,'.$row->hospital_bill.','.$row->SUM2.');"  placeholder = "0.00" name="hospital_bill_payment"></td>
+								        	<td><input type="text" value = '.($row->hospital_bill -$row->SUM2).' id="hosp_bill" disabled>
+								        	</td>
+								        	<td>
+							        			<input type="text" value = '.$row->SUM2.' id="hosp_bill_transaction" disabled>
+							        		</td>
 								        	
                         				</tr>
                         		
@@ -82,6 +92,9 @@
 		        ';
 
 			}
+/*			foreach ($result2 as $key => $row2) {
+				echo $row2->date_created;
+			}*/
 		}
 		
 	?>
@@ -91,15 +104,23 @@
 
 
 <script type="text/javascript">
-	function change_pro_bal(a,b) {
-		x = b-a;
+	function change_pro_bal(payment,bill,bal) {
+		
+		x = (bill-payment)-bal;
+		paid = parseFloat(payment) + parseFloat(bal);
+
 		document.getElementById('pro_bill').value = x;
+		document.getElementById('prof_bill_transaction').value = paid;
 		isValid();
 	}
 
-	function change_hosp_bal(a,b) {
-		x = b-a;
+	function change_hosp_bal(payment,bill,bal) {
+
+		x = (bill-payment)-bal;
+		paid = parseFloat(payment) + parseFloat(bal);
+
 		document.getElementById('hosp_bill').value = x;
+		document.getElementById('hosp_bill_transaction').value = paid;
 		isValid();
 	}
 

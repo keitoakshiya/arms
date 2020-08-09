@@ -29,7 +29,7 @@
             transaction.or_amount,
             transaction.or_number,
             transaction.or_date,
-            transaction.date_created,
+            transaction.date_created as transaction_datecreated,
             transaction.deleted as transaction_deleted
 
 
