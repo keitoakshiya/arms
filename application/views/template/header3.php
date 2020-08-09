@@ -77,7 +77,10 @@
         <div class="col-md-3 left_col menu_fixed">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="../../index.html" class="site_title" style="padding-left: 20px"><link > <span>  A R M S</span></a>
+              <a href="dashboard" style="padding-left: 30px; padding-top: 5px; padding-bottom: 0px">
+                <img src="../build/images/logo.png" alt="arms logo" width="70" height="60"> <h3><b>A R M S</b></h3>
+              </a> 
+
             </div>
 
             <div class="clearfix"></div>
@@ -95,7 +98,9 @@
             <!-- /menu profile quick info -->
 
             <br />
-
+            <br>
+            <br>
+            <br>
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">

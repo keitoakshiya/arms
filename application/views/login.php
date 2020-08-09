@@ -1,6 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
@@ -10,7 +15,8 @@
     <title>Login</title>
 
     <!-- Bootstrap -->
-    <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+
     <!-- Font Awesome -->
     <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
@@ -20,20 +26,41 @@
 
     <!-- Custom Theme Style -->
     <link href="build/css/custom.min.css" rel="stylesheet">
-  </head>
 
-  <body class="login">
-    <div>
-      <a class="hiddenanchor" id="signup"></a>
-      <a class="hiddenanchor" id="signin"></a>
+  <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="../application/views/assets/images/logo.png" />
 
-      <div class="login_wrapper">
-        <div class="animate form login_form">
+  <style>
+  .modal-header, h4, .close {
+    background-color: #4d5687;
+    color:white !important;
+    text-align: center;
+    font-size: 30px;
+  }
+
+  </style>
+</head>
+<body>
+
+    <div style="background-image: url('build/images/logo.png'); padding: 100px 100px;">
+    <div class="modal-dialog">
+      <br>
+      <br>
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <h4></h4>
+          <h3><span>Accounts Receivable Management System</span><h3>
+          
+
+        </div>
+
+        <div class="modal-body" style="padding:40px 50px;">
           <section class="login_content">
             <form method="post" action="/arms/main/login_validation">
-              <h1>Login Form</h1>
-
-		          <h2>Accounts Receivable Management System</h2>
+              
               <div>
                 <input type="text" class="form-control" placeholder="Username" name="username" required="" />
               </div>
@@ -44,23 +71,27 @@
                 <input type="submit" name="login" class="form-control btn btn-success submit-btn" value="Login" style="float: right; ">
                 <!-- <a class="reset_pass" href="#">Lost your password?</a> -->
               </div>
-
-              <div class="clearfix"></div>
-
-              <div class="separator">
-
-                <div class="clearfix"></div>
-                <br />
-
+              <br><br>
                 <div>
-                  <h1><i class="fa fa-paw"></i> ARMS</h1>
-		  <p></p>
-                </div>
-              </div>
+          
+          
+          <p>Not a member? <a href="#">Sign Up</a></p>
+          <p>Forgot <a href="#">Password?</a></p>
+        </div>
+              
             </form>
           </section>
+          </div>
         </div>
       </div>
-    </div>
-  </body>
+ 
+<script>
+$(document).ready(function(){
+  $("#myBtn").click(function(){
+    $("#myModal").modal();
+  });
+});
+</script>
+</div>
+</body>
 </html>
