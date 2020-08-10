@@ -3,9 +3,9 @@
 
         public function get_view_bill_by_patient($id){
 
-
-            $data = array();
-            $this->db->select('`patient`.id as patient_id, `patient`.first_name, `patient`.last_name, `patient`.middle_name, `patient`.date_created, `bill`.id as bill_id, `bill`.date, `bill`.patient_id, `bill`.guarantor_id, `bill`.patient_type, `bill`.hospital_bill, `bill`.professional_bill,
+/*
+            $data = array();*/
+/*            $this->db->select('`patient`.id as patient_id, `patient`.first_name, `patient`.last_name, `patient`.middle_name, `patient`.date_created, `bill`.id as bill_id, `bill`.date, `bill`.patient_id, `bill`.guarantor_id, `bill`.patient_type, `bill`.hospital_bill, `bill`.professional_bill,
                 (SELECT SUM(hospital_bill_payment) FROM transaction) as SUM1 ,
                 (SELECT SUM(professional_bill_payment)FROM transaction) as SUM2 ',);
 
@@ -15,6 +15,11 @@
             $this->db->join('patient', 'patient.id = patient_id');
 
             $query = $this->db->get('bill');
+            $res   = $query->result();
+            //print_r($this->db->last_query());
+*/
+            $sql = "SELECT `patient`.`id` as `patient_id`, `patient`.`first_name`, `patient`.`last_name`, `patient`.`middle_name`, `patient`.`date_created`, `bill`.`id` as `bill_id`, `bill`.`date`, `bill`.`patient_id`, `bill`.`guarantor_id`, `bill`.`patient_type`, `bill`.`hospital_bill`, `bill`.`professional_bill`, IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE patient_id = '19'),0) as SUM1, IFNULL((SELECT SUM(professional_bill_payment)FROM transaction WHERE patient_id = '19'),0) as SUM2 FROM `bill` JOIN `patient` ON `patient`.`id` = `patient_id` WHERE `patient_id` = '19' ORDER BY `date_created` DESC";
+            $query = $this->db->query($sql, array($id, $id, $id));
             $res   = $query->result();
             //print_r($this->db->last_query());
             return $res;

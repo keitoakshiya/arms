@@ -2,7 +2,7 @@
     class add_company_model extends CI_Model {
 
         public function insert_company($name, $type){
-        	if ($this->checkDuplicateCompany) {
+        	if ($this->checkDuplicateCompany($name)) {
         		$this->db->set('name', $name);
 	            $this->db->set('type', $type);
 	            $this->db->insert('guarantor');

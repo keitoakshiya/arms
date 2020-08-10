@@ -54,7 +54,7 @@
 							        		<td><input type="text" min="1" value = '.($row->professional_bill -$row->SUM1).' id="pro_bill" disabled>
 							        		</td>
 							        		<td>
-							        		<input type="text" value = '.$row->SUM1.' id="prof_bill_transaction" disabled>
+							        		<input type="text" value = "'.$row->SUM1.'" id="prof_bill_transaction" disabled>
 							        		</td>
 											
 
@@ -70,7 +70,8 @@
 								        	<td><input type="text" value = '.($row->hospital_bill -$row->SUM2).' id="hosp_bill" disabled>
 								        	</td>
 								        	<td>
-							        			<input type="text" value = '.$row->SUM2.' id="hosp_bill_transaction" disabled>
+							        			<input type="text" value = "'.$row->SUM2.'"
+							        			id="hosp_bill_transaction" disabled>
 							        		</td>
 								        	
                         				</tr>
