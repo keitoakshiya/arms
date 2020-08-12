@@ -1,6 +1,7 @@
 <table id="patient_list" class="display" style="width:100%">
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Company</th>
                 <th>First name</th>
                 <th>Middle name</th>
@@ -17,6 +18,7 @@
 			else if ($result) {
 				foreach ($result as $key => $row) {
 					echo "<tr>";
+                        echo "<td>".sprintf('%08d', $row->patient_id)."</td>";
                         echo "<td>".$row->guarantor_name."</td>";
 						echo "<td>".$row->first_name."</td>";
 						echo "<td>".$row->middle_name."</td>";

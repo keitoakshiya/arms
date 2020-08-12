@@ -31,8 +31,8 @@
             $this->db->set('patient_id', $patient_id);
             $this->db->set('bill_id', $bill_id);
             $this->db->insert('transaction');
-             print_r($this->db->last_query());
-            //header("Location: add_payment");
+            //print_r($this->db->last_query());
+            header("Location: add_payment");
         }
 
         public function get_transaction($bill_id){
