@@ -59,7 +59,7 @@
         $('#official_receipt2').DataTable( {
                                 dom: 'Bfrtip',
         buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
+            'copy', 'excel', 'pdf', 'print'
         ],
 
         initComplete: function () {

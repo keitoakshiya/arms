@@ -77,8 +77,8 @@
         <div class="col-md-3 left_col menu_fixed">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="dashboard" style="padding-left: 30px; padding-top: 5px; padding-bottom: 0px">
-                <img src="../build/images/logo.png" alt="arms logo" width="70" height="60"> <h3><b>A R M S</b></h3>
+              <a href="dashboard" style="padding-left: 30px; padding-top: 10px; padding-bottom: 0px">
+                <img src="../../../build/images/logo2.png" alt="arms logo" width="80" height="70">
               </a> 
 
             </div>
@@ -98,8 +98,7 @@
             <!-- /menu profile quick info -->
 
             <br />
-            <br>
-            <br>
+
             <br>
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
@@ -110,7 +109,7 @@
                   <li><a href="../../dashboard"><i class="fa fa-bar-chart"></i> Graph Report </a></li>
                   <li><a href="../../patients"><i class="fa fa-list-alt"></i> Patient List </a></li>
                   <li><a href="../../add_patient"><i class="fa fa-edit"></i> Register Patient </a></li>
-                  <li><a href="../../add_bill"><i class="fa fa-edit"></i> Recent Registered patient </a></li>
+                  <li><a href="../../add_bill"><i class="fa fa-edit"></i> Register Bill </a></li>
                   <li><a><i class="fa fa-table"></i> Summary <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="../../accounts_receivable">Accounts Receivable</a></li>

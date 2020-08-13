@@ -39,7 +39,7 @@
             ');
             $this->db->join('patient', 'patient.id = patient_id');
             $this->db->join('guarantor', 'guarantor.id = guarantor_id', 'left');
-            $this->db->join('transaction', 'bill.id = bill_id', 'left');
+            $this->db->join('transaction', 'bill.id = bill_id');
             $this->db->where('patient.deleted =', 0);
             $this->db->group_by("bill.id");
             $query = $this->db->get('bill');

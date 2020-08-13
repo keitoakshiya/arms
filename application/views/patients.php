@@ -1,12 +1,12 @@
 <table id="patient_list" class="display" style="width:100%">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>Patient ID</th>
                 <th>Company</th>
-                <th>First name</th>
-                <th>Middle name</th>
-                <th>Last name</th>
-                <th>Date created</th>
+                <th>First Name</th>
+                <th>Middle Name</th>
+                <th>Last Name</th>
+                <th>Date Registered</th>
                 <th></th>
             </tr>
         </thead>
@@ -37,6 +37,7 @@
             <td></td>
             <td></td>
             <td></td>
+            <td></td>
         </tfoot>
         </tbody>
 </table>
@@ -47,7 +48,7 @@
         $('#patient_list').DataTable( {
                                 dom: 'Bfrtip',
         buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
+            'copy', 'excel', 'pdf', 'print'
         ],
 
         initComplete: function () {
@@ -113,7 +114,7 @@ $(function() {
 
 <script type="text/javascript">
     function archive_patient(id) {
-          var r = confirm("Do you really want to Delete this patient");
+          var r = confirm("Are you sure you want to delete this patient?");
   if (r == true) {
     window.location.href ="archive_patient/"+id ;
   } else {

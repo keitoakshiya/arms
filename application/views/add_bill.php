@@ -82,7 +82,7 @@
 
 <script type="text/javascript">
     function delete_bill(id) {
-      var r = confirm("Do you really want to Delete this patient");
+      var r = confirm("Are you sure you want to delete this patient? This process cannot be undone.");
 	  if (r == true) {
 	    window.location.href ="delete_bill/"+id ;
 	  } else {

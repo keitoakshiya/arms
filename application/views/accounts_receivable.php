@@ -6,7 +6,7 @@
 		<th>Hospital Bill</th>
 		<th>Professional Bill</th>
 		<th>Total Bill</th>
-		<th>Date</th>
+		<th>Date Registered</th>
 	</thead>
 	<tbody>
 		        <?php
@@ -65,7 +65,7 @@
         $('#accounts_receivable_list').DataTable( {
                                 dom: 'Bfrtip',
         buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
+            'copy', 'excel', 'pdf', 'print'
         ],
 
         initComplete: function () {
