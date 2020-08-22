@@ -49,9 +49,9 @@
 
 							        		<td style="border-bottom: 1px solid #ddd; direction: ltr;">
 
-							        		 <input type="number" onkeyup="change_pro_bal(this.value,'.$row->professional_bill.','.$row->SUM1.');"  placeholder = "0.00" name="professional_bill_payment"></td>
+							        		 <input type="number" onkeyup="change_pro_bal(this.value,'.$row->professional_bill.','.$row->SUM2.');"  placeholder = "0.00" name="professional_bill_payment"></td>
 
-							        		<td><input type="text" min="1" value = '.($row->professional_bill -$row->SUM1).' id="pro_bill" disabled>
+							        		<td><input type="text" min="1" value = '.($row->professional_bill -$row->SUM2).' id="pro_bill" disabled>
 							        		</td>
 							        		<td>
 							        		<input type="text" value = "'.$row->SUM1.'" id="prof_bill_transaction" disabled>
@@ -66,8 +66,8 @@
 							        
 								        	<td style="border-bottom: 1px solid #ddd;text-align:center;padding-right:26px">'.$row->hospital_bill.'</td>
 								        	<td style="border-bottom: 1px solid #ddd; direction: ltr;">
-								        	 <input type="number" min="1" onkeyup="change_hosp_bal(this.value,'.$row->hospital_bill.','.$row->SUM2.');"  placeholder = "0.00" name="hospital_bill_payment"></td>
-								        	<td><input type="text" value = '.($row->hospital_bill -$row->SUM2).' id="hosp_bill" disabled>
+								        	 <input type="number" min="1" onkeyup="change_hosp_bal(this.value,'.$row->hospital_bill.','.$row->SUM1.');"  placeholder = "0.00" name="hospital_bill_payment"></td>
+								        	<td><input type="text" value = '.($row->hospital_bill -$row->SUM1).' id="hosp_bill" disabled>
 								        	</td>
 								        	<td>
 							        			<input type="text" value = "'.$row->SUM2.'"

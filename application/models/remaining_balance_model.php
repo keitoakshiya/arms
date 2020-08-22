@@ -49,7 +49,7 @@
         public function get_bill_filtered($start,$end){
 
 
-                        $this->db->select('
+            $this->db->select('
             bill.id as bill_id,
             bill.date,
             bill.patient_id,
