@@ -438,9 +438,6 @@ class Main extends CI_Controller {
 		$this->form_validation->set_rules('patient_id','patient_id','required');
 		$this->form_validation->set_rules('bill_id','bill_id','required');
 
-
-				
-
 			$patient_id = $this->input->post('patient_id');
 			$bill_id = $this->input->post('bill_id');
 			$hospital_bill_payment = $this->input->post('hospital_bill_payment');
@@ -449,11 +446,8 @@ class Main extends CI_Controller {
 
 			$this->load->model('view_bill_by_patient_model');
 
-			$this->view_bill_by_patient_model->insert_transaction($professional_bill_payment,$hospital_bill_payment,$patient_id, $bill_id);
+			$this->view_bill_by_patient_model->insert_transaction($hospital_bill_payment,$professional_bill_payment,$patient_id, $bill_id);
 
-
-
-		
 	}
 
 	public function add_company(){

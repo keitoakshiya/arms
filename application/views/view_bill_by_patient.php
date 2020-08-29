@@ -23,7 +23,7 @@
 			                <div class="x_content">
 		                  <div class="dashboard-widget-content">
 
-			                  <form method="post" action="/arms/main/insert_transaction">
+			                  <form method="post" action="/arms/main/insert_transaction" autocomplete="off">
 
 			                  	<input type="hidden" name="patient_id" value="'.$row->patient_id.'">
 			                  	<input type="hidden" name="bill_id" value="'.$row->bill_id.'">
@@ -49,7 +49,7 @@
 
 							        		<td style="border-bottom: 1px solid #ddd; direction: ltr;">
 
-							        		 <input type="number" onkeyup="change_pro_bal(this.value,'.$row->professional_bill.','.$row->SUM2.');"  placeholder = "0.00" name="professional_bill_payment"></td>
+							        		 <input type="number" id="pro_payment" onkeyup="change_pro_bal(this.value,'.$row->professional_bill.','.$row->SUM2.');"  placeholder = "0.00" name="professional_bill_payment"></td>
 
 							        		<td><input type="text" min="1" value = '.($row->professional_bill -$row->SUM2).' id="pro_bill" disabled>
 							        		</td>
@@ -66,7 +66,7 @@
 							        
 								        	<td style="border-bottom: 1px solid #ddd;text-align:center;padding-right:26px">'.$row->hospital_bill.'</td>
 								        	<td style="border-bottom: 1px solid #ddd; direction: ltr;">
-								        	 <input type="number" min="1" onkeyup="change_hosp_bal(this.value,'.$row->hospital_bill.','.$row->SUM1.');"  placeholder = "0.00" name="hospital_bill_payment"></td>
+								        	 <input type="number" id="hosp_payment" min="1" onkeyup="change_hosp_bal(this.value,'.$row->hospital_bill.','.$row->SUM1.');"  placeholder = "0.00" name="hospital_bill_payment"></td>
 								        	<td><input type="text" value = '.($row->hospital_bill -$row->SUM1).' id="hosp_bill" disabled>
 								        	</td>
 								        	<td>
@@ -83,7 +83,7 @@
 							        </tbody>
 						        </table>
 
-			                   	<input type="submit" id="submit" class=" form form-control btn btn-success submit-btn">
+			                   	<input type="submit" id="submit" class=" form form-control btn btn-success submit-btn" disabled>
 			                  </form>
 		                  </div>
 		                </div>
@@ -128,12 +128,28 @@
 	function isValid(){
 		x = document.getElementById('hosp_bill').value;
 		y = document.getElementById('pro_bill').value;
-		if (x<0||y<0) {
-			document.getElementById('submit').setAttribute("disabled","1");
+
+		a = document.getElementById('hosp_payment').value;
+		b = document.getElementById('pro_payment').value;
+
+
+		if (a>0&&b>0) {
+			if (x<0||y<0) {
+				document.getElementById('submit').setAttribute("disabled","1");
+			}else{
+				document.getElementById('submit').removeAttribute("disabled");
+			}
 		}else{
-			document.getElementById('submit').removeAttribute("disabled");
+			document.getElementById('submit').setAttribute("disabled","1");
 		}
+
 
 	}
 
+</script>
+
+<script>
+    if ( window.history.replaceState ) {
+        window.history.replaceState( null, null, window.location.href );
+    }
 </script>
