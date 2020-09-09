@@ -19,7 +19,7 @@
         ]);
 
         var options = {
-          title: 'Total percentage of patients under Inpatient, Outpatient, Emergency'
+          title: 'Total count of patients under Inpatient, Outpatient and Emergency'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -47,7 +47,7 @@
         ]);
 
         var options = {
-          title: 'Total percentage of paid bills of HMO, Government, Corporate '
+          title: 'Total count of paid bills of HMO, Government and Corporate '
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
@@ -64,7 +64,7 @@
 
       function drawChart() {
         var data = google.visualization.arrayToDataTable( 
-        	<?php echo "[['guarantorID','Inpatient','Outpatient','Emergency'],";
+        	<?php echo "[['Company','Inpatient','Outpatient','Emergency'],";
         		foreach ($result as $key => $row) {
         			echo "['".$row->g_name."',";
         			echo $row->inpatient.",";
@@ -78,7 +78,7 @@
         var options = {
           chart: {
             title: 'Top 10 Company',
-            subtitle: 'This Column Chart shows the top 10 companies with the highest total amount of bill',
+            subtitle: 'This Column Chart shows the top 10 companies with the highest amount of total bill',
           }
         };
 

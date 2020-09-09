@@ -36,13 +36,14 @@
     color:white !important;
     text-align: center;
     font-size: 30px;
+    padding: 5px;
   }
 
   </style>
 </head>
 <body>
 
-    <div style="background-image: url('build/images/logo.png'); padding: 100px 100px;">
+    <div style="background-image: url('build/images/hosplogo.png'); padding: 100px 100px; background-repeat: no-repeat; background-size: 100% auto">
     <div class="modal-dialog">
 
     
@@ -51,7 +52,7 @@
         <div class="modal-header">
           
           <h4></h4>
-          <h3><span>Accounts Receivable Management System</span><h3>
+          <h3><span>Accounts Receivable Management System</span></h3>
             <img src="build/images/logo2.png" alt="arms logo" width="80" height="70">
           
 

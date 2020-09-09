@@ -7,7 +7,7 @@
                 <th>Middle Name</th>
                 <th>Last Name</th>
                 <th>Date Registered</th>
-                <th></th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>

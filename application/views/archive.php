@@ -2,11 +2,9 @@
         <thead>
             <tr>
                 <th>Company</th>
-                <th>First name</th>
-                <th>Middle name</th>
-                <th>Last name</th>
+                <th>Full Name</th>
                 <th>Date Deleted</th>
-                <th></th>
+                <th>Retrieve</th>
             </tr>
         </thead>
         <tbody>
@@ -18,9 +16,7 @@
 				foreach ($result as $key => $row) {
 					echo "<tr>";
                         echo "<td>".$row->guarantor_name."</td>";
-						echo "<td>".$row->first_name."</td>";
-						echo "<td>".$row->middle_name."</td>";
-						echo "<td>".$row->last_name."</td>";
+						echo "<td>".$row->first_name." ".$row->middle_name." ".$row->last_name."</td>";
 						echo "<td>".$row->date_deleted."</td>";
 						echo "<td><a href='restore_patient/".$row->patient_id."'><i class='fa fa-window-restore' 
                         style='color: #40b336; font-size: 16px'></i></a></td>";
