@@ -16,7 +16,7 @@
             );
 
             $this->db->insert('bill', $data2);
-            echo "<script>alert('asdasd');</script>";
+            /*echo "<script>alert('asdasd');</script>";*/
             header("Location: /arms/main/add_bill");
 
         }      

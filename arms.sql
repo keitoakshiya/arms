@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 09, 2020 at 05:10 PM
+-- Generation Time: Sep 13, 2020 at 03:52 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -68,28 +68,32 @@ CREATE TABLE `guarantor` (
   `id` int(11) NOT NULL,
   `name` varchar(50) NOT NULL,
   `type` int(11) NOT NULL,
-  `deleted` tinyint(1) NOT NULL DEFAULT 0
+  `deleted` tinyint(1) NOT NULL DEFAULT 0,
+  `address` varchar(40) NOT NULL,
+  `contact_person` varchar(40) NOT NULL,
+  `contact_number` int(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `guarantor`
 --
 
-INSERT INTO `guarantor` (`id`, `name`, `type`, `deleted`) VALUES
-(9, 'AMAPHIL', 1, 0),
-(10, 'EAST WEST', 1, 0),
-(13, 'HEALTHBRIDGE', 1, 0),
-(14, 'AVEGA MANAGED CARE INC', 1, 0),
-(15, 'CAREWELL, INC', 1, 0),
-(16, 'AIM ONE', 3, 0),
-(17, 'AXA LIFE', 3, 0),
-(18, 'ANCHOR BANK', 3, 0),
-(19, 'AA INTERNATIONAL', 3, 0),
-(20, 'CUNNINGHAM LINDSEY PHILS INC', 3, 0),
-(21, 'DSWD', 2, 0),
-(22, 'PHILHEALTH', 2, 0),
-(23, 'EMPLOYEE\'S COMPENSATION  COMMISSION', 2, 0),
-(24, 'PCSO', 2, 0);
+INSERT INTO `guarantor` (`id`, `name`, `type`, `deleted`, `address`, `contact_person`, `contact_number`) VALUES
+(9, 'AMAPHIL', 1, 0, '', '', 0),
+(10, 'EAST WEST', 1, 0, '', '', 0),
+(13, 'HEALTHBRIDGE', 1, 0, '', '', 0),
+(14, 'AVEGA MANAGED CARE INC', 1, 0, '', '', 0),
+(15, 'CAREWELL, INC', 1, 0, '', '', 0),
+(16, 'AIM ONE', 3, 0, '', '', 0),
+(17, 'AXA LIFE', 3, 0, '', '', 0),
+(18, 'ANCHOR BANK', 3, 0, '', '', 0),
+(19, 'AA INTERNATIONAL', 3, 0, '', '', 0),
+(20, 'CUNNINGHAM LINDSEY PHILS INC', 3, 0, '', '', 0),
+(21, 'DSWD', 2, 0, '', '', 0),
+(22, 'PHILHEALTH', 2, 0, '', '', 0),
+(23, 'EMPLOYEE\'S COMPENSATION  COMMISSION', 2, 0, '', '', 0),
+(24, 'PCSO', 2, 0, '', '', 0),
+(25, 'Test', 1, 0, 'Sample Address', 'John Doe', 1231321);
 
 -- --------------------------------------------------------
 
@@ -287,7 +291,7 @@ ALTER TABLE `bill`
 -- AUTO_INCREMENT for table `guarantor`
 --
 ALTER TABLE `guarantor`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `patient`

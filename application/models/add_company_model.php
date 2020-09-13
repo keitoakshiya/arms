@@ -1,10 +1,13 @@
 <?php  
     class add_company_model extends CI_Model {
 
-        public function insert_company($name, $type){
+        public function insert_company($name, $type,$address,$contact_person,$contact_number){
         	if ($this->checkDuplicateCompany($name)) {
         		$this->db->set('name', $name);
 	            $this->db->set('type', $type);
+	            $this->db->set('address', $address);
+	            $this->db->set('contact_person', $contact_person);
+	            $this->db->set('contact_number', $contact_number);
 	            $this->db->insert('guarantor');
 	            header("Location: /arms/main/add_company");
         	}else{

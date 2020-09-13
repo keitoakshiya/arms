@@ -471,14 +471,20 @@ class Main extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('name','name','required');
 		$this->form_validation->set_rules('type','type','required');
+		$this->form_validation->set_rules('address','address','required');
+		$this->form_validation->set_rules('contact_person','contact_person','required');
+		$this->form_validation->set_rules('contact_number','contact_number','required');
 
 		if ($this->form_validation->run()) {	
 
 			$name = $this->input->post('name');
 			$type = $this->input->post('type');
+			$address = $this->input->post('address');
+			$contact_person = $this->input->post('contact_person');
+			$contact_number = $this->input->post('contact_number');
 
 			$this->load->model('add_company_model');
-			$this->add_company_model->insert_company($name,$type);
+			$this->add_company_model->insert_company($name,$type,$address,$contact_person,$contact_number);
 		}
 	}
 
