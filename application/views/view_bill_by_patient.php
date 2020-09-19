@@ -133,7 +133,7 @@
 		b = document.getElementById('pro_payment').value;
 
 
-		if (a>0&&b>0) {
+		if (a>0||b>0) {
 			if (x<0||y<0) {
 				document.getElementById('submit').setAttribute("disabled","1");
 			}else{

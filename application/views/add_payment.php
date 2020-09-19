@@ -37,7 +37,7 @@
 						}
 						echo "<td>&#8369;".($row->hospital_bill_payment+$row->professional_bill_payment)."</td>";
 						
-						echo "<td><button class='btn-success'><a href='view_bill_by_patient/".$row->patient_id."' style = 'color:white;'>Add Payment</a></button></td>"; 
+						echo "<td><button class='btn-success'><a href='../view_bill_by_patient/".$row->patient_id."' style = 'color:white;'>Add Payment</a></button></td>"; 
 
 
 					echo "</tr>";

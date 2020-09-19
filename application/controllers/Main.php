@@ -365,7 +365,7 @@ class Main extends CI_Controller {
 	}
 
 
-	public function add_payment(){
+	public function add_payment($a){
 		$this->load->model('roles_model');
 		if ($this->roles_model->can_read()==0) {
 			header("Location: denied");
@@ -374,9 +374,9 @@ class Main extends CI_Controller {
 		    'title' => 'Add Payment',
 		    'description' => ' '
 		);
-		$this->load->view('template/header',$data);
+		$this->load->view('template/header2',$data);
 		$this->load->model('add_payment_model');
-		$res = $this->add_payment_model->get_bill();
+		$res = $this->add_payment_model->get_bill($a);
 		$this->load->view('template/container_header',$data);
 		
 		if($res){	$data2['result'] = $res;
@@ -385,7 +385,36 @@ class Main extends CI_Controller {
 		else {"Fail";}
 		
 		$this->load->view('template/container_footer');
+		$this->load->view('template/footer2');
+	}
+
+	public function company_list(){
+
+		$this->load->model('roles_model');
+
+		if ($this->roles_model->can_read()==0) {
+			header("Location: denied");
+		}
+
+		$data = array(
+		    'title' => 'Add Payment',
+		    'description' => ' '
+		);
+
+		$this->load->view('template/header',$data);
+		$this->load->model('company_list_model');
+		$res = $this->company_list_model->get_company();
+		$this->load->view('template/container_header',$data);
+
+		if($res){	$data2['result'] = $res;
+        	$this->load->view('company_list',$data2);
+		}
+
+		else {"Fail";}
+
+		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
+
 	}
 
 	public function view_bill_by_patient($id){

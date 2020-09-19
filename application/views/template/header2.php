@@ -119,7 +119,7 @@
                   <li><a><i class="fa fa-plus-square-o"></i> Add Payment <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="../official_receipt">Official Receipts</a></li>
-                      <li><a href="../add_payment">Payment Application</a></li>
+                      <li><a href="../company_list">Payment Application</a></li>
                     </ul>
                   </li>
                   <li><a href="../add_company"><i class="fa fa-building-o"></i> Add Company </a></li>
