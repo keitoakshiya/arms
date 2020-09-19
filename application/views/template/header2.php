@@ -77,7 +77,7 @@
         <div class="col-md-3 left_col menu_fixed">
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
-              <a href="dashboard" style="padding-left: 30px; padding-top: 10px; padding-bottom: 0px">
+              <a href="../dashboard" style="padding-left: 30px; padding-top: 10px; padding-bottom: 0px">
                 <img src="../../build/images/logo2.png" alt="arms logo" width="80" height="70">
               </a> 
             </div>
@@ -107,8 +107,10 @@
                 <ul class="nav side-menu">
                   <li><a href="../dashboard"><i class="fa fa-bar-chart"></i> Graph Report </a></li>
                   <li><a href="../patients"><i class="fa fa-list-alt"></i> Patient List </a></li>
-                  <li><a href="../add_patient"><i class="fa fa-edit"></i> Register Patient </a></li>
-                  <li><a href="../add_bill"><i class="fa fa-edit"></i> Register Bill </a></li>
+                  <li><a href="../add_patient"><i class="fa fa-edit"></i>1 Register Patient </a></li>
+                  <li><a href="../official_receipt"><i class="fa fa-edit"></i>2 Official Receipts</a></li>
+                  <li><a href="../add_bill"><i class="fa fa-edit"></i>3 Register Bill </a></li>
+                  <li><a href="../company_list"><i class="fa fa-edit"></i>4 Payment Application</a></li>
                   <li><a><i class="fa fa-table"></i> Summary <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="../accounts_receivable">Accounts Receivable</a></li>
@@ -116,12 +118,12 @@
                       <li><a href="../remaining_balance">Remaining Balance</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-plus-square-o"></i> Add Payment <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="../official_receipt">Official Receipts</a></li>
-                      <li><a href="../company_list">Payment Application</a></li>
-                    </ul>
-                  </li>
+                  <!-- <li><a><i class="fa fa-plus-square-o"></i> Add Payment <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu"> -->
+                      
+
+                    <!-- </ul>
+                  </li> -->
                   <li><a href="../add_company"><i class="fa fa-building-o"></i> Add Company </a></li>
                   
 
@@ -135,9 +137,9 @@
 
               <div class="menu_section">
                 <ul class="nav side-menu">
-                  <li><a href="../Archive"><i class="fa fa-file-archive-o"></i> Archive </a></li>
-                  <li><a href="../add_account"><i class="fa fa-edit"></i> Add Account </a></li>
-                  <li><a href="../roles"><i class="fa fa-users"></i> Manage Roles </a></li>
+                  <li><a href="../../Archive"><i class="fa fa-file-archive-o"></i> Archive </a></li>
+                  <li><a href="../../add_account"><i class="fa fa-edit"></i> Add Account </a></li>
+                  <li><a href="../../roles"><i class="fa fa-users"></i> Manage Roles </a></li>
                 </ul>
               </div>
             </div>
@@ -171,7 +173,7 @@
                 <nav class="nav navbar-nav">
                 <ul class=" navbar-right">
                   <li class="nav-item dropdown open" style="padding-left: 15px;">
-                    <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                    <a href="../javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
                      <?echo $session_data['username'];?>
                     </a>
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
