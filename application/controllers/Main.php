@@ -417,6 +417,35 @@ class Main extends CI_Controller {
 
 	}
 
+	public function official_receipt_list(){
+
+		$this->load->model('roles_model');
+
+		if ($this->roles_model->can_read()==0) {
+			header("Location: denied");
+		}
+
+		$data = array(
+		    'title' => 'Receipt lists',
+		    'description' => ' '
+		);
+
+		$this->load->view('template/header',$data);
+		$this->load->model('official_receipt_list_model');
+		$res = $this->official_receipt_list_model->get_receipt();
+		$this->load->view('template/container_header',$data);
+
+		if($res){	$data2['result'] = $res;
+        	$this->load->view('official_receipt_list',$data2);
+		}
+
+		else {"Fail";}
+
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer');
+
+	}
+
 	public function view_bill_by_patient($id){
 		$data = array(
 		    'title' => 'Payment Application Page 2',
@@ -528,7 +557,24 @@ class Main extends CI_Controller {
 		);
 		$this->load->view('template/header',$data);
 		$this->load->view('template/container_header',$data);
-		$this->load->view('official_receipt');
+		$this->load->view('official_receipt_choices');
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer');
+	}
+
+	public function add_official_receipt(){
+				$this->load->model('roles_model');
+		if ($this->roles_model->can_add()==0) {
+			header("Location: denied");
+		}
+
+		$data = array(
+		    'title' => 'Official Receipt',
+		    'description' => ' This is the Official Receipt page'
+		);
+		$this->load->view('template/header',$data);
+		$this->load->view('template/container_header',$data);
+		$this->load->view('add_official_receipt');
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
 	}
