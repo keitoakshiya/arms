@@ -1,7 +1,7 @@
 <?php  
     class add_payment_model extends CI_Model {
 
-        public function get_bill($a){
+        public function get_bill(){
 
             $this->db->select('
             bill.id as bill_id,
@@ -39,7 +39,7 @@
             $this->db->join('guarantor', 'guarantor.id = guarantor_id', 'left');
             $this->db->join('transaction', 'bill.id = bill_id', 'left');
             $this->db->where('patient.deleted =', 0);
-            $this->db->where('guarantor.id =', $a);
+            //$this->db->where('guarantor.id =', $a);
             $query = $this->db->get('bill');
 
             $res   = $query->result();

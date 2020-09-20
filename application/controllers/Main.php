@@ -157,6 +157,32 @@ class Main extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
+	public function add_patient_to_receipt($a,$b) {
+		$this->load->model('roles_model');
+
+		if ($this->roles_model->can_read()==0) {
+			header("Location: denied");
+		}
+
+
+		$data = array(
+		    'title' => 'Patients List',
+		    'description' => ' '
+		);
+		$this->load->model('add_patient_to_receipt_model');
+		$res = $this->add_patient_to_receipt_model->get_patients($a);
+		$this->load->view('template/header3',$data);
+		$this->load->view('template/container_header',$data);
+
+		if($res){	$data2['result'] = $res; $data2['receipt'] = $b;
+        	$this->load->view('add_patient_to_receipt',$data2);
+		}
+		else {"Fail";}
+
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer3');
+	}
+
 	public function insert_patient(){
 
 		$this->load->library('form_validation');
@@ -365,7 +391,7 @@ class Main extends CI_Controller {
 	}
 
 
-	public function add_payment($a){
+	public function add_payment(){
 		$this->load->model('roles_model');
 		if ($this->roles_model->can_read()==0) {
 			header("Location: denied");
@@ -376,7 +402,7 @@ class Main extends CI_Controller {
 		);
 		$this->load->view('template/header2',$data);
 		$this->load->model('add_payment_model');
-		$res = $this->add_payment_model->get_bill($a);
+		$res = $this->add_payment_model->get_bill();
 		$this->load->view('template/container_header',$data);
 		
 		if($res){	$data2['result'] = $res;
@@ -417,7 +443,36 @@ class Main extends CI_Controller {
 
 	}
 
-	public function official_receipt_list(){
+	public function official_receipt_list($a){
+
+		$this->load->model('roles_model');
+
+		if ($this->roles_model->can_read()==0) {
+			header("Location: denied");
+		}
+
+		$data = array(
+		    'title' => 'Receipt lists',
+		    'description' => ' '
+		);
+
+		$this->load->view('template/header2',$data);
+		$this->load->model('official_receipt_list_model');
+		$res = $this->official_receipt_list_model->get_receipt($a);
+		$this->load->view('template/container_header',$data);
+
+		if($res){	$data2['result'] = $res;
+        	$this->load->view('official_receipt_list',$data2);
+		}
+
+		else {"Fail";}
+
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer2');
+
+	}
+
+	public function official_receipt_list2(){
 
 		$this->load->model('roles_model');
 
@@ -431,8 +486,8 @@ class Main extends CI_Controller {
 		);
 
 		$this->load->view('template/header',$data);
-		$this->load->model('official_receipt_list_model');
-		$res = $this->official_receipt_list_model->get_receipt();
+		$this->load->model('official_receipt_list_model2');
+		$res = $this->official_receipt_list_model2->get_receipt();
 		$this->load->view('template/container_header',$data);
 
 		if($res){	$data2['result'] = $res;
@@ -446,12 +501,12 @@ class Main extends CI_Controller {
 
 	}
 
-	public function view_bill_by_patient($id){
+	public function view_bill_by_patient($id,$receipt){
 		$data = array(
 		    'title' => 'Payment Application Page 2',
 		    'description' => ' '
 		);
-		$this->load->view('template/header2',$data);
+		$this->load->view('template/header3',$data);
 		$this->load->model('view_bill_by_patient_model');
 		$res = $this->view_bill_by_patient_model->get_view_bill_by_patient($id);
 		$res2 = $this->view_bill_by_patient_model->get_transaction($id);
@@ -459,10 +514,12 @@ class Main extends CI_Controller {
 		if($res){	
 			$data2['result'] = $res;
 			$data2['result2'] = $res2;
+			$data2['receipt'] = $receipt;
 	        $this->load->view('view_bill_by_patient',$data2);
 		}
+
 		else {"Fail";}
-			$this->load->view('template/footer2');
+			$this->load->view('template/footer3');
 	}
 
 	public function insert_bill(){
@@ -495,16 +552,18 @@ class Main extends CI_Controller {
 		$this->form_validation->set_rules('professional_bill_payment','professional_bill_payment','required');
 		$this->form_validation->set_rules('patient_id','patient_id','required');
 		$this->form_validation->set_rules('bill_id','bill_id','required');
+		$this->form_validation->set_rules('receipt','receipt','required');
 
 			$patient_id = $this->input->post('patient_id');
 			$bill_id = $this->input->post('bill_id');
+			$receipt_id = $this->input->post('receipt_id');
 			$hospital_bill_payment = $this->input->post('hospital_bill_payment');
 			$professional_bill_payment = $this->input->post('professional_bill_payment');
 			
 
 			$this->load->model('view_bill_by_patient_model');
 
-			$this->view_bill_by_patient_model->insert_transaction($hospital_bill_payment,$professional_bill_payment,$patient_id, $bill_id);
+			$this->view_bill_by_patient_model->insert_transaction($hospital_bill_payment,$professional_bill_payment,$patient_id, $bill_id,$receipt_id);
 
 	}
 
@@ -749,6 +808,18 @@ class Main extends CI_Controller {
 		else{
 		$this->load->model('delete_bill_model');
 		$this->delete_bill_model->delete_bill($a);
+		}
+
+	}
+
+	public function mark_receipt($a){
+		$this->load->model('roles_model');
+		if ($this->roles_model->can_delete()==0) {
+			header("Location: ../denied");
+		}
+		else{
+		$this->load->model('mark_receipt_model');
+		$this->mark_receipt_model->mark_receipts($a);
 		}
 
 	}

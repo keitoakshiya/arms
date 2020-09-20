@@ -8,7 +8,7 @@
 			if ($result) {
 				foreach ($result as $key => $row) {
 					echo "<tr>";
-						echo "<td><a href='add_payment/".$row->id."'>".$row->name."</a></td>";
+						echo "<td><a href='official_receipt_list/".$row->id."'>".$row->name."</a></td>";
 					echo "</tr>";
 
 				}
