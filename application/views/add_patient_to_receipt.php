@@ -2,21 +2,21 @@
         <thead>
             <tr>
                 <th colspan="2">Patient</th>
-                <th colspan="3">Bill</th>
-                <th colspan="3">Paid</th>
-                <th colspan="4">Balance</th>
+                <th colspan="4">Bill</th>
+                <th colspan="4">Payment</th>
+                <th colspan="5">Balance</th>
             </tr>
             <tr>
                 <th>Patient ID</th>
                 <th>Patient Name</th>
                 <th>Hospital Bill</th>
-                <th>professional Fee</th>
+                <th>Professional Bill</th>
                 <th>Total</th>
                 <th>Hospital Bill</th>
-                <th>professional Fee</th>
+                <th>professional Bill</th>
                 <th>Total</th>
                 <th>Hospital Bill</th>
-                <th>professional Fee</th>
+                <th>professional Bill</th>
                 <th>Total</th>
                 <th></th>
                 
@@ -44,7 +44,7 @@
                         echo "<td>".$row->hospital_bill_balance."</td>";
                         echo "<td>".$row->professional_bill_balance."</td>";
                         echo "<td>".$row->total_balance."</td>";
-                        echo "<td><a href='../../view_bill_by_patient/".$row->patient_id."/".$receipt."'>edit</a></td>";
+                        echo "<td><a href='../../view_bill_by_patient/".$row->patient_id."/".$receipt."'>Edit</a></td>";
 						//echo "<td>".$row->date_created."</td>";
 					echo "</tr>";
 				}

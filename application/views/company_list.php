@@ -1,6 +1,6 @@
-<table id="add_payment" class="display" style="width:100%">
+<table id="company_list" class="display" style="width:100%">
 	<thead>
-		<th>Guarantor</th>
+		<th>Company List</th>
 	</thead>
 	<tbody>
 
@@ -20,6 +20,6 @@
 
 <script type="text/javascript">
 	$(document).ready( function () {
-	    $('#add_payment').DataTable();
+	    $('#company_list').DataTable();
 	} );
 </script> 

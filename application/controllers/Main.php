@@ -423,7 +423,7 @@ class Main extends CI_Controller {
 		}
 
 		$data = array(
-		    'title' => 'Add Payment',
+		    'title' => 'Official Receipt Company List',
 		    'description' => ' '
 		);
 
@@ -452,7 +452,7 @@ class Main extends CI_Controller {
 		}
 
 		$data = array(
-		    'title' => 'Receipt lists',
+		    'title' => 'Official Receipt List',
 		    'description' => ' '
 		);
 
@@ -481,7 +481,7 @@ class Main extends CI_Controller {
 		}
 
 		$data = array(
-		    'title' => 'Receipt lists',
+		    'title' => 'Distributed OR List',
 		    'description' => ' '
 		);
 
@@ -491,7 +491,7 @@ class Main extends CI_Controller {
 		$this->load->view('template/container_header',$data);
 
 		if($res){	$data2['result'] = $res;
-        	$this->load->view('official_receipt_list',$data2);
+        	$this->load->view('official_receipt_list2',$data2);
 		}
 
 		else {"Fail";}
@@ -605,38 +605,7 @@ class Main extends CI_Controller {
 		}
 	}
 
-	public function official_receipt(){
-				$this->load->model('roles_model');
-		if ($this->roles_model->can_add()==0) {
-			header("Location: denied");
-		}
-		$data = array(
-		    'title' => 'Official Receipt',
-		    'description' => ' This is the Official Receipt page'
-		);
-		$this->load->view('template/header',$data);
-		$this->load->view('template/container_header',$data);
-		$this->load->view('official_receipt_choices');
-		$this->load->view('template/container_footer');
-		$this->load->view('template/footer');
-	}
-
-	public function add_official_receipt(){
-				$this->load->model('roles_model');
-		if ($this->roles_model->can_add()==0) {
-			header("Location: denied");
-		}
-
-		$data = array(
-		    'title' => 'Official Receipt',
-		    'description' => ' This is the Official Receipt page'
-		);
-		$this->load->view('template/header',$data);
-		$this->load->view('template/container_header',$data);
-		$this->load->view('add_official_receipt');
-		$this->load->view('template/container_footer');
-		$this->load->view('template/footer');
-	}
+	
 
 	public function add_account(){
 		$this->load->model('roles_model');
@@ -760,6 +729,22 @@ class Main extends CI_Controller {
 			$this->roles_model->update_role($id,$view_data2,$add_data2,$edit_data2,$delete_data2);
 	}
 
+	public function official_receipt(){
+				$this->load->model('roles_model');
+		if ($this->roles_model->can_add()==0) {
+			header("Location: denied");
+		}
+		$data = array(
+		    'title' => 'Official Receipt',
+		    'description' => ' This is the Official Receipt page'
+		);
+		$this->load->view('template/header',$data);
+		$this->load->view('template/container_header2',$data);
+		$this->load->view('add_official_receipt');
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer');
+	}
+
 	public function insert_receipt(){
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('company','company','required');
@@ -776,28 +761,6 @@ class Main extends CI_Controller {
 		$this->add_or_model->insert_receipt($company,$or_date,$or_number,$or_amount);
 	}	
 
-
-	public function official_receipt2($or_number,$or_amount){
-
-
-		$data = array(
-		    'title' => $or_number,
-		    'description' => $or_amount
-		);
-
-		$this->load->view('template/header3',$data);
-		$this->load->model('official_receipt2_model');
-		$res = $this->official_receipt2_model->get_bill();
-		$this->load->view('template/container_header2',$data);
-		
-		if($res){	$data2['result'] = $res;
-        	$this->load->view('official_receipt2',$data2);
-		}
-		else {"Fail";}
-		
-		$this->load->view('template/container_footer');
-		$this->load->view('template/footer3');
-	}
 
 
 	public function delete_bill($a){

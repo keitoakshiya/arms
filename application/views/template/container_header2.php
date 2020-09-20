@@ -6,11 +6,10 @@
             <div class="col-md-12 col-sm-12 ">
               <div class="x_panel">
                 <div class="x_title">
-                  <h2>OR Number: <b><?=$title?> </b>
-                    <br>
-                    OR Amount: <small><b><?=$description?></b></small></h2>
+                  <h2><?=$title?> Page</h2>
                   <ul class="nav navbar-right panel_toolbox">
-                    <li style="padding-left: 51px;"><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    <li style="padding-left: 100px;">
+                      <a href="official_receipt_list2"><button class="btn btn-info">View Applied OR</button></a>
                     </li>
                   </ul>
                   <div class="clearfix"></div>
