@@ -109,7 +109,7 @@
                   <li><a href="../patients"><i class="fa fa-list-alt"></i> Patient List </a></li>
                   <li><a href="../add_patient"><i class="fa fa-edit"></i>1 Register Patient </a></li>
                   <li><a href="../add_bill"><i class="fa fa-edit"></i>2 Register Bill </a></li>
-                  <li><a href="../z"><i class="fa fa-edit"></i>3 Official Receipts</a></li>
+                  <li><a href="../official_receipt"><i class="fa fa-edit"></i>3 Official Receipts</a></li>
                   <li><a href="../company_list"><i class="fa fa-edit"></i>4 Payment Application</a></li>
                   <li><a><i class="fa fa-table"></i> Summary <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
