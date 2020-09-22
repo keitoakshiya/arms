@@ -217,6 +217,8 @@ class Main extends CI_Controller {
 		if ($this->roles_model->can_read()==0) {
 			header("Location: denied");
 		}
+
+		
 		$data = array(
 		    'title' => 'Accounts Receivable',
 		    'description' => ' Summary of Accounts Receivable '
@@ -224,7 +226,7 @@ class Main extends CI_Controller {
 		$this->load->view('template/header',$data);
 		$this->load->model('accounts_receivable_model');
 		$res = $this->accounts_receivable_model->get_bill();
-		$this->load->view('template/container_header_daterange_accounts_receivable',$data);
+		$this->load->view('template/container_header',$data);
 		
 		if($res){	$data2['result'] = $res;
         	$this->load->view('accounts_receivable',$data2);
@@ -233,6 +235,29 @@ class Main extends CI_Controller {
 		
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
+	}
+
+	public function accounts_receivable2($a){
+		$this->load->model('roles_model');
+		if ($this->roles_model->can_read()==0) {
+			header("Location: denied");
+		}
+		$data = array(
+		    'title' => 'Accounts Receivable',
+		    'description' => ' Summary of Accounts Receivable '
+		);
+		$this->load->view('template/header2',$data);
+		$this->load->model('accounts_receivable_model2');
+		$res = $this->accounts_receivable_model2->get_bill($a);
+		$this->load->view('template/container_header_daterange_accounts_receivable',$data);
+		
+		if($res){	$data2['result'] = $res;
+        	$this->load->view('accounts_receivable2',$data2);
+		}
+		else {"Fail";}
+		
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer2');
 	}
 
 
@@ -283,7 +308,7 @@ class Main extends CI_Controller {
 		$this->load->view('template/header',$data);
 		$this->load->model('payment_summary_model');
 		$res = $this->payment_summary_model->get_bill();
-		$this->load->view('template/container_header_daterange_payment_summary',$data);
+		$this->load->view('template/container_header',$data);
 		
 		if($res){	$data2['result'] = $res;
         	$this->load->view('payment_summary',$data2);
@@ -292,6 +317,31 @@ class Main extends CI_Controller {
 		
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
+
+
+	}
+
+public function payment_summary2($a){
+		$this->load->model('roles_model');
+		if ($this->roles_model->can_read()==0) {
+			header("Location: denied");
+		}
+		$data = array(
+		    'title' => 'Payment Summary',
+		    'description' => ' Total Payment of Bills '
+		);
+		$this->load->view('template/header2',$data);
+		$this->load->model('payment_summary_model2');
+		$res = $this->payment_summary_model2->get_bill($a);
+		$this->load->view('template/container_header_daterange_payment_summary',$data);
+		
+		if($res){	$data2['result'] = $res;
+        	$this->load->view('payment_summary2',$data2);
+		}
+		else {"Fail";}
+		
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer2');
 
 
 	}
@@ -343,7 +393,7 @@ class Main extends CI_Controller {
 		$this->load->view('template/header',$data);
 		$this->load->model('remaining_balance_model');
 		$res = $this->remaining_balance_model->get_bill();
-		$this->load->view('template/container_header_daterange_remaining_balance',$data);
+		$this->load->view('template/container_header',$data);
 		
 		if($res){	$data2['result'] = $res;
         	$this->load->view('remaining_balance',$data2);
@@ -352,6 +402,29 @@ class Main extends CI_Controller {
 		
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
+	}
+
+	public function remaining_balance2($a){
+		$this->load->model('roles_model');
+		if ($this->roles_model->can_read()==0) {
+			header("Location: denied");
+		}
+		$data = array(
+		    'title' => 'Remaining Balance',
+		    'description' => ' Total Remaining of Balance '
+		);
+		$this->load->view('template/header2',$data);
+		$this->load->model('remaining_balance_model2');
+		$res = $this->remaining_balance_model2->get_bill($a);
+		$this->load->view('template/container_header_daterange_remaining_balance',$data);
+		
+		if($res){	$data2['result'] = $res;
+        	$this->load->view('remaining_balance2',$data2);
+		}
+		else {"Fail";}
+		
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer2');
 	}
 
 	public function remaining_balance_filtered(){

@@ -1,64 +1,58 @@
+<table id="accounts_receivable_list" class="display" style="width:100%">
+    <thead>
+<!--             <tr>
+                <th colspan="1">Patient</th>
+                <th colspan="3">Bill</th>
+                <th colspan="3">Payment</th>
+                <th colspan="3">Balance</th>
+            </tr> -->
+        <tr>
+            <th>Company</th>
+            <!-- <th>Hospital Bill</th> -->
+            <!-- <th>Professional Bill</th> -->
+            <th>Total Bill</th>
+            <!-- <th>Hospital Bill</th> -->
+            <!-- <th>Professional Bill</th> -->
+            <th>Total Payment</th>
+            <!-- <th>Hospital Bill</th> -->
+            <!-- <th>Professional Bill</th> -->
+            <th>Total Balance</th>
+        </tr>
+    </thead>
+    <tbody>
+                <?php
+            if ($result) {
+                foreach ($result as $key => $row) {
+                    echo "<tr>";
+                        echo "<td><a href='accounts_receivable2/".$row->guarantor_id."'>".$row->name."</a></td>";
+                        //echo "<td>&#8369;".$row->hospital_bill_total."</td>";
+                        //echo "<td>&#8369;".$row->professional_bill_total."</td>";
+                        echo "<td>&#8369;".$row->total_bill."</td>";
+                        //echo "<td>&#8369;".$row->total_hospital_paid."</td>";
+                        //echo "<td>&#8369;".$row->total_professional_paid."</td>";
+                        echo "<td>&#8369;".$row->total_paid."</td>";
+                        //echo "<td>&#8369;".$row->hospital_bill_balance."</td>";
+                        //echo "<td>&#8369;".$row->professional_bill_balance."</td>";
+                        echo "<td>&#8369;".$row->total_balance."</td>";
 
-<table id="payment_summary" class="display" style="width:100%">
-	<thead>
-		<th>Company</th>
-		<th>Full Name</th>
-		<th>Patient Type</th>
-		<th>Hospital Bill</th>
-		<th>Paid Hospital Bill</th>
-		<th>Professional Bill</th>
-		<th>Paid Professional Bill</th>
-		<th>Total Paid Bill</th>
+                    echo "</tr>";
+                }
+            }
+        ?>
 
-	</thead>
-	<tbody>
-		        <?php
-			if ($result) {
-				foreach ($result as $key => $row) {
-					echo "<tr>";
-						echo "<td>".$row->name."</td>";
-						echo "<td>".$row->first_name." ".$row->middle_name." ".$row->last_name."</td>";
-
-						if ($row->patient_type==0) {
-							echo "<td>Not Registered</td>";
-						}
-
-						else if ($row->patient_type==1) {
-							echo "<td>Inpatient</td>";
-						}
-
-						else if ($row->patient_type==2) {
-							echo "<td>Outpatient</td>";
-						}
-
-						else if ($row->patient_type==3) {
-							echo "<td>Emergency</td>";
-						}
-
-						else{
-							echo "<td></td>";
-						}
-
-						echo "<td>&#8369;".$row->hospital_bill."</td>"; /*DON"T FORGET TO ADD PESO SIGN ON OTHER PAGES*/
-						echo "<td>&#8369;".$row->hospital_bill_payment."</td>";
-						echo "<td>&#8369;".$row->professional_bill."</td>";
-						echo "<td>&#8369;".$row->professional_bill_payment."</td>";
-						echo "<td>&#8369;".($row->hospital_bill_payment+$row->professional_bill_payment)."</td>";
-
-
-
-					echo "</tr>";
-				}
-			}
-		?>
-
-	</tbody>
+    </tbody>
+    <tfoot>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+    </tfoot>
 </table>
 
 <script type="text/javascript">
 
 
-        $('#payment_summary').DataTable( {
+        $('#accounts_receivable_list').DataTable( {
                                 dom: 'Bfrtip',
         buttons: [
             'copy', 'excel', 'pdf', 'print'
@@ -120,3 +114,4 @@ $(function() {
 
 });
 </script>
+

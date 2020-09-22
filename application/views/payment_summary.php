@@ -1,5 +1,6 @@
 <table id="payment_summary" class="display" style="width:100%">
 	<thead>
+        <th>Guarantor Type</th>
 		<th>Company</th>
 		<th>Total Bill</th>
 		<th>Total Payment</th>
@@ -11,7 +12,17 @@
 			if ($result) {
 				foreach ($result as $key => $row) {
 					echo "<tr>";
-                        echo "<td>".$row->name."</td>";
+
+                    if ($row->type == 1) {
+                        echo "<td>HMO</td>";
+                    }
+                    if ($row->type == 2) {
+                        echo "<td>Corporate</td>";
+                    }
+                    if ($row->type == 3) {
+                        echo "<td>Government</td>";
+                    }
+                        echo "<td><a style='color:blue'  href='payment_summary2/".$row->guarantor_id."'>".$row->name."</td>";
                         //echo "<td>&#8369;".$row->hospital_bill_total."</td>";
                         //echo "<td>&#8369;".$row->professional_bill_total."</td>";
                         echo "<td>&#8369;".$row->total_bill."</td>";
@@ -25,10 +36,17 @@
 
 
 					echo "</tr>";
+
 				}
 			}
 		?>
+    <tfoot>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
 
+    </tfoot>
 	</tbody>
 </table>
 
@@ -42,7 +60,7 @@
         ],
 
         initComplete: function () {
-            this.api().columns([0,2]).every( function () {
+            this.api().columns([0]).every( function () {
                 var column = this;
                 var select = $('<select><option value="">All</option></select>')
                     .appendTo( $(column.footer()).empty() )

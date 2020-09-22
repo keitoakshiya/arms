@@ -4,7 +4,7 @@
         public function get_bill(){
 
             $this->db->select('
-                guarantor.id,guarantor.name,
+                guarantor.id AS guarantor_id,guarantor.name,guarantor.type,
     #bill
     IFNULL((SELECT SUM(hospital_bill) FROM bill WHERE guarantor_id = guarantor.id),0) AS hospital_bill_total,
     IFNULL((SELECT SUM(professional_bill) FROM bill WHERE guarantor_id = guarantor.id),0) AS professional_bill_total,
@@ -29,6 +29,7 @@
             $this->db->join('guarantor', 'guarantor.id = guarantor_id');
             $this->db->distinct();
             $this->db->where('patient.deleted =', 0);
+            $this->db->where('guarantor_id !=', 'null');
             $query = $this->db->get('bill');
             $res   = $query->result();
             //print_r($this->db->last_query());
@@ -42,10 +43,12 @@
             $this->db->where('date_created >=', $start);
             $this->db->where('date_created <=', $end);
             $this->db->where('patient.deleted =', 0);
+
             $query = $this->db->get('bill');
             $res   = $query->result();
             return $res;
         }
+
 
 
     }

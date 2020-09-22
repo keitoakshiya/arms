@@ -1,5 +1,6 @@
 <table id="remaining_balance_list" class="display" style="width:100%">
 	<thead>
+        <th>Guarantor Type</th>
 		<th>Company</th>
 		<th>Total Bill</th>
 		<th>Total Balance</th>
@@ -11,7 +12,16 @@
 			if ($result) {
 				foreach ($result as $key => $row) {
 					echo "<tr>";
-						                        echo "<td>".$row->name."</td>";
+                    if ($row->type == 1) {
+                        echo "<td>HMO</td>";
+                    }
+                    if ($row->type == 2) {
+                        echo "<td>Corporate</td>";
+                    }
+                    if ($row->type == 3) {
+                        echo "<td>Government</td>";
+                    }
+						echo "<td><a style='color:blue'  href='remaining_balance2/".$row->guarantor_id."'>".$row->name."</td>";
                         //echo "<td>&#8369;".$row->hospital_bill_total."</td>";
                         //echo "<td>&#8369;".$row->professional_bill_total."</td>";
                         echo "<td>&#8369;".$row->total_bill."</td>";
@@ -32,6 +42,7 @@
 
 	</tbody>
     <tfoot>
+        <td></td>
         <td></td>
         <td></td>
         <td></td>

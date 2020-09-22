@@ -5,7 +5,7 @@
 
 
             $this->db->select('
-                            guarantor.id,guarantor.name,
+                            guarantor.id as guarantor_id,guarantor.name,guarantor.type,
     #bill
     IFNULL((SELECT SUM(hospital_bill) FROM bill WHERE guarantor_id = guarantor.id),0) AS hospital_bill_total,
     IFNULL((SELECT SUM(professional_bill) FROM bill WHERE guarantor_id = guarantor.id),0) AS professional_bill_total,
@@ -30,6 +30,8 @@
             $this->db->join('guarantor', 'guarantor.id = guarantor_id', 'left');
             $this->db->join('transaction', 'bill.id = bill_id', 'left');
             $this->db->where('patient.deleted =', 0);
+            $this->db->where('guarantor_id !=', 'null');
+
             $this->db->group_by("bill.id");
             $this->db->distinct();
             $query = $this->db->get('bill');

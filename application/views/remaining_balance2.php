@@ -1,79 +1,58 @@
-<table id="remaining_balance_list" class="display" style="width:100%">
-	<thead>
-		<th>Company</th>
-		<th>Full Name</th>
-		<th>Patient Type</th>
-		<th>Hospital Bill</th>
-		<th>Hospital Bill Balance</th>
-		<th>Professional Bill</th>
-		<th>Professional Bill Balance</th>
-		<th>Total Remaining Balance</th>
-
-	</thead>
-	<tbody>
-		        <?php
-			if ($result) {
-				foreach ($result as $key => $row) {
-					echo "<tr>";
-						echo "<td>".$row->name."</td>";
-						echo "<td>".$row->first_name." ".$row->middle_name." ".$row->last_name."</td>";
-						
-						if ($row->patient_type==0) {
-						echo "<td>Not Registered</td>";
-						}
-
-						else if ($row->patient_type==1) {
-							echo "<td>Inpatient</td>";
-						}
-
-						else if ($row->patient_type==2) {
-							echo "<td>Outpatient</td>";
-						}
-
-						else if ($row->patient_type==3) {
-							echo "<td>Emergency</td>";
-						}
-
-						else{
-							echo "<td></td>";
-						}
-
-						echo "<td>&#8369; ".$row->hospital_bill."</td>"; /*DON"T FORGET TO ADD PESO SIGN ON OTHER PAGES*/
-						echo "<td>&#8369;".($row->hospital_bill-$row->hospital_bill_payment)."</td>";
-						echo "<td>&#8369; ".$row->professional_bill."</td>";
-						echo "<td>&#8369;".($row->professional_bill-$row->professional_bill_payment)."</td>";
-						echo "<td>&#8369;".(($row->hospital_bill+$row->professional_bill)-($row->hospital_bill_payment+$row->professional_bill_payment))."</td>";
+<table id="accounts_receivable_list" class="display" style="width:100%">
+    <thead>
+        <th>Patient Name</th>
+        <th>Date Registered</th>
+        <th>Hospital Bill Balance</th>
+        <th>Professional Bill Balance</th>
+        <th>Total Balance</th>
+    </thead>
+    <tbody>
+                <?php
+            if ($result) {
+                foreach ($result as $key => $row) {
+                    echo "<tr>";
 
 
-					echo "</tr>";
-				}
-			}
-		?>
+                        echo "<td>".$row->first_name." ".$row->middle_name." ".$row->last_name."</td>";
+                        echo "<td>".$row->date_created."</td>";
+                        //echo "<td>".$row->hospital_bill."</td>";
+                        //echo "<td>".$row->professional_bill."</td>";
+                        //echo "<td>".$row->total_bill."</td>";
+                        //echo "<td>".$row->total_hospital_bill_payment."</td>";
+                        //echo "<td>".$row->total_professional_bill_payment."</td>";
+                        //echo "<td>".$row->total_payment."</td>";
+                        echo "<td>".$row->hospital_balance."</td>";
+                        echo "<td>".$row->professional_balance."</td>";
+                        echo "<td>".$row->total_balance."</td>";
 
-	</tbody>
+
+                    echo "</tr>";
+                }
+            }
+        ?>
+
+    </tbody>
     <tfoot>
         <td></td>
         <td></td>
         <td></td>
         <td></td>
         <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+
     </tfoot>
 </table>
 
 <script type="text/javascript">
 
 
-        $('#remaining_balance_list').DataTable( {
+        $('#accounts_receivable_list').DataTable( {
                                 dom: 'Bfrtip',
         buttons: [
             'copy', 'excel', 'pdf', 'print'
         ],
 
         initComplete: function () {
-            this.api().columns([0]).every( function () {
+            this.api().columns([0,2]).every( function () {
                 var column = this;
                 var select = $('<select><option value="">All</option></select>')
                     .appendTo( $(column.footer()).empty() )
