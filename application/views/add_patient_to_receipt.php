@@ -1,23 +1,23 @@
     <table id="patient_list" class="display cell-border" style="width:100%">
         <thead>
             <tr>
-                <th colspan="2">Patient</th>
-                <th colspan="4">Bill</th>
-                <th colspan="4">Payment</th>
-                <th colspan="5">Balance</th>
+                <th colspan="3"></th>
+                <th colspan="3">Bill Amount</th>
+                <th colspan="3">Payment Amount</th>
+                <th colspan="4">Balance Amount</th>
             </tr>
             <tr>
-                <th>Patient ID</th>
+                <!-- <th>Patient ID</th> -->
                 <th>Patient Name</th>
                 <th>Date Registered</th>
                 <th>Hospital Bill</th>
-                <th>Professional Bill</th>
+                <th>Professional Fee</th>
                 <th>Total</th>
                 <th>Hospital Bill</th>
-                <th>professional Bill</th>
+                <th>Professional Fee</th>
                 <th>Total</th>
                 <th>Hospital Bill</th>
-                <th>professional Bill</th>
+                <th>Professional Fee</th>
                 <th>Total</th>
                 <th></th>
                 
@@ -33,20 +33,20 @@
 			else if ($result) {
 				foreach ($result as $key => $row) {
 					echo "<tr>";
-                        echo "<td>".sprintf('%08d', $row->patient_id)."</td>";
+                        //echo "<td>".sprintf('%08d', $row->patient_id)."</td>";
                         //echo "<td>".$row->patient_id."</td>";
                         echo "<td>".$row->first_name." ".$row->middle_name." ".$row->last_name."</td>";
-                        //echo "<td>".$row->date."</td>";
-						echo "<td>".$row->hospital_bill."</td>";
-						echo "<td>".$row->professional_bill."</td>";
-						echo "<td>".$row->total_bill."</td>";
-                        echo "<td>".$row->hospital_bill_payment."</td>";
-                        echo "<td>".$row->professional_bill_payment."</td>";
-                        echo "<td>".$row->total_payment."</td>";
-                        echo "<td>".$row->hospital_bill_balance."</td>";
-                        echo "<td>".$row->professional_bill_balance."</td>";
-                        echo "<td>".$row->total_balance."</td>";
-                        echo "<td><a href='../../view_bill_by_patient/".$row->patient_id."/".$receipt."'>Edit</a></td>";
+                        echo "<td>".$row->date."</td>";
+						echo "<td>&#8369;".$row->hospital_bill."</td>";
+						echo "<td>&#8369;".$row->professional_bill."</td>";
+						echo "<td>&#8369;".$row->total_bill."</td>";
+                        echo "<td>&#8369;".$row->hospital_bill_payment."</td>";
+                        echo "<td>&#8369;".$row->professional_bill_payment."</td>";
+                        echo "<td>&#8369;".$row->total_payment."</td>";
+                        echo "<td>&#8369;".$row->hospital_bill_balance."</td>";
+                        echo "<td>&#8369;".$row->professional_bill_balance."</td>";
+                        echo "<td>&#8369;".$row->total_balance."</td>";
+                        echo "<td><a style='color:blue' href='../../view_bill_by_patient/".$row->patient_id."/".$receipt."'>Edit</a></td>";
 						//echo "<td>".$row->date_created."</td>";
 					echo "</tr>";
 				}
@@ -64,6 +64,8 @@
             <td></td>
             <td></td>
             <td></td>
+            <td></td>
+
         </tfoot>
         </tbody>
 </table>
@@ -78,7 +80,7 @@
         ],
 
         initComplete: function () {
-            this.api().columns([0,1]).every( function () {
+            this.api().columns([1]).every( function () {
                 var column = this;
                 var select = $('<select><option value="">All</option></select>')
                     .appendTo( $(column.footer()).empty() )

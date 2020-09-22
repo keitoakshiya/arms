@@ -1,4 +1,4 @@
-<table id="accounts_receivable_list" class="display" style="width:100%">
+<table id="payment_summary2" class="display" style="width:100%">
     <thead>
 <!--             <tr>
                 <th colspan="1">Patient</th>
@@ -7,16 +7,18 @@
                 <th colspan="3">Balance</th>
             </tr> -->
         <tr>
-            <th>Company</th>
+            <!-- <th>Company</th> -->
+            <th>Patient Name</th>
+            <th>Date Registered</th>
             <!-- <th>Hospital Bill</th> -->
             <!-- <th>Professional Bill</th> -->
-            <th>Total Bill</th>
-            <!-- <th>Hospital Bill</th> -->
-            <!-- <th>Professional Bill</th> -->
+            <!-- <th>Total Bill</th> -->
+            <th>Hospital Bill Payment</th>
+            <th>Professional Fee Payment</th>
             <th>Total Payment</th>
             <!-- <th>Hospital Bill</th> -->
             <!-- <th>Professional Bill</th> -->
-            <th>Total Balance</th>
+            <!-- <th>Total Balance</th> -->
         </tr>
     </thead>
     <tbody>
@@ -24,16 +26,18 @@
             if ($result) {
                 foreach ($result as $key => $row) {
                     echo "<tr>";
-                        echo "<td><a href='accounts_receivable2/".$row->guarantor_id."'>".$row->name."</a></td>";
+                        //echo "<td><a href='accounts_receivable2/".$row->guarantor_id."'>".$row->name."</a></td>";
+                        echo "<td>".$row->first_name." ".$row->middle_name." ".$row->last_name."</td>";
+                        echo "<td>".$row->date_created."</td>";
                         //echo "<td>&#8369;".$row->hospital_bill_total."</td>";
                         //echo "<td>&#8369;".$row->professional_bill_total."</td>";
-                        echo "<td>&#8369;".$row->total_bill."</td>";
-                        //echo "<td>&#8369;".$row->total_hospital_paid."</td>";
-                        //echo "<td>&#8369;".$row->total_professional_paid."</td>";
+                        //echo "<td>&#8369;".$row->total_bill."</td>";
+                        echo "<td>&#8369;".$row->total_hospital_bill_payment."</td>";
+                        echo "<td>&#8369;".$row->total_professional_bill_payment."</td>";
                         echo "<td>&#8369;".$row->total_paid."</td>";
                         //echo "<td>&#8369;".$row->hospital_bill_balance."</td>";
                         //echo "<td>&#8369;".$row->professional_bill_balance."</td>";
-                        echo "<td>&#8369;".$row->total_balance."</td>";
+                        //echo "<td>&#8369;".$row->total_balance."</td>";
 
                     echo "</tr>";
                 }
@@ -46,20 +50,21 @@
         <td></td>
         <td></td>
         <td></td>
+        <td></td>
     </tfoot>
 </table>
 
 <script type="text/javascript">
 
 
-        $('#accounts_receivable_list').DataTable( {
+        $('#payment_summary2').DataTable( {
                                 dom: 'Bfrtip',
         buttons: [
             'copy', 'excel', 'pdf', 'print'
         ],
 
         initComplete: function () {
-            this.api().columns([0,2]).every( function () {
+            this.api().columns([]).every( function () {
                 var column = this;
                 var select = $('<select><option value="">All</option></select>')
                     .appendTo( $(column.footer()).empty() )

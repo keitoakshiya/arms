@@ -17,10 +17,12 @@
 					echo "<tr>";
 						echo "<td>".$row->or_number."</a></td>";
 						echo "<td>".$row->or_date."</a></td>";
-						echo "<td>".$row->or_amount."</a></td>";
+						echo "<td>&#8369;".$row->or_amount."</a></td>";
 						echo "<td>".$row->name."</a></td>";
-						echo "<td>".$row->amount_applied."</a></td>";
-						echo "<td>ARCHIVE PAALALA MO</td>";
+						echo "<td>&#8369;".$row->amount_applied."</a></td>";
+						echo "<td></td>";
+						//echo "<td>ARCHIVE PAALALA MO</td>";
+						
 /*						echo "<td><a href='add_patient_to_receipt/".$row->company."/".$row->receipt_id."' >Add</a>						</td>";
 						echo "<td><a href='../mark_receipt/".$row->receipt_id."'>Mark as Distributed</a></td>";*/
 					echo "</tr>";

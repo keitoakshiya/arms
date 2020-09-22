@@ -1,4 +1,4 @@
-<table id="accounts_receivable_list" class="display" style="width:100%">
+<table id="remaining_balance2" class="display" style="width:100%">
     <thead>
         <th>Patient Name</th>
         <th>Date Registered</th>
@@ -21,9 +21,9 @@
                         //echo "<td>".$row->total_hospital_bill_payment."</td>";
                         //echo "<td>".$row->total_professional_bill_payment."</td>";
                         //echo "<td>".$row->total_payment."</td>";
-                        echo "<td>".$row->hospital_balance."</td>";
-                        echo "<td>".$row->professional_balance."</td>";
-                        echo "<td>".$row->total_balance."</td>";
+                        echo "<td>&#8369;".$row->hospital_balance."</td>";
+                        echo "<td>&#8369;".$row->professional_balance."</td>";
+                        echo "<td>&#8369;".$row->total_balance."</td>";
 
 
                     echo "</tr>";
@@ -45,14 +45,14 @@
 <script type="text/javascript">
 
 
-        $('#accounts_receivable_list').DataTable( {
+        $('#remaining_balance2').DataTable( {
                                 dom: 'Bfrtip',
         buttons: [
             'copy', 'excel', 'pdf', 'print'
         ],
 
         initComplete: function () {
-            this.api().columns([0,2]).every( function () {
+            this.api().columns([]).every( function () {
                 var column = this;
                 var select = $('<select><option value="">All</option></select>')
                     .appendTo( $(column.footer()).empty() )

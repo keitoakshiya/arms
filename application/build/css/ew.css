@@ -4,12 +4,12 @@
 
 /*Sidebar*/
 .left_col {
-  background: #3a4270; }
+  background: #cc0c3c; }
 
   .nav_title {
   width: 230px;
   float: left;
-  background: #3a4270;
+  background: #cc0c3c;
   border-radius: 0;
   height: 57px;
   padding: 0px; }
@@ -18,7 +18,7 @@
   .nav.side-menu > li.active > a {
   text-shadow: rgba(0, 0, 0, 0.25) 0 -1px 0;
   background: -webkit-gradient(linear, left top, left bottom, from(#334556), to(#2C4257)), #2A3F54;
-  background: linear-gradient(#4d5687, #4d5687), #4d5687;
+  background: linear-gradient(#cc0c3c, #cc0c3c), #cc0c3c;
   -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0, inset rgba(255, 255, 255, 0.16) 0 1px 0;
   box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0, inset rgba(255, 255, 255, 0.16) 0 1px 0; }
 

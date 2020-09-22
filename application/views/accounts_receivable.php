@@ -1,4 +1,4 @@
-<table id="accounts_receivable_list" class="display" style="width:100%">
+<table id="accounts_receivable" class="display" style="width:100%">
 	<thead>
 <!--             <tr>
                 <th colspan="1">Patient</th>
@@ -64,7 +64,7 @@
 <script type="text/javascript">
 
 
-        $('#accounts_receivable_list').DataTable( {
+        $('#accounts_receivable').DataTable( {
                                 dom: 'Bfrtip',
         buttons: [
             'copy', 'excel', 'pdf', 'print'
@@ -73,7 +73,7 @@
         initComplete: function () {
             this.api().columns([0]).every( function () {
                 var column = this;
-                var select = $('<select><option value="">All</option></select>')
+                var select = $('<select><option value="">Select Guarantor Type</option></select>')
                     .appendTo( $(column.footer()).empty() )
                     .on( 'change', function () {
                         var val = $.fn.dataTable.util.escapeRegex(

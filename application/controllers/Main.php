@@ -166,7 +166,7 @@ class Main extends CI_Controller {
 
 
 		$data = array(
-		    'title' => 'Patients List',
+		    'title' => 'OR Patients List',
 		    'description' => ' '
 		);
 		$this->load->model('add_patient_to_receipt_model');
@@ -249,7 +249,7 @@ class Main extends CI_Controller {
 		$this->load->view('template/header2',$data);
 		$this->load->model('accounts_receivable_model2');
 		$res = $this->accounts_receivable_model2->get_bill($a);
-		$this->load->view('template/container_header_daterange_accounts_receivable',$data);
+		$this->load->view('template/container_header',$data); //add _daterange_accounts_receivable
 		
 		if($res){	$data2['result'] = $res;
         	$this->load->view('accounts_receivable2',$data2);
@@ -333,7 +333,7 @@ public function payment_summary2($a){
 		$this->load->view('template/header2',$data);
 		$this->load->model('payment_summary_model2');
 		$res = $this->payment_summary_model2->get_bill($a);
-		$this->load->view('template/container_header_daterange_payment_summary',$data);
+		$this->load->view('template/container_header',$data);
 		
 		if($res){	$data2['result'] = $res;
         	$this->load->view('payment_summary2',$data2);
@@ -416,7 +416,7 @@ public function payment_summary2($a){
 		$this->load->view('template/header2',$data);
 		$this->load->model('remaining_balance_model2');
 		$res = $this->remaining_balance_model2->get_bill($a);
-		$this->load->view('template/container_header_daterange_remaining_balance',$data);
+		$this->load->view('template/container_header',$data);
 		
 		if($res){	$data2['result'] = $res;
         	$this->load->view('remaining_balance2',$data2);
@@ -554,7 +554,7 @@ public function payment_summary2($a){
 		}
 
 		$data = array(
-		    'title' => 'Distributed OR List',
+		    'title' => 'Applied Official Receipt List',
 		    'description' => ' '
 		);
 

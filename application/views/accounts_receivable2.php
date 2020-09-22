@@ -1,4 +1,4 @@
-<table id="accounts_receivable_list" class="display" style="width:100%">
+<table id="accounts_receivable2" class="display" style="width:100%">
 	<thead>
 		<th>Patient Name</th>
 		<th>Date Registered</th>
@@ -45,14 +45,14 @@
 <script type="text/javascript">
 
 
-        $('#accounts_receivable_list').DataTable( {
+        $('#accounts_receivable2').DataTable( {
                                 dom: 'Bfrtip',
         buttons: [
             'copy', 'excel', 'pdf', 'print'
         ],
 
         initComplete: function () {
-            this.api().columns([0,2]).every( function () {
+            this.api().columns([]).every( function () {
                 var column = this;
                 var select = $('<select><option value="">All</option></select>')
                     .appendTo( $(column.footer()).empty() )
