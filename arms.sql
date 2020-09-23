@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 22, 2020 at 08:02 PM
+-- Generation Time: Sep 23, 2020 at 05:38 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -151,7 +151,7 @@ CREATE TABLE `receipt` (
 
 INSERT INTO `receipt` (`id`, `company`, `or_date`, `or_number`, `or_amount`, `distributed`) VALUES
 (24, 9, '2020-09-23', 20200921, '2000', 0),
-(25, 9, '2020-09-23', 20200918, '3000', 0),
+(25, 9, '2020-09-23', 20200918, '3000', 1),
 (26, 9, '2020-09-23', 20200920, '4000', 0),
 (27, 10, '2020-09-23', 20200915, '3000', 0),
 (28, 21, '2020-09-23', 20200916, '6000', 0),
@@ -189,7 +189,9 @@ CREATE TABLE `transaction` (
 
 INSERT INTO `transaction` (`id`, `patient_id`, `bill_id`, `receipt_id`, `hospital_bill_payment`, `professional_bill_payment`, `or_amount`, `or_number`, `or_date`, `date_created`, `deleted`) VALUES
 (45, 55, 38, 34, 1000.00, '1000.00', 0.00, 0, '2020-09-23 01:43:35', '2020-09-23 01:43:35', 0),
-(46, 56, 39, 34, 1000.00, '1000.00', 0.00, 0, '2020-09-23 01:44:14', '2020-09-23 01:44:14', 0);
+(46, 56, 39, 34, 1000.00, '1000.00', 0.00, 0, '2020-09-23 01:44:14', '2020-09-23 01:44:14', 0),
+(47, 53, 36, 25, 750.00, '750.00', 0.00, 0, '2020-09-23 18:13:29', '2020-09-23 18:13:29', 0),
+(48, 52, 35, 25, 750.00, '750.00', 0.00, 0, '2020-09-23 18:14:24', '2020-09-23 18:14:24', 0);
 
 -- --------------------------------------------------------
 
@@ -269,7 +271,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `guarantor`
@@ -281,7 +283,7 @@ ALTER TABLE `guarantor`
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `receipt`
@@ -293,7 +295,7 @@ ALTER TABLE `receipt`
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `user`
