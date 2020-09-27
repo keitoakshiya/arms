@@ -9,7 +9,8 @@
         <tr>
             <!-- <th>Company</th> -->
             <th>Patient Name</th>
-            <th>Date Registered</th>
+            <th>Bill Registered</th>
+            <th>Latest Payment Date</th>
             <!-- <th>Hospital Bill</th> -->
             <!-- <th>Professional Bill</th> -->
             <!-- <th>Total Bill</th> -->
@@ -19,6 +20,7 @@
             <!-- <th>Hospital Bill</th> -->
             <!-- <th>Professional Bill</th> -->
             <!-- <th>Total Balance</th> -->
+            <th>Days from date registered to latest payment</th>
         </tr>
     </thead>
     <tbody>
@@ -28,7 +30,8 @@
                     echo "<tr>";
                         //echo "<td><a href='accounts_receivable2/".$row->guarantor_id."'>".$row->name."</a></td>";
                         echo "<td>".$row->first_name." ".$row->middle_name." ".$row->last_name."</td>";
-                        echo "<td>".$row->date_created."</td>";
+                        echo "<td>".$row->bill_date."</td>";
+                        echo "<td>".$row->pay_date."</td>";
                         //echo "<td>&#8369;".$row->hospital_bill_total."</td>";
                         //echo "<td>&#8369;".$row->professional_bill_total."</td>";
                         //echo "<td>&#8369;".$row->total_bill."</td>";
@@ -38,6 +41,7 @@
                         //echo "<td>&#8369;".$row->hospital_bill_balance."</td>";
                         //echo "<td>&#8369;".$row->professional_bill_balance."</td>";
                         //echo "<td>&#8369;".$row->total_balance."</td>";
+                        echo "<td>".$row->day_count."</td>";
 
                     echo "</tr>";
                 }
@@ -46,6 +50,8 @@
 
     </tbody>
     <tfoot>
+        <td></td>
+        <td></td>
         <td></td>
         <td></td>
         <td></td>

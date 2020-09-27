@@ -1,23 +1,38 @@
 <?php  
     class add_patient_model extends CI_Model {  
-        public function insert_patient($firstname,$middlename,$lastname) { 
+        public function insert_patient($firstname,$middlename,$lastname,$date,
+            $hospital_bill,$professional_bill,$company,$patient_type) { 
  
+            $date2 = date("Y-m-d", strtotime($date));
             $data = array(
                 'first_name' => $firstname,
                 'middle_name' => $middlename,
-                'last_name' => $lastname
+                'last_name' => $lastname,
+                'date_created' => $date2
             );
 
             $this->db->insert('patient', $data);
-               $insert_id = $this->db->insert_id();
+            
+            $insert_id = $this->db->insert_id();
+
+
 
             $data2 = array(
-                'patient_id' => $insert_id
+                'hospital_bill' => $hospital_bill,
+                'professional_bill' => $professional_bill,
+                'guarantor_id' => $company,
+                'patient_type' => $patient_type,
+                'patient_id' => $insert_id,
+                'date' => $date2
             );
 
             $this->db->insert('bill', $data2);
-            /*echo "<script>alert('asdasd');</script>";*/
-            header("Location: /arms/main/add_bill");
+            print_r("<script>alert('asdasd');</script>");
+            //print_r($this->db->insert_id());
+            //insert to bill query
+
+
+            header("Location: /arms/main/add_patient");
 
         }      
     }  

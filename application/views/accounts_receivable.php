@@ -1,6 +1,6 @@
 <table id="accounts_receivable" class="display" style="width:100%">
 	<thead>
-<!--             <tr>
+<!--        <tr>
                 <th colspan="1">Patient</th>
                 <th colspan="3">Bill</th>
                 <th colspan="3">Payment</th>

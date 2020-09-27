@@ -15,7 +15,7 @@
                       </div>
                     </li>
                     <li>
-                       <form id="form-id" method="post" action="accounts_receivable_filtered">
+                       <form id="form-id" method="post" action="/arms/main/accounts_receivable_filtered/<?=$a?>">
                           <input type="hidden" name="start" id="start">
                           <input type="hidden" name="end" id="end">
                           <input type="submit" name="" value="Filter" class="form-control" style="height: 30px">

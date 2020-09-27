@@ -2,8 +2,8 @@
 	
 			echo "
 		Company:
-		<select class='form-control' name='company'>
-			<option selected disabled>Select Company</option>";
+		<select class='form-control' name='company' required>
+			<option selected disabled value=''>Select Company</option>";
 			if($_GET['value']){
 				$sql = "SELECT * FROM guarantor WHERE type=".$_GET['value'];
 				$con = mysqli_connect('localhost','root','','arms');

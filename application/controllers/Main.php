@@ -120,7 +120,8 @@ class Main extends CI_Controller {
 	}
 
 	public function add_patient(){
-				$this->load->model('roles_model');
+
+		$this->load->model('roles_model');
 		if ($this->roles_model->can_add()==0) {
 			header("Location: denied");
 		}
@@ -190,6 +191,11 @@ class Main extends CI_Controller {
 		/*$this->form_validation->set_rules('middle-name','middle-name','required');*/
 		$this->form_validation->set_rules('last-name','last-name','required');
 
+		$this->form_validation->set_rules('hospital_bill','hospital_bill','required');
+		$this->form_validation->set_rules('professional_bill','professional_bill','required');
+		$this->form_validation->set_rules('company','company','required');
+		$this->form_validation->set_rules('patient_type','patient_type','required');
+
 
 		
 		if ($this->form_validation->run()) {
@@ -197,10 +203,18 @@ class Main extends CI_Controller {
 			$firstname = $this->input->post('first-name');
 			$middlename = $this->input->post('middle-name');
 			$lastname = $this->input->post('last-name');
+
+			$date = $this->input->post('date');
+			$hospital_bill = $this->input->post('hospital_bill');
+			$professional_bill = $this->input->post('professional_bill');
+			$company = $this->input->post('company');
+			$patient_type = $this->input->post('patient_type');
+
+
 			$this->load->model('add_patient_model');
 
 			$this->add_patient_model->insert_patient($firstname,$middlename,
-				$lastname);
+				$lastname,$date,$hospital_bill,$professional_bill,$company,$patient_type);
 		}
 	}
 
@@ -242,14 +256,16 @@ class Main extends CI_Controller {
 		if ($this->roles_model->can_read()==0) {
 			header("Location: denied");
 		}
+
 		$data = array(
 		    'title' => 'Accounts Receivable',
-		    'description' => ' Summary of Accounts Receivable '
+		    'description' => ' Summary of Accounts Receivable ',
+		    'a' => $a
 		);
 		$this->load->view('template/header2',$data);
 		$this->load->model('accounts_receivable_model2');
 		$res = $this->accounts_receivable_model2->get_bill($a);
-		$this->load->view('template/container_header',$data); //add _daterange_accounts_receivable
+		$this->load->view('template/container_header_daterange_accounts_receivable',$data); //add _daterange_accounts_receivable
 		
 		if($res){	$data2['result'] = $res;
         	$this->load->view('accounts_receivable2',$data2);
@@ -261,10 +277,12 @@ class Main extends CI_Controller {
 	}
 
 
-	public function accounts_receivable_filtered(){
+	public function accounts_receivable_filtered($a){
+
 		$data = array(
 		    'title' => 'Accounts Receivable',
-		    'description' => ' '
+		    'description' => ' ',
+		    'a' => $a
 		);
 
 		$this->load->library('form_validation');
@@ -275,20 +293,18 @@ class Main extends CI_Controller {
 
 			$start = $this->input->post('start');
 			$end = $this->input->post('end');
-			$this->load->model('accounts_receivable_model');
+			$this->load->model('accounts_receivable_model2');
 
-		$res = $this->accounts_receivable_model->get_bill_filtered($start,$end);
+		$res = $this->accounts_receivable_model2->get_bill_filtered($start,$end,$a);
 
 
-		$this->load->view('template/header',$data);
-		$this->load->view('template/container_header_daterange',$data);
+		$this->load->view('template/header2',$data);
+		$this->load->view('template/container_header_daterange_accounts_receivable',
+			$data);
 
-        if($res){	$data2['result'] = $res;
-        	$this->load->view('accounts_receivable',$data2);
-		}
-		else {
-			$this->load->view('accounts_receivable');
-		}
+			$data2['result'] = $res;
+        	$this->load->view('accounts_receivable2',$data2);
+
 
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
@@ -575,6 +591,10 @@ public function payment_summary2($a){
 	}
 
 	public function view_bill_by_patient($id,$receipt){
+		$this->load->model('roles_model');
+		if ($this->roles_model->can_read()==0) {
+			header("Location: denied");
+		}
 		$data = array(
 		    'title' => 'Payment Application Page 2',
 		    'description' => ' '
@@ -804,8 +824,8 @@ public function payment_summary2($a){
 
 	public function official_receipt(){
 				$this->load->model('roles_model');
-		if ($this->roles_model->can_add()==0) {
-			header("Location: denied");
+		if ($this->roles_model->can_add()==1) {
+			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 		$data = array(
 		    'title' => 'Official Receipt',
