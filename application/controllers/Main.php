@@ -908,7 +908,6 @@ public function payment_summary2($a){
 		if($res){	$data2['result'] = $res;
         	$this->load->view('list_company',$data2);
 		}
-
 		else {"Fail";}
 
 		$this->load->view('template/container_footer');
