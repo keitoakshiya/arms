@@ -36,7 +36,7 @@ class Main extends CI_Controller {
 	public function dashboard(){
 		$this->load->model('roles_model');
 		if ($this->roles_model->can_read()==0) {
-			header("Location: denied");
+			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 		$data = array(
 		    'title' => 'Graph Report',
@@ -61,7 +61,7 @@ class Main extends CI_Controller {
 		$this->load->model('roles_model');
 
 		if ($this->roles_model->can_read()==0) {
-			header("Location: denied");
+			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 
 		$this->load->model('patients_model');
@@ -123,7 +123,7 @@ class Main extends CI_Controller {
 
 		$this->load->model('roles_model');
 		if ($this->roles_model->can_add()==0) {
-			header("Location: denied");
+			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 
 		$data = array(
@@ -161,8 +161,8 @@ class Main extends CI_Controller {
 	public function add_patient_to_receipt($a,$b) {
 		$this->load->model('roles_model');
 
-		if ($this->roles_model->can_read()==0) {
-			header("Location: denied");
+		if ($this->roles_model->can_add()==0) {
+			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 
 
@@ -229,7 +229,7 @@ class Main extends CI_Controller {
 	public function accounts_receivable(){
 		$this->load->model('roles_model');
 		if ($this->roles_model->can_read()==0) {
-			header("Location: denied");
+			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 
 		
@@ -254,7 +254,7 @@ class Main extends CI_Controller {
 	public function accounts_receivable2($a){
 		$this->load->model('roles_model');
 		if ($this->roles_model->can_read()==0) {
-			header("Location: denied");
+			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 
 		$data = array(
@@ -315,7 +315,7 @@ class Main extends CI_Controller {
 	public function payment_summary(){
 		$this->load->model('roles_model');
 		if ($this->roles_model->can_read()==0) {
-			header("Location: denied");
+			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 		$data = array(
 		    'title' => 'Payment Summary',
@@ -340,7 +340,7 @@ class Main extends CI_Controller {
 public function payment_summary2($a){
 		$this->load->model('roles_model');
 		if ($this->roles_model->can_read()==0) {
-			header("Location: denied");
+			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 		$data = array(
 		    'title' => 'Payment Summary',
@@ -400,7 +400,7 @@ public function payment_summary2($a){
 	public function remaining_balance(){
 		$this->load->model('roles_model');
 		if ($this->roles_model->can_read()==0) {
-			header("Location: denied");
+			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 		$data = array(
 		    'title' => 'Remaining Balance',
@@ -423,7 +423,7 @@ public function payment_summary2($a){
 	public function remaining_balance2($a){
 		$this->load->model('roles_model');
 		if ($this->roles_model->can_read()==0) {
-			header("Location: denied");
+			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 		$data = array(
 		    'title' => 'Remaining Balance',
@@ -482,8 +482,8 @@ public function payment_summary2($a){
 
 	public function add_payment(){
 		$this->load->model('roles_model');
-		if ($this->roles_model->can_read()==0) {
-			header("Location: denied");
+		if ($this->roles_model->can_add()==0) {
+			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 		$data = array(
 		    'title' => 'Add Payment',
@@ -508,7 +508,7 @@ public function payment_summary2($a){
 		$this->load->model('roles_model');
 
 		if ($this->roles_model->can_read()==0) {
-			header("Location: denied");
+			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 
 		$data = array(
@@ -537,7 +537,7 @@ public function payment_summary2($a){
 		$this->load->model('roles_model');
 
 		if ($this->roles_model->can_read()==0) {
-			header("Location: denied");
+			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 
 		$data = array(
@@ -566,7 +566,7 @@ public function payment_summary2($a){
 		$this->load->model('roles_model');
 
 		if ($this->roles_model->can_read()==0) {
-			header("Location: denied");
+			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 
 		$data = array(
@@ -592,8 +592,8 @@ public function payment_summary2($a){
 
 	public function view_bill_by_patient($id,$receipt){
 		$this->load->model('roles_model');
-		if ($this->roles_model->can_read()==0) {
-			header("Location: denied");
+		if ($this->roles_model->can_edit()==0) {
+			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 		$data = array(
 		    'title' => 'Payment Application Page 2',
@@ -663,7 +663,7 @@ public function payment_summary2($a){
 	public function add_company(){
 				$this->load->model('roles_model');
 		if ($this->roles_model->can_add()==0) {
-			header("Location: denied");
+			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 		$data = array(
 		    'title' => 'Add Company',
@@ -703,7 +703,7 @@ public function payment_summary2($a){
 	public function add_account(){
 		$this->load->model('roles_model');
 		if ($this->roles_model->can_add()==0) {
-			header("Location: denied");
+			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 		$data = array(
 		    'title' => 'Add Account',
@@ -737,6 +737,10 @@ public function payment_summary2($a){
 
 
 	public function archive() {
+		$this->load->model('roles_model');
+		if ($this->roles_model->can_read()==0) {
+			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
+		}
 		$data = array(
 		    'title' => 'Archive History',
 		    'description' => ' '
@@ -758,7 +762,7 @@ public function payment_summary2($a){
 	public function archive_patient($id){
 				$this->load->model('roles_model');
 		if ($this->roles_model->can_delete()==0) {
-			header("Location: ../denied");
+			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 		else{
 			$this->load->model('archive_model');
@@ -770,7 +774,7 @@ public function payment_summary2($a){
 	public function restore_patient($id){
 				$this->load->model('roles_model');
 		if ($this->roles_model->can_delete()==0) {
-			header("Location: ../denied");
+			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 		else{
 			$this->load->model('archive_model');
@@ -780,7 +784,10 @@ public function payment_summary2($a){
 	}
 
 	public function roles(){
-
+		$this->load->model('roles_model');
+		if ($this->roles_model->can_read()==0) {
+			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
+		}
 		$data = array(
 		    'title' => 'Add roles',
 		    'description' => ' Manage user permission '
@@ -788,9 +795,9 @@ public function payment_summary2($a){
 		$this->load->view('template/header',$data);
 		$this->load->view('template/container_header',$data);
 		$this->load->model('roles_model');
-		if ($this->roles_model->can_read()==0) {
-			header("Location: denied");
-		}
+		//if ($this->roles_model->can_read()==0) {
+		//	header("Location: denied");
+		//}
 		$res = $this->roles_model->get_users();
        	if($res){	$data2['result'] = $res;
         	$this->load->view('roles',$data2);
@@ -824,7 +831,7 @@ public function payment_summary2($a){
 
 	public function official_receipt(){
 				$this->load->model('roles_model');
-		if ($this->roles_model->can_add()==1) {
+		if ($this->roles_model->can_add()==0) {
 			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 		$data = array(
@@ -859,7 +866,7 @@ public function payment_summary2($a){
 	public function delete_bill($a){
 		$this->load->model('roles_model');
 		if ($this->roles_model->can_delete()==0) {
-			header("Location: ../denied");
+			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 		else{
 		$this->load->model('delete_bill_model');
@@ -871,12 +878,41 @@ public function payment_summary2($a){
 	public function mark_receipt($a){
 		$this->load->model('roles_model');
 		if ($this->roles_model->can_delete()==0) {
-			header("Location: ../denied");
+			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 		else{
 		$this->load->model('mark_receipt_model');
 		$this->mark_receipt_model->mark_receipts($a);
 		}
+
+	}
+
+		public function list_company(){
+
+		$this->load->model('roles_model');
+
+		if ($this->roles_model->can_read()==0) {
+			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
+		}
+
+		$data = array(
+		    'title' => 'Company List',
+		    'description' => ' '
+		);
+
+		$this->load->view('template/header',$data);
+		$this->load->model('list_company_model');
+		$res = $this->list_company_model->get_company();
+		$this->load->view('template/container_header',$data);
+
+		if($res){	$data2['result'] = $res;
+        	$this->load->view('list_company',$data2);
+		}
+
+		else {"Fail";}
+
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer');
 
 	}
 

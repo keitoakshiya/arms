@@ -23,3 +23,4 @@
 	    $('#company_list').DataTable();
 	} );
 </script> 
+

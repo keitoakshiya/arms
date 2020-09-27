@@ -66,6 +66,18 @@
 
         }
 
+        public function can_edit(){
+            $username = $this->session->userdata('username');
+            $this->db->select('edit_data');
+            $this->db->where('username',$username);
+            $query = $this->db->get('user');
+            $res   = $query->result();
+                foreach ($res as $key => $row) {
+                    $edit = $row->edit_data;
+                }
+            return $edit; 
+        }
+
 
     }
 ?>  
