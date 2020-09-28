@@ -900,7 +900,7 @@ public function payment_summary2($a){
 		    'description' => ' '
 		);
 
-		$this->load->view('template/header',$data);
+		$this->load->view('template/head',$data);
 		$this->load->model('list_company_model');
 		$res = $this->list_company_model->get_company();
 		$this->load->view('template/container_header',$data);

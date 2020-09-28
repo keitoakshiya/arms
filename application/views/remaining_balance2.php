@@ -1,12 +1,12 @@
 <table id="remaining_balance2" class="display" style="width:100%">
     <thead>
         <th>Patient Name</th>
-        <th>Bill Registered</th>
-        <th>Latest Payment Date</th>
+        <th>Date Registered</th>
+        <!-- <th>Latest Payment Date</th> -->
         <th>Hospital Bill Balance</th>
         <th>Professional Bill Balance</th>
         <th>Total Balance</th>
-        <th>lastest payment to now</th>
+        <th>Day Count<div style="font-size:8pt;"> Latest payment up to now</div></th>
     </thead>
     <tbody>
                 <?php
@@ -17,7 +17,7 @@
 
                         echo "<td>".$row->first_name." ".$row->middle_name." ".$row->last_name."</td>";
                         echo "<td>".$row->bill_date."</td>";
-                        echo "<td>".$row->pay_date."</td>";
+                        //echo "<td>".$row->pay_date."</td>";
                         //echo "<td>".$row->hospital_bill."</td>";
                         //echo "<td>".$row->professional_bill."</td>";
                         //echo "<td>".$row->total_bill."</td>";
@@ -37,7 +37,7 @@
 
     </tbody>
     <tfoot>
-        <td></td>
+       
         <td></td>
         <td></td>
         <td></td>
