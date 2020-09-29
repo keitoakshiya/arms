@@ -59,5 +59,29 @@
 
         }
 
+    public function get_patient($a){
+            $this->db->select('`patient`.`id` as patient_id,
+                `patient`.`first_name` as first_name,
+                `patient`.`last_name` as last_name,
+                `patient`.`middle_name` as middle_name,
+                `patient`.`date_created` as date_created,'
+            );
+            $this->db->where('`patient`.`id` =', $a);
+            $query = $this->db->get('patient');
+            $res   = $query->result();
+            //print_r($this->db->last_query());  
+            return $res;
+        }
+
+        public function update_patient($id,$fname,$mname,$lname){
+            $this->db->set('first_name', $fname);
+            $this->db->set('middle_name', $mname);
+            $this->db->set('last_name', $lname);
+            $this->db->where('id', $id);
+            $this->db->update('patient');
+            //print_r($this->db->last_query()); 
+            header("Location: edit_patient/".$id);
+        }
+
     }
 ?>  

@@ -84,6 +84,50 @@ class Main extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
+	public function edit_patient($a){
+		$this->load->model('roles_model');
+		if ($this->roles_model->can_edit()==0) {
+			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
+		}
+		$data = array(
+		    'title' => 'Edit Patient',
+		    'description' => ' This is where you can Edit patient'
+		);
+		$this->load->model('patients_model');
+		$res = $this->patients_model->get_patient($a);
+		$data2['result'] = $res;
+		$this->load->view('template/header2',$data);
+		$this->load->view('template/container_header',$data);
+        $this->load->view('edit_patient',$data2);
+        $this->load->view('template/container_footer');
+		$this->load->view('template/footer2');
+
+	}
+
+	public function update_patient(){
+
+		$this->load->model('roles_model');
+		if ($this->roles_model->can_edit()==0) {
+			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
+		}
+		$this->load->model('patients_model');
+
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('fname','fname','required');
+		$this->form_validation->set_rules('mname','mname','required');
+		$this->form_validation->set_rules('lname','lname','required');
+
+		if ($this->form_validation->run()) {
+			$id = $this->input->post('id');
+			$fname = $this->input->post('fname');
+			$mname = $this->input->post('mname');
+			$lname = $this->input->post('lname');
+			$this->load->model('patients_model');
+
+		$res = $this->patients_model->update_patient($id,$fname,$mname,$lname);
+		}
+	}
+
 	public function patients_filtered() {
 
 				$data = array(
@@ -698,7 +742,6 @@ public function payment_summary2($a){
 		}
 	}
 
-	
 
 	public function add_account(){
 		$this->load->model('roles_model');
@@ -828,6 +871,9 @@ public function payment_summary2($a){
 
 			$this->roles_model->update_role($id,$view_data2,$add_data2,$edit_data2,$delete_data2);
 	}
+
+
+
 
 	public function official_receipt(){
 				$this->load->model('roles_model');

@@ -7,7 +7,7 @@
                 <th>Middle Name</th>
                 <th>Last Name</th>
                 <th>Date Registered</th>
-                <th>Delete</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -24,7 +24,8 @@
 						echo "<td>".$row->middle_name."</td>";
 						echo "<td>".$row->last_name."</td>";
 						echo "<td>".$row->date_created."</td>";
-						echo "<td><button onclick='archive_patient(".$row->patient_id.")'><i class='fa fa-trash' 
+						echo "<td><button onclick=\"location.href = 'edit_patient/".$row->patient_id."' \"><i class='fa fa-edit' 
+                        style=' font-size: 16px'></i></button><button onclick='archive_patient(".$row->patient_id.")'><i class='fa fa-trash' 
                         style='color: #c93434; font-size: 16px'></i></button></td>";
 					echo "</tr>";
 				}
