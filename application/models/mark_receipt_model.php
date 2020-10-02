@@ -7,7 +7,7 @@
 		$this->db->set('distributed', 1, FALSE);
 		$this->db->where('id', $a);
 		$this->db->update('receipt');
-            //header("Location: ../");
+            header("Location: ../company_list");
 
         }
     }

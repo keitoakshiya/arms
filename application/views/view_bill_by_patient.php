@@ -10,7 +10,7 @@
 
 				<!-- page content -->
 
-		            <div class="col-md-10 col-sm-10s ">
+		            <div class="col-md-8 col-sm-8s ">
 		              <div class="x_panel">
 		                <div class="x_title">
 		                  <h2>'.$row->first_name.' '.$row->last_name.' <small><?=$description?></small></h2>
@@ -45,7 +45,7 @@
 							        <tbody >
 							        	<tr>
 
-											<td style="border-bottom: 1px solid #ddd; padding-right:26px">Professional Bill</td>
+											<td style="border-bottom: 1px solid #ddd; padding-right:26px"><b>Professional Fee</b></td>
 											<td style="border-bottom: 1px solid #ddd;text-align:center;padding-right:26px">'.$row->professional_bill.'</td>
 
 							        		<td style="border-bottom: 1px solid #ddd; direction: ltr;">
@@ -63,7 +63,7 @@
 							        
 							        	<tr>
 							        		
-							        		<td style="border-bottom: 1px solid #ddd;padding-right:26px">Hospital Bill</td>
+							        		<td style="border-bottom: 1px solid #ddd;padding-right:26px"><b>Hospital Bill</b></td>
 							        
 								        	<td style="border-bottom: 1px solid #ddd;text-align:center;padding-right:26px">'.$row->hospital_bill.'</td>
 								        	<td style="border-bottom: 1px solid #ddd; direction: ltr;">
@@ -83,8 +83,9 @@
 
 							        </tbody>
 						        </table>
-
+						        <div class="col-md-11 col-sm-11s ">
 			                   	<input type="submit" id="submit" class=" form form-control btn btn-success submit-btn" disabled>
+			                   </div>
 			                  </form>
 		                  </div>
 		                </div>

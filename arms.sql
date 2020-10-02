@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 28, 2020 at 06:11 AM
+-- Generation Time: Oct 02, 2020 at 10:01 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -54,7 +54,8 @@ INSERT INTO `bill` (`id`, `date`, `patient_id`, `guarantor_id`, `patient_type`, 
 (35, '2020-08-24', 52, 9, 1, 2000.00, '2000.00', 0),
 (36, '2020-08-24', 53, 9, 1, 10000.00, '5000.00', 0),
 (53, '2020-09-21', 71, 25, 1, 2000.00, '1000.00', 0),
-(54, '2020-09-22', 72, 25, 2, 3000.00, '3000.00', 0);
+(54, '2020-09-22', 72, 25, 2, 3000.00, '3000.00', 0),
+(55, '2020-10-01', 73, 21, 1, 3000.00, '3000.00', 0);
 
 -- --------------------------------------------------------
 
@@ -82,15 +83,15 @@ INSERT INTO `guarantor` (`id`, `name`, `type`, `deleted`, `address`, `contact_pe
 (13, 'HEALTHBRIDGE', 1, 0, '', '', 0),
 (14, 'AVEGA MANAGED CARE INC', 1, 0, '', '', 0),
 (15, 'CAREWELL, INC', 1, 0, '', '', 0),
-(16, 'AIM ONE', 3, 0, '', '', 0),
-(17, 'AXA LIFE', 3, 0, '', '', 0),
-(18, 'ANCHOR BANK', 3, 0, '', '', 0),
-(19, 'AA INTERNATIONAL', 3, 0, '', '', 0),
-(20, 'CUNNINGHAM LINDSEY PHILS INC', 3, 0, '', '', 0),
-(21, 'DSWD', 2, 0, '', '', 0),
-(22, 'PHILHEALTH', 2, 0, '', '', 0),
-(23, 'EMPLOYEE\'S COMPENSATION  COMMISSION', 2, 0, '', '', 0),
-(24, 'PCSO', 2, 0, '', '', 0),
+(16, 'AIM ONE', 2, 0, '', '', 0),
+(17, 'AXA LIFE', 2, 0, '', '', 0),
+(18, 'ANCHOR BANK', 2, 0, '', '', 0),
+(19, 'AA INTERNATIONAL', 2, 0, '', '', 0),
+(20, 'CUNNINGHAM LINDSEY PHILS INC', 2, 0, '', '', 0),
+(21, 'DSWD', 3, 0, '', '', 0),
+(22, 'PHILHEALTH', 3, 0, '', '', 0),
+(23, 'EMPLOYEE\'S COMPENSATION  COMMISSION', 3, 0, '', '', 0),
+(24, 'PCSO', 3, 0, '', '', 0),
 (25, 'Test', 1, 0, 'Sample Address', 'John Doe', 1231321);
 
 -- --------------------------------------------------------
@@ -115,7 +116,7 @@ CREATE TABLE `patient` (
 
 INSERT INTO `patient` (`id`, `first_name`, `last_name`, `middle_name`, `date_created`, `deleted`, `date_deleted`) VALUES
 (41, 'Alissa', 'Chet', 'M', '2020-08-24 03:46:16', 1, '2020-09-08 05:01:07'),
-(42, 'Angelo', 'Reyes', 'E', '2020-08-24 03:46:38', 0, NULL),
+(42, 'Angelo', 'Reyes', 'L', '2020-08-24 03:46:38', 0, '2020-10-02 06:42:15'),
 (46, 'Jeffrey', 'Macab', 'A', '2020-08-24 03:48:26', 0, NULL),
 (47, 'Arianna', 'Torri', 'H', '2020-08-24 03:48:50', 0, '2020-08-24 05:08:53'),
 (48, 'Katherine', 'Wayne', 'O', '2020-08-24 03:49:20', 0, NULL),
@@ -124,7 +125,8 @@ INSERT INTO `patient` (`id`, `first_name`, `last_name`, `middle_name`, `date_cre
 (52, 'Finn', 'Stein', 'G', '2020-08-24 03:50:52', 0, NULL),
 (53, 'Alex', 'Reyes', 'M', '2020-08-24 05:12:24', 0, NULL),
 (71, 'Ace', 'Elly', 'J', '2020-09-20 16:00:00', 0, NULL),
-(72, 'Hammy', 'Lotty', 'S', '2020-09-21 16:00:00', 0, NULL);
+(72, 'Hammy', 'Lotty', 'S', '2020-09-21 16:00:00', 0, NULL),
+(73, 'Josh', 'Estrada', 'A', '2020-09-30 16:00:00', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -136,7 +138,7 @@ CREATE TABLE `receipt` (
   `id` int(11) UNSIGNED NOT NULL,
   `company` int(11) NOT NULL,
   `or_date` date NOT NULL,
-  `or_number` int(11) NOT NULL,
+  `or_number` varchar(11) NOT NULL,
   `or_amount` decimal(10,0) NOT NULL,
   `distributed` tinyint(4) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -146,30 +148,31 @@ CREATE TABLE `receipt` (
 --
 
 INSERT INTO `receipt` (`id`, `company`, `or_date`, `or_number`, `or_amount`, `distributed`) VALUES
-(1, 1, '0000-00-00', 20150493, '8', 0),
-(2, 7, '0000-00-00', 20130565, '6', 0),
-(3, 6, '0000-00-00', 20160674, '2', 0),
-(4, 5, '0000-00-00', 20110453, '3', 0),
-(5, 7, '0000-00-00', 20170523, '99000', 0),
-(6, 1, '0000-00-00', 20180456, '23', 0),
-(7, 1, '0000-00-00', 20150489, '5645', 0),
-(8, 5, '0000-00-00', 20150349, '456', 0),
-(9, 5, '0000-00-00', 20150320, '234', 0),
-(10, 2, '0000-00-00', 20094562, '234234', 0),
-(11, 2, '0000-00-00', 20120189, '0', 0),
-(12, 2, '0000-00-00', 20190428, '0', 0),
-(13, 2, '0000-00-00', 20200021, '0', 0),
-(14, 2, '2020-07-08', 20160987, '0', 0),
-(15, 4, '2020-08-07', 20070034, '324', 0),
-(16, 4, '2020-08-10', 20030651, '2311', 0),
-(17, 4, '2020-08-10', 20030904, '3244', 0),
-(18, 4, '2020-08-13', 20074568, '2134', 0),
-(19, 4, '2020-08-18', 20080904, '10000', 0),
-(20, 9, '2020-08-24', 20050456, '123', 0),
-(21, 10, '2020-08-24', 20040081, '10000', 0),
-(22, 9, '2020-09-08', 20100569, '2000', 0),
-(23, 9, '2020-09-20', 94056, '4000', 0),
-(24, 25, '2020-09-27', 12, '3000', 0);
+(1, 1, '0000-00-00', '20150493', '8', 0),
+(2, 7, '0000-00-00', '20130565', '6', 0),
+(3, 6, '0000-00-00', '20160674', '2', 0),
+(4, 5, '0000-00-00', '20110453', '3', 0),
+(5, 7, '0000-00-00', '20170523', '99000', 0),
+(6, 1, '0000-00-00', '20180456', '23', 0),
+(7, 1, '0000-00-00', '20150489', '5645', 0),
+(8, 5, '0000-00-00', '20150349', '456', 0),
+(9, 5, '0000-00-00', '20150320', '234', 0),
+(10, 2, '0000-00-00', '20094562', '234234', 0),
+(11, 2, '0000-00-00', '20120189', '0', 0),
+(12, 2, '0000-00-00', '20190428', '0', 0),
+(13, 2, '0000-00-00', '20200021', '0', 0),
+(14, 2, '2020-07-08', '20160987', '0', 0),
+(15, 4, '2020-08-07', '20070034', '324', 0),
+(16, 4, '2020-08-10', '20030651', '2311', 0),
+(17, 4, '2020-08-10', '20030904', '3244', 0),
+(18, 4, '2020-08-13', '20074568', '2134', 0),
+(19, 4, '2020-08-18', '20080904', '10000', 0),
+(20, 9, '2020-08-24', '20050456', '123', 0),
+(21, 10, '2020-08-24', '20040081', '10000', 0),
+(22, 9, '2020-09-08', '20100569', '2000', 0),
+(23, 9, '2020-09-20', '94056', '4000', 0),
+(24, 25, '2020-09-27', '12', '3000', 0),
+(25, 21, '2020-10-01', '2020', '3000', 1);
 
 -- --------------------------------------------------------
 
@@ -206,7 +209,8 @@ INSERT INTO `transaction` (`id`, `patient_id`, `bill_id`, `receipt_id`, `hospita
 (29, 42, 25, 0, 500.00, '500.00', 0.00, 0, '2020-09-07 22:24:30', '2020-09-07 22:24:30', 0),
 (43, 52, 35, 23, 1000.00, '1000.00', 0.00, 0, '2020-09-20 20:38:15', '2020-09-20 20:38:15', 0),
 (44, 53, 36, 23, 1000.00, '1000.00', 0.00, 0, '2020-09-20 20:39:13', '2020-09-20 20:39:13', 0),
-(45, 53, 36, 23, 1000.00, '1000.00', 0.00, 0, '2020-09-27 22:35:22', '2020-09-27 22:35:22', 0);
+(45, 53, 36, 23, 1000.00, '1000.00', 0.00, 0, '2020-09-27 22:35:22', '2020-09-27 22:35:22', 0),
+(46, 73, 55, 25, 1500.00, '1500.00', 0.00, 0, '2020-10-02 14:25:12', '2020-10-02 14:25:12', 0);
 
 -- --------------------------------------------------------
 
@@ -234,7 +238,8 @@ INSERT INTO `user` (`id`, `username`, `password`, `email`, `view_data`, `add_dat
 (2, 'user1', 'user1', '', 1, 1, 1, 1),
 (3, 'user2', 'user2', '', 1, 1, 1, 1),
 (4, 'user5', 'user5', 'sample@sample5.com', 1, 1, 1, 0),
-(5, 'user6', 'user6', 'sample6@sample.com', 0, 0, 0, 0);
+(5, 'user6', 'user6', 'sample6@sample.com', 0, 0, 0, 0),
+(6, 'user7', 'user7', 'sample7@sample.com', 0, 0, 0, 0);
 
 --
 -- Indexes for dumped tables
@@ -286,7 +291,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `guarantor`
@@ -298,25 +303,25 @@ ALTER TABLE `guarantor`
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `receipt`
 --
 ALTER TABLE `receipt`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables

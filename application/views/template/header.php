@@ -76,24 +76,22 @@
       <div class="main_container">
         <div class="col-md-3 left_col menu_fixed">
           <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a href="dashboard" style="padding-left: 30px; padding-top: 10px; padding-bottom: 0px">
-                <img src="../build/images/logo2.png" alt="arms logo" width="80" height="70">
-              </a>          
-            </div>
-
-            <div class="clearfix"></div>
+            <!-- <div class="navbar nav_title" style="border: 0;"> 
+            </div> -->
 
             <!-- menu profile quick info -->
-<!--             <div class="profile clearfix">
-              <div class="profile_pic">
-                <img src="images/img.jpg" alt="..." class="img-circle profile_img">
+            <div class="profile clearfix row" style="padding-top: 20px; font-family:verdana; font-size: 11px" >
+              
+              <div class="col-md-6">
+                <a href="dashboard" style="padding-left: 20px; padding-bottom: 0px">
+                  <img src="../build/images/logo2.png" alt="arms logo" width="80" height="70"> </a>
+                </div>
+
+                <div class="col-md-6" style="color: white; padding-left: 1px;">
+                  <b>A</b> c c o u n t s <BR><b>R</b> e c e i v a b l e <BR><b>M</b> a n a g e m e n t <BR><b>S</b> y s t e m s 
+                </div>
+                
               </div>
-              <div class="profile_info">
-                <span>Welcome,</span>
-                <h2>John Doe</h2>
-              </div>
-            </div> -->
             <!-- /menu profile quick info -->
 
             <br />

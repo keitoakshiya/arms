@@ -351,7 +351,7 @@ class Main extends CI_Controller {
 
 
 		$this->load->view('template/container_footer');
-		$this->load->view('template/footer');
+		$this->load->view('template/footer2');
 		}
 	}
 
@@ -832,7 +832,7 @@ public function payment_summary2($a){
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 		$data = array(
-		    'title' => 'Add roles',
+		    'title' => 'Manage Roles',
 		    'description' => ' Manage user permission '
 		);
 		$this->load->view('template/header',$data);

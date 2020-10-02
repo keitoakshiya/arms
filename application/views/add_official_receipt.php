@@ -5,8 +5,8 @@
             				<select name="type" class="form-control" onchange="companydropdown(this.value);" required>
 			                   	<option selected disabled value="">Select Guarantor Type</option>
 								<option value="1">HMO</option>
-								<option value="2">Government</option>
-								<option value="3">Corporate</option>
+								<option value="2">Corporate</option>
+								<option value="3">Government</option>
 							</select>
 							<div id="companydropdown"></div>
 

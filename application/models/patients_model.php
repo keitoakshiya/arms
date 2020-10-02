@@ -80,7 +80,7 @@
             $this->db->where('id', $id);
             $this->db->update('patient');
             //print_r($this->db->last_query()); 
-            header("Location: edit_patient/".$id);
+            header("Location: patients");
         }
 
     }
