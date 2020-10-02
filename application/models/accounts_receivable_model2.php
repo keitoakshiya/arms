@@ -4,7 +4,7 @@
         public function get_bill($a){
 
             $this->db->select('
-patient.first_name,patient.middle_name,patient.last_name,patient.date_created,
+patient.first_name,patient.middle_name,patient.last_name,DATE_FORMAT(`patient`.`date_created`, "%b %d %Y") as date_created,
     bill.id AS bill_id,bill.date,bill.hospital_bill,bill.professional_bill,(bill.hospital_bill+bill.professional_bill) AS total_bill,
     
     IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE bill_id = bill.id),0) AS total_hospital_bill_payment,
@@ -35,7 +35,7 @@ patient.first_name,patient.middle_name,patient.last_name,patient.date_created,
 
 
              $this->db->select('
-patient.first_name,patient.middle_name,patient.last_name,patient.date_created,
+patient.first_name,patient.middle_name,patient.last_name,DATE_FORMAT(`patient`.`date_created`, "%b %d %Y") as date_created,
     bill.id AS bill_id,bill.date,bill.hospital_bill,bill.professional_bill,(bill.hospital_bill+bill.professional_bill) AS total_bill,
     
     IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE bill_id = bill.id),0) AS total_hospital_bill_payment,

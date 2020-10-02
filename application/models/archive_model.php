@@ -22,7 +22,7 @@
                 `patient`.`first_name` as first_name,
                 `patient`.`last_name` as last_name,
                 `patient`.`middle_name` as middle_name,
-                `patient`.`date_deleted` as date_deleted,
+                DATE_FORMAT(`patient`.`date_deleted`, "%b %d %Y - %h:%i %p") as date_deleted,
                 `patient`.`deleted` as patient_deleted,
                 `bill`.`id` as bill_id,
                 `bill`.`date` as bill_date,

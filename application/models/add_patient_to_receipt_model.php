@@ -4,7 +4,7 @@
         public function get_patients($a){
             $this->db->select(' bill.id,
     bill.deleted,
-    bill.date,
+    DATE_FORMAT(`bill`.`date`, "%b %d %Y") as date,
     bill.patient_id,
     patient.first_name,
     patient.middle_name,

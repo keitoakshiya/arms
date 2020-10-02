@@ -53,9 +53,9 @@
         ],
 
         initComplete: function () {
-            this.api().columns([0,1]).every( function () {
+            this.api().columns([1]).every( function () {
                 var column = this;
-                var select = $('<select><option value="">All</option></select>')
+                var select = $('<select><option value="">Select Company</option></select>')
                     .appendTo( $(column.footer()).empty() )
                     .on( 'change', function () {
                         var val = $.fn.dataTable.util.escapeRegex(
