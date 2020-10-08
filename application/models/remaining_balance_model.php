@@ -5,26 +5,42 @@
 
 
             $this->db->select('
-                            guarantor.id as guarantor_id,guarantor.name,guarantor.type,
-    #bill
+                            guarantor.id AS guarantor_id,guarantor.name,guarantor.type,
+
     IFNULL((SELECT SUM(hospital_bill) FROM bill WHERE guarantor_id = guarantor.id),0) AS hospital_bill_total,
     IFNULL((SELECT SUM(professional_bill) FROM bill WHERE guarantor_id = guarantor.id),0) AS professional_bill_total,
     (IFNULL((SELECT SUM(hospital_bill) FROM bill WHERE guarantor_id = guarantor.id),0) +
     IFNULL((SELECT SUM(professional_bill) FROM bill WHERE guarantor_id = guarantor.id),0)) AS total_bill,
-    #payments
-    IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE transaction.id = guarantor.id),0) AS total_hospital_paid,
-    IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE transaction.id = guarantor.id),0) AS total_professional_paid,
-    (IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE transaction.id = guarantor.id),0)+
-    IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE transaction.id = guarantor.id),0)) AS total_paid,
-    #balance
-    (IFNULL((SELECT SUM(hospital_bill) FROM bill WHERE guarantor_id = guarantor.id),0)-
-    IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE transaction.id = guarantor.id),0)) AS hospital_bill_balance,
-    (IFNULL((SELECT SUM(professional_bill) FROM bill WHERE guarantor_id = guarantor.id),0)-
-    IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE transaction.id = guarantor.id),0)) AS professional_bill_balance,
-        ((IFNULL((SELECT SUM(hospital_bill) FROM bill WHERE guarantor_id = guarantor.id),0)-
-    IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE transaction.id = guarantor.id),0))+
-    (IFNULL((SELECT SUM(professional_bill) FROM bill WHERE guarantor_id = guarantor.id),0)-
-    IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE transaction.id = guarantor.id),0))) AS total_balance
+
+    IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE guarantor_id = (SELECT guarantor_id FROM bill WHERE bill.id =transaction.bill_id)),0) AS total_hospital_paid,
+
+    IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE guarantor_id = (SELECT guarantor_id FROM bill WHERE bill.id =transaction.bill_id)),0) AS total_professional_paid,
+
+
+(IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE guarantor_id = (SELECT guarantor_id FROM bill WHERE bill.id =transaction.bill_id )), 0)+
+
+
+IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE  guarantor_id = (SELECT guarantor_id FROM bill WHERE bill.id =transaction.bill_id ) ), 0)) AS total_paid,
+
+
+IFNULL((SELECT SUM(hospital_bill) FROM bill WHERE guarantor_id = guarantor.id),0)-
+IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE guarantor_id = (SELECT guarantor_id FROM bill WHERE bill.id =transaction.bill_id)),0)
+AS hospital_bill_balance,
+
+IFNULL((SELECT SUM(professional_bill) FROM bill WHERE guarantor_id = guarantor.id),0)-
+IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE guarantor_id = (SELECT guarantor_id FROM bill WHERE bill.id =transaction.bill_id)),0)
+AS professional_bill_balance, 
+
+
+((IFNULL((SELECT SUM(hospital_bill) FROM bill WHERE guarantor_id = guarantor.id),0)-
+IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE guarantor_id = (SELECT guarantor_id FROM bill WHERE bill.id =transaction.bill_id)),0))
++
+
+IFNULL((SELECT SUM(professional_bill) FROM bill WHERE guarantor_id = guarantor.id),0)-
+IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE guarantor_id = (SELECT guarantor_id FROM bill WHERE bill.id =transaction.bill_id)),0))
+
+AS total_balance
+
 ');
             $this->db->join('patient', 'patient.id = patient_id');
             $this->db->join('guarantor', 'guarantor.id = guarantor_id', 'left');
