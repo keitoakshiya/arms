@@ -32,7 +32,7 @@
 
   <style>
   .modal-header, h4, .close {
-    background-color: #4d5687;
+    background-color: #bf1f1f;
     color:white !important;
     text-align: center;
     font-size: 30px;
@@ -49,7 +49,7 @@
     
       <!-- Modal content-->
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header" style="font-family:verdana; padding:25px ;">
           
           <h4></h4>
           <h3><span>Accounts Receivable Management System</span></h3>
@@ -58,7 +58,7 @@
 
         </div>
 
-        <div class="modal-body" style="padding:40px 50px;">
+        <div class="modal-body" style="padding:30px 50px;">
           <section class="login_content">
             <form method="post" action="/arms/main/login_validation">
               
@@ -72,12 +72,12 @@
                 <input type="submit" name="login" class="form-control btn btn-success submit-btn" value="Login" style="float: right; ">
                 <!-- <a class="reset_pass" href="#">Lost your password?</a> -->
               </div>
-              <br><br>
+              <br>
                 <div>
           
           
-          <p>Not a member? <a href="#">Sign Up</a></p>
-          <p>Forgot <a href="#">Password?</a></p>
+         <!-- <p>Not a member? <a href="#">Sign Up</a></p> -->
+          <p>Forgot <a href="Welcome">Password?</a></p> 
         </div>
               
             </form>

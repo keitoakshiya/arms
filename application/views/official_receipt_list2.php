@@ -4,7 +4,7 @@
 		<th>Official Receipt Date</th>
 		<th>Official Receipt Amount</th>
 		<th>Company</th>
-		<th>Amount Applied</th>
+		<!-- <th>Amount Applied</th> -->
 		<th></th>
 <!-- 		<th></th>
 		<th></th> -->
@@ -19,7 +19,7 @@
 						echo "<td>".$row->or_date."</a></td>";
 						echo "<td>&#8369;".$row->or_amount."</a></td>";
 						echo "<td>".$row->name."</a></td>";
-						echo "<td>&#8369;".$row->amount_applied."</a></td>";
+						//echo "<td>&#8369;".$row->amount_applied."</a></td>";
 						echo "<td></td>";
 						//echo "<td>ARCHIVE PAALALA MO</td>";
 						

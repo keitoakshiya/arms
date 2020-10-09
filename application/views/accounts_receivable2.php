@@ -15,9 +15,9 @@
 
 						echo "<td>".$row->first_name." ".$row->middle_name." ".$row->last_name."</td>";
 						echo "<td>".$row->date_created."</td>";
-						echo "<td>".$row->hospital_bill."</td>";
-						echo "<td>".$row->professional_bill."</td>";
-						echo "<td>".$row->total_bill."</td>";
+						echo "<td>&#8369;".$row->hospital_bill."</td>";
+						echo "<td>&#8369;".$row->professional_bill."</td>";
+						echo "<td>&#8369;".$row->total_bill."</td>";
 						//echo "<td>".$row->total_hospital_bill_payment."</td>";
 						//echo "<td>".$row->total_professional_bill_payment."</td>";
 						//echo "<td>".$row->total_payment."</td>";

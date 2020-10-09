@@ -4,7 +4,7 @@
 
 /*Sidebar*/
 .left_col {
-  background: #3e697d; }
+  background:#bf1f1f /*#3e697d;*/ }
 
   .nav_title {
   width: 230px;
@@ -17,8 +17,8 @@
 /*Sidebar when dropdown is active*/
   .nav.side-menu > li.active > a {
   text-shadow: rgba(0, 0, 0, 0.25) 0 -1px 0;
-  background: -webkit-gradient(linear, left top, left bottom, from(#334556), to(#2C4257)), #2A3F54;
-  background: linear-gradient(#3e697d, #3e697d), #3e697d; /*cc0c3c*/
+  background: -webkit-gradient(linear, left top, left bottom, from(#bf1f1f/*334556*/), to(#2C4257)), #2A3F54;
+  background: linear-gradient(#bf1f1f, #bf1f1f), #bf1f1f /*3e697d*/; /*cc0c3c*/
   -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0, inset rgba(255, 255, 255, 0.16) 0 1px 0;
   box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0, inset rgba(255, 255, 255, 0.16) 0 1px 0; }
 

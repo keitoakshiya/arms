@@ -1,4 +1,4 @@
-    <table id="patient_list" class="display cell-border" style="width:100%">
+    <table id="add_patient_to_receipt" class="display cell-border" style="width:100%">
         <thead>
             <tr>
                 <th colspan="3"></th>
@@ -73,14 +73,14 @@
 <script type="text/javascript">
 
 
-        $('#patient_list').DataTable( {
+        $('#add_patient_to_receipt').DataTable( {
                                 dom: 'Bfrtip',
         buttons: [
             'copy', 'excel', 'pdf', 'print'
         ],
 
         initComplete: function () {
-            this.api().columns([1]).every( function () {
+            this.api().columns([]).every( function () {
                 var column = this;
                 var select = $('<select><option value="">All</option></select>')
                     .appendTo( $(column.footer()).empty() )

@@ -24,6 +24,7 @@
 		    if ($count_row > 0) {
 		      //if count row return any row; that means you have already this email address in the database. so you must set false in this sense.
 		        return FALSE; // here I change TRUE to false.
+		        
 		     } else {
 		      // doesn't return any row means database doesn't have this email
 		        return TRUE; // And here false to TRUE

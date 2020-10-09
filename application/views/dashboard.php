@@ -19,7 +19,7 @@
         ]);
 
         var options = {
-          title: 'Total count of patients under Inpatient, Outpatient and Emergency'
+          title: 'Total % of patients under Inpatient, Outpatient and Emergency'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -47,7 +47,7 @@
         ]);
 
         var options = {
-          title: 'Total count of paid bills of HMO, Government and Corporate '
+          title: 'Total % of Paid Bills '
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
@@ -78,7 +78,7 @@
         var options = {
           chart: {
             title: 'Top 10 Company',
-            subtitle: 'This Column Chart shows the top 10 companies with the highest amount of total bill',
+            subtitle: 'This Column Chart shows the top 10 companies with the highest amount of Bill',
           }
         };
 

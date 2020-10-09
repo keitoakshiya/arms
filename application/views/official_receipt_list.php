@@ -1,4 +1,4 @@
-<table id="add_payment" class="display" style="width:100%">
+<table id="official_receipt_list" class="display" style="width:100%">
 	<thead>
 		<th>Official Receipt</th>
 		<th>Official Receipt Date</th>
@@ -32,6 +32,6 @@
 
 <script type="text/javascript">
 	$(document).ready( function () {
-	    $('#add_payment').DataTable();
+	    $('#official_receipt_list').DataTable();
 	} );
 </script> 
