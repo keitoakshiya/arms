@@ -1,4 +1,4 @@
-<table id="patient_list" class="display" style="width:100%">
+<table id="patient_list" class="display" style="width:100%; color: #292929;">
         <thead>
             <tr>
                 <th>Company</th>

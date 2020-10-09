@@ -88,7 +88,7 @@
                 </div>
 
                 <div class="col-md-6" style="color: white; padding-left: 1px;">
-                  <b>A</b> c c o u n t s <BR><b>R</b> e c e i v a b l e <BR><b>M</b> a n a g e m e n t <BR><b>S</b> y s t e m s 
+                  <b>A</b> c c o u n t s <BR><b>R</b> e c e i v a b l e <BR><b>M</b> a n a g e m e n t <BR><b>S</b> y s t e m
                 </div>
                 
               </div>

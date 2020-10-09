@@ -1,4 +1,4 @@
-<table id="accounts_receivable" class="display" style="width:100%">
+<table id="accounts_receivable" class="display" style="width:100%; color: #292929;">
 	<thead>
 <!--        <tr>
                 <th colspan="1">Patient</th>

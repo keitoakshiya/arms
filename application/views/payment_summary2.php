@@ -1,4 +1,4 @@
-<table id="payment_summary2" class="display" style="width:100%">
+<table id="payment_summary2" class="display" style="width:100%; color: #292929;">
     <thead>
 
      <tr>

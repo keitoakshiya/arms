@@ -10,7 +10,7 @@
 	            header("Location: /arms/main/add_account");
         	}else{
 
-        		header("Location: /arms/main/Duplicate_data");
+        		header("Location: /arms/main/add_account");
         	}
         }
         public function checkDuplicateUser($username) {

@@ -1,4 +1,4 @@
-	        <div class="right_col" style="">
+	        <div class="right_col" style="color: #292929;">
 	         <div class="row">
 
 	<?php

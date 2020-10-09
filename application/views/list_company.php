@@ -1,4 +1,4 @@
-<table id="list_company" class="display" style="width:100%">
+<table id="list_company" class="display" style="width:100%; color: #292929;">
 	<thead>
 		<tr>
             <th>Guarantor Type</th>

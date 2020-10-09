@@ -1,4 +1,4 @@
-<table id="official_receipt_list2" class="display" style="width:100%">
+<table id="official_receipt_list2" class="display" style="width:100%; color: #292929;">
 	<thead>
 		<th>Official Receipt</th>
 		<th>Official Receipt Date</th>

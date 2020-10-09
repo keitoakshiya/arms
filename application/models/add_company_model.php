@@ -11,7 +11,7 @@
 	            $this->db->insert('guarantor');
 	            header("Location: /arms/main/add_company");
         	}else{
-        		header("Location: /arms/main/duplicate_data");
+        		header("Location: /arms/main/list_company");
         	}
 
         

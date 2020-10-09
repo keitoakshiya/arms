@@ -1,4 +1,4 @@
-<table id="remaining_balance2" class="display" style="width:100%">
+<table id="remaining_balance2" class="display" style="width:100%; color: #292929;">
     <thead>
         <th>Patient Name</th>
         <th>Date Registered</th>

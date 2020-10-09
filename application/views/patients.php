@@ -1,4 +1,7 @@
-<table id="patient_list" class="display" style="width:100%">
+
+<link href="../application/build/css/ew.css" rel="stylesheet">
+
+<table id="patient_list" class="display" style="width:100%; color: #292929;" >
         <thead>
             <tr>
                 <th>Patient ID</th>
