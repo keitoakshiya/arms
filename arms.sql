@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2020 at 01:52 PM
+-- Generation Time: Oct 15, 2020 at 03:28 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -119,7 +119,7 @@ CREATE TABLE `patient` (
 
 INSERT INTO `patient` (`id`, `first_name`, `last_name`, `middle_name`, `date_created`, `deleted`, `date_deleted`) VALUES
 (41, 'Alissa', 'Chet', 'M', '2020-08-24 03:46:16', 1, '2020-09-08 05:01:07'),
-(42, 'Angelo', 'Lumen', 'O', '2020-08-24 03:46:38', 0, '2020-10-15 10:14:56'),
+(42, 'Angelo', 'Lumen', 'O', '2020-08-24 03:46:38', 0, '2020-10-15 13:14:59'),
 (46, 'Jeffrey', 'Macab', 'A', '2020-08-24 03:48:26', 0, NULL),
 (47, 'Arianna', 'Torri', 'H', '2020-08-24 03:48:50', 0, '2020-08-24 05:08:53'),
 (48, 'Katherine', 'Wayne', 'L', '2020-08-24 03:49:20', 0, '2020-10-02 13:35:57'),
@@ -241,15 +241,13 @@ CREATE TABLE `user` (
   `view_official_receipt_list2` tinyint(1) NOT NULL DEFAULT 1,
   `delete_official_receipt_list2` tinyint(1) NOT NULL DEFAULT 1,
   `view_company_list_official_receipt_list` tinyint(1) NOT NULL DEFAULT 1,
-  `add_company_list_official_receipt_list` tinyint(1) NOT NULL DEFAULT 1,
-  `view_add_patient_to_receipt` tinyint(1) NOT NULL DEFAULT 1,
-  `edit_add_patient_to_receipt` tinyint(1) NOT NULL DEFAULT 1,
+  `add_patient_to_receipt` tinyint(1) NOT NULL DEFAULT 1,
   `add_view_bill_by_patient` tinyint(1) NOT NULL DEFAULT 1,
   `view_list_company` tinyint(1) NOT NULL DEFAULT 1,
   `add_company` tinyint(1) NOT NULL DEFAULT 1,
-  `view_Archive` tinyint(1) NOT NULL DEFAULT 1,
-  `delete_Archive` tinyint(1) NOT NULL DEFAULT 1,
-  `restore_Archive` tinyint(1) NOT NULL DEFAULT 1,
+  `view_archive` tinyint(1) NOT NULL DEFAULT 1,
+  `delete_archive` tinyint(1) NOT NULL DEFAULT 1,
+  `restore_archive` tinyint(1) NOT NULL DEFAULT 1,
   `add_account` tinyint(1) NOT NULL DEFAULT 1,
   `edit_roles` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -258,13 +256,13 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `email`, `view_data`, `add_data`, `edit_data`, `delete_data`, `view_dashboard`, `add_patient`, `view_patients`, `edit_patients`, `delete_patients`, `view_accounts_receivable`, `view_accounts_receivable2`, `view_payment_summary`, `view_payment_summary2`, `view_remaining_balance`, `view_remaining_balance2`, `add_official_receipt`, `view_official_receipt_list2`, `delete_official_receipt_list2`, `view_company_list_official_receipt_list`, `add_company_list_official_receipt_list`, `view_add_patient_to_receipt`, `edit_add_patient_to_receipt`, `add_view_bill_by_patient`, `view_list_company`, `add_company`, `view_Archive`, `delete_Archive`, `restore_Archive`, `add_account`, `edit_roles`) VALUES
-(1, 'admin', 'admin', 'sample@sample.com', 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(2, 'user1', 'user1', '', 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(3, 'user2', 'user2', '', 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(4, 'user5', 'user5', 'sample@sample5.com', 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(5, 'user6', 'user6', 'sample6@sample.com', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(6, 'user7', 'user7', 'sample7@sample.com', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `user` (`id`, `username`, `password`, `email`, `view_data`, `add_data`, `edit_data`, `delete_data`, `view_dashboard`, `add_patient`, `view_patients`, `edit_patients`, `delete_patients`, `view_accounts_receivable`, `view_accounts_receivable2`, `view_payment_summary`, `view_payment_summary2`, `view_remaining_balance`, `view_remaining_balance2`, `add_official_receipt`, `view_official_receipt_list2`, `delete_official_receipt_list2`, `view_company_list_official_receipt_list`, `add_patient_to_receipt`, `add_view_bill_by_patient`, `view_list_company`, `add_company`, `view_archive`, `delete_archive`, `restore_archive`, `add_account`, `edit_roles`) VALUES
+(1, 'admin', 'admin', 'sample@sample.com', 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1),
+(2, 'user1', 'user1', '', 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(3, 'user2', 'user2', '', 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(4, 'user5', 'user5', 'sample@sample5.com', 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(5, 'user6', 'user6', 'sample6@sample.com', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(6, 'user7', 'user7', 'sample7@sample.com', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 --
 -- Indexes for dumped tables

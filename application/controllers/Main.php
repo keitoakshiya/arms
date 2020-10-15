@@ -5,11 +5,11 @@ class Main extends CI_Controller {
 
 
 
-	public function index(){
+		public function index(){
 		$this->load->view('login');
 	}
 
-	public function login_validation(){
+		public function login_validation(){
 
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('username','Username','required');
@@ -33,7 +33,7 @@ class Main extends CI_Controller {
 		}
 	}
 
-	public function dashboard(){
+		public function dashboard(){
 		$this->load->model('roles_model');
 		if ($this->roles_model->view_dashboard()==0) {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
@@ -57,10 +57,10 @@ class Main extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
-	public function patients() {
+		public function patients() {
 		$this->load->model('roles_model');
 
-		if ($this->roles_model->can_read()==0) {
+		if ($this->roles_model->view_patients()==0) {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 
@@ -84,9 +84,9 @@ class Main extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
-	public function edit_patient($a){
+		public function edit_patient($a){
 		$this->load->model('roles_model');
-		if ($this->roles_model->can_edit()==0) {
+		if ($this->roles_model->edit_patients()==0) {
 			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 		$data = array(
@@ -104,7 +104,7 @@ class Main extends CI_Controller {
 
 	}
 
-	public function update_patient(){
+		public function update_patient(){
 
 		$this->load->model('roles_model');
 		if ($this->roles_model->can_edit()==0) {
@@ -128,7 +128,7 @@ class Main extends CI_Controller {
 		}
 	}
 
-	public function patients_filtered() {
+		public function patients_filtered() {
 
 				$data = array(
 		    'title' => 'Patients List',
@@ -163,7 +163,7 @@ class Main extends CI_Controller {
 		}
 	}
 
-	public function add_patient(){
+		public function add_patient(){
 
 		$this->load->model('roles_model');
 		if ($this->roles_model->add_patient()==0) {
@@ -181,7 +181,7 @@ class Main extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
-	public function add_bill(){
+		public function add_bill(){
 				$this->load->model('roles_model');
 		if ($this->roles_model->can_add()==0) {
 			header("Location: denied");
@@ -202,10 +202,10 @@ class Main extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
-	public function add_patient_to_receipt($a,$b) {
+		public function add_patient_to_receipt($a,$b) {
 		$this->load->model('roles_model');
 
-		if ($this->roles_model->can_add()==0) {
+		if ($this->roles_model->add_patient_to_receipt()==0) {
 			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 
@@ -228,7 +228,7 @@ class Main extends CI_Controller {
 		$this->load->view('template/footer3');
 	}
 
-	public function insert_patient(){
+		public function insert_patient(){
 
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('first-name','first-name','required');
@@ -262,7 +262,7 @@ class Main extends CI_Controller {
 		}
 	}
 
-	public function logout(){
+		public function logout(){
 		
 	    $this->session->unset_userdata($session_data);
 	    $this->session->sess_destroy();
@@ -270,13 +270,12 @@ class Main extends CI_Controller {
 	    header('Location: /arms');
 	}
 
-	public function accounts_receivable(){
+		public function accounts_receivable(){
 		$this->load->model('roles_model');
-		if ($this->roles_model->can_read()==0) {
+		if ($this->roles_model->view_accounts_receivable()==0) {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 
-		
 		$data = array(
 		    'title' => 'Accounts Receivable',
 		    'description' => ' Summary of Accounts Receivable '
@@ -295,9 +294,9 @@ class Main extends CI_Controller {
 		$this->load->view('template/footer');
 	}
 
-	public function accounts_receivable2($a){
+		public function accounts_receivable2($a){
 		$this->load->model('roles_model');
-		if ($this->roles_model->can_read()==0) {
+		if ($this->roles_model->view_accounts_receivable2()==0) {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 
@@ -321,7 +320,7 @@ class Main extends CI_Controller {
 	}
 
 
-	public function accounts_receivable_filtered($a){
+		public function accounts_receivable_filtered($a){
 
 		$data = array(
 		    'title' => 'Accounts Receivable',
@@ -356,9 +355,9 @@ class Main extends CI_Controller {
 	}
 
 
-	public function payment_summary(){
+		public function payment_summary(){
 		$this->load->model('roles_model');
-		if ($this->roles_model->can_read()==0) {
+		if ($this->roles_model->view_payment_summary()==0) {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 		$data = array(
@@ -381,9 +380,9 @@ class Main extends CI_Controller {
 
 	}
 
-public function payment_summary2($a){
+		public function payment_summary2($a){
 		$this->load->model('roles_model');
-		if ($this->roles_model->can_read()==0) {
+		if ($this->roles_model->view_payment_summary2()==0) {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 		$data = array(
@@ -406,7 +405,7 @@ public function payment_summary2($a){
 
 	}
 
-	public function payment_summary_filtered(){
+		public function payment_summary_filtered(){
 		
 		$data = array(
 		    'title' => 'Payment Summary',
@@ -441,9 +440,9 @@ public function payment_summary2($a){
 		}
 	}
 
-	public function remaining_balance(){
+		public function remaining_balance(){
 		$this->load->model('roles_model');
-		if ($this->roles_model->can_read()==0) {
+		if ($this->roles_model->view_remaining_balance()==0) {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 		$data = array(
@@ -464,9 +463,9 @@ public function payment_summary2($a){
 		$this->load->view('template/footer');
 	}
 
-	public function remaining_balance2($a){
+		public function remaining_balance2($a){
 		$this->load->model('roles_model');
-		if ($this->roles_model->can_read()==0) {
+		if ($this->roles_model->view_remaining_balance2()==0) {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 		$data = array(
@@ -487,7 +486,7 @@ public function payment_summary2($a){
 		$this->load->view('template/footer2');
 	}
 
-	public function remaining_balance_filtered(){
+		public function remaining_balance_filtered(){
 
 
 		$data = array(
@@ -524,9 +523,9 @@ public function payment_summary2($a){
 	}
 
 
-	public function add_payment(){
+		public function add_payment(){
 		$this->load->model('roles_model');
-		if ($this->roles_model->can_add()==0) {
+		if ($this->roles_model->CHECK()==0) {
 			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 		$data = array(
@@ -547,11 +546,11 @@ public function payment_summary2($a){
 		$this->load->view('template/footer2');
 	}
 
-	public function company_list(){
+		public function company_list(){
 
 		$this->load->model('roles_model');
 
-		if ($this->roles_model->can_read()==0) {
+		if ($this->roles_model->view_company_list_official_receipt_list()==0) {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 
@@ -576,11 +575,11 @@ public function payment_summary2($a){
 
 	}
 
-	public function official_receipt_list($a){
+		public function official_receipt_list($a){
 
 		$this->load->model('roles_model');
 
-		if ($this->roles_model->can_read()==0) {
+		if ($this->roles_model->view_company_list_official_receipt_list()==0) {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 
@@ -605,11 +604,11 @@ public function payment_summary2($a){
 
 	}
 
-	public function official_receipt_list2(){
+		public function official_receipt_list2(){
 
 		$this->load->model('roles_model');
 
-		if ($this->roles_model->can_read()==0) {
+		if ($this->roles_model->view_official_receipt_list2()==0) {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 
@@ -634,9 +633,9 @@ public function payment_summary2($a){
 
 	}
 
-	public function view_bill_by_patient($id,$receipt){
+		public function view_bill_by_patient($id,$receipt){
 		$this->load->model('roles_model');
-		if ($this->roles_model->can_edit()==0) {
+		if ($this->roles_model->add_view_bill_by_patient()==0) {
 			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 		$data = array(
@@ -659,7 +658,7 @@ public function payment_summary2($a){
 			$this->load->view('template/footer3');
 	}
 
-	public function insert_bill(){
+		public function insert_bill(){
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('hospital_bill','hospital_bill','required');
 		$this->form_validation->set_rules('professional_bill','professional_bill','required');
@@ -682,7 +681,7 @@ public function payment_summary2($a){
 		}
 	}
 
-	public function insert_transaction(){
+		public function insert_transaction(){
 
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('hospital_bill_payment','hospital_bill_payment','required');
@@ -704,9 +703,9 @@ public function payment_summary2($a){
 
 	}
 
-	public function add_company(){
+		public function add_company(){
 				$this->load->model('roles_model');
-		if ($this->roles_model->can_add()==0) {
+		if ($this->roles_model->add_company()==0) {
 			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 		$data = array(
@@ -720,7 +719,7 @@ public function payment_summary2($a){
 		$this->load->view('template/footer');
 	}
 
-	public function insert_company(){
+		public function insert_company(){
 
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('name','name','required');
@@ -743,9 +742,9 @@ public function payment_summary2($a){
 	}
 
 
-	public function add_account(){
+		public function add_account(){
 		$this->load->model('roles_model');
-		if ($this->roles_model->can_add()==0) {
+		if ($this->roles_model->add_account()==0) {
 			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 		$data = array(
@@ -759,7 +758,7 @@ public function payment_summary2($a){
 		$this->load->view('template/footer');
 	}
 
-	public function insert_account(){
+		public function insert_account(){
 
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('username','username','required');
@@ -779,9 +778,9 @@ public function payment_summary2($a){
 	}
 
 
-	public function archive() {
+		public function archive() {
 		$this->load->model('roles_model');
-		if ($this->roles_model->can_read()==0) {
+		if ($this->roles_model->view_archive()==0) {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 		$data = array(
@@ -802,9 +801,9 @@ public function payment_summary2($a){
 		$this->load->view('template/footer');
 	}
 
-	public function archive_patient($id){
+		public function archive_patient($id){
 				$this->load->model('roles_model');
-		if ($this->roles_model->can_delete()==0) {
+		if ($this->roles_model->delete_patients()==0) {
 			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 		else{
@@ -814,21 +813,10 @@ public function payment_summary2($a){
 
 	}
 
-	/*public function archive_bill($id){
-				$this->load->model('roles_model');
-		if ($this->roles_model->can_delete()==0) {
-			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
-		}
-		else{
-			$this->load->model('archive_model');
-			$this->archive_model->archive_bill($id);
-		}
 
-	}*/
-
-	public function restore_patient($id){
+		public function restore_patient($id){
 				$this->load->model('roles_model');
-		if ($this->roles_model->can_delete()==0) {
+		if ($this->roles_model->restore_archive()==0) {
 			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 		else{
@@ -838,9 +826,9 @@ public function payment_summary2($a){
 
 	}
 
-	public function roles(){
+		public function roles(){
 		$this->load->model('roles_model');
-		if ($this->roles_model->can_edit()==0) {
+		if ($this->roles_model->edit_roles()==0) {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 		$data = array(
@@ -861,7 +849,7 @@ public function payment_summary2($a){
 		$this->load->view('template/footer');
 	}
 
-	public function edit_roles(){
+		public function edit_roles(){
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('id','id','required');
 
@@ -885,11 +873,9 @@ public function payment_summary2($a){
 	}
 
 
-
-
-	public function official_receipt(){
+		public function official_receipt(){
 				$this->load->model('roles_model');
-		if ($this->roles_model->can_add()==0) {
+		if ($this->roles_model->add_official_receipt()==0) {
 			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 		$data = array(
@@ -903,7 +889,7 @@ public function payment_summary2($a){
 		$this->load->view('template/footer');
 	}
 
-	public function insert_receipt(){
+		public function insert_receipt(){
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('company','company','required');
 		$this->form_validation->set_rules('or_date','or_date','required');
@@ -921,7 +907,7 @@ public function payment_summary2($a){
 
 
 
-	public function delete_bill($a){
+		public function delete_bill($a){
 		$this->load->model('roles_model');
 		if ($this->roles_model->can_delete()==0) {
 			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
@@ -933,7 +919,7 @@ public function payment_summary2($a){
 
 	}
 
-	public function mark_receipt($a){
+		public function mark_receipt($a){
 		$this->load->model('roles_model');
 		if ($this->roles_model->can_delete()==0) {
 			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
@@ -948,8 +934,7 @@ public function payment_summary2($a){
 		public function list_company(){
 
 		$this->load->model('roles_model');
-
-		if ($this->roles_model->can_read()==0) {
+		if ($this->roles_model->view_list_company()==0) {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 
