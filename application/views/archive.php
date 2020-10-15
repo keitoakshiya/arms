@@ -18,8 +18,8 @@
                         echo "<td>".$row->guarantor_name."</td>";
 						echo "<td>".$row->first_name." ".$row->middle_name." ".$row->last_name."</td>";
 						echo "<td>".$row->date_deleted."</td>";
-						echo "<td><a href='restore_patient/".$row->patient_id."'><i class='fa fa-window-restore' 
-                        style='color: #40b336; font-size: 16px'></i></a></td>";
+						echo "<td><button style='border: none;' onclick='restore_patient(".$row->patient_id.")'><i class='fa fa-window-restore' 
+                        style='color: green; font-size: 16px;'></i></button></td>";
 					echo "</tr>";
 				}
 			}
@@ -67,3 +67,18 @@ $(function() {
 });
 </script>
 
+</script>
+
+
+<script type="text/javascript">
+    function restore_patient(id) {
+          var r = confirm("Are you sure you want to retrive this patient? All bills and transactions of this patient will also be retrived");
+  if (r == true) {
+    window.location.href ="restore_patient/"+id ;
+  } else {
+    //window.location.href ="patients";
+  }
+    }
+
+
+</script>

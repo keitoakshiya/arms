@@ -10,7 +10,7 @@
 
 				<!-- page content -->
 
-		            <div class="col-md-8 col-sm-8s ">
+		            <div class="col-md-9 col-sm-9 ">
 		              <div class="x_panel">
 		                <div class="x_title">
 		                  <h2>'.$row->first_name.' '.$row->last_name.' <small><?=$description?></small></h2>
@@ -83,7 +83,7 @@
 
 							        </tbody>
 						        </table>
-						        <div class="col-md-11 col-sm-11s ">
+						        <div class="col-md-9 col-sm-9 ">
 			                   	<input type="submit" id="submit" class=" form form-control btn btn-success submit-btn" disabled>
 			                   </div>
 			                  </form>

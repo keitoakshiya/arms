@@ -5,6 +5,14 @@
                 $this->db->set('date_deleted','NOW()',FALSE);
 	    		$this->db->where('id', $id);
 	    		$this->db->update('patient');
+
+                $this->db->set('deleted', '1');
+                $this->db->where('patient_id', $id);
+                $this->db->update('bill');
+
+                $this->db->set('deleted', '1');
+                $this->db->where('patient_id', $id);
+                $this->db->update('transaction');
 	    		//print_r($this->db->last_query());
 	    		header("Location: /arms/main/patients");
 	    	}
@@ -13,7 +21,15 @@
                 $this->db->set('deleted', '0');
                 $this->db->where('id', $id);
                 $this->db->update('patient');
-                print_r($this->db->last_query());
+
+                $this->db->set('deleted', '0');
+                $this->db->where('patient_id', $id);
+                $this->db->update('bill');
+                
+                $this->db->set('deleted', '0');
+                $this->db->where('patient_id', $id);
+                $this->db->update('transaction');
+                //print_r($this->db->last_query());
                 header("Location: /arms/main/archive");
             }
 

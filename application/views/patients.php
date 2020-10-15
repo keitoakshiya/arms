@@ -18,8 +18,8 @@
             if (!isset($result)) {
 
             }
-			else if ($result) {
-				foreach ($result as $key => $row) {
+			else if ($result) { //query result from model of a table which then will be passed on to $row to show individual comlumns from db table
+				foreach ($result as $key => $row) { //fat arrow
 					echo "<tr>";
                         echo "<td>".sprintf('%08d', $row->patient_id)."</td>";
                         echo "<td>".$row->guarantor_name."</td>";
@@ -27,9 +27,10 @@
 						echo "<td>".$row->middle_name."</td>";
 						echo "<td>".$row->last_name."</td>";
 						echo "<td>".$row->date_created."</td>";
-						echo "<td><button onclick=\"location.href = 'edit_patient/".$row->patient_id."' \"><i class='fa fa-edit' 
-                        style=' font-size: 16px'></i></button><button onclick='archive_patient(".$row->patient_id.")'><i class='fa fa-trash' 
-                        style='color: #c93434; font-size: 16px'></i></button></td>";
+						echo "<td><button style='border: none;' onclick=\"location.href = 'edit_patient/".$row->patient_id."' \"><i class='fa fa-edit' 
+                        style=' font-size: 16px'></i></button>
+                        <button style='border: none;' onclick='archive_patient(".$row->patient_id.")'><i class='fa fa-trash' 
+                        style='color: #c93434; font-size: 16px;'></i></button></td>";
 					echo "</tr>";
 				}
 			}
@@ -118,13 +119,13 @@ $(function() {
 
 <script type="text/javascript">
     function archive_patient(id) {
-          var r = confirm("Are you sure you want to delete this patient?");
+          var r = confirm("Are you sure you want to deleted this patient? All bills and transactions of this patient will also be deleted");
   if (r == true) {
     window.location.href ="archive_patient/"+id ;
   } else {
     //window.location.href ="patients";
   }
-        
-
     }
+
+
 </script>

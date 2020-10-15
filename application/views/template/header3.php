@@ -103,7 +103,7 @@
                 <h3>Menu</h3>
 
                 <ul class="nav side-menu">
-                  <li><a href="../../dashboard"><i class="fa fa-bar-chart"></i> Graph Report </a></li>
+                  <li><a href="../../dashboard"><i class="fa fa-bar-chart"></i> Dashboard </a></li>
                   <li><a href="../../add_patient"><i class="fa fa-edit"></i>Register Patient </a></li>
                   <li><a href="../../patients"><i class="fa fa-list-alt"></i>Patient List </a></li>
                   <li><a><i class="fa fa-table"></i> Summary <span class="fa fa-chevron-down"></span></a>

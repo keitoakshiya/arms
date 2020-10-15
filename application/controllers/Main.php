@@ -35,11 +35,11 @@ class Main extends CI_Controller {
 
 	public function dashboard(){
 		$this->load->model('roles_model');
-		if ($this->roles_model->can_read()==0) {
+		if ($this->roles_model->view_dashboard()==0) {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 		$data = array(
-		    'title' => 'Graph Report',
+		    'title' => 'Dashboard',
 		    'description' => ' '
 		);
 		$this->load->view('template/header',$data);
@@ -166,7 +166,7 @@ class Main extends CI_Controller {
 	public function add_patient(){
 
 		$this->load->model('roles_model');
-		if ($this->roles_model->can_add()==0) {
+		if ($this->roles_model->add_patient()==0) {
 			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 
@@ -813,6 +813,18 @@ public function payment_summary2($a){
 		}
 
 	}
+
+	/*public function archive_bill($id){
+				$this->load->model('roles_model');
+		if ($this->roles_model->can_delete()==0) {
+			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
+		}
+		else{
+			$this->load->model('archive_model');
+			$this->archive_model->archive_bill($id);
+		}
+
+	}*/
 
 	public function restore_patient($id){
 				$this->load->model('roles_model');

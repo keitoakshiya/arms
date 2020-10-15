@@ -23,12 +23,12 @@
 
         	$username = $this->session->userdata('username');
 
-		    $this->db->select('view_data');
-		    $this->db->where('username',$username);
-		    $query = $this->db->get('user');
+		    $this->db->select('view_data'); //SELECT view_data 1
+		    $this->db->where('username',$username); //WHERE username = $username 3
+		    $query = $this->db->get('user'); //FROM user 2
 		    $res   = $query->result();
 
-		    	foreach ($res as $key => $row) {
+		    	foreach ($res as $key => $row) { 
 					$read = $row->view_data;
 				}
             return $read; 
@@ -78,6 +78,35 @@
             return $edit; 
         }
 
+        public function view_dashboard(){
+
+            $username = $this->session->userdata('username');
+
+            $this->db->select('view_dashboard'); //SELECT view_data 1
+            $this->db->where('username',$username); //WHERE username = $username 3
+            $query = $this->db->get('user'); //FROM user 2
+            $res   = $query->result();
+
+            foreach ($res as $key => $row) { 
+                $can = $row->view_dashboard;
+            }
+            return $can; 
+        }
+
+        public function add_patient(){
+
+            $username = $this->session->userdata('username');
+
+            $this->db->select('add_patient'); //SELECT view_data 1
+            $this->db->where('username',$username); //WHERE username = $username 3
+            $query = $this->db->get('user'); //FROM user 2
+            $res   = $query->result();
+
+            foreach ($res as $key => $row) { 
+                $can = $row->add_patient;
+            }
+            return $can; 
+        }
 
     }
 ?>  
