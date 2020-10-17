@@ -813,6 +813,29 @@ class Main extends CI_Controller {
 
 	}
 
+	public function archive_or($id){
+				$this->load->model('roles_model');
+		if ($this->roles_model->delete_or()==0) { //add in roles
+			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
+		}
+		else{
+			$this->load->model('archive_model');
+			$this->archive_model->archive_or($id);
+		}
+
+	}
+
+		public function delete_patient($id){
+				$this->load->model('roles_model');
+		if ($this->roles_model->delete_patients()==0) { //add permanent delete in roles
+			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
+		}
+		else{
+			$this->load->model('archive_model');
+			$this->archive_model->delete_patient($id);
+		}
+
+	}
 
 		public function restore_patient($id){
 				$this->load->model('roles_model');

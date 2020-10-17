@@ -5,6 +5,7 @@
                 <th>Full Name</th>
                 <th>Date Deleted</th>
                 <th>Retrieve</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -20,6 +21,7 @@
 						echo "<td>".$row->date_deleted."</td>";
 						echo "<td><button style='border: none;' onclick='restore_patient(".$row->patient_id.")'><i class='fa fa-window-restore' 
                         style='color: green; font-size: 16px;'></i></button></td>";
+             echo "<td><button style='border: none;' onclick='delete_patient(".$row->patient_id.")'><i class='fa fa-trash' style='color: red; font-size: 16px;'></i></button></td>";
 					echo "</tr>";
 				}
 			}
@@ -75,6 +77,19 @@ $(function() {
           var r = confirm("Are you sure you want to retrive this patient? All bills and transactions of this patient will also be retrived");
   if (r == true) {
     window.location.href ="restore_patient/"+id ;
+  } else {
+    //window.location.href ="patients";
+  }
+    }
+
+
+</script>
+
+<script type="text/javascript">
+    function delete_patient(id) {
+          var r = confirm("Are you sure you want to permanently delete this patient? All bills and transactions of this patient will also be permanently deleted");
+  if (r == true) {
+    window.location.href ="delete_patient/"+id ;
   } else {
     //window.location.href ="patients";
   }

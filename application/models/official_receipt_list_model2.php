@@ -2,7 +2,7 @@
     class official_receipt_list_model2 extends CI_Model {
 
         public function get_receipt(){
-            $this->db->select(' `receipt`.`id` AS `receipt_id`, `receipt`.`company`, DATE_FORMAT(`receipt`.`or_date`, "%b %d %Y") as or_date, `receipt`.`or_number`, `receipt`.`or_amount`, `receipt`.`distributed`, `guarantor`.`id` AS `guarantor_id`, `guarantor`.`name`, `guarantor`.`type`, `guarantor`.`deleted`, (SELECT (SUM(hospital_bill_payment)+SUM(professional_bill_payment)) FROM transaction WHERE id = receipt.id) AS amount_applied');
+            $this->db->select(' `receipt`.`id` AS `receipt_id`, `receipt`.`company`, DATE_FORMAT(`receipt`.`or_date`, "%b %d %Y") as or_date, `receipt`.`or_number`, `receipt`.`or_amount`, `receipt`.`distributed`, `guarantor`.`id` AS `guarantor_id`, `guarantor`.`name`, `guarantor`.`type`, `guarantor`.`deleted`, IFNULL((SELECT (SUM(hospital_bill_payment)+SUM(professional_bill_payment)) FROM transaction WHERE id = receipt.id),0) AS amount_applied');
         	$this->db->join('guarantor', 'receipt.company = guarantor.id','left');
             //PAALALA MO INNER
         	//$this->db->where('receipt.distributed','0');

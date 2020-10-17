@@ -18,7 +18,7 @@
             if (!isset($result)) {
 
             }
-			else if ($result) { //query result from model of a table which then will be passed on to $row to show individual comlumns from db table
+			else if ($result) { //query result from model of a table which then will be passed in to $row to show individual comlumns from db table
 				foreach ($result as $key => $row) { //fat arrow
 					echo "<tr>";
                         echo "<td>".sprintf('%08d', $row->patient_id)."</td>";
@@ -119,7 +119,7 @@ $(function() {
 
 <script type="text/javascript">
     function archive_patient(id) {
-          var r = confirm("Are you sure you want to deleted this patient? All bills and transactions of this patient will also be deleted");
+          var r = confirm("Are you sure you want to deleted this patient? All bills and transactions of this patient will also be deleted. THIS ACTION CAN'T BE UNDONE");
   if (r == true) {
     window.location.href ="archive_patient/"+id ;
   } else {
@@ -129,3 +129,4 @@ $(function() {
 
 
 </script>
+
