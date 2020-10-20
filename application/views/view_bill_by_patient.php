@@ -10,11 +10,11 @@
 
 				<!-- page content -->
 
-		            <div class="col-md-9 col-sm-9 ">
+		            <div class="col-md-12 col-sm-12 ">
 		              <div class="x_panel">
 		                <div class="x_title">
 		                  <h2>
-		                  ' .$row->name.'<br><small>'.$row->first_name.' '.$row->last_name.'</small></h2>
+		                  ' .$row->name.'<small>'.$row->first_name.' '.$row->last_name.'</small></h2>
 		                  <ul class="nav navbar-right panel_toolbox">
 		                    <li style="padding-left: 51px;"><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 		                    </li>
@@ -36,7 +36,7 @@
 							        	<tr>
 
 											<th style="border-bottom: 1px solid #ddd;"></th>
-											<th style="border-bottom: 1px solid #ddd;text-align:center">Amount</th>
+											<th style="border-bottom: 1px solid #ddd;text-align:center">Bill </th>
 											<th style="border-bottom: 1px solid #ddd;text-align:center">Payment</th>
 											<th style="border-bottom: 1px solid #ddd;text-align:center">Balance</th>
 											<th style="border-bottom: 1px solid #ddd;text-align:center">Total Paid</th>
@@ -84,7 +84,7 @@
 
 							        </tbody>
 						        </table>
-						        <div class="col-md-9 col-sm-9 ">
+						        <div class="col-md-8 col-sm-8 ">
 			                   	<input type="submit" id="submit" class=" form form-control btn btn-success submit-btn" disabled>
 			                   </div>
 			                  </form>

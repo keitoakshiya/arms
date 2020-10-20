@@ -53,7 +53,7 @@
                 $this->db->where('patient_id', $id);
                 $this->db->update('transaction');
                 //print_r($this->db->last_query());
-                header("Location: /arms/main/archive");
+                header("Location: /arms/main/Archive");
             }
 
 	     public function get_patients(){

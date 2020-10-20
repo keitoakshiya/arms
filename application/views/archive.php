@@ -3,9 +3,9 @@
             <tr>
                 <th>Company</th>
                 <th>Full Name</th>
-                <th>Date Deleted</th>
-                <th>Retrieve</th>
-                <th>Delete</th>
+                <th>Date and Time Deleted</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -19,8 +19,7 @@
                         echo "<td>".$row->guarantor_name."</td>";
 						echo "<td>".$row->first_name." ".$row->middle_name." ".$row->last_name."</td>";
 						echo "<td>".$row->date_deleted."</td>";
-						echo "<td><button style='border: none;' onclick='restore_patient(".$row->patient_id.")'><i class='fa fa-window-restore' 
-                        style='color: green; font-size: 16px;'></i></button></td>";
+						echo "<td><button style='border: none;' onclick='restore_patient(".$row->patient_id.")'><i class='fa fa-window-restore' style='color: green; font-size: 16px;'></i></button></td>";
              echo "<td><button style='border: none;' onclick='delete_patient(".$row->patient_id.")'><i class='fa fa-trash' style='color: red; font-size: 16px;'></i></button></td>";
 					echo "</tr>";
 				}
@@ -82,18 +81,17 @@ $(function() {
   }
     }
 
-
 </script>
+
 
 <script type="text/javascript">
     function delete_patient(id) {
-          var r = confirm("Are you sure you want to permanently delete this patient? All bills and transactions of this patient will also be permanently deleted");
+          var r = confirm("This action can't be undone. Are you sure you want to permanently delete this patient? All bills and transactions of this patient will also be permanently deleted");
   if (r == true) {
     window.location.href ="delete_patient/"+id ;
   } else {
     //window.location.href ="patients";
   }
     }
-
 
 </script>

@@ -21,11 +21,7 @@
 						echo "<td>".$row->name."</a></td>";
 						echo "<td>&#8369;".$row->amount_applied."</a></td>";
 						echo "<td>
-                        <button style='border: none;' onclick='archive_or(".$row->receipt_id.")'><i class='fa fa-trash' 
-                        style='color: #c93434; font-size: 16px;'></i></button></td>";
-						
-/*						echo "<td><a href='add_patient_to_receipt/".$row->company."/".$row->receipt_id."' >Add</a>						</td>";
-						echo "<td><a href='../mark_receipt/".$row->receipt_id."'>Mark as Distributed</a></td>";*/
+                        <button style='border: none;' onclick='archive_or(".$row->receipt_id.")'><i class='fa fa-trash' style='color: #c93434; font-size: 16px;'></i></button></td>";
 					echo "</tr>";
 
 				}
@@ -43,6 +39,7 @@
 	} );
 </script> 
 
+<div>
 <script type="text/javascript">
     function archive_or(id) {
           var r = confirm("Are you sure you want to archive this Official Receipt?");
@@ -52,6 +49,5 @@
     //window.location.href ="patients";
   }
     }
-
 
 </script>

@@ -397,10 +397,16 @@ class Main extends CI_Controller {
 		if ($this->roles_model->view_payment_summary2()==0) {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
+
+		$this->load->model('get_by_id');
+		$name =$this->get_by_id->get_company_name_by_id($a);
+
 		$data = array(
-		    'title' => 'Payment Summary Patient List',
-		    'description' => ' Total Payment of Bills '
+		    'title' => $name,
+		    'description' => '',
+		    'a' => $a
 		);
+
 		$this->load->view('template/header2',$data);
 		$this->load->model('payment_summary_model2');
 		$res = $this->payment_summary_model2->get_bill($a);
@@ -480,10 +486,16 @@ class Main extends CI_Controller {
 		if ($this->roles_model->view_remaining_balance2()==0) {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
+
+		$this->load->model('get_by_id');
+		$name =$this->get_by_id->get_company_name_by_id($a);
+
 		$data = array(
-		    'title' => 'Remaining Balance Patient List',
-		    'description' => ' Total Remaining of Balance '
+		    'title' => $name,
+		    'description' => '',
+		    'a' => $a
 		);
+
 		$this->load->view('template/header2',$data);
 		$this->load->model('remaining_balance_model2');
 		$res = $this->remaining_balance_model2->get_bill($a);
@@ -568,7 +580,7 @@ class Main extends CI_Controller {
 
 		$data = array(
 		    'title' => 'Official Receipt Company List',
-		    'description' => ' '
+		    'description' => ''
 		);
 
 		$this->load->view('template/header',$data);
@@ -600,7 +612,7 @@ class Main extends CI_Controller {
 
 		$data = array(
 		    'title' => $name,
-		    'description' => '',
+		    'description' => 'Official Receipt List',
 		    'a' => $a
 		);
 
@@ -840,9 +852,9 @@ class Main extends CI_Controller {
 
 	}
 
-	public function archive_or($id){
+		public function archive_or($id){
 				$this->load->model('roles_model');
-		if ($this->roles_model->delete_or()==0) { //add in roles
+		if ($this->roles_model->delete_or()==0) { 
 			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 		else{
@@ -854,7 +866,7 @@ class Main extends CI_Controller {
 
 		public function delete_patient($id){
 				$this->load->model('roles_model');
-		if ($this->roles_model->delete_patients()==0) { //add permanent delete in roles
+		if ($this->roles_model->permanently_delete()==0) { 
 			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 		else{

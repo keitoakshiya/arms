@@ -423,6 +423,36 @@
             return $can; 
         }
 
+        public function delete_or(){
+
+            $username = $this->session->userdata('username');
+
+            $this->db->select('delete_or'); 
+            $this->db->where('username',$username); 
+            $query = $this->db->get('user'); 
+            $res   = $query->result();
+
+            foreach ($res as $key => $row) { 
+                $can = $row->delete_or;
+            }
+            return $can; 
+        }
+
+        public function permanently_delete(){
+
+            $username = $this->session->userdata('username');
+
+            $this->db->select('permanently_delete'); 
+            $this->db->where('username',$username); 
+            $query = $this->db->get('user'); 
+            $res   = $query->result();
+
+            foreach ($res as $key => $row) { 
+                $can = $row->permanently_delete;
+            }
+            return $can; 
+        }
+
     }
 ?>  
 

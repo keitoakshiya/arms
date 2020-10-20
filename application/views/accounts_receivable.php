@@ -120,9 +120,7 @@ $(function() {
         }
     }, cb);
 
-
     cb(start, end);
-
 
 });
 </script>

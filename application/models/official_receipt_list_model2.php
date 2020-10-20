@@ -6,7 +6,7 @@
         	$this->db->join('guarantor', 'receipt.company = guarantor.id','left');
             //PAALALA MO INNER
         	//$this->db->where('receipt.distributed','0');
-
+            $this->db->where('`receipt`.`deleted` =', '0');
             $query = $this->db->get('receipt');
             //print_r($this->db->last_query());  
             $res   = $query->result();

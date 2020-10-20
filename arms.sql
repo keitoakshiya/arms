@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2020 at 03:28 PM
+-- Generation Time: Oct 20, 2020 at 05:26 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -146,27 +146,29 @@ CREATE TABLE `receipt` (
   `or_date` date NOT NULL,
   `or_number` varchar(11) NOT NULL,
   `or_amount` decimal(10,2) NOT NULL,
-  `distributed` tinyint(4) NOT NULL DEFAULT 0
+  `distributed` tinyint(4) NOT NULL DEFAULT 0,
+  `deleted` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `receipt`
 --
 
-INSERT INTO `receipt` (`id`, `company`, `or_date`, `or_number`, `or_amount`, `distributed`) VALUES
-(15, 20, '2020-08-07', '20070034', '6000.00', 0),
-(16, 20, '2020-08-10', '20030651', '3000.00', 0),
-(17, 9, '2020-08-10', '20030904', '2000.00', 1),
-(18, 25, '2020-08-13', '20074568', '1000.00', 1),
-(19, 23, '2020-08-18', '20080904', '1000.00', 0),
-(20, 9, '2020-08-24', '20050456', '2000.00', 0),
-(21, 22, '2020-08-24', '20040281', '10000.00', 0),
-(22, 9, '2020-09-08', '20100569', '2000.00', 0),
-(24, 25, '2020-09-27', '20200906', '3000.00', 1),
-(25, 21, '2020-10-01', '20190405', '3000.00', 0),
-(26, 14, '2020-10-08', '20201009', '2000.00', 0),
-(27, 25, '2020-10-06', '20200611', '3000.00', 1),
-(28, 9, '2020-10-10', '20201010', '2000.00', 1);
+INSERT INTO `receipt` (`id`, `company`, `or_date`, `or_number`, `or_amount`, `distributed`, `deleted`) VALUES
+(15, 20, '2020-08-07', '20070034', '6000.00', 0, 0),
+(16, 20, '2020-08-10', '20030651', '3000.00', 0, 0),
+(17, 9, '2020-08-10', '20030904', '2000.00', 1, 0),
+(18, 25, '2020-08-13', '20074568', '1000.00', 1, 0),
+(19, 23, '2020-08-18', '20080904', '1000.00', 0, 0),
+(20, 9, '2020-08-24', '20050456', '2000.00', 0, 0),
+(21, 22, '2020-08-24', '20040281', '10000.00', 0, 0),
+(22, 9, '2020-09-08', '20100569', '2000.00', 0, 0),
+(24, 25, '2020-09-27', '20200906', '3000.00', 1, 0),
+(25, 21, '2020-10-01', '20190405', '3000.00', 0, 0),
+(26, 14, '2020-10-08', '20201009', '2000.00', 0, 0),
+(27, 25, '2020-10-06', '20200611', '3000.00', 1, 0),
+(28, 9, '2020-10-10', '20201010', '2000.00', 1, 0),
+(29, 25, '2020-10-17', '20201017', '4000.00', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -249,20 +251,22 @@ CREATE TABLE `user` (
   `delete_archive` tinyint(1) NOT NULL DEFAULT 1,
   `restore_archive` tinyint(1) NOT NULL DEFAULT 1,
   `add_account` tinyint(1) NOT NULL DEFAULT 1,
-  `edit_roles` tinyint(1) NOT NULL DEFAULT 1
+  `edit_roles` tinyint(1) NOT NULL DEFAULT 1,
+  `delete_or` tinyint(1) NOT NULL DEFAULT 1,
+  `permanently_delete` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `email`, `view_data`, `add_data`, `edit_data`, `delete_data`, `view_dashboard`, `add_patient`, `view_patients`, `edit_patients`, `delete_patients`, `view_accounts_receivable`, `view_accounts_receivable2`, `view_payment_summary`, `view_payment_summary2`, `view_remaining_balance`, `view_remaining_balance2`, `add_official_receipt`, `view_official_receipt_list2`, `delete_official_receipt_list2`, `view_company_list_official_receipt_list`, `add_patient_to_receipt`, `add_view_bill_by_patient`, `view_list_company`, `add_company`, `view_archive`, `delete_archive`, `restore_archive`, `add_account`, `edit_roles`) VALUES
-(1, 'admin', 'admin', 'sample@sample.com', 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1),
-(2, 'user1', 'user1', '', 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(3, 'user2', 'user2', '', 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(4, 'user5', 'user5', 'sample@sample5.com', 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(5, 'user6', 'user6', 'sample6@sample.com', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(6, 'user7', 'user7', 'sample7@sample.com', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `user` (`id`, `username`, `password`, `email`, `view_data`, `add_data`, `edit_data`, `delete_data`, `view_dashboard`, `add_patient`, `view_patients`, `edit_patients`, `delete_patients`, `view_accounts_receivable`, `view_accounts_receivable2`, `view_payment_summary`, `view_payment_summary2`, `view_remaining_balance`, `view_remaining_balance2`, `add_official_receipt`, `view_official_receipt_list2`, `delete_official_receipt_list2`, `view_company_list_official_receipt_list`, `add_patient_to_receipt`, `add_view_bill_by_patient`, `view_list_company`, `add_company`, `view_archive`, `delete_archive`, `restore_archive`, `add_account`, `edit_roles`, `delete_or`, `permanently_delete`) VALUES
+(1, 'admin', 'admin', 'sample@sample.com', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0),
+(2, 'user1', 'user1', '', 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(3, 'user2', 'user2', '', 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(4, 'user5', 'user5', 'sample@sample5.com', 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(5, 'user6', 'user6', 'sample6@sample.com', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(6, 'user7', 'user7', 'sample7@sample.com', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 --
 -- Indexes for dumped tables
@@ -314,7 +318,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `guarantor`
@@ -326,19 +330,19 @@ ALTER TABLE `guarantor`
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `receipt`
 --
 ALTER TABLE `receipt`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
 -- AUTO_INCREMENT for table `user`

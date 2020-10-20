@@ -119,7 +119,7 @@ $(function() {
 
 <script type="text/javascript">
     function archive_patient(id) {
-          var r = confirm("Are you sure you want to deleted this patient? All bills and transactions of this patient will also be deleted. THIS ACTION CAN'T BE UNDONE");
+          var r = confirm("Are you sure you want to deleted this patient? All bills and transactions of this patient will also be deleted.");
   if (r == true) {
     window.location.href ="archive_patient/"+id ;
   } else {
