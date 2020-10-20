@@ -210,10 +210,17 @@ class Main extends CI_Controller {
 		}
 
 
+		$this->load->model('get_by_id');
+		$name =$this->get_by_id->get_company_name_by_id($a);
+		$or_number =$this->get_by_id->get_or_number_by_id($b);
+
 		$data = array(
-		    'title' => 'Offical Receipt Patient List',
-		    'description' => ' '
+		    'title' => $name .' / '. $or_number,
+		    'description' => ' ',
+		    'a' => $a
 		);
+
+
 		$this->load->model('add_patient_to_receipt_model');
 		$res = $this->add_patient_to_receipt_model->get_patients($a);
 		$this->load->view('template/header3',$data);
@@ -300,11 +307,16 @@ class Main extends CI_Controller {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 
+		$this->load->model('get_by_id');
+		$name =$this->get_by_id->get_company_name_by_id($a);
+
 		$data = array(
-		    'title' => 'Accounts Receivable Patient List',
-		    'description' => ' Summary of Accounts Receivable ',
+		    'title' => $name,
+		    'description' => '',
 		    'a' => $a
 		);
+
+
 		$this->load->view('template/header2',$data);
 		$this->load->model('accounts_receivable_model2');
 		$res = $this->accounts_receivable_model2->get_bill($a);
@@ -583,9 +595,13 @@ class Main extends CI_Controller {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 
+		$this->load->model('get_by_id');
+		$name =$this->get_by_id->get_company_name_by_id($a);
+
 		$data = array(
-		    'title' => 'Official Receipt List',
-		    'description' => ' '
+		    'title' => $name,
+		    'description' => '',
+		    'a' => $a
 		);
 
 		$this->load->view('template/header2',$data);
@@ -611,6 +627,8 @@ class Main extends CI_Controller {
 		if ($this->roles_model->view_official_receipt_list2()==0) {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
+
+
 
 		$data = array(
 		    'title' => 'Applied Official Receipt List',
@@ -638,10 +656,18 @@ class Main extends CI_Controller {
 		if ($this->roles_model->add_view_bill_by_patient()==0) {
 			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
+
+
+		$this->load->model('get_by_id');
+		$name = $this->get_by_id->get_patient_name_by_id($id);
+
+
 		$data = array(
-		    'title' => 'Payment Application Page 2',
-		    'description' => ' '
+		    'title' => $name,
+		    'description' => ' ',
+		    'a' => $id
 		);
+
 		$this->load->view('template/header3',$data);
 		$this->load->model('view_bill_by_patient_model');
 		$res = $this->view_bill_by_patient_model->get_view_bill_by_patient($id);
@@ -651,6 +677,7 @@ class Main extends CI_Controller {
 			$data2['result'] = $res;
 			$data2['result2'] = $res2;
 			$data2['receipt'] = $receipt;
+
 	        $this->load->view('view_bill_by_patient',$data2);
 		}
 
