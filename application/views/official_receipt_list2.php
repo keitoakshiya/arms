@@ -6,7 +6,6 @@
 		<th>Company</th>
 		<th>Amount Applied</th>
 		<th>Archive</th>
-		<th></th>
 		<!-- <th></th> -->
 	</thead>
 	<tbody>
@@ -35,7 +34,9 @@
 
 <script type="text/javascript">
 	$(document).ready( function () {
-	    $('#official_receipt_list2').DataTable();
+	    $('#official_receipt_list2').DataTable({
+	    	"order": [[ 0, "desc" ]]
+	    });
 	} );
 </script> 
 

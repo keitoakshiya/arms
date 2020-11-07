@@ -29,6 +29,7 @@
 			                  	<input type="hidden" name="patient_id" value="'.$row->patient_id.'">
 			                  	<input type="hidden" name="bill_id" value="'.$row->bill_id.'">
 			                  	<input type="hidden" name="receipt_id" value="'.$receipt.'">
+			                  	<input type="hidden" name="company_id" value="'.$company_id.'">
 
 									<table>
 							        <thead>

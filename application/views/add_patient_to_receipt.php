@@ -1,4 +1,4 @@
-    <table id="add_patient_to_receipt" class="display cell-border" style="width:100%; color: #292929;">
+<table id="add_patient_to_receipt" class="display cell-border" style="width:100%; color: #292929;">
         <thead>
             <tr>
                 <th colspan="3"></th>
@@ -46,7 +46,7 @@
                         echo "<td>&#8369;".$row->hospital_bill_balance."</td>";
                         echo "<td>&#8369;".$row->professional_bill_balance."</td>";
                         echo "<td>&#8369;".$row->total_balance."</td>";
-                        echo "<td><a style='color:blue' href='../../view_bill_by_patient/".$row->patient_id."/".$receipt."'>Edit</a></td>";
+                        echo "<td><a style='color:blue' href='../../view_bill_by_patient/".$row->patient_id."/".$receipt."/".$a."'>Edit</a></td>";
 						//echo "<td>".$row->date_created."</td>";
 					echo "</tr>";
 				}

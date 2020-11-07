@@ -227,6 +227,7 @@ class Main extends CI_Controller {
 		$this->load->view('template/container_header',$data);
 
 		if($res){	$data2['result'] = $res; $data2['receipt'] = $b;
+			$data2['a'] = $a;
         	$this->load->view('add_patient_to_receipt',$data2);
 		}
 		else {"Fail";}
@@ -663,7 +664,7 @@ class Main extends CI_Controller {
 
 	}
 
-		public function view_bill_by_patient($id,$receipt){
+		public function view_bill_by_patient($id,$receipt,$company_id){
 		$this->load->model('roles_model');
 		if ($this->roles_model->add_view_bill_by_patient()==0) {
 			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
@@ -677,10 +678,11 @@ class Main extends CI_Controller {
 		$data = array(
 		    'title' => $name,
 		    'description' => ' ',
-		    'a' => $id
+		    'a' => $id,
+		    'company_id'=> $company_id
 		);
 
-		$this->load->view('template/header3',$data);
+		$this->load->view('template/header4',$data);
 		$this->load->model('view_bill_by_patient_model');
 		$res = $this->view_bill_by_patient_model->get_view_bill_by_patient($id);
 		$res2 = $this->view_bill_by_patient_model->get_transaction($id);
@@ -694,7 +696,7 @@ class Main extends CI_Controller {
 		}
 
 		else {"Fail";}
-			$this->load->view('template/footer3');
+			$this->load->view('template/footer4');
 	}
 
 		public function insert_bill(){
@@ -728,17 +730,19 @@ class Main extends CI_Controller {
 		$this->form_validation->set_rules('patient_id','patient_id','required');
 		$this->form_validation->set_rules('bill_id','bill_id','required');
 		$this->form_validation->set_rules('receipt','receipt','required');
+		$this->form_validation->set_rules('company_id','company_id','required');
 
 			$patient_id = $this->input->post('patient_id');
 			$bill_id = $this->input->post('bill_id');
 			$receipt_id = $this->input->post('receipt_id');
 			$hospital_bill_payment = $this->input->post('hospital_bill_payment');
 			$professional_bill_payment = $this->input->post('professional_bill_payment');
+			$company_id = $this->input->post('company_id');
 			
 
 			$this->load->model('view_bill_by_patient_model');
 
-			$this->view_bill_by_patient_model->insert_transaction($hospital_bill_payment,$professional_bill_payment,$patient_id, $bill_id,$receipt_id);
+			$this->view_bill_by_patient_model->insert_transaction($hospital_bill_payment,$professional_bill_payment,$patient_id, $bill_id,$receipt_id, $company_id);
 
 	}
 

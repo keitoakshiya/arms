@@ -8,6 +8,7 @@
         	$this->db->join('guarantor', 'receipt.company = guarantor.id');
         	$this->db->where('receipt.distributed','0');
         	$this->db->where('guarantor.id',$a);
+            $this->db->where('(`receipt`.`or_amount`-IFNULL((SELECT (SUM(hospital_bill_payment)+SUM(professional_bill_payment)) FROM transaction WHERE receipt_id = receipt.id), 0))!=','0');
             $query = $this->db->get('receipt');
             //print_r($this->db->last_query());  
             $res   = $query->result();

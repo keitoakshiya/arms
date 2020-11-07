@@ -27,7 +27,7 @@
             return $res;
         }
 
-        public function insert_transaction($hospital_bill_payment,$professional_bill_payment,$patient_id, $bill_id, $receipt_id){
+        public function insert_transaction($hospital_bill_payment,$professional_bill_payment,$patient_id, $bill_id, $receipt_id, $company_id){
             $this->db->set('hospital_bill_payment', $hospital_bill_payment);
             $this->db->set('professional_bill_payment', $professional_bill_payment);
             $this->db->set('patient_id', $patient_id);
@@ -35,7 +35,7 @@
             $this->db->set('receipt_id', $receipt_id);
             $this->db->insert('transaction');
             //print_r($this->db->last_query());
-            header("Location: company_list");
+            header("Location: official_receipt_list/".$company_id);
         }
 
         public function get_transaction($bill_id){
