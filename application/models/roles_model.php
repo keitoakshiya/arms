@@ -9,12 +9,38 @@
             return $res;
         }
 
-        public function update_role($id,$view_data,$add_data,$edit_data,$delete_data){
-        	$this->db->set('view_data', $view_data);
+        public function update_role($id,$view_dashboard,$add_patient,$view_patients,$edit_patients,$delete_patients,$view_accounts_receivable,$view_accounts_receivable2,$view_payment_summary,$view_payment_summary2,$view_remaining_balance,$view_remaining_balance2,$add_official_receipt,$view_official_receipt_list2,$delete_official_receipt_list2,$view_company_list_official_receipt_list,$add_patient_to_receipt,$add_view_bill_by_patient,$view_list_company,$add_company,$view_archive,$delete_archive,$restore_archive,$add_account,$edit_roles,$delete_or,$permanently_delete){
+        	/*$this->db->set('view_data', $view_data);
         	$this->db->set('add_data', $add_data);
         	$this->db->set('edit_data', $edit_data);
-       		$this->db->set('delete_data', $delete_data);
-	   		$this->db->where('id', $id);
+       		$this->db->set('delete_data', $delete_data);*/
+            $this->db->set('view_dashboard', $view_dashboard);
+            $this->db->set('add_patient', $add_patient);
+            $this->db->set('view_patients', $view_patients);
+            $this->db->set('edit_patients', $edit_patients);
+            $this->db->set('delete_patients', $delete_patients);
+            $this->db->set('view_accounts_receivable', $view_accounts_receivable);
+            $this->db->set('view_accounts_receivable2', $view_accounts_receivable2);
+            $this->db->set('view_payment_summary', $view_payment_summary);
+            $this->db->set('view_payment_summary2', $view_payment_summary2);
+            $this->db->set('view_remaining_balance', $view_remaining_balance);
+            $this->db->set('view_remaining_balance2', $view_remaining_balance2);
+            $this->db->set('add_official_receipt', $add_official_receipt);
+            $this->db->set('view_official_receipt_list2', $view_official_receipt_list2);
+            $this->db->set('delete_official_receipt_list2', $delete_official_receipt_list2);
+            $this->db->set('view_company_list_official_receipt_list', $view_company_list_official_receipt_list);
+            $this->db->set('add_patient_to_receipt', $add_patient_to_receipt);
+            $this->db->set('add_view_bill_by_patient', $add_view_bill_by_patient,$view_list_company);
+            $this->db->set('view_list_company', $view_list_company);
+            $this->db->set('add_company', $add_company);
+            $this->db->set('view_archive', $view_archive);
+            $this->db->set('delete_archive', $delete_archive);
+            $this->db->set('restore_archive', $restore_archive);
+            $this->db->set('add_account', $add_account);
+            $this->db->set('edit_roles', $edit_roles);
+            $this->db->set('delete_or', $delete_or);
+            $this->db->set('permanently_delete', $permanently_delete);
+            $this->db->where('id', $id);
 	   		$this->db->update('user');
 	    	header("Location: /arms/main/roles");
         }

@@ -920,22 +920,73 @@ class Main extends CI_Controller {
 		$this->form_validation->set_rules('id','id','required');
 
 
-
 			$id = $this->input->post('id');
-			$view_data = $this->input->post('view_data');
+			/*$view_data = $this->input->post('view_data');
 			$add_data = $this->input->post('add_data');
 			$edit_data = $this->input->post('edit_data');
-			$delete_data = $this->input->post('delete_data');
+			$delete_data = $this->input->post('delete_data');*/
+			$view_dashboard = $this->input->post('view_dashboard');
+			$add_patient = $this->input->post('add_patient');
+			$view_patients = $this->input->post('view_patients');
+			$edit_patients = $this->input->post('edit_patients');
+			$delete_patients = $this->input->post('delete_patients');
+			$view_accounts_receivable = $this->input->post('view_accounts_receivable');
+			$view_accounts_receivable2 = $this->input->post('view_accounts_receivable2');
+			$view_payment_summary = $this->input->post('view_payment_summary');
+			$view_payment_summary2 = $this->input->post('view_payment_summary2');
+			$view_remaining_balance = $this->input->post('view_remaining_balance');
+			$view_remaining_balance2 = $this->input->post('view_remaining_balance2');
+			$add_official_receipt = $this->input->post('add_official_receipt');
+			$view_official_receipt_list2 = $this->input->post('view_official_receipt_list2');
+			$delete_official_receipt_list2 = $this->input->post('delete_official_receipt_list2');
+			$view_company_list_official_receipt_list = $this->input->post('view_company_list_official_receipt_list');
+			$add_patient_to_receipt = $this->input->post('add_patient_to_receipt');
+			$add_view_bill_by_patient = $this->input->post('add_view_bill_by_patient');
+			$view_list_company = $this->input->post('view_list_company');
+			$add_company = $this->input->post('add_company');
+			$view_archive = $this->input->post('view_archive');
+			$delete_archive = $this->input->post('delete_archive');
+			$restore_archive = $this->input->post('restore_archive');
+			$add_account = $this->input->post('add_account');
+			$edit_roles = $this->input->post('edit_roles');
+			$delete_or = $this->input->post('delete_or');
+			$permanently_delete = $this->input->post('permanently_delete');
 
 
 
-			$view_data2 = $view_data == 'on' ? 1 : 0;
+			/*$view_data2 = $view_data == 'on' ? 1 : 0;
 			$add_data2 = $add_data == 'on' ? 1 : 0;
 			$edit_data2 = $edit_data == 'on' ? 1 : 0;
-			$delete_data2 = $delete_data == 'on' ? 1 : 0;
+			$delete_data2 = $delete_data == 'on' ? 1 : 0;*/
+			$view_dashboard_a = $view_dashboard == 'on' ? 1 : 0;
+			$add_patient_a = $add_patient == 'on' ? 1 : 0;
+			$view_patients_a = $view_patients == 'on' ? 1 : 0;
+			$edit_patients_a = $edit_patients == 'on' ? 1 : 0;
+			$delete_patients_a = $delete_patients == 'on' ? 1 : 0;
+			$view_accounts_receivable_a = $view_accounts_receivable == 'on' ? 1 : 0;
+			$view_accounts_receivable2_a = $view_accounts_receivable2 == 'on' ? 1 : 0;
+			$view_payment_summary_a = $view_payment_summary == 'on' ? 1 : 0;
+			$view_payment_summary2_a = $view_payment_summary2 == 'on' ? 1 : 0;
+			$view_remaining_balance_a = $view_remaining_balance == 'on' ? 1 : 0;
+			$view_remaining_balance2_a = $view_remaining_balance2 == 'on' ? 1 : 0;
+			$add_official_receipt_a = $add_official_receipt == 'on' ? 1 : 0;
+			$view_official_receipt_list2_a = $view_official_receipt_list2 == 'on' ? 1 : 0;
+			$delete_official_receipt_list2_a = $delete_official_receipt_list2 == 'on' ? 1 : 0;
+			$view_company_list_official_receipt_list_a = $view_company_list_official_receipt_list == 'on' ? 1 : 0;
+			$add_patient_to_receipt_a = $add_patient_to_receipt == 'on' ? 1 : 0;
+			$add_view_bill_by_patient_a = $add_view_bill_by_patient == 'on' ? 1 : 0;
+			$view_list_company_a = $view_list_company == 'on' ? 1 : 0;
+			$add_company_a = $add_company == 'on' ? 1 : 0;
+			$view_archive_a = $view_archive == 'on' ? 1 : 0;
+			$delete_archive_a = $delete_archive == 'on' ? 1 : 0;
+			$restore_archive_a = $restore_archive == 'on' ? 1 : 0;
+			$add_account_a = $add_account == 'on' ? 1 : 0;
+			$edit_roles_a = $edit_roles == 'on' ? 1 : 0;
+			$delete_or_a = $delete_or == 'on' ? 1 : 0;
+			$permanently_delete_a = $permanently_delete == 'on' ? 1 : 0;
 			$this->load->model('roles_model');
 
-			$this->roles_model->update_role($id,$view_data2,$add_data2,$edit_data2,$delete_data2);
+			$this->roles_model->update_role($id,$view_dashboard_a,$add_patient_a,$view_patients_a,$edit_patients_a,$delete_patients_a,$view_accounts_receivable_a,$view_accounts_receivable2_a,$view_payment_summary_a,$view_payment_summary2_a,$view_remaining_balance_a,$view_remaining_balance2_a,$add_official_receipt_a,$view_official_receipt_list2_a,$delete_official_receipt_list2_a,$view_company_list_official_receipt_list_a,$add_patient_to_receipt_a,$add_view_bill_by_patient_a,$view_list_company_a,$add_company_a,$view_archive_a,$delete_archive_a,$restore_archive_a,$add_account_a,$edit_roles_a,$delete_or_a,$permanently_delete_a);
 	}
 
 
