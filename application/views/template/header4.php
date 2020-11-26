@@ -109,7 +109,7 @@
                   <li><a><i class="fa fa-table"></i>Summary <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="../../accounts_receivable">Accounts Receivable</a></li>
-                      <li><a href="../../payment_summary">Total Payment</a></li>
+                      <li><a href="../../payment_summary">TotalPayment</a></li>
                       <li><a href="../../remaining_balance">Remaining Balance</a></li>
                     </ul>
                   </li>
@@ -179,7 +179,7 @@
                 <ul class=" navbar-right">
                   <li class="nav-item dropdown open" style="padding-left: 15px;">
                     <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                      <?echo $session_data['username'];?>
+                      <?php echo $this->session->userdata('username');?>
                     </a>
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                       <!-- <a class="dropdown-item"  href="javascript:;"> Profile</a>

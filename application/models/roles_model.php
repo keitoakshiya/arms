@@ -479,6 +479,17 @@
             return $can; 
         }
 
+        public function get_all_access(){
+
+            $username = $this->session->userdata('username');
+
+            $this->db->select('*'); 
+            $this->db->where('username',$username); 
+            $query = $this->db->get('user'); 
+            $res   = $query->result();
+            //print_r($this->db->last_query());
+            return $res; 
+        }
     }
 ?>  
 

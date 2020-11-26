@@ -38,10 +38,14 @@ class Main extends CI_Controller {
 		if ($this->roles_model->view_dashboard()==0) {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
-		$data = array(
-		    'title' => 'Dashboard',
-		    'description' => ' '
-		);
+
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = 'Dashboard';
+		$data['description'] = ' ';
+
+		
+
 		$this->load->view('template/header',$data);
 		$this->load->view('template/container_header',$data);
 
@@ -66,10 +70,12 @@ class Main extends CI_Controller {
 
 		$this->load->model('patients_model');
 		$res = $this->patients_model->get_patients();
-		$data = array(
-		    'title' => 'Patients List',
-		    'description' => ' '
-		);
+
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = 'Patients List';
+		$data['description'] = ' ';
+		
 		$this->load->model('patients_model');
 		$res = $this->patients_model->get_patients();
 		$this->load->view('template/header',$data);
@@ -170,10 +176,11 @@ class Main extends CI_Controller {
 			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 
-		$data = array(
-		    'title' => 'Patient Registration',
-		    'description' => ' '
-		);
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = 'Add Patient';
+		$data['description'] = ' ';
+
 		$this->load->view('template/header',$data);
 		$this->load->view('template/container_header',$data);
 		$this->load->view('add_patient');
@@ -284,10 +291,11 @@ class Main extends CI_Controller {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 
-		$data = array(
-		    'title' => 'Accounts Receivable',
-		    'description' => ' Summary of Accounts Receivable '
-		);
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = 'Accounts Receivable Company List';
+		$data['description'] = ' ';
+
 		$this->load->view('template/header',$data);
 		$this->load->model('accounts_receivable_model');
 		$res = $this->accounts_receivable_model->get_bill();
@@ -373,10 +381,11 @@ class Main extends CI_Controller {
 		if ($this->roles_model->view_payment_summary()==0) {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
-		$data = array(
-		    'title' => 'Payment Summary',
-		    'description' => ' Total Payment of Bills '
-		);
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = 'Payment Summary';
+		$data['description'] = ' ';
+
 		$this->load->view('template/header',$data);
 		$this->load->model('payment_summary_model');
 		$res = $this->payment_summary_model->get_bill();
@@ -464,10 +473,11 @@ class Main extends CI_Controller {
 		if ($this->roles_model->view_remaining_balance()==0) {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
-		$data = array(
-		    'title' => 'Remaining Balance',
-		    'description' => ' Total Remaining of Balance '
-		);
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = 'Remaining Balance';
+		$data['description'] = ' ';
+
 		$this->load->view('template/header',$data);
 		$this->load->model('remaining_balance_model');
 		$res = $this->remaining_balance_model->get_bill();
@@ -579,10 +589,10 @@ class Main extends CI_Controller {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 
-		$data = array(
-		    'title' => 'Official Receipt Company List',
-		    'description' => ''
-		);
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = 'Company List';
+		$data['description'] = 'Official Receipt';
 
 		$this->load->view('template/header',$data);
 		$this->load->model('company_list_model');
@@ -641,12 +651,10 @@ class Main extends CI_Controller {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 
-
-
-		$data = array(
-		    'title' => 'Applied Official Receipt List',
-		    'description' => ' '
-		);
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = 'Applied Official Receipt List';
+		$data['description'] = ' ';
 
 		$this->load->view('template/header',$data);
 		$this->load->model('official_receipt_list_model2');
@@ -751,10 +759,11 @@ class Main extends CI_Controller {
 		if ($this->roles_model->add_company()==0) {
 			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
-		$data = array(
-		    'title' => 'Add Company',
-		    'description' => ' This is where you can add company '
-		);
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = 'Add Company';
+		$data['description'] = ' ';
+
 		$this->load->view('template/header',$data);
 		$this->load->view('template/container_header',$data);
         $this->load->view('add_company');
@@ -790,10 +799,11 @@ class Main extends CI_Controller {
 		if ($this->roles_model->add_account()==0) {
 			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
-		$data = array(
-		    'title' => 'Add Account',
-		    'description' => ' This is where you can add user accounts '
-		);
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = 'Add Account';
+		$data['description'] = ' ';
+
 		$this->load->view('template/header',$data);
 		$this->load->view('template/container_header',$data);
         $this->load->view('add_account');
@@ -826,10 +836,11 @@ class Main extends CI_Controller {
 		if ($this->roles_model->view_archive()==0) {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
-		$data = array(
-		    'title' => 'Archive History',
-		    'description' => ' '
-		);
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = 'Archive';
+		$data['description'] = ' ';
+
 		$this->load->model('archive_model');
 		$res = $this->archive_model->get_patients();
 		$this->load->view('template/header',$data);
@@ -897,10 +908,11 @@ class Main extends CI_Controller {
 		if ($this->roles_model->edit_roles()==0) {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
-		$data = array(
-		    'title' => 'Manage Roles',
-		    'description' => ' Manage user permission '
-		);
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = 'Manage Roles';
+		$data['description'] = ' ';
+
 		$this->load->view('template/header',$data);
 		$this->load->view('template/container_header',$data);
 		$this->load->model('roles_model');
@@ -995,10 +1007,11 @@ class Main extends CI_Controller {
 		if ($this->roles_model->add_official_receipt()==0) {
 			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
-		$data = array(
-		    'title' => 'Official Receipt',
-		    'description' => ' This is the Official Receipt page'
-		);
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = 'Add Official Receipt';
+		$data['description'] = ' ';
+
 		$this->load->view('template/header',$data);
 		$this->load->view('template/container_header2',$data);
 		$this->load->view('add_official_receipt');
@@ -1055,10 +1068,10 @@ class Main extends CI_Controller {
 			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
 		}
 
-		$data = array(
-		    'title' => 'Company List',
-		    'description' => ' '
-		);
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = 'Company List';
+		$data['description'] = ' ';
 
 		$this->load->view('template/head',$data);
 		$this->load->model('list_company_model');

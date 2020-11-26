@@ -109,7 +109,7 @@
                   <li><a><i class="fa fa-table"></i>Summary <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="../../accounts_receivable">Accounts Receivable</a></li>
-                      <li><a href="../../payment_summary">Total Payment</a></li>
+                      <li><a href="../../payment_summary">TotalPayment</a></li>
                       <li><a href="../../remaining_balance">Remaining Balance</a></li>
                     </ul>
                   </li>
