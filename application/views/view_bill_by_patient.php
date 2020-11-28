@@ -2,7 +2,10 @@
 	         <div class="row">
 
 	<?php
-
+		
+		foreach ($unapplied as $key => $row) {
+			$unp = $row->unapplied;
+		}
 		if ($result) {
 			
 			foreach ($result as $key => $row) {
@@ -14,7 +17,9 @@
 		              <div class="x_panel">
 		                <div class="x_title">
 		                  <h2>
-		                  ' .$row->name.'<small>'.$row->first_name.' '.$row->last_name.'</small></h2>
+		                  ' .$row->name.'<small>'.$row->first_name.' '.$row->last_name.' 
+		                  <br>
+		                  Unapplied Amount: '.$unp.'</small></h2>
 		                  <ul class="nav navbar-right panel_toolbox">
 		                    <li style="padding-left: 51px;"><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 		                    </li>
@@ -25,7 +30,7 @@
 		                  <div class="dashboard-widget-content">
 
 			                  <form method="post" action="/arms/main/insert_transaction" autocomplete="off">
-
+			                  	<input type="hidden" name="unapplied" id="unp" value="'.$unp.'">
 			                  	<input type="hidden" name="patient_id" value="'.$row->patient_id.'">
 			                  	<input type="hidden" name="bill_id" value="'.$row->bill_id.'">
 			                  	<input type="hidden" name="receipt_id" value="'.$receipt.'">
@@ -135,19 +140,23 @@
 
 		a = document.getElementById('hosp_payment').value;
 		b = document.getElementById('pro_payment').value;
+		c = a+b;
 
+		unapplied = document.getElementById('unp').value;
+		var unp = parseFloat(unapplied);
 
 		if (a>0||b>0) {
 			if (x<0||y<0) {
-				document.getElementById('submit').setAttribute("disabled","1");
+				if (c<unp) {
+					document.getElementById('submit').setAttribute("disabled","1");
+				}
 			}else{
 				document.getElementById('submit').removeAttribute("disabled");
 			}
-		}else{
+		}
+		else{
 			document.getElementById('submit').setAttribute("disabled","1");
 		}
-
-
 	}
 
 </script>
@@ -157,3 +166,4 @@
         window.history.replaceState( null, null, window.location.href );
     }
 </script>
+

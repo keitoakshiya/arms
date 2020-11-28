@@ -45,5 +45,20 @@
             //print_r($this->db->last_query());
         }
 
+        public function get_unapplied($receipt_id){
+            $this->db->select('
+                ((SUM(transaction.hospital_bill_payment) +
+                SUM(transaction.professional_bill_payment) ) -
+                receipt.or_amount) AS unapplied
+            ');
+
+            $this->db->join('receipt', 'receipt.id = receipt_id');
+            $this->db->WHERE('receipt_id', $receipt_id);
+            $query = $this->db->get('transaction');
+            //print_r($this->db->last_query());
+            $res   = $query->result();
+            return $res;
+        }
+
     }
 ?>  

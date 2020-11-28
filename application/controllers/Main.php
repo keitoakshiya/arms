@@ -221,12 +221,12 @@ class Main extends CI_Controller {
 		$name =$this->get_by_id->get_company_name_by_id($a);
 		$or_number =$this->get_by_id->get_or_number_by_id($b);
 
-		$data = array(
-		    'title' => $name .' / '. $or_number,
-		    'description' => ' ',
-		    'a' => $a
-		);
-
+		
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = $name .' / '. $or_number;
+		$data['description'] = ' ';
+		$data['a'] = $a;
 
 		$this->load->model('add_patient_to_receipt_model');
 		$res = $this->add_patient_to_receipt_model->get_patients($a);
@@ -681,14 +681,23 @@ class Main extends CI_Controller {
 
 		$this->load->model('get_by_id');
 		$name = $this->get_by_id->get_patient_name_by_id($id);
+		$this->load->model('view_bill_by_patient_model');
+		$unapplied = $this->view_bill_by_patient_model->get_unapplied($receipt);
 
-
-		$data = array(
+		/*$data = array(
 		    'title' => $name,
 		    'description' => ' ',
 		    'a' => $id,
 		    'company_id'=> $company_id
-		);
+		);*/
+
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = $name;
+		$data['description'] = ' ';
+		$data['a'] = $id;
+		$data['company_id'] = $company_id;
+
 
 		$this->load->view('template/header4',$data);
 		$this->load->model('view_bill_by_patient_model');
@@ -699,6 +708,7 @@ class Main extends CI_Controller {
 			$data2['result'] = $res;
 			$data2['result2'] = $res2;
 			$data2['receipt'] = $receipt;
+			$data2['unapplied'] = $unapplied;
 
 	        $this->load->view('view_bill_by_patient',$data2);
 		}
