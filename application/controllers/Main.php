@@ -678,7 +678,6 @@ class Main extends CI_Controller {
 			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
 
-
 		$this->load->model('get_by_id');
 		$name = $this->get_by_id->get_patient_name_by_id($id);
 		$this->load->model('view_bill_by_patient_model');
