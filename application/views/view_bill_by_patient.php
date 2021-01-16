@@ -138,12 +138,19 @@
 		x = document.getElementById('hosp_bill').value;
 		y = document.getElementById('pro_bill').value;
 
-		a = document.getElementById('hosp_payment').value;
-		b = document.getElementById('pro_payment').value;
+		var a=0,b=0;
+
+		var hosp = document.getElementById('hosp_payment').value;
+		var pro  = document.getElementById('pro_payment').value
+
+		if(hosp){alert(a=hosp)};
+		if(pro){alert(b=pro)};
+
 		c = a+b;
 
 		unapplied = document.getElementById('unp').value;
 		var unp = parseFloat(unapplied);
+
 
 		if (a>0||b>0) {
 			if (x<0||y<0) {
