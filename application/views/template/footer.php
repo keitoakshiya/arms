@@ -2,9 +2,9 @@
 
         <!-- footer content -->
         <footer>
-          <div class="pull-right">
-            Accounts receivable management system
-          </div>
+          <div class="pull-right" style="padding-top: 10px; font-family:verdana; font-size: 12px">
+                  Accounts Receivable Management System
+                </div>
           <div class="clearfix"></div>
         </footer>
         <!-- /footer content -->

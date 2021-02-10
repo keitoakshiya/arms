@@ -73,7 +73,7 @@ $(function() {
 
 <script type="text/javascript">
     function restore_patient(id) {
-          var r = confirm("Are you sure you want to retrive this patient? All bills and transactions of this patient will also be retrived");
+          var r = confirm("Are you sure you want to retrieve this patient? \nAll bills and transactions of this patient will also be retrieved");
   if (r == true) {
     window.location.href ="restore_patient/"+id ;
   } else {
@@ -86,7 +86,7 @@ $(function() {
 
 <script type="text/javascript">
     function delete_patient(id) {
-          var r = confirm("This action can't be undone. Are you sure you want to permanently delete this patient? All bills and transactions of this patient will also be permanently deleted");
+          var r = confirm("This action can't be undone. \nAre you sure you want to permanently delete this patient? All bills and transactions of this patient will also be permanently deleted");
   if (r == true) {
     window.location.href ="delete_patient/"+id ;
   } else {

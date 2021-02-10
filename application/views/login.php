@@ -1,98 +1,171 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <title>ARMS Login</title>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+   <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+   <!------ Include the above in your HEAD tag ---------->
 
-    <title>Login</title>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <!-- Bootstrap -->
-    <!-- <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <!-- Meta, title, CSS, favicons, etc. -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Font Awesome -->
-    <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- Animate.css -->
-    <link href="vendors/animate.css/animate.min.css" rel="stylesheet">
 
-    <!-- Custom Theme Style -->
-    <link href="build/css/custom.min.css" rel="stylesheet">
+   <!-- Bootstrap -->
+   <!-- <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 
-  <!-- Favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="../application/views/assets/images/logo.png" />
+   <!-- Font Awesome -->
+   <link href="vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+   <!-- NProgress -->
+   <link href="vendors/nprogress/nprogress.css" rel="stylesheet">
+   <!-- Animate.css -->
+   <link href="vendors/animate.css/animate.min.css" rel="stylesheet">
 
-  <style>
-  .modal-header, h4, .close {
-    background-color: #bf1f1f;
-    color:white !important;
-    text-align: center;
-    font-size: 30px;
-    padding: 5px;
+   <!-- Custom Theme Style -->
+   <!-- <link href="build/css/custom.min.css" rel="stylesheet"> -->
+   <link href="../application/build/css/design.css" rel="stylesheet">
+
+   <!-- Favicon -->
+   <link rel="shortcut icon" type="image/x-icon" href="../application/views/assets/images/logo.png" />
+
+   <style>
+      body {
+       font-family: "Lato", sans-serif;
+    }
+
+
+
+    .main-head{
+       height: 150px;
+       background: #FFF;
+
+    }
+
+    .sidenav {
+       height: 100%;
+       background-image: url('build/images/hosplogo3.png'); /*Black*/
+       background-repeat: no-repeat;
+       overflow-x: hidden;
+       padding-top: 20px;
+       background-size: cover;
+    }
+
+
+    .main {
+       padding: 0px 10px;
+    }
+
+    @media screen and (max-height: 450px) {
+       .sidenav {padding-top: 15px;}
+    }
+
+    @media screen and (max-width: 450px) {
+       .login-form{
+        margin-top: 10%;
+     }
+
+     .register-form{
+        margin-top: 10%;
+     }
   }
 
-  </style>
+  @media screen and (min-width: 768px){
+    .main{
+     margin-left: 40%; 
+  }
+
+  .sidenav{
+     width: 40%;
+     position: fixed;
+     z-index: 1;
+     top: 0;
+     left: 0;
+  }
+
+  .login-form{
+     margin-top: 80%;
+  }
+
+  .register-form{
+     margin-top: 20%;
+  }
+}
+
+
+.login-main-text{
+ margin-top: 20%;
+ padding: 60px;
+ color: #000 /*#fff*/;
+}
+
+.login-main-text h3{
+ font-weight: 300;
+ font-family:verdana;
+ font-size: 20px;
+}
+
+.btn-black{
+ background-color: #000 !important;
+ color: #fff;
+}
+
+img{
+   width: 25%;
+   height:25%;
+   float:right;
+   margin-top:5%;
+   margin-right: 5%;
+}
+</style>
 </head>
 <body>
 
-    <div style="background-image: url('build/images/hosplogo.png'); padding: 100px 100px; background-repeat: no-repeat; background-size: 100% auto">
-    <div class="modal-dialog">
 
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header" style="font-family:verdana; padding:25px ;">
-          
-          <h4></h4>
-          <h3><span>Accounts Receivable Management System</span></h3>
-            <img src="build/images/logo2.png" alt="arms logo" width="80" height="70">
-          
-
-        </div>
-
-        <div class="modal-body" style="padding:30px 50px;">
-          <section class="login_content">
-            <form method="post" action="/arms/main/login_validation">
-              
-              <div>
-                <input type="text" class="form-control" placeholder="Username" name="username" required="" />
-              </div>
-              <div>
-                <input type="password" class="form-control" placeholder="Password" name="password" required="" />
-              </div>
-              <div style="padding-left: 10px;">
-                <input type="submit" name="login" class="form-control btn btn-success submit-btn" value="Login" style="float: right; ">
-                <!-- <a class="reset_pass" href="#">Lost your password?</a> -->
-              </div>
-              <br>
+   <div class="sidenav">
+      
+   </div>
+   <div class="main">
+      <div class="col-md-6 col-sm-12">
+         <div class="login-form login-main-text">
+            <img src="build/images/logo_circle.png" alt="arms logo">
+            <h3>Accounts Receivable <br>Management System</h3>  
+            <p>Login Page</p>
+            <br>
+            <section class="login_content">
+               <form method="post" action="/arms/main/login_validation">
+                  <div class="form-group">
+                     <label>User Name</label>
+                     <input type="text" class="form-control" placeholder="Username" name="username" required="" />
+                  </div>
+                  <div class="form-group">
+                     <label>Password</label>
+                     <input type="password" class="form-control" placeholder="Password" name="password" required="" />
+                  </div>
+                  <div>
+                   <input type="submit" name="login" class="form-control btn btn-success submit-btn" value="Login">
+                   <!-- <a class="reset_pass" href="#">Lost your password?</a> -->
+                </div>
+                <br>
                 <div>
-          
-          
-         <!-- <p>Not a member? <a href="#">Sign Up</a></p> -->
-          <p>Forgot <a href="Welcome">Password?</a></p> 
-        </div>
-              
+                  <!-- <p>Not a member? <a href="#">Sign Up</a></p> -->
+                  <p>Forgot <a href="Welcome">Password?</a></p> 
+               </div>
+               <div class="right">
+                  
+               </div>
             </form>
-          </section>
-          </div>
-        </div>
+         </section>
       </div>
- 
-<script>
-$(document).ready(function(){
-  $("#myBtn").click(function(){
-    $("#myModal").modal();
-  });
-});
-</script>
+   </div>
 </div>
 </body>
 </html>

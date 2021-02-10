@@ -77,7 +77,8 @@ $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
 	'username' => 'root',
-	'password' => '',
+	'password' => 'admin',
+	//By default, password is blank
 	'database' => 'arms',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

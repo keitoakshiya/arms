@@ -17,7 +17,7 @@
 		              <div class="x_panel">
 		                <div class="x_title">
 		                  <h2>
-		                  ' .$row->name.'<small>'.$row->first_name.' '.$row->last_name.' 
+		                  ' .$row->name.'  <small>'.$row->first_name.' '.$row->last_name.' 
 		                  <br>
 		                  Unapplied Amount: '.$unp.'</small></h2>
 		                  <ul class="nav navbar-right panel_toolbox">

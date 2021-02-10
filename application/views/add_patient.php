@@ -39,12 +39,12 @@
 		<div class="col-md-6">
 
 			Hospital Bill: <input type="number" oninput="this.value = 
- !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" class="form-control" min="0" name="hospital_bill" required="">
+			!!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" class="form-control" min="0" name="hospital_bill" required="">
 			
 		</div>
 		<div class="col-md-6">
 			Professional Fee: <input type="number" oninput="this.value = 
- !!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" class="form-control"  min="0"  name="professional_bill" required="">
+			!!this.value && Math.abs(this.value) >= 0 ? Math.abs(this.value) : null" class="form-control"  min="0"  name="professional_bill" required="">
 			
 		</div>						
 	</div>

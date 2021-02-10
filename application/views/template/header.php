@@ -66,7 +66,7 @@
 
     <!-- Custom Theme Style -->
     <link href="../application/build/css/custom.min.css" rel="stylesheet">
-    <link href="../application/build/css/ew.css" rel="stylesheet">
+    <link href="../application/build/css/design.css" rel="stylesheet">
 
     
   </head>

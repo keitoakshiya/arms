@@ -1,5 +1,5 @@
 
-<link href="../application/build/css/ew.css" rel="stylesheet">
+<link href="../application/build/css/design.css" rel="stylesheet">
 
 <table id="patient_list" class="display" style="width:100%; color: #292929;" >
         <thead>
@@ -119,7 +119,7 @@ $(function() {
 
 <script type="text/javascript">
     function archive_patient(id) {
-          var r = confirm("Are you sure you want to deleted this patient? All bills and transactions of this patient will also be deleted.");
+          var r = confirm("Are you sure you want to delete this patient? \nAll bills and transactions of this patient will also be deleted.");
   if (r == true) {
     window.location.href ="archive_patient/"+id ;
   } else {

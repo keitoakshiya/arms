@@ -6,7 +6,8 @@
 
 		if($_GET['value']){
 			$sql = "SELECT * FROM `user` WHERE id = '".$_GET['value']."'";
-			$con = mysqli_connect('localhost','root','','arms');
+			$con = mysqli_connect('localhost','root','admin','arms');
+			//By default, password is blank
 			$query = mysqli_query($con,$sql); 
 
 

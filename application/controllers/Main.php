@@ -24,11 +24,11 @@ class Main extends CI_Controller {
 				$session_data = array('username' => $username);
 				$this->session->set_userdata($session_data);
 				header('Location:/arms/main/dashboard');	
-				echo "tamang password";
+				echo "Correct Password";
 			}
 			else{
-				header('Location:/index/');
-				echo "";
+				header('Location:/arms/');
+				echo "Incorrect Password";
 			}
 		}
 	}

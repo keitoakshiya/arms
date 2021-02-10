@@ -54,7 +54,7 @@
 			FROM `transaction` WHERE `receipt_id` = ?";
 
 			$query = $this->db->query($sql, array($id, $id));
-            print_r($this->db->last_query());
+            //print_r($this->db->last_query());
             $res   = $query->result();
             return $res;
         }

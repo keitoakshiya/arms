@@ -1,0 +1,176 @@
+.submit-btn{
+	margin-top: 20px
+}
+
+/*Sidebar*/
+.left_col {
+  background:#bf1f1f /*#3e697d;*/ } /*Red*/
+
+  .nav_title {
+  width: 230px;
+  float: left;
+  background: #3e697d; /*636363*/ /*Gray*/
+  border-radius: 0;
+  height: 57px;
+  padding: 0px; }
+
+/*Sidebar when dropdown is active*/
+  .nav.side-menu > li.active > a {
+  text-shadow: rgba(0, 0, 0, 0.25) 0 -1px 0;
+  background: -webkit-gradient(linear, left top, left bottom, from(#bf1f1f/*bf1f1f*/), to(#bf1f1f)), #bf1f1f;
+  background: linear-gradient(#bf1f1f, #bf1f1f), #bf1f1f /*3e697d*/; /*cc0c3c*/
+  -webkit-box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0, inset rgba(255, 255, 255, 0.16) 0 1px 0;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0, inset rgba(255, 255, 255, 0.16) 0 1px 0; }
+
+.nav-sm ul.nav.child_menu {
+  left: 100%;
+  position: absolute;
+  top: 0;
+  width: 210px;
+  z-index: 4000;
+  background: #3E5367;
+  display: none; }
+
+  /*Sidebar dotted*/
+  .nav-md ul.nav.child_menu li:before {
+  background: #ebebeb; /*Light Gray*/
+  bottom: auto;
+  content: "";
+  height: 8px;
+  left: 23px;
+  margin-top: 15px;
+  position: absolute;
+  right: auto;
+  width: 8px;
+  z-index: 1;
+  border-radius: 50%; }
+
+  /*Sidebar line*/
+  .nav-md ul.nav.child_menu li:after {
+  border-left: 1px solid #ebebeb; /*Light Gray*/
+  bottom: 0;
+  content: "";
+  left: 27px;
+  position: absolute;
+  top: 0; }
+.nav-sm ul.nav.child_menu {
+  left: 100%;
+  position: absolute;
+  top: 0;
+  width: 210px;
+  z-index: 4000;
+  background: #3E5367;
+  display: none; }
+
+
+body {
+  color: black;
+  background: #f2f2f2; /*Light Gray*/
+  font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.471; }
+
+
+  .tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff; /*White*/
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+/*LOGIN PAGE*/  /*LOGIN PAGE*/  /*LOGIN PAGE*/  /*LOGIN PAGE*/
+
+ /*     body {
+    font-family: "Lato", sans-serif;
+}
+
+
+
+.main-head{
+    height: 150px;
+    background: #FFF;
+   
+}
+
+.sidenav {
+    height: 100%;
+    background-color: #000;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+
+.main {
+    padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+}
+
+@media screen and (max-width: 450px) {
+    .login-form{
+        margin-top: 10%;
+    }
+
+    .register-form{
+        margin-top: 10%;
+    }
+}
+
+@media screen and (min-width: 768px){
+    .main{
+        margin-left: 40%; 
+    }
+
+    .sidenav{
+        width: 40%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+    }
+
+    .login-form{
+        margin-top: 80%;
+    }
+
+    .register-form{
+        margin-top: 20%;
+    }
+}
+
+
+.login-main-text{
+    margin-top: 20%;
+    padding: 60px;
+    color: #fff;
+}
+
+.login-main-text h2{
+    font-weight: 300;
+}
+
+.btn-black{
+    background-color: #000 !important;
+    color: #fff;
+}
+*/
