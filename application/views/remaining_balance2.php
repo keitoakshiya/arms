@@ -6,7 +6,7 @@
         <th>Hospital Bill Balance</th>
         <th>Professional Bill Balance</th>
         <th>Total Balance</th>
-        <th>Day Count<div style="font-size:8pt;"> Latest payment up to now</div></th>
+        <th>Day Count<div style="font-size:8pt;"> Latest payment up to present date</div></th>
     </thead>
     <tbody>
                 <?php

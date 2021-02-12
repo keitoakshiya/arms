@@ -95,10 +95,11 @@ class Main extends CI_Controller {
 		if ($this->roles_model->edit_patients()==0) {
 			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
 		}
-		$data = array(
-		    'title' => 'Edit Patient',
-		    'description' => ' This is where you can Edit patient'
-		);
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = 'Edit Patient';
+		$data['description'] = '';
+
 		$this->load->model('patients_model');
 		$res = $this->patients_model->get_patient($a);
 		$data2['result'] = $res;
@@ -293,8 +294,8 @@ class Main extends CI_Controller {
 
 		$all_access = $this->roles_model->get_all_access();
 		$data['all_access'] = $all_access;
-		$data['title'] = 'Accounts Receivable Company List';
-		$data['description'] = ' ';
+		$data['title'] = 'Accounts Receivable';
+		$data['description'] = 'Company List';
 
 		$this->load->view('template/header',$data);
 		$this->load->model('accounts_receivable_model');
@@ -319,11 +320,10 @@ class Main extends CI_Controller {
 		$this->load->model('get_by_id');
 		$name =$this->get_by_id->get_company_name_by_id($a);
 
-		$data = array(
-		    'title' => $name,
-		    'description' => '',
-		    'a' => $a
-		);
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = $name;
+		$data['description'] = 'Accounts Receivable Patient List';
 
 
 		$this->load->view('template/header2',$data);
@@ -384,7 +384,7 @@ class Main extends CI_Controller {
 		$all_access = $this->roles_model->get_all_access();
 		$data['all_access'] = $all_access;
 		$data['title'] = 'Payment Summary';
-		$data['description'] = ' ';
+		$data['description'] = 'Company List';
 
 		$this->load->view('template/header',$data);
 		$this->load->model('payment_summary_model');
@@ -411,11 +411,10 @@ class Main extends CI_Controller {
 		$this->load->model('get_by_id');
 		$name =$this->get_by_id->get_company_name_by_id($a);
 
-		$data = array(
-		    'title' => $name,
-		    'description' => '',
-		    'a' => $a
-		);
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = $name;
+		$data['description'] = 'Payment List';
 
 		$this->load->view('template/header2',$data);
 		$this->load->model('payment_summary_model2');
@@ -476,7 +475,7 @@ class Main extends CI_Controller {
 		$all_access = $this->roles_model->get_all_access();
 		$data['all_access'] = $all_access;
 		$data['title'] = 'Remaining Balance';
-		$data['description'] = ' ';
+		$data['description'] = 'Company List';
 
 		$this->load->view('template/header',$data);
 		$this->load->model('remaining_balance_model');
@@ -501,11 +500,10 @@ class Main extends CI_Controller {
 		$this->load->model('get_by_id');
 		$name =$this->get_by_id->get_company_name_by_id($a);
 
-		$data = array(
-		    'title' => $name,
-		    'description' => '',
-		    'a' => $a
-		);
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = $name;
+		$data['description'] = 'Remaining Balance List';
 
 		$this->load->view('template/header2',$data);
 		$this->load->model('remaining_balance_model2');
@@ -621,11 +619,10 @@ class Main extends CI_Controller {
 		$this->load->model('get_by_id');
 		$name =$this->get_by_id->get_company_name_by_id($a);
 
-		$data = array(
-		    'title' => $name,
-		    'description' => 'Official Receipt List',
-		    'a' => $a
-		);
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = $name;
+		$data['description'] = 'Official Receipt';
 
 		$this->load->view('template/header2',$data);
 		$this->load->model('official_receipt_list_model');
@@ -1082,7 +1079,7 @@ class Main extends CI_Controller {
 		$data['title'] = 'Company List';
 		$data['description'] = ' ';
 
-		$this->load->view('template/head',$data);
+		$this->load->view('template/header',$data);
 		$this->load->model('list_company_model');
 		$res = $this->list_company_model->get_company();
 		$this->load->view('template/container_header',$data);

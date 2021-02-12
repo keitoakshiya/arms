@@ -6,7 +6,7 @@
 
 		if($_GET['value']){
 			$sql = "SELECT * FROM `user` WHERE id = '".$_GET['value']."'";
-			$con = mysqli_connect('localhost','root','admin','arms');
+			$con = mysqli_connect('localhost','root','','arms');
 			//By default, password is blank
 			$query = mysqli_query($con,$sql); 
 
@@ -110,11 +110,11 @@
 				echo "	Applied Official Receipt List"; 
 				echo "</div>";
 				
-				echo "<div class='col-md-4'>";
+				/*echo "<div class='col-md-4'>";
 				echo "<input type='checkbox' name='delete_official_receipt_list2'";
 				echo $row['delete_official_receipt_list2'] == 0 ?  ">" :  "checked>";
 				echo "	Archive OR"; 
-				echo "</div>";
+				echo "</div>";*/
 				
 				echo "<div class='col-md-4'>";
 				echo "<input type='checkbox' name='view_company_list_official_receipt_list'";
@@ -152,11 +152,11 @@
 				echo "	Archive List"; 
 				echo "</div>";
 				
-				echo "<div class='col-md-4'>";
+				/*echo "<div class='col-md-4'>";
 				echo "<input type='checkbox' name='delete_archive'";
 				echo $row['delete_archive'] == 0 ?  ">" :  "checked>";
 				echo "	delete_archive"; 
-				echo "</div>";
+				echo "</div>";*/
 				
 				echo "<div class='col-md-4'>";
 				echo "<input type='checkbox' name='restore_archive'";
@@ -176,12 +176,12 @@
 				echo "	Manage Roles"; 
 				echo "</div>";
 				
-				echo "<div class='col-md-4'>";
+				/*echo "<div class='col-md-4'>";
 				echo "<input type='checkbox' name='delete_or'";
 				echo $row['delete_or'] == 0 ?  ">" :  "checked>";
 				echo "	Archive Official Receipt"; 
 				echo "</div>";
-				
+*/				
 				echo "<div class='col-md-4'>";
 				echo "<input type='checkbox' name='permanently_delete'";
 				echo $row['permanently_delete'] == 0 ?  ">" :  "checked>";

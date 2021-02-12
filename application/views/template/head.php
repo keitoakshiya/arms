@@ -103,10 +103,10 @@
                 <h3>Menu</h3>
 
                 <ul class="nav side-menu">
-                  <li><a href="dashboard"><i class="fa fa-bar-chart"></i>Dashboard </a></li>
-                  <li><a href="add_patient"><i class="fa fa-edit"></i>Register Patient </a></li>
-                  <li><a href="patients"><i class="fa fa-list-alt"></i>Patient List </a></li>
-                  <li><a><i class="fa fa-table"></i>Summary <span class="fa fa-chevron-down"></span></a>
+                  <li><a href="dashboard"><i class="fa fa-bar-chart"></i>Dashboard</a></li>
+                  <li><a href="add_patient"><i class="fa fa-edit"></i>Register Patient</a></li>
+                  <li><a href="patients"><i class="fa fa-list-alt"></i>Patient List</a></li>
+                  <li><a><i class="fa fa-table"></i>Summary<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="accounts_receivable">Accounts Receivable</a></li>
                       <li><a href="payment_summary">Total Payment</a></li>
@@ -114,7 +114,7 @@
                     </ul>
                   </li>
 
-                  <li><a><i class="fa fa-edit"></i>Payment Application <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-edit"></i>Payment Application<span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="official_receipt">Official Receipts</a></li>
                       <li><a href="company_list">Add Official Receipt Payment</a></li>
@@ -128,7 +128,7 @@
                     <!-- </ul>
                   </li> -->
                   <li><a href="list_company"><i class="fa fa-building-o"></i>Company List</a></li>
-                  <li><a href="add_company"><i class="fa fa-edit"></i>Add Company </a></li>
+                  <li><a href="add_company"><i class="fa fa-edit"></i>Add Company</a></li>
                   
                   
 
