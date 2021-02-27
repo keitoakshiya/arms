@@ -136,11 +136,15 @@ class Main extends CI_Controller {
 	}
 
 		public function patients_filtered() {
+					$this->load->model('roles_model');
+		if ($this->roles_model->view_dashboard()==0) {
+			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
+		}
 
-				$data = array(
-		    'title' => 'Patients List',
-		    'description' => ' '
-		);
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = 'Dashboard';
+		$data['description'] = ' ';
 
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('start','start','required');
@@ -150,6 +154,8 @@ class Main extends CI_Controller {
 
 			$start = $this->input->post('start');
 			$end = $this->input->post('end');
+			$data['start'] = $start;
+			$data['end'] = $end;
 			$this->load->model('patients_model');
 
 		$res = $this->patients_model->get_patients_filtered($start,$end);

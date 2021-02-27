@@ -121,7 +121,7 @@
 
 		document.getElementById('pro_bill').value = x;
 		document.getElementById('prof_bill_transaction').value = paid;
-		isValid();
+
 		update_unp_disp();
 	}
 
@@ -132,7 +132,7 @@
 
 		document.getElementById('hosp_bill').value = x;
 		document.getElementById('hosp_bill_transaction').value = paid;
-		isValid();
+		
 		update_unp_disp();
 	}
 
@@ -145,49 +145,19 @@
 		if (!isNaN(parseFloat(document.getElementById('pro_payment').value))) {
 			pro  = parseFloat(document.getElementById('pro_payment').value);
 		}
-			
-			
 
 		 new_unp = u-(hosp+pro);
 
 		document.getElementById('unp_disp').value = new_unp;
-
+		isValid(new_unp);
 
 	}
 
-	function isValid(){
-		x = parseFloat(document.getElementById('hosp_bill').value);
-		y = parseFloat(document.getElementById('pro_bill').value);
+	function isValid(new_unp){
 
-		var a=0,b=0;
+		if (new_unp>=0) {document.getElementById('submit').removeAttribute("disabled");}
 
-		var hosp = parseFloat(document.getElementById('hosp_payment').value);
-		var pro  = parseFloat(document.getElementById('pro_payment').value);
-
-		if(hosp){a=hosp};
-		if(pro){b=pro};
-
-		c = a+b;
-
-
-		unapplied = document.getElementById('unp').value;
-		var unp = parseFloat(unapplied);
-
-		console.log(c<unp);
-
-		if (a>0||b>0){
-			if (x<0||y<0){
-				document.getElementById('submit').setAttribute("disabled","1");
-				if (c>unp){
-					document.getElementById('submit').setAttribute("disabled","1");
-				}
-			}else{
-				document.getElementById('submit').removeAttribute("disabled");
-			}
-		}
-		else{
-			document.getElementById('submit').setAttribute("disabled","1");
-		}
+		else {document.getElementById('submit').setAttribute("disabled","1");}
 	}
 
 </script>

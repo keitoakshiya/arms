@@ -14,6 +14,15 @@
             </tr>
         </thead>
         <tbody>
+            <?php
+                if (isset($start)&&isset($end)) {
+                    $start_time = strtotime($start); 
+                    $end_time = strtotime($end); 
+                    $start_date = date('m/d/y', $start_time);
+                    echo "<br>";
+                    $end_date = date('m/d/y', $end_time);
+                }
+            ?>
         <?php
             if (!isset($result)) {
 
@@ -86,10 +95,9 @@ $(function() {
     var end = moment();
 
     function cb(start, end) {
-        $('#date span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        $('#date span').html('<?php echo $start_date;?>' + ' - ' + '<?php echo $start_date;?>');
         document.getElementById("start").value = start.format('YYYY-MM-DD HH:mm:s');
         document.getElementById("end").value = end.format('YYYY-MM-DD HH:mm:s');
-
     }
 
     $('#date').daterangepicker({

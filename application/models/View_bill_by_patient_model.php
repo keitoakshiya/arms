@@ -48,10 +48,9 @@
         public function get_unapplied($id){
 
         	$sql = "SELECT
-			
+			(SELECT or_amount FROM `receipt` WHERE id = ?)-
 			(IFNULL(SUM(transaction.hospital_bill_payment), 0)+
-			IFNULL(SUM(transaction.professional_bill_payment), 0))-
-            (SELECT or_amount FROM `receipt` WHERE id = ?) AS unapplied
+			IFNULL(SUM(transaction.professional_bill_payment), 0)) AS unapplied
 			FROM `transaction` WHERE `receipt_id` = ?";
 
 			$query = $this->db->query($sql, array($id, $id));
