@@ -19,7 +19,7 @@
 		                  <h2>
 		                  ' .$row->name.'  <small>'.$row->first_name.' '.$row->last_name.' 
 		                  <br>
-		                  Unapplied Amount: '.$unp.'</small></h2>
+		                  Unapplied Amount: <input type="text" id="unp_disp" value="'.$unp.'" disabled style="width:79px;"></a></small></h2>
 		                  <ul class="nav navbar-right panel_toolbox">
 		                    <li style="padding-left: 51px;"><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
 		                    </li>
@@ -115,13 +115,14 @@
 
 <script type="text/javascript">
 	function change_pro_bal(payment,bill,bal) {
-		
+
 		x = (bill-payment)-bal;
 		paid = parseFloat(payment) + parseFloat(bal);
 
 		document.getElementById('pro_bill').value = x;
 		document.getElementById('prof_bill_transaction').value = paid;
 		isValid();
+		update_unp_disp();
 	}
 
 	function change_hosp_bal(payment,bill,bal) {
@@ -132,6 +133,26 @@
 		document.getElementById('hosp_bill').value = x;
 		document.getElementById('hosp_bill_transaction').value = paid;
 		isValid();
+		update_unp_disp();
+	}
+
+	function update_unp_disp() {
+		var hosp = 0, pro = 0;
+		var u = parseFloat(document.getElementById('unp').value);
+		if (!isNaN(parseFloat(document.getElementById('hosp_payment').value))) {
+			hosp = parseFloat(document.getElementById('hosp_payment').value);
+		}
+		if (!isNaN(parseFloat(document.getElementById('pro_payment').value))) {
+			pro  = parseFloat(document.getElementById('pro_payment').value);
+		}
+			
+			
+
+		 new_unp = u-(hosp+pro);
+
+		document.getElementById('unp_disp').value = new_unp;
+
+
 	}
 
 	function isValid(){
