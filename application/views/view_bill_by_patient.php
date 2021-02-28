@@ -116,8 +116,15 @@
 <script type="text/javascript">
 	function change_pro_bal(payment,bill,bal) {
 
+		var payment1 = 0; bal1 = 0;
 		x = (bill-payment)-bal;
-		paid = parseFloat(payment) + parseFloat(bal);
+		if (payment) {
+			payment1 = parseFloat(payment);
+		}
+		if (bal) {
+			bal1 = parseFloat(bal);
+		}
+		paid = payment1 + bal1;
 
 		document.getElementById('pro_bill').value = x;
 		document.getElementById('prof_bill_transaction').value = paid;
@@ -127,8 +134,15 @@
 
 	function change_hosp_bal(payment,bill,bal) {
 
+		var payment1 = 0; bal1 = 0;
 		x = (bill-payment)-bal;
-		paid = parseFloat(payment) + parseFloat(bal);
+		if (payment) {
+			payment1 = parseFloat(payment);
+		}
+		if (bal) {
+			bal1 = parseFloat(bal);
+		}
+		paid = payment1 + bal1;
 
 		document.getElementById('hosp_bill').value = x;
 		document.getElementById('hosp_bill_transaction').value = paid;
@@ -155,7 +169,19 @@
 
 	function isValid(new_unp){
 
-		if (new_unp>=0) {document.getElementById('submit').removeAttribute("disabled");}
+		if (new_unp>=0) {
+			if (0>document.getElementById('hosp_bill').value) {
+				alert('too much hosp');
+				document.getElementById('submit').setAttribute("disabled","1");
+			}
+			if (0>document.getElementById('pro_bill').value) {
+				alert('too much pro');
+				document.getElementById('submit').setAttribute("disabled","1");
+			}
+			if(0<=document.getElementById('pro_bill').value && 0<=document.getElementById('hosp_bill').value){				
+				document.getElementById('submit').removeAttribute("disabled");
+			}
+		}
 
 		else {document.getElementById('submit').setAttribute("disabled","1");}
 	}
