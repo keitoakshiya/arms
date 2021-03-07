@@ -36,7 +36,7 @@ class Main extends CI_Controller {
 		public function dashboard(){
 		$this->load->model('roles_model');
 		if ($this->roles_model->view_dashboard()==0) {
-			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 
 		$all_access = $this->roles_model->get_all_access();
@@ -56,6 +56,10 @@ class Main extends CI_Controller {
 		$data2['result2'] = $res2;
 		$res3 = $this->dashboard_model->patient_type_distribution();
 		$data2['result3'] = $res3;
+		$res4 = $this->dashboard_model->patient_count_per_guarantor();
+		$data2['result4'] = $res4;
+		$res5 = $this->dashboard_model->guarantor_balance();
+		$data2['result5'] = $res5;
 		$this->load->view('dashboard',$data2);
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
@@ -65,7 +69,7 @@ class Main extends CI_Controller {
 		$this->load->model('roles_model');
 
 		if ($this->roles_model->view_patients()==0) {
-			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 
 		$this->load->model('patients_model');
@@ -93,7 +97,7 @@ class Main extends CI_Controller {
 		public function edit_patient($a){
 		$this->load->model('roles_model');
 		if ($this->roles_model->edit_patients()==0) {
-			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 		$all_access = $this->roles_model->get_all_access();
 		$data['all_access'] = $all_access;
@@ -115,7 +119,7 @@ class Main extends CI_Controller {
 
 		$this->load->model('roles_model');
 		if ($this->roles_model->can_edit()==0) {
-			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 		$this->load->model('patients_model');
 
@@ -138,7 +142,7 @@ class Main extends CI_Controller {
 		public function patients_filtered() {
 					$this->load->model('roles_model');
 		if ($this->roles_model->view_dashboard()==0) {
-			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 
 		$all_access = $this->roles_model->get_all_access();
@@ -180,7 +184,7 @@ class Main extends CI_Controller {
 
 		$this->load->model('roles_model');
 		if ($this->roles_model->add_patient()==0) {
-			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 
 		$all_access = $this->roles_model->get_all_access();
@@ -220,7 +224,7 @@ class Main extends CI_Controller {
 		$this->load->model('roles_model');
 
 		if ($this->roles_model->add_patient_to_receipt()==0) {
-			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 
 
@@ -295,7 +299,7 @@ class Main extends CI_Controller {
 		public function accounts_receivable(){
 		$this->load->model('roles_model');
 		if ($this->roles_model->view_accounts_receivable()==0) {
-			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 
 		$all_access = $this->roles_model->get_all_access();
@@ -320,7 +324,7 @@ class Main extends CI_Controller {
 		public function accounts_receivable2($a){
 		$this->load->model('roles_model');
 		if ($this->roles_model->view_accounts_receivable2()==0) {
-			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 
 		$this->load->model('get_by_id');
@@ -385,7 +389,7 @@ class Main extends CI_Controller {
 		public function payment_summary(){
 		$this->load->model('roles_model');
 		if ($this->roles_model->view_payment_summary()==0) {
-			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 		$all_access = $this->roles_model->get_all_access();
 		$data['all_access'] = $all_access;
@@ -411,7 +415,7 @@ class Main extends CI_Controller {
 		public function payment_summary2($a){
 		$this->load->model('roles_model');
 		if ($this->roles_model->view_payment_summary2()==0) {
-			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 
 		$this->load->model('get_by_id');
@@ -476,7 +480,7 @@ class Main extends CI_Controller {
 		public function remaining_balance(){
 		$this->load->model('roles_model');
 		if ($this->roles_model->view_remaining_balance()==0) {
-			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 		$all_access = $this->roles_model->get_all_access();
 		$data['all_access'] = $all_access;
@@ -500,7 +504,7 @@ class Main extends CI_Controller {
 		public function remaining_balance2($a){
 		$this->load->model('roles_model');
 		if ($this->roles_model->view_remaining_balance2()==0) {
-			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 
 		$this->load->model('get_by_id');
@@ -565,7 +569,7 @@ class Main extends CI_Controller {
 		public function add_payment(){
 		$this->load->model('roles_model');
 		if ($this->roles_model->CHECK()==0) {
-			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 		$data = array(
 		    'title' => 'Add Payment',
@@ -590,7 +594,7 @@ class Main extends CI_Controller {
 		$this->load->model('roles_model');
 
 		if ($this->roles_model->view_company_list_official_receipt_list()==0) {
-			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 
 		$all_access = $this->roles_model->get_all_access();
@@ -619,7 +623,7 @@ class Main extends CI_Controller {
 		$this->load->model('roles_model');
 
 		if ($this->roles_model->view_company_list_official_receipt_list()==0) {
-			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 
 		$this->load->model('get_by_id');
@@ -651,7 +655,7 @@ class Main extends CI_Controller {
 		$this->load->model('roles_model');
 
 		if ($this->roles_model->view_official_receipt_list2()==0) {
-			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
+		$this->logout();
 		}
 
 		$all_access = $this->roles_model->get_all_access();
@@ -678,7 +682,7 @@ class Main extends CI_Controller {
 		public function view_bill_by_patient($id,$receipt,$company_id){
 		$this->load->model('roles_model');
 		if ($this->roles_model->add_view_bill_by_patient()==0) {
-			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 
 		$this->load->model('get_by_id');
@@ -769,7 +773,7 @@ class Main extends CI_Controller {
 		public function add_company(){
 				$this->load->model('roles_model');
 		if ($this->roles_model->add_company()==0) {
-			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 		$all_access = $this->roles_model->get_all_access();
 		$data['all_access'] = $all_access;
@@ -809,7 +813,7 @@ class Main extends CI_Controller {
 		public function add_account(){
 		$this->load->model('roles_model');
 		if ($this->roles_model->add_account()==0) {
-			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 		$all_access = $this->roles_model->get_all_access();
 		$data['all_access'] = $all_access;
@@ -846,7 +850,7 @@ class Main extends CI_Controller {
 		public function archive() {
 		$this->load->model('roles_model');
 		if ($this->roles_model->view_archive()==0) {
-			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 		$all_access = $this->roles_model->get_all_access();
 		$data['all_access'] = $all_access;
@@ -870,8 +874,9 @@ class Main extends CI_Controller {
 		public function archive_patient($id){
 				$this->load->model('roles_model');
 		if ($this->roles_model->delete_patients()==0) {
-			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
+			$this->logout();
 		}
+
 		else{
 			$this->load->model('archive_model');
 			$this->archive_model->archive_patient($id);
@@ -882,7 +887,7 @@ class Main extends CI_Controller {
 		public function archive_or($id){
 				$this->load->model('roles_model');
 		if ($this->roles_model->delete_or()==0) { 
-			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 		else{
 			$this->load->model('archive_model');
@@ -894,7 +899,7 @@ class Main extends CI_Controller {
 		public function delete_patient($id){
 				$this->load->model('roles_model');
 		if ($this->roles_model->permanently_delete()==0) { 
-			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 		else{
 			$this->load->model('archive_model');
@@ -906,7 +911,7 @@ class Main extends CI_Controller {
 		public function restore_patient($id){
 				$this->load->model('roles_model');
 		if ($this->roles_model->restore_archive()==0) {
-			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 		else{
 			$this->load->model('archive_model');
@@ -918,7 +923,7 @@ class Main extends CI_Controller {
 		public function roles(){
 		$this->load->model('roles_model');
 		if ($this->roles_model->edit_roles()==0) {
-			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 		$all_access = $this->roles_model->get_all_access();
 		$data['all_access'] = $all_access;
@@ -1017,7 +1022,7 @@ class Main extends CI_Controller {
 		public function official_receipt(){
 				$this->load->model('roles_model');
 		if ($this->roles_model->add_official_receipt()==0) {
-			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 		$all_access = $this->roles_model->get_all_access();
 		$data['all_access'] = $all_access;
@@ -1052,7 +1057,7 @@ class Main extends CI_Controller {
 		public function delete_bill($a){
 		$this->load->model('roles_model');
 		if ($this->roles_model->can_delete()==0) {
-			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 		else{
 		$this->load->model('delete_bill_model');
@@ -1064,7 +1069,7 @@ class Main extends CI_Controller {
 		public function mark_receipt($a){
 		$this->load->model('roles_model');
 		if ($this->roles_model->can_delete()==0) {
-			echo "<script>alert('You do not have permission to do this task. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 		else{
 		$this->load->model('mark_receipt_model');
@@ -1077,7 +1082,7 @@ class Main extends CI_Controller {
 
 		$this->load->model('roles_model');
 		if ($this->roles_model->view_list_company()==0) {
-			echo "<script>alert('You do not have permission to access this page. Please contact your admin.'); window.history.back();</script>";
+$this->logout();
 		}
 
 		$all_access = $this->roles_model->get_all_access();
@@ -1099,5 +1104,32 @@ class Main extends CI_Controller {
 		$this->load->view('template/footer');
 
 	}
+
+		public function duplicate_error($name){
+
+		$this->load->model('roles_model');
+		if ($this->roles_model->view_list_company()==0) {
+$this->logout();
+		}
+
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = 'Duplicate data';
+		$data['description'] = ' ';
+		$data['name'] = $name;
+		
+
+		$this->load->view('template/header2',$data);
+		$this->load->view('template/container_header',$data);
+
+        	$this->load->view('duplicate_error',$data);
+		
+
+
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer');
+
+	}
+
 
 }

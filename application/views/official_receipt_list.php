@@ -31,6 +31,11 @@
 
 <script type="text/javascript">
 	$(document).ready( function () {
-	    $('#official_receipt_list').DataTable();
+	    $('#official_receipt_list').DataTable({
+		    dom: 'Bfrtip',
+	        buttons: [
+	            'copy', 'excel', 'pdf', 'print'
+	        ],
+	    });
 	} );
 </script> 

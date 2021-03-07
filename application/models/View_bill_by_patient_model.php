@@ -38,11 +38,11 @@
             header("Location: official_receipt_list/".$company_id);
         }
 
-        public function get_transaction($bill_id){
+        public function get_transaction($id){
 
-            $this->db->WHERE('bill_id', $bill_id);
+            $this->db->WHERE('patient_id', $id);
             $this->db->get('transaction');
-            //print_r($this->db->last_query());
+            print_r($this->db->last_query());
         }
 
         public function get_unapplied($id){

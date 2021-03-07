@@ -2,6 +2,7 @@
     class patients_model extends CI_Model {
 
         public function get_patients(){
+
             $this->db->select('`patient`.`id` as patient_id,
                 `patient`.`first_name` as first_name,
                 `patient`.`last_name` as last_name,
@@ -29,6 +30,7 @@
         }
 
         public function get_patients_filtered($start,$end){
+
             $this->db->select('`patient`.`id` as patient_id,
                 `patient`.`first_name` as first_name,
                 `patient`.`last_name` as last_name,
@@ -60,6 +62,7 @@
         }
 
     public function get_patient($a){
+
             $this->db->select('`patient`.`id` as patient_id,
                 `patient`.`first_name` as first_name,
                 `patient`.`last_name` as last_name,
