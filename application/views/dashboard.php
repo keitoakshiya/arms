@@ -1,4 +1,3 @@
-
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
   google.charts.load('current', {'packages':['corechart']});
@@ -17,7 +16,7 @@
      ]);
 
     var options = {
-      title: 'Total percentage of patients under \n Inpatient, Outpatient and Emergency'
+      title: 'Percentage of patients under \n Inpatient, Outpatient and Emergency'
     };
 
     var chart = new google.visualization.PieChart(document.getElementById('piechart'));
@@ -73,7 +72,7 @@
     	width: '100%',
         height: '100%',
                 bar: { groupWidth: '60%' },
-      title: 'Patient count per Guarantor',
+      title: '\n Patient count per Guarantor',
 
     };
 
@@ -113,7 +112,7 @@
 			  2:{color:'#3366cc'},
 		},
 		chart: {
-			title: 'Top 10 balance'
+			title: 'Top 10 guarantors with highest balance'
 		}
 
       };
@@ -152,7 +151,7 @@
 			  2:{color:'#3366cc'},
 		},
 		chart: {
-			title: 'Top 10 bill'
+			title: 'Top 10 guarantors with highest bill'
 		}
 
       };
@@ -170,25 +169,25 @@
       <div id="columnchart_material" style="height: 360px; width: 100%;">
       </div>
     </div>
-    <div class="col-md-6">
-      <!-- <div id="piechart2" style="height: 360px; width: 100%;"> -->
+    <!-- <div class="col-md-6">
+      <div id="piechart2" style="height: 360px; width: 100%;">
       </div>
-    </div>
-    <div class="col-md-6">
+    </div> -->
+    <div class="col-md-6"><br><br>
       <div id="piechart" style="height: 360px; width: 100%;">
       </div>
     </div>
+
     <div class="col-md-6">
       <div id="patient_count_per_guarantor" style="height: 460px; width: 100%;">
       </div>
     </div>
-  </div>
-  <div class="row">
+  
   	<div class="col-md-12">
-      <div id="guarantor_balance" style="height: 460px; width: 100%;">
+      <div id="guarantor_balance" style="height: 440px; width: 100%;">
       </div>
     </div>
-  </div>
+  
 </div>
 <!-- <img src="../application/build/images/back_disabled.png"> -->
 

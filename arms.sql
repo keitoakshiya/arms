@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 07, 2021 at 05:10 PM
+-- Generation Time: Mar 08, 2021 at 10:08 AM
 -- Server version: 10.4.17-MariaDB
--- PHP Version: 7.3.27
+-- PHP Version: 7.4.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -57,7 +57,8 @@ INSERT INTO `bill` (`id`, `date`, `patient_id`, `guarantor_id`, `patient_type`, 
 (55, '2020-10-01', 73, 21, 1, 3000.00, '3000.00', 0),
 (56, '2020-10-05', 74, 25, 1, 5000.00, '5000.00', 0),
 (57, '2020-10-09', 75, 9, 2, 6000.00, '6000.00', 0),
-(58, '2020-10-10', 76, 9, 3, 2000.00, '3000.00', 0);
+(58, '2020-10-10', 76, 9, 3, 2000.00, '3000.00', 0),
+(60, '2021-03-08', 78, 25, 3, 4000.00, '5000.00', 0);
 
 -- --------------------------------------------------------
 
@@ -120,7 +121,7 @@ INSERT INTO `patient` (`id`, `first_name`, `last_name`, `middle_name`, `date_cre
 (41, 'Alissa', 'Chet', 'M', '2020-08-24 03:46:16', 1, '2020-09-08 05:01:07'),
 (42, 'Angelo', 'Lumen', 'P', '2020-08-24 03:46:38', 1, '2021-03-07 13:58:45'),
 (46, 'Jeffrey', 'Macab', 'A', '2020-08-24 03:48:26', 2, '2021-03-07 14:10:20'),
-(47, 'Arianna', 'Torri', 'i', '2020-08-24 03:48:50', 0, '2020-08-24 05:08:53'),
+(47, 'Arianna', 'Torri', 'I', '2020-08-24 03:48:50', 0, '2020-08-24 05:08:53'),
 (48, 'Katherine', 'Wayne', 'L', '2020-08-24 03:49:20', 0, '2020-10-02 13:35:57'),
 (49, 'Angel', 'Furiscal', 'B', '2020-08-24 03:49:33', 0, NULL),
 (51, 'Bradly', 'Mondo', 'I', '2020-08-24 03:50:21', 0, NULL),
@@ -131,7 +132,8 @@ INSERT INTO `patient` (`id`, `first_name`, `last_name`, `middle_name`, `date_cre
 (73, 'Josh', 'Estrada', 'D', '2020-09-30 16:00:00', 0, NULL),
 (74, 'Nam', 'Era', 'S', '2020-10-04 16:00:00', 0, '2020-10-06 15:24:04'),
 (75, 'Hayley', 'Yams', 'W', '2020-10-08 16:00:00', 0, NULL),
-(76, 'Angel', 'Cailan', 'M', '2020-10-09 16:00:00', 0, NULL);
+(76, 'Angel', 'Cailan', 'M', '2020-10-09 16:00:00', 0, NULL),
+(78, 'This', 'This', 'T', '2021-03-07 16:00:00', 1, '2021-03-08 08:25:19');
 
 -- --------------------------------------------------------
 
@@ -169,7 +171,8 @@ INSERT INTO `receipt` (`id`, `company`, `or_date`, `or_number`, `or_amount`, `di
 (28, 9, '2020-10-10', '20201010', '2000.00', 1, 0),
 (29, 25, '2020-10-17', '20201017', '4000.00', 0, 0),
 (30, 9, '2020-11-07', '20201107', '2000.00', 0, 0),
-(32, 9, '2020-11-07', '20201106', '3000.00', 0, 0);
+(32, 9, '2020-11-07', '20201106', '3000.00', 0, 0),
+(33, 25, '2021-03-08', '20210308', '5000.00', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -207,7 +210,6 @@ INSERT INTO `transaction` (`id`, `patient_id`, `bill_id`, `receipt_id`, `hospita
 (43, 52, 35, 23, 1000.00, '1000.00', 0.00, 0, '2020-09-20 20:38:15', '2020-09-20 20:38:15', 0),
 (44, 53, 36, 23, 1000.00, '1000.00', 0.00, 0, '2020-09-20 20:39:13', '2020-09-20 20:39:13', 0),
 (45, 53, 36, 23, 1000.00, '1000.00', 0.00, 0, '2020-09-27 22:35:22', '2020-09-27 22:35:22', 0),
-(46, 73, 55, 25, 1500.00, '1500.00', 0.00, 0, '2020-10-02 14:25:12', '2020-10-02 14:25:12', 0),
 (47, 74, 56, 24, 1000.00, '1000.00', 0.00, 0, '2020-10-06 23:40:59', '2020-10-06 23:40:59', 0),
 (48, 71, 53, 24, 500.00, '500.00', 0.00, 0, '2020-10-08 23:41:08', '2020-10-08 23:41:08', 0),
 (49, 75, 57, 17, 1000.00, '1000.00', 0.00, 0, '2020-10-09 17:30:13', '2020-10-09 17:30:13', 0),
@@ -215,7 +217,8 @@ INSERT INTO `transaction` (`id`, `patient_id`, `bill_id`, `receipt_id`, `hospita
 (54, 76, 58, 28, 1000.00, '1000.00', 0.00, 0, '2020-10-10 15:40:28', '2020-10-10 15:40:28', 0),
 (67, 53, 36, 20, 500.00, '500.00', 0.00, 0, '2020-11-07 22:52:54', '2020-11-07 22:52:54', 0),
 (68, 76, 58, 20, 500.00, '500.00', 0.00, 0, '2020-11-07 22:53:10', '2020-11-07 22:53:10', 0),
-(71, 74, 56, 29, 2500.00, '2500.00', 0.00, 0, '2020-11-27 22:40:25', '2020-11-27 22:40:25', 0);
+(73, 78, 60, 29, 1100.00, '300.00', 0.00, 0, '2021-03-08 15:25:09', '2021-03-08 15:25:09', 0),
+(74, 78, 60, 29, 1400.00, '1200.00', 0.00, 0, '2021-03-08 16:03:17', '2021-03-08 16:03:17', 0);
 
 -- --------------------------------------------------------
 
@@ -265,13 +268,10 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `email`, `view_data`, `add_data`, `edit_data`, `delete_data`, `view_dashboard`, `add_patient`, `view_patients`, `edit_patients`, `delete_patients`, `view_accounts_receivable`, `view_accounts_receivable2`, `view_payment_summary`, `view_payment_summary2`, `view_remaining_balance`, `view_remaining_balance2`, `add_official_receipt`, `view_official_receipt_list2`, `delete_official_receipt_list2`, `view_company_list_official_receipt_list`, `add_patient_to_receipt`, `add_view_bill_by_patient`, `view_list_company`, `add_company`, `view_archive`, `delete_archive`, `restore_archive`, `add_account`, `edit_roles`, `delete_or`, `permanently_delete`) VALUES
-(1, 'admin', 'admin', 'sample@sample.com', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 0),
-(2, 'user1', 'user1', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(3, 'user2', 'user2', '', 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(4, 'user5', 'user5', 'sample@sample5.com', 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(5, 'user6', 'user6', 'sample6@sample.com', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(6, 'user7', 'user7', 'sample7@sample.com', 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0),
-(7, 'user8', 'user8', 'sample@sample8.com', 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0);
+(1, 'admin', 'admin', 'sample@sample.com', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1),
+(2, 'user_1', 'user_1', 'sample@user1.com', 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1),
+(3, 'mis_acc', 'Mis@sample0', 'mis@sample1.com', 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+(9, 'user8', 'user8', 'sample@sample8.com', 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0);
 
 --
 -- Indexes for dumped tables
@@ -323,7 +323,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT for table `guarantor`
@@ -335,19 +335,19 @@ ALTER TABLE `guarantor`
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `receipt`
 --
 ALTER TABLE `receipt`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `user`

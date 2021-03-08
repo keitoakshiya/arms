@@ -1,3 +1,4 @@
+<div class="col-md-12">
 <table id="add_patient_to_receipt" class="display cell-border" style="width:100%; color: #292929;">
         <thead>
             <tr>
@@ -69,7 +70,7 @@
         </tfoot>
         </tbody>
 </table>
-
+</div>
 <script type="text/javascript">
 
 

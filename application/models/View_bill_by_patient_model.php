@@ -42,7 +42,7 @@
 
             $this->db->WHERE('patient_id', $id);
             $this->db->get('transaction');
-            print_r($this->db->last_query());
+            //print_r($this->db->last_query());
         }
 
         public function get_unapplied($id){

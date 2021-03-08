@@ -83,7 +83,7 @@ $this->logout();
 		$this->load->model('patients_model');
 		$res = $this->patients_model->get_patients();
 		$this->load->view('template/header',$data);
-		$this->load->view('template/container_header_daterange',$data);
+		$this->load->view('template/container_header',$data);
 
 		if($res){	$data2['result'] = $res;
         	$this->load->view('patients',$data2);
@@ -1114,8 +1114,8 @@ $this->logout();
 
 		$all_access = $this->roles_model->get_all_access();
 		$data['all_access'] = $all_access;
-		$data['title'] = 'Duplicate data';
-		$data['description'] = ' ';
+		$data['title'] = 'Duplicate Data';
+		$data['description'] = '';
 		$data['name'] = $name;
 		
 
