@@ -5,39 +5,38 @@
 
 
             $this->db->select('
-                            guarantor.id AS guarantor_id,guarantor.name,guarantor.type,
+                guarantor.id AS guarantor_id,guarantor.name,guarantor.type,
 
-    IFNULL((SELECT SUM(hospital_bill) FROM bill WHERE guarantor_id = guarantor.id),0) AS hospital_bill_total,
-    IFNULL((SELECT SUM(professional_bill) FROM bill WHERE guarantor_id = guarantor.id),0) AS professional_bill_total,
-    (IFNULL((SELECT SUM(hospital_bill) FROM bill WHERE guarantor_id = guarantor.id),0) +
-    IFNULL((SELECT SUM(professional_bill) FROM bill WHERE guarantor_id = guarantor.id),0)) AS total_bill,
+    IFNULL((SELECT SUM(hospital_bill) FROM bill WHERE deleted = 0 AND guarantor_id = guarantor.id AND bill.deleted = 0 AND patient.deleted = 0),0) AS hospital_bill_total,
+    IFNULL((SELECT SUM(professional_bill) FROM bill WHERE deleted = 0 AND guarantor_id = guarantor.id AND bill.deleted = 0 AND patient.deleted = 0),0) AS professional_bill_total,
+    (IFNULL((SELECT SUM(hospital_bill) FROM bill WHERE deleted = 0 AND guarantor_id = guarantor.id AND bill.deleted = 0 AND patient.deleted = 0),0) +
+    IFNULL((SELECT SUM(professional_bill) FROM bill WHERE deleted = 0 AND guarantor_id = guarantor.id AND bill.deleted = 0 AND patient.deleted = 0),0)) AS total_bill,
 
-    IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE guarantor_id = (SELECT guarantor_id FROM bill WHERE bill.id =transaction.bill_id)),0) AS total_hospital_paid,
+    IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE deleted = 0 AND guarantor_id = (SELECT guarantor_id FROM bill WHERE deleted = 0 AND bill.id =transaction.bill_id)),0) AS total_hospital_paid,
 
-    IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE guarantor_id = (SELECT guarantor_id FROM bill WHERE bill.id =transaction.bill_id)),0) AS total_professional_paid,
-
-
-(IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE guarantor_id = (SELECT guarantor_id FROM bill WHERE bill.id =transaction.bill_id )), 0)+
+    IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE deleted = 0 AND guarantor_id = (SELECT guarantor_id FROM bill WHERE deleted = 0 AND bill.id =transaction.bill_id)),0) AS total_professional_paid,
 
 
-IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE  guarantor_id = (SELECT guarantor_id FROM bill WHERE bill.id =transaction.bill_id ) ), 0)) AS total_paid,
+(IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE deleted = 0 AND deleted = 0 AND guarantor_id = 
+    (SELECT guarantor_id FROM bill WHERE deleted = 0 AND bill.id =transaction.bill_id )), 0)+
+ IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE deleted = 0 AND guarantor_id =
+  (SELECT guarantor_id FROM bill WHERE deleted = 0 AND bill.id =transaction.bill_id ) ), 0)) AS total_paid,
 
 
-IFNULL((SELECT SUM(hospital_bill) FROM bill WHERE guarantor_id = guarantor.id),0)-
-IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE guarantor_id = (SELECT guarantor_id FROM bill WHERE bill.id =transaction.bill_id)),0)
+IFNULL((SELECT SUM(hospital_bill) FROM bill WHERE deleted = 0 AND guarantor_id = guarantor.id),0)-
+IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE deleted = 0 AND guarantor_id = (SELECT guarantor_id FROM bill WHERE bill.id =transaction.bill_id)),0)
 AS hospital_bill_balance,
 
-IFNULL((SELECT SUM(professional_bill) FROM bill WHERE guarantor_id = guarantor.id),0)-
-IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE guarantor_id = (SELECT guarantor_id FROM bill WHERE bill.id =transaction.bill_id)),0)
+IFNULL((SELECT SUM(professional_bill) FROM bill WHERE deleted = 0 AND guarantor_id = guarantor.id),0)-
+IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE deleted = 0 AND guarantor_id = (SELECT guarantor_id FROM bill WHERE deleted = 0 AND bill.id =transaction.bill_id)),0)
 AS professional_bill_balance, 
 
 
-((IFNULL((SELECT SUM(hospital_bill) FROM bill WHERE guarantor_id = guarantor.id),0)-
-IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE guarantor_id = (SELECT guarantor_id FROM bill WHERE bill.id =transaction.bill_id)),0))
-+
+((IFNULL((SELECT SUM(hospital_bill) FROM bill WHERE deleted = 0 AND guarantor_id = guarantor.id),0)-
+IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE deleted = 0 AND guarantor_id = (SELECT guarantor_id FROM bill WHERE deleted = 0 AND bill.id =transaction.bill_id)),0))+
 
-IFNULL((SELECT SUM(professional_bill) FROM bill WHERE guarantor_id = guarantor.id),0)-
-IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE guarantor_id = (SELECT guarantor_id FROM bill WHERE bill.id =transaction.bill_id)),0))
+IFNULL((SELECT SUM(professional_bill) FROM bill WHERE deleted = 0 AND guarantor_id = guarantor.id),0)-
+IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE deleted = 0 AND guarantor_id = (SELECT guarantor_id FROM bill WHERE deleted = 0 AND  bill.id =transaction.bill_id)),0))
 
 AS total_balance
 

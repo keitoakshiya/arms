@@ -165,6 +165,14 @@
 	}
 
 	function isValid(new_unp){
+		var hosp = 0, pro = 0;
+		var u = parseFloat(document.getElementById('unp').value);
+		if (!isNaN(parseFloat(document.getElementById('hosp_payment').value))) {
+			hosp = parseFloat(document.getElementById('hosp_payment').value);
+		}
+		if (!isNaN(parseFloat(document.getElementById('pro_payment').value))) {
+			pro  = parseFloat(document.getElementById('pro_payment').value);
+		}
 
 		if (new_unp>=0) {
 			if (0>document.getElementById('hosp_bill').value) {
@@ -175,8 +183,14 @@
 				alert('too much pro');
 				document.getElementById('submit').setAttribute("disabled","1");
 			}
-			if(0<=document.getElementById('pro_bill').value && 0<=document.getElementById('hosp_bill').value){				
-				document.getElementById('submit').removeAttribute("disabled");
+			if(0<=document.getElementById('pro_bill').value && 0<=document.getElementById('hosp_bill').value){
+				if ((hosp+pro)<=0) {
+					document.getElementById('submit').setAttribute("disabled","1");
+				}
+				if ((hosp+pro)>0) {
+					document.getElementById('submit').removeAttribute("disabled");
+				}
+				
 			}
 		}
 

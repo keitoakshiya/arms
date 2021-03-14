@@ -43,7 +43,7 @@
             public function restore_patient($id){
                 $this->db->set('deleted', '0');
                 $this->db->where('id', $id);
-                $this->db->where('deleted', '2');
+                $this->db->where('deleted', '1');
                 $this->db->update('patient');
 
                 $this->db->set('deleted', '0');

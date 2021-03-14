@@ -23,14 +23,14 @@
 
 	<div class="row">
 		<div class="col-md-4">
-			First Name: <input type="text" name="first-name" class="form-control" required>
+			First Name: <input type="text" name="first-name" class="form-control" minlength="2" required>
 		</div>
 		<div class="col-md-4">
-			Middle Name: <input type="text" name="middle-name" class="form-control">	
+			Middle Name: <input type="text" name="middle-name" class="form-control"  minlength="2" >	
 		</div>
 
 		<div class="col-md-4">
-			Last Name: <input type="text" name="last-name" class="form-control" required>
+			Last Name: <input type="text" name="last-name" class="form-control" minlength="2" required>
 		</div>						
 	</div>
 
