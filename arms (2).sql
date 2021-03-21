@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 14, 2021 at 01:40 PM
+-- Generation Time: Mar 21, 2021 at 12:52 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.3.27
 
@@ -108,7 +108,7 @@ CREATE TABLE `patient` (
   `first_name` varchar(40) NOT NULL,
   `last_name` varchar(40) NOT NULL,
   `middle_name` varchar(40) NOT NULL,
-  `date_created` timestamp NOT NULL DEFAULT current_timestamp(),
+  `date_created` date NOT NULL DEFAULT current_timestamp(),
   `deleted` int(1) NOT NULL DEFAULT 0,
   `date_deleted` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -118,22 +118,22 @@ CREATE TABLE `patient` (
 --
 
 INSERT INTO `patient` (`id`, `first_name`, `last_name`, `middle_name`, `date_created`, `deleted`, `date_deleted`) VALUES
-(41, 'Alissa', 'Chet', 'M', '2020-08-24 03:46:16', 1, '2020-09-08 05:01:07'),
-(42, 'Angelo', 'Lumen', 'P', '2020-08-24 03:46:38', 1, '2021-03-07 13:58:45'),
-(46, 'Jeffrey', 'Macab', 'A', '2020-08-24 03:48:26', 2, '2021-03-07 14:10:20'),
-(47, 'Arianna', 'Torri', 'I', '2020-08-24 03:48:50', 0, '2020-08-24 05:08:53'),
-(48, 'Katherine', 'Wayne', 'L', '2020-08-24 03:49:20', 0, '2020-10-02 13:35:57'),
-(49, 'Angel', 'Furiscal', 'B', '2020-08-24 03:49:33', 0, NULL),
-(51, 'Bradly', 'Mondo', 'I', '2020-08-24 03:50:21', 0, NULL),
-(52, 'Finn', 'Stein', 'G', '2020-08-24 03:50:52', 0, NULL),
-(53, 'Alex', 'Reyes', 'M', '2020-08-24 05:12:24', 0, NULL),
-(71, 'Ace', 'Elly', 'J', '2020-09-20 16:00:00', 0, NULL),
-(72, 'Hammy', 'Lotty', 'S', '2020-09-21 16:00:00', 0, NULL),
-(73, 'Josh', 'Estrada', 'D', '2020-09-30 16:00:00', 0, NULL),
-(74, 'Nam', 'Era', 'S', '2020-10-04 16:00:00', 0, '2021-03-14 11:15:13'),
-(75, 'Hayley', 'Yams', 'W', '2020-10-08 16:00:00', 0, NULL),
-(76, 'Angel', 'Cailan', 'M', '2020-10-09 16:00:00', 0, NULL),
-(78, 'This', 'This', 'T', '2021-03-07 16:00:00', 0, '2021-03-14 11:17:56');
+(41, 'Alissa', 'Chet', 'M', '2020-08-24', 1, '2020-09-08 05:01:07'),
+(42, 'Angelo', 'Lumen', 'P', '2020-08-24', 1, '2021-03-07 13:58:45'),
+(46, 'Jeffrey', 'Macab', 'A', '2020-08-24', 2, '2021-03-07 14:10:20'),
+(47, 'Arianna', 'Torri', 'I', '2020-08-24', 0, '2020-08-24 05:08:53'),
+(48, 'Katherine', 'Wayne', 'L', '2020-08-24', 0, '2020-10-02 13:35:57'),
+(49, 'Angel', 'Furiscal', 'B', '2020-08-24', 0, NULL),
+(51, 'Bradly', 'Mondo', 'I', '2020-08-24', 0, NULL),
+(52, 'Finn', 'Stein', 'G', '2020-08-24', 0, NULL),
+(53, 'Alex', 'Reyes', 'M', '2020-08-24', 0, NULL),
+(71, 'Ace', 'Elly', 'J', '2020-09-21', 0, NULL),
+(72, 'Hammy', 'Lotty', 'S', '2020-09-22', 0, NULL),
+(73, 'Josh', 'Estrada', 'D', '2020-10-01', 0, NULL),
+(74, 'Nam', 'Era', 'S', '2020-10-05', 0, '2021-03-14 11:15:13'),
+(75, 'Hayley', 'Yams', 'W', '2020-10-09', 0, NULL),
+(76, 'Angel', 'Cailan', 'M', '2020-10-10', 0, NULL),
+(78, 'This', 'This', 'T', '2021-03-08', 0, '2021-03-14 11:17:56');
 
 -- --------------------------------------------------------
 
