@@ -25,7 +25,7 @@
             $this->db->where('`patient`.`deleted` =', '0');
             $query = $this->db->get('patient');
             $res   = $query->result();
-            //print_r($this->db->last_query());  
+            print_r($this->db->last_query());  
             return $res;
         }
 

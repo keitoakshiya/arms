@@ -83,7 +83,7 @@ $this->logout();
 		$this->load->model('patients_model');
 		$res = $this->patients_model->get_patients();
 		$this->load->view('template/header',$data);
-		$this->load->view('template/container_header',$data);
+		$this->load->view('template/container_header_daterange',$data);
 
 		if($res){	$data2['result'] = $res;
         	$this->load->view('patients',$data2);
@@ -141,44 +141,42 @@ $this->logout();
 
 		public function patients_filtered() {
 					$this->load->model('roles_model');
-		if ($this->roles_model->view_dashboard()==0) {
-$this->logout();
+					if ($this->roles_model->view_dashboard()==0) {
+						$this->logout();
+					}
+
+					$all_access = $this->roles_model->get_all_access();
+					$data['all_access'] = $all_access;
+					$data['title'] = 'Dashboard';
+					$data['description'] = ' ';
+
+
+
+
+
+						$start = $this->input->post('start');
+						$end = $this->input->post('end');
+						$data['start'] = $start;
+						$data['end'] = $end;
+						$this->load->model('patients_model');
+
+					$res = $this->patients_model->get_patients_filtered($start,$end);
+
+
+					$this->load->view('template/header',$data);
+					$this->load->view('template/container_header_daterange',$data);
+
+			        if($res){	$data2['result'] = $res;
+			        	$this->load->view('patients',$data2);
+					}
+					else {
+						$this->load->view('patients',$data2);
+					}
+
+					$this->load->view('template/container_footer');
+					$this->load->view('template/footer');
+
 		}
-
-		$all_access = $this->roles_model->get_all_access();
-		$data['all_access'] = $all_access;
-		$data['title'] = 'Dashboard';
-		$data['description'] = ' ';
-
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules('start','start','required');
-		$this->form_validation->set_rules('end','end','required');
-
-		if ($this->form_validation->run()) {
-
-			$start = $this->input->post('start');
-			$end = $this->input->post('end');
-			$data['start'] = $start;
-			$data['end'] = $end;
-			$this->load->model('patients_model');
-
-		$res = $this->patients_model->get_patients_filtered($start,$end);
-
-
-		$this->load->view('template/header',$data);
-		$this->load->view('template/container_header_daterange',$data);
-
-        if($res){	$data2['result'] = $res;
-        	$this->load->view('patients',$data2);
-		}
-		else {
-			$this->load->view('patients');
-		}
-
-		$this->load->view('template/container_footer');
-		$this->load->view('template/footer');
-		}
-	}
 
 		public function add_patient(){
 
