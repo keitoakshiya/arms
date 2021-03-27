@@ -14,15 +14,26 @@
             </tr>
         </thead>
         <tbody>
+            <script type="text/javascript">
             <?php
                 if (isset($start)&&isset($end)) {
                     $start_time = strtotime($start); 
                     $end_time = strtotime($end); 
                     $start_date = date('m/d/y', $start_time);
-                    echo "<br>";
                     $end_date = date('m/d/y', $end_time);
+
+                    echo "
+                    $(window).on('load', function() {
+                        $('#daterange').data('daterangepicker').setStartDate('".$start_date."');
+                        $('#daterange').data('daterangepicker').setEndDate('".$end_date."');
+                    })
+                    ";
+                    echo "$('#daterange').val('".$start_date."'+' - '+'".$end_date."');";
                 }
+                else echo "$('#daterange').val(moment().startOf('year').calendar()+' - '+moment().format('L'));";
             ?>
+            </script>
+            
         <?php
             if (!isset($result)) {
 
@@ -91,6 +102,8 @@
 
 
 <script type="text/javascript">
+
+
 /*$(function() {
 
     var start = moment().subtract(29, 'days');
@@ -117,9 +130,6 @@
 
 
 });*/
-
-$('#daterange').val(moment().startOf('year').calendar()+" - "+moment().format('L'));
-
 
 $(function() {
   $('input[name="daterange"]').daterangepicker({

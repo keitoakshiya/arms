@@ -170,7 +170,7 @@ $this->logout();
 			        	$this->load->view('patients',$data2);
 					}
 					else {
-						$this->load->view('patients',$data2);
+						$this->load->view('patients');
 					}
 
 					$this->load->view('template/container_footer');
