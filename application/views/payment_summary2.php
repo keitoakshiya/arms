@@ -25,6 +25,28 @@
 
             </tr>
         </thead>
+
+
+                        <script type="text/javascript">
+            <?php
+                if (isset($start)&&isset($end)) {
+                    $start_time = strtotime($start); 
+                    $end_time = strtotime($end); 
+                    $start_date = date('m/d/y', $start_time);
+                    $end_date = date('m/d/y', $end_time);
+
+                    echo "
+                    $(window).on('load', function() {
+                        $('#daterange').data('daterangepicker').setStartDate('".$start_date."');
+                        $('#daterange').data('daterangepicker').setEndDate('".$end_date."');
+                    })
+                    ";
+                    echo "$('#daterange').val('".$start_date."'+' - '+'".$end_date."');";
+                }
+                else echo "$('#daterange').val(moment().startOf('year').calendar()+' - '+moment().format('L'));";
+            ?>
+            </script>
+
         <tbody>
             <?php
             if ($result) {
@@ -95,37 +117,19 @@
         } );
     </script>
 
-    <script type="text/javascript">
-        $(function() {
+<script type="text/javascript">
 
-            var start = moment().subtract(29, 'days');
-            var end = moment();
-
-            function cb(start, end) {
-                $('#date span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-                document.getElementById("start").value = start.format('YYYY-MM-DD HH:mm:s');
-                document.getElementById("end").value = end.format('YYYY-MM-DD HH:mm:s');
-                /*        document.getElementById('form-id').action = "patients_filtered/"+document.getElementById('start').value+"/"+document.getElementById('end').value;*/
-        //document.getElementById("form-id").submit();
-    }
-
-    $('#date').daterangepicker({
-        startDate: start,
-        endDate: end,
-        ranges: {
-         'Today': [moment(), moment()],
-         'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-         'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-         'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-         'This Month': [moment().startOf('month'), moment().endOf('month')],
-         'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-     }
- }, cb);
+    $(function() {
+      $('input[name="daterange"]').daterangepicker({
+        opens: 'left'
+      }, function(start, end, label) {
+        console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+        $('#start').val(start.format('YYYY-MM-DD') );
+        $('#end').val(end.format('YYYY-MM-DD'));
+      });
+    });
 
 
-    cb(start, end);
-
-
-});
 </script>
+
 

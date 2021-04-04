@@ -8,14 +8,14 @@
                 <div class="x_title">
                   <h2><?=$title?> <small><?=$description?></small></h2>
                   <ul class="nav navbar-right panel_toolbox">
-                    <li>
-                      <div id="date" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
-                          <i class="fa fa-calendar"></i>&nbsp;
-                          <span></span> <i class="fa fa-caret-down"></i>
+                   <li>
+                      <div id="date" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 190px">
+                        
+                          <input type="text" id="daterange" name="daterange" style="align-content: center;border: hidden;" value="01/01/1970 - 01/15/2020" />
+                        
                       </div>
                     </li>
-                    <li>
-                       <form id="form-id" method="post" action="remaining_balance_filtered">
+                       <form id="form-id" method="post" action="/arms/main/remaining_balance_filtered/<?=$a?>">
                           <input type="hidden" name="start" id="start">
                           <input type="hidden" name="end" id="end">
                           <input type="submit" name="" value="Filter" class="form-control" style="height: 30px">

@@ -329,6 +329,7 @@ $this->logout();
 		$name =$this->get_by_id->get_company_name_by_id($a);
 
 		$all_access = $this->roles_model->get_all_access();
+		$data['a'] = $a;
 		$data['all_access'] = $all_access;
 		$data['title'] = $name;
 		$data['description'] = 'Accounts Receivable Patient List';
@@ -337,7 +338,7 @@ $this->logout();
 		$this->load->view('template/header2',$data);
 		$this->load->model('accounts_receivable_model2');
 		$res = $this->accounts_receivable_model2->get_bill($a);
-		$this->load->view('template/container_header',$data); //add _daterange_accounts_receivable
+		$this->load->view('template/container_header_daterange_accounts_receivable',$data); //add _daterange_accounts_receivable
 		
 		if($res){	$data2['result'] = $res;
         	$this->load->view('accounts_receivable2',$data2);
@@ -351,11 +352,19 @@ $this->logout();
 
 		public function accounts_receivable_filtered($a){
 
-		$data = array(
-		    'title' => 'Accounts Receivable',
-		    'description' => ' ',
-		    'a' => $a
-		);
+		$this->load->model('roles_model');
+		if ($this->roles_model->view_accounts_receivable2()==0) {
+$this->logout();
+		}
+
+		$this->load->model('get_by_id');
+		$name =$this->get_by_id->get_company_name_by_id($a);
+
+		$all_access = $this->roles_model->get_all_access();
+		$data['a'] = $a;
+		$data['all_access'] = $all_access;
+		$data['title'] = $name;
+		$data['description'] = 'Accounts Receivable Patient List';
 
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('start','start','required');
@@ -422,12 +431,13 @@ $this->logout();
 		$all_access = $this->roles_model->get_all_access();
 		$data['all_access'] = $all_access;
 		$data['title'] = $name;
+		$data['a'] = $a;
 		$data['description'] = 'Payment List';
 
 		$this->load->view('template/header2',$data);
 		$this->load->model('payment_summary_model2');
 		$res = $this->payment_summary_model2->get_bill($a);
-		$this->load->view('template/container_header',$data);
+		$this->load->view('template/container_header_daterange_payment_summary',$data);
 		
 		if($res){	$data2['result'] = $res;
         	$this->load->view('payment_summary2',$data2);
@@ -440,12 +450,20 @@ $this->logout();
 
 	}
 
-		public function payment_summary_filtered(){
-		
-		$data = array(
-		    'title' => 'Payment Summary',
-		    'description' => ''
-		);
+		public function payment_summary_filtered($a){
+		$this->load->model('roles_model');
+		if ($this->roles_model->view_payment_summary2()==0) {
+$this->logout();
+		}
+
+		$this->load->model('get_by_id');
+		$name =$this->get_by_id->get_company_name_by_id($a);
+
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = $name;
+		$data['a'] = $a;
+		$data['description'] = 'Payment List';
 
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('start','start','required');
@@ -459,15 +477,15 @@ $this->logout();
 
 		$res = $this->payment_summary_model->get_bill_filtered($start,$end);
 
-
-		$this->load->view('template/header',$data);
+		$data['result'] = $res;
+		$this->load->view('template/header2',$data);
 		$this->load->view('template/container_header_daterange',$data);
 
         if($res){	$data2['result'] = $res;
-        	$this->load->view('payment_summary',$data2);
+        	$this->load->view('payment_summary2',$data2);
 		}
 		else {
-			$this->load->view('payment_summary');
+			$this->load->view('payment_summary2');
 		}
 
 		$this->load->view('template/container_footer');
@@ -480,6 +498,9 @@ $this->logout();
 		if ($this->roles_model->view_remaining_balance()==0) {
 $this->logout();
 		}
+
+
+
 		$all_access = $this->roles_model->get_all_access();
 		$data['all_access'] = $all_access;
 		$data['title'] = 'Remaining Balance';
@@ -490,8 +511,8 @@ $this->logout();
 		$res = $this->remaining_balance_model->get_bill();
 		$this->load->view('template/container_header',$data);
 		
-		if($res){	$data2['result'] = $res;
-        	$this->load->view('remaining_balance',$data2);
+		if($res){	$data['result'] = $res;
+        	$this->load->view('remaining_balance',$data);
 		}
 		else {"Fail";}
 		
@@ -501,22 +522,22 @@ $this->logout();
 
 		public function remaining_balance2($a){
 		$this->load->model('roles_model');
-		if ($this->roles_model->view_remaining_balance2()==0) {
+		if ($this->roles_model->view_remaining_balance()==0) {
 $this->logout();
 		}
 
 		$this->load->model('get_by_id');
 		$name =$this->get_by_id->get_company_name_by_id($a);
-
 		$all_access = $this->roles_model->get_all_access();
 		$data['all_access'] = $all_access;
-		$data['title'] = $name;
-		$data['description'] = 'Remaining Balance List';
+		$data['title'] = 'Remaining Balance';
+		$data['a'] = $a;
+		$data['description'] = 'Company List';
 
 		$this->load->view('template/header2',$data);
 		$this->load->model('remaining_balance_model2');
 		$res = $this->remaining_balance_model2->get_bill($a);
-		$this->load->view('template/container_header',$data);
+		$this->load->view('template/container_header_daterange_remaining_balance',$data);
 		
 		if($res){	$data2['result'] = $res;
         	$this->load->view('remaining_balance2',$data2);
@@ -527,13 +548,20 @@ $this->logout();
 		$this->load->view('template/footer2');
 	}
 
-		public function remaining_balance_filtered(){
+		public function remaining_balance_filtered($a){
+		$this->load->model('roles_model');
+		if ($this->roles_model->view_remaining_balance()==0) {
+$this->logout();
+		}
+		
+		$this->load->model('get_by_id');
+		$name =$this->get_by_id->get_company_name_by_id($a);
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['a'] = $a;
+		$data['title'] = 'Remaining Balance';
+		$data['description'] = 'Company List';
 
-
-		$data = array(
-		    'title' => 'Remaining Balance',
-		    'description' => ' '
-		);
 
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('start','start','required');
@@ -546,9 +574,9 @@ $this->logout();
 			$this->load->model('remaining_balance_model');
 
 		$res = $this->remaining_balance_model->get_bill_filtered($start,$end);
+		$data['result'] = $res;
 
-
-		$this->load->view('template/header',$data);
+		$this->load->view('template/header2',$data);
 		$this->load->view('template/container_header_daterange_remaining_balance.php',$data);
 
         if($res){	$data2['result'] = $res;

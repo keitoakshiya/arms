@@ -103,34 +103,6 @@
 
 <script type="text/javascript">
 
-
-/*$(function() {
-
-    var start = moment().subtract(29, 'days');
-    var end = moment();
-
-    function cb(start, end) {
-        $('#date span').html('<?php echo $start_date;?>' + ' - ' + '<?php echo $start_date;?>');
-        document.getElementById("start").value = start.format('YYYY-MM-DD HH:mm:s');
-        document.getElementById("end").value = end.format('YYYY-MM-DD HH:mm:s');
-    }
-
-    $('#date').daterangepicker({
-        startDate: start,
-        endDate: end,
-          locale: {
-            format: 'YYYY/MM/DD HH:mm'
-          },
-
-
-    }, cb);
-
-
-    cb(start, end);
-
-
-});*/
-
 $(function() {
   $('input[name="daterange"]').daterangepicker({
     opens: 'left'
