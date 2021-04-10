@@ -3,6 +3,9 @@
 		<tr>
             <th>Guarantor Type</th>
             <th>Company</th>
+            <th>Address</th>
+            <th>Contact Person</th>
+            <th>Contact Number</th>
 			
 		</tr>
 	</thead>
@@ -23,6 +26,12 @@
                     }
 						echo "<td>".$row->name."</td>";
 
+                        echo "<td>".$row->address."</td>";
+                        
+                        echo "<td>".$row->contact_person."</td>";
+                        
+                        echo "<td>".$row->contact_number."</td>";
+
 					echo "</tr>";
 
 				}
@@ -34,6 +43,9 @@
 	<tfoot>
 		<td></td>
 		<td></td>
+        <td></td>
+        <td></td>
+        <td></td>
 	</tfoot>
 </table>
 

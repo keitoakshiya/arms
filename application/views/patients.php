@@ -10,7 +10,7 @@
                 <th>Middle Name</th>
                 <th>Last Name</th>
                 <th>Date Registered</th>
-                <th>Action</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>

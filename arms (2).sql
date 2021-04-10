@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2021 at 12:52 PM
+-- Generation Time: Apr 10, 2021 at 08:37 PM
 -- Server version: 10.4.17-MariaDB
--- PHP Version: 7.3.27
+-- PHP Version: 7.4.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -58,7 +58,9 @@ INSERT INTO `bill` (`id`, `date`, `patient_id`, `guarantor_id`, `patient_type`, 
 (56, '2020-10-05', 74, 25, 1, 5000.00, '5000.00', 0),
 (57, '2020-10-09', 75, 9, 2, 6000.00, '6000.00', 0),
 (58, '2020-10-10', 76, 9, 3, 2000.00, '3000.00', 0),
-(60, '2021-03-08', 78, 25, 3, 4000.00, '5000.00', 0);
+(60, '2021-03-08', 78, 25, 3, 4000.00, '5000.00', 0),
+(62, '2021-04-08', 80, 9, 1, 6000.00, '6000.00', 0),
+(63, '2021-04-10', 82, 25, 1, 2500.00, '2500.00', 0);
 
 -- --------------------------------------------------------
 
@@ -81,21 +83,21 @@ CREATE TABLE `guarantor` (
 --
 
 INSERT INTO `guarantor` (`id`, `name`, `type`, `deleted`, `address`, `contact_person`, `contact_number`) VALUES
-(9, 'AMAPHIL', 1, 0, '', '', 0),
-(10, 'EAST WEST', 1, 0, '', '', 0),
-(13, 'HEALTHBRIDGE', 1, 0, '', '', 0),
-(14, 'AVEGA MANAGED CARE INC', 1, 0, '', '', 0),
-(15, 'CAREWELL, INC', 1, 0, '', '', 0),
-(16, 'AIM ONE', 2, 0, '', '', 0),
-(17, 'AXA LIFE', 2, 0, '', '', 0),
-(18, 'ANCHOR BANK', 2, 0, '', '', 0),
-(19, 'AA INTERNATIONAL', 2, 0, '', '', 0),
-(20, 'CUNNINGHAM LINDSEY PHILS INC', 2, 0, '', '', 0),
-(21, 'DSWD', 3, 0, '', '', 0),
-(22, 'PHILHEALTH', 3, 0, '', '', 0),
-(23, 'EMPLOYEE\'S COMPENSATION  COMMISSION', 3, 0, '', '', 0),
-(24, 'PCSO', 3, 0, '', '', 0),
-(25, 'Test', 1, 0, 'Sample Address', 'John Doe', 1231321);
+(9, 'AMAPHIL', 1, 0, 'Unit 501, Aralco Building, 820 J.P Rizal', 'Jane Smith', 1234567),
+(10, 'EAST WEST', 1, 0, '', '', 123456),
+(13, 'HEALTHBRIDGE', 1, 0, '', '', 2345678),
+(14, 'AVEGA MANAGED CARE INC', 1, 0, '', '', 3456789),
+(15, 'CAREWELL, INC', 1, 0, '', '', 98765432),
+(16, 'AIM ONE', 2, 0, 'Unit 201, Executive Suites, 153 Doña Sol', 'John Smith', 98745632),
+(17, 'AXA LIFE', 2, 0, 'Muntinlupa, Metro Manila', 'JJ Doe', 8745215),
+(18, 'ANCHOR BANK', 2, 0, '', '', 8975641),
+(19, 'AA INTERNATIONAL', 2, 0, '', '', 32564781),
+(20, 'CUNNINGHAM LINDSEY PHILS INC', 2, 0, '', '', 8974130),
+(21, 'DSWD', 3, 0, '', '', 4678512),
+(22, 'PHILHEALTH', 3, 0, '', '', 9254875),
+(23, 'EMPLOYEE\'S COMPENSATION  COMMISSION', 3, 0, '', '', 6398541),
+(24, 'PCSO', 3, 0, '', '', 6356821),
+(25, 'Test', 1, 0, 'Sample Address', 'John Doe', 123132112);
 
 -- --------------------------------------------------------
 
@@ -108,7 +110,9 @@ CREATE TABLE `patient` (
   `first_name` varchar(40) NOT NULL,
   `last_name` varchar(40) NOT NULL,
   `middle_name` varchar(40) NOT NULL,
-  `date_created` date NOT NULL DEFAULT current_timestamp(),
+  `suffix` varchar(3) NOT NULL,
+  `registry_no` varchar(10) NOT NULL,
+  `date_created` timestamp NOT NULL DEFAULT current_timestamp(),
   `deleted` int(1) NOT NULL DEFAULT 0,
   `date_deleted` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -117,23 +121,26 @@ CREATE TABLE `patient` (
 -- Dumping data for table `patient`
 --
 
-INSERT INTO `patient` (`id`, `first_name`, `last_name`, `middle_name`, `date_created`, `deleted`, `date_deleted`) VALUES
-(41, 'Alissa', 'Chet', 'M', '2020-08-24', 1, '2020-09-08 05:01:07'),
-(42, 'Angelo', 'Lumen', 'P', '2020-08-24', 1, '2021-03-07 13:58:45'),
-(46, 'Jeffrey', 'Macab', 'A', '2020-08-24', 2, '2021-03-07 14:10:20'),
-(47, 'Arianna', 'Torri', 'I', '2020-08-24', 0, '2020-08-24 05:08:53'),
-(48, 'Katherine', 'Wayne', 'L', '2020-08-24', 0, '2020-10-02 13:35:57'),
-(49, 'Angel', 'Furiscal', 'B', '2020-08-24', 0, NULL),
-(51, 'Bradly', 'Mondo', 'I', '2020-08-24', 0, NULL),
-(52, 'Finn', 'Stein', 'G', '2020-08-24', 0, NULL),
-(53, 'Alex', 'Reyes', 'M', '2020-08-24', 0, NULL),
-(71, 'Ace', 'Elly', 'J', '2020-09-21', 0, NULL),
-(72, 'Hammy', 'Lotty', 'S', '2020-09-22', 0, NULL),
-(73, 'Josh', 'Estrada', 'D', '2020-10-01', 0, NULL),
-(74, 'Nam', 'Era', 'S', '2020-10-05', 0, '2021-03-14 11:15:13'),
-(75, 'Hayley', 'Yams', 'W', '2020-10-09', 0, NULL),
-(76, 'Angel', 'Cailan', 'M', '2020-10-10', 0, NULL),
-(78, 'This', 'This', 'T', '2021-03-08', 0, '2021-03-14 11:17:56');
+INSERT INTO `patient` (`id`, `first_name`, `last_name`, `middle_name`, `suffix`, `registry_no`, `date_created`, `deleted`, `date_deleted`) VALUES
+(41, 'Alissa', 'Chet', 'M', '', '', '2020-08-24 03:46:16', 1, '2020-09-08 05:01:07'),
+(42, 'Angelo', 'Lumen', 'P', '', '', '2020-08-24 03:46:38', 1, '2021-03-07 13:58:45'),
+(46, 'Jeffrey', 'Macab', 'A', '', '', '2020-08-24 03:48:26', 2, '2021-03-07 14:10:20'),
+(47, 'Arianna', 'Torri', 'I', '', '', '2020-08-24 03:48:50', 0, '2020-08-24 05:08:53'),
+(48, 'Katherine', 'Wayne', 'L', '', '', '2020-08-24 03:49:20', 0, '2020-10-02 13:35:57'),
+(49, 'Angel', 'Furiscal', 'B', '', '', '2020-08-24 03:49:33', 0, NULL),
+(51, 'Bradly', 'Mondo', 'I', '', '', '2020-08-24 03:50:21', 0, NULL),
+(52, 'Finn', 'Stein', 'G', '', '', '2020-08-24 03:50:52', 0, NULL),
+(53, 'Alex', 'Reyes', 'M', '', '', '2020-08-24 05:12:24', 0, NULL),
+(71, 'Ace', 'Elly', 'J', '', '', '2020-09-20 16:00:00', 0, NULL),
+(72, 'Hammy', 'Lotty', 'S', '', '', '2020-09-21 16:00:00', 0, NULL),
+(73, 'Josh', 'Estrada', 'D', '', '', '2020-09-30 16:00:00', 0, NULL),
+(74, 'Nam', 'Era', 'S', '', '', '2020-10-04 16:00:00', 0, '2021-03-14 11:15:13'),
+(75, 'Hayley', 'Yams', 'W', '', '', '2020-10-08 16:00:00', 0, NULL),
+(76, 'Angel', 'Cailan', 'M', '', '', '2020-10-09 16:00:00', 0, NULL),
+(78, 'This', 'This', 'T', '', '', '2021-03-07 16:00:00', 0, '2021-03-14 11:17:56'),
+(80, 'Abril', 'Smith', '', '', '', '2021-04-07 16:00:00', 0, NULL),
+(81, 'Four', 'Twentyone', 'Ten', 'Jr', '', '2021-04-09 16:00:00', 0, NULL),
+(82, 'Four', 'Twentyone', 'Ten', 'Sr', '20210410', '2021-04-09 16:00:00', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -172,7 +179,8 @@ INSERT INTO `receipt` (`id`, `company`, `or_date`, `or_number`, `or_amount`, `di
 (29, 25, '2020-10-17', '20201017', '4000.00', 0, 0),
 (30, 9, '2020-11-07', '20201107', '2000.00', 0, 0),
 (32, 9, '2020-11-07', '20201106', '3000.00', 0, 0),
-(33, 25, '2021-03-08', '20210308', '5000.00', 0, 0);
+(33, 25, '2021-03-08', '20210308', '5000.00', 0, 0),
+(34, 13, '2021-04-08', '20210804', '3000.00', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -218,7 +226,9 @@ INSERT INTO `transaction` (`id`, `patient_id`, `bill_id`, `receipt_id`, `hospita
 (67, 53, 36, 20, 500.00, '500.00', 0.00, 0, '2020-11-07 22:52:54', '2020-11-07 22:52:54', 0),
 (68, 76, 58, 20, 500.00, '500.00', 0.00, 0, '2020-11-07 22:53:10', '2020-11-07 22:53:10', 0),
 (73, 78, 60, 29, 1100.00, '300.00', 0.00, 2, '2021-03-08 15:25:09', '2021-03-08 15:25:09', 0),
-(74, 78, 60, 29, 1400.00, '1200.00', 0.00, 2, '2021-03-08 16:03:17', '2021-03-08 16:03:17', 0);
+(74, 78, 60, 29, 1400.00, '1200.00', 0.00, 2, '2021-03-08 16:03:17', '2021-03-08 16:03:17', 0),
+(78, 80, 62, 32, 1500.00, '1500.00', 0.00, 0, '2021-04-08 14:33:21', '2021-04-08 14:33:21', 0),
+(79, 80, 62, 30, 1000.00, '1000.00', 0.00, 0, '2021-04-09 13:44:14', '2021-04-09 13:44:14', 0);
 
 -- --------------------------------------------------------
 
@@ -323,7 +333,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
 
 --
 -- AUTO_INCREMENT for table `guarantor`
@@ -335,19 +345,19 @@ ALTER TABLE `guarantor`
 -- AUTO_INCREMENT for table `patient`
 --
 ALTER TABLE `patient`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT for table `receipt`
 --
 ALTER TABLE `receipt`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT for table `user`

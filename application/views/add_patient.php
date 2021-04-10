@@ -25,13 +25,17 @@
 		<div class="col-md-4">
 			First Name: <input type="text" name="first-name" class="form-control" minlength="2" required>
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-3">
 			Middle Name: <input type="text" name="middle-name" class="form-control"  minlength="2" >	
 		</div>
 
 		<div class="col-md-4">
 			Last Name: <input type="text" name="last-name" class="form-control" minlength="2" required>
-		</div>						
+		</div>
+
+		<div class="col-md-1">
+			Suffix: <input type="text" name="suffix" class="form-control" minlength="2" required>
+		</div>							
 	</div>
 
 
@@ -48,6 +52,8 @@
 			
 		</div>						
 	</div>
+	Registry No. <input type="text" name="registry_no" class="form-control" minlength="3" required>
+
 	Date Registered: <input type="text" name="date" class="form-control" readonly="" required="" id="selectdate">
 	
 	<input type="submit" name="submit" class="form-control btn btn-success submit-btn">

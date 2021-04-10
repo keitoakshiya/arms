@@ -127,15 +127,23 @@ $this->logout();
 		$this->form_validation->set_rules('fname','fname','required');
 		$this->form_validation->set_rules('mname','mname','required');
 		$this->form_validation->set_rules('lname','lname','required');
+		$this->form_validation->set_rules('suffix','suffix','required');
+		$this->form_validation->set_rules('hospital_bill','hospital_bill','required');
+		$this->form_validation->set_rules('professional_bill','professional_bill','required');
+		$this->form_validation->set_rules('guarantor_id','guarantor_id','required');
 
 		if ($this->form_validation->run()) {
 			$id = $this->input->post('id');
 			$fname = $this->input->post('fname');
 			$mname = $this->input->post('mname');
 			$lname = $this->input->post('lname');
+			$suffix = $this->input->post('suffix');
+			$hospital_bill = $this->input->post('hospital_bill');
+			$professional_bill = $this->input->post('professional_bill');
+			$professional_bill = $this->input->post('guarantor_id');
 			$this->load->model('patients_model');
 
-		$res = $this->patients_model->update_patient($id,$fname,$mname,$lname);
+		$res = $this->patients_model->update_patient($id,$fname,$mname,$lname,$suffix,$hospital_bill,$professional_bill,$guarantor_id);
 		}
 	}
 
@@ -147,7 +155,7 @@ $this->logout();
 
 					$all_access = $this->roles_model->get_all_access();
 					$data['all_access'] = $all_access;
-					$data['title'] = 'Dashboard';
+					$data['title'] = 'Patients List';
 					$data['description'] = ' ';
 
 						$start = $this->input->post('start');
@@ -255,10 +263,13 @@ $this->logout();
 		/*$this->form_validation->set_rules('middle-name','middle-name','required');*/
 		$this->form_validation->set_rules('last-name','last-name','required');
 
+
 		$this->form_validation->set_rules('hospital_bill','hospital_bill','required');
 		$this->form_validation->set_rules('professional_bill','professional_bill','required');
 		$this->form_validation->set_rules('company','company','required');
 		$this->form_validation->set_rules('patient_type','patient_type','required');
+		$this->form_validation->set_rules('suffix','suffix','required');
+		$this->form_validation->set_rules('registry_no','registry_no','required');
 
 
 		
@@ -267,18 +278,21 @@ $this->logout();
 			$firstname = $this->input->post('first-name');
 			$middlename = $this->input->post('middle-name');
 			$lastname = $this->input->post('last-name');
+			
 
 			$date = $this->input->post('date');
 			$hospital_bill = $this->input->post('hospital_bill');
 			$professional_bill = $this->input->post('professional_bill');
 			$company = $this->input->post('company');
 			$patient_type = $this->input->post('patient_type');
+			$suffix = $this->input->post('suffix');
+			$registry_no = $this->input->post('registry_no');
 
 
 			$this->load->model('add_patient_model');
 
 			$this->add_patient_model->insert_patient($firstname,$middlename,
-				$lastname,$date,$hospital_bill,$professional_bill,$company,$patient_type);
+				$lastname,$date,$hospital_bill,$professional_bill,$company,$patient_type,$suffix,$registry_no);
 		}
 	}
 
@@ -286,7 +300,7 @@ $this->logout();
 		
 	    $this->session->unset_userdata($session_data);
 	    $this->session->sess_destroy();
-	    echo "<script>alert('HINDI NAGANA LOGOUT');</script>";
+	    echo "<script>alert('');</script>";
 	    header('Location: /arms');
 	}
 
@@ -1151,7 +1165,7 @@ $this->logout();
 
 		$all_access = $this->roles_model->get_all_access();
 		$data['all_access'] = $all_access;
-		$data['title'] = 'payment history';
+		$data['title'] = 'Payment History';
 		$data['description'] = ' ';
 
 		$this->load->view('template/header',$data);

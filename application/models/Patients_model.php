@@ -42,28 +42,42 @@
 
         }
 
-    public function get_patient($a){
+    public function get_patient($a){ //get_bill
 
             $this->db->select('`patient`.`id` as patient_id,
                 `patient`.`first_name` as first_name,
                 `patient`.`last_name` as last_name,
                 `patient`.`middle_name` as middle_name,
+                `patient`.`suffix`, 
+                `bill`.`hospital_bill`,
+                `bill`.`professional_bill`,
+                `bill`.`guarantor_id` as name,
                 `patient`.`date_created` as date_created,'
             );
-            $this->db->where('`patient`.`id` =', $a);
-            $query = $this->db->get('patient');
+
+            $this->db->where('`bill`.`patient_id` =', $a);
+            $this->db->join('patient', 'patient.id = patient_id');
+            $query = $this->db->get('bill');
             $res   = $query->result();
             //print_r($this->db->last_query());  
             return $res;
         }
 
-        public function update_patient($id,$fname,$mname,$lname){
+        public function update_patient($id,$fname,$mname,$lname,$suffix,$hospital_bill,$professional_bill,$name){
             $this->db->set('first_name', $fname);
             $this->db->set('middle_name', $mname);
             $this->db->set('last_name', $lname);
+            $this->db->set('suffix', $suffix);
             $this->db->where('id', $id);
             $this->db->update('patient');
+
             //print_r($this->db->last_query()); 
+            $this->db->set('hospital_bill', $hospital_bill);
+            $this->db->set('professional_bill', $professional_bill);
+            $this->db->set('name', $name);
+            $this->db->where('patient_id', $id);
+            $this->db->update('bill');
+
             header("Location: patients");
         }
 

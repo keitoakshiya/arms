@@ -2,9 +2,9 @@
 	<thead>
 		<th>Patient name</th>
 		<th>Date of transaction</th>
-		<th>hospital_bill_payment</th>
-		<th>professional_bill_payment</th>
-		<th></th>
+		<th>Hospital Bill Payment</th>
+		<th>Professional Fee Payment</th>
+		<th>Undo Payment</th>
 
 	</thead>
 	<tbody>
@@ -17,9 +17,8 @@
 						echo "<td><a>".$row->date_created."</a></td>";
 						echo "<td><a>".$row->hospital_bill_payment."</a></td>";
 						echo "<td><a>".$row->professional_bill_payment."</a></td>";
-						echo "<td><a href='delete_transaction/".$row->id."'>undo</td>";
+						echo "<td><a href='delete_transaction/".$row->id."'><i class='fa fa-undo' aria-hidden='true'></i></a></td>";
 					echo "</tr>";
-
 				}
 			}
 		?>
