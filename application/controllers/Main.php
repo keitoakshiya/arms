@@ -150,10 +150,6 @@ $this->logout();
 					$data['title'] = 'Dashboard';
 					$data['description'] = ' ';
 
-
-
-
-
 						$start = $this->input->post('start');
 						$end = $this->input->post('end');
 						$data['start'] = $start;
@@ -365,6 +361,10 @@ $this->logout();
 		$data['all_access'] = $all_access;
 		$data['title'] = $name;
 		$data['description'] = 'Accounts Receivable Patient List';
+		$start = $this->input->post('start');
+		$end = $this->input->post('end');
+		$data['start'] = $start;
+		$data['end'] = $end;
 
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('start','start','required');
@@ -933,6 +933,17 @@ $this->logout();
 		}
 
 	}
+		public function delete_transaction($id){
+			$this->load->model('roles_model');
+			if ($this->roles_model->permanently_delete()==0) { 
+				$this->logout();
+			}
+			else{
+				$this->load->model('archive_model');
+				$this->archive_model->delete_transaction($id);
+			}
+
+		}
 
 		public function restore_patient($id){
 				$this->load->model('roles_model');
@@ -1130,6 +1141,34 @@ $this->logout();
 		$this->load->view('template/footer');
 
 	}
+
+			public function payment_history(){
+
+		$this->load->model('roles_model');
+		if ($this->roles_model->view_list_company()==0) {
+$this->logout();
+		}
+
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = 'payment history';
+		$data['description'] = ' ';
+
+		$this->load->view('template/header',$data);
+		$this->load->model('payment_history_model');
+		$res = $this->payment_history_model->get_company();
+		$this->load->view('template/container_header',$data);
+
+		if($res){	$data2['result'] = $res;
+        	$this->load->view('payment_history',$data2);
+		}
+		else {"Fail";}
+
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer');
+
+	}
+
 
 		public function duplicate_error($name){
 

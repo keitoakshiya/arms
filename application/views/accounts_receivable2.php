@@ -7,6 +7,8 @@
 		<th>Total Bill</th>
 	</thead>
 
+
+
                 <script type="text/javascript">
             <?php
                 if (isset($start)&&isset($end)) {
@@ -18,12 +20,18 @@
                     echo "
                     $(window).on('load', function() {
                         $('#daterange').data('daterangepicker').setStartDate('".$start_date."');
+                        $('#start').val('".$start_date."');
                         $('#daterange').data('daterangepicker').setEndDate('".$end_date."');
+                        $('#end').val('".$end_date."');
                     })
                     ";
                     echo "$('#daterange').val('".$start_date."'+' - '+'".$end_date."');";
                 }
-                else echo "$('#daterange').val(moment().startOf('year').calendar()+' - '+moment().format('L'));";
+                else echo "$('#daterange').val(moment().startOf('year').calendar()+' - '+moment().format('L'));
+                            $('#start').val(moment().startOf('year').format('YYYY-MM-DD'));
+                            $('#end').val(moment().format('YYYY-MM-DD'));
+                ";
+
             ?>
             </script>
             

@@ -154,6 +154,7 @@
                           if ($row->view_company_list_official_receipt_list==1) {
                             echo '<li><a href="company_list">Add Official Receipt Payment</a></li>';
                           }
+                          echo '<li><a href="payment_history">Payment History</a></li>';
                         } ?>  
 
                       </ul>

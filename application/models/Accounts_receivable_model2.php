@@ -59,6 +59,7 @@ patient.first_name,patient.middle_name,patient.last_name,DATE_FORMAT(`patient`.`
             $this->db->where('patient.deleted =', 0);
             $query = $this->db->get('bill');
             $res   = $query->result();
+                        //print_r($this->db->last_query());
             return $res;
 
         }

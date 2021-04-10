@@ -30,7 +30,9 @@
                     ";
                     echo "$('#daterange').val('".$start_date."'+' - '+'".$end_date."');";
                 }
-                else echo "$('#daterange').val(moment().startOf('year').calendar()+' - '+moment().format('L'));";
+                else echo "$('#daterange').val(moment().startOf('year').calendar()+' - '+moment().format('L'));
+                                            $('#start').val(moment().startOf('year').format('YYYY-MM-DD'));
+                            $('#end').val(moment().format('YYYY-MM-DD'));";
             ?>
             </script>
             

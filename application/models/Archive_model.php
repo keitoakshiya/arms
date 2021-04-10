@@ -40,6 +40,13 @@
                 header("Location: /arms/main/Archive");
             }
 
+            public function delete_transaction($id){
+                $this->db->where('id', $id);
+                $this->db->delete('transaction');
+                //print_r($this->db->last_query());
+                header("Location: /arms/main/payment_history");
+            }
+
             public function restore_patient($id){
                 $this->db->set('deleted', '0');
                 $this->db->where('id', $id);
