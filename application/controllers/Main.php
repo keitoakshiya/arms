@@ -1173,7 +1173,7 @@ $this->logout();
 		$data['description'] = '';
 
 		$this->load->model('list_company_model');
-		$res = $this->list_company_model->get_company($a);
+		$res = $this->list_company_model->get_company2($a);
 		$data2['result'] = $res;
 		$this->load->view('template/header2',$data);
 		$this->load->view('template/container_header',$data);

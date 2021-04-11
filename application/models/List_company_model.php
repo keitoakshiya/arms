@@ -1,7 +1,7 @@
 <?php  
     class list_company_model extends CI_Model {
 
-        public function get_company($a){
+        public function get_company(){
 
             $this->db->select('`guarantor`.`id` as guarantor_id,
             	`guarantor`.`type`,
@@ -11,6 +11,22 @@
                 `guarantor`.`contact_number`,'
             );
 
+            $query = $this->db->get('guarantor');
+            $res   = $query->result();
+            //print_r($this->db->last_query());  
+            return $res;
+        }
+
+        public function get_company2($a){
+
+            $this->db->select('`guarantor`.`id` as guarantor_id,
+                `guarantor`.`type`,
+                `guarantor`.`name`,
+                `guarantor`.`address`,
+                `guarantor`.`contact_person`,
+                `guarantor`.`contact_number`,'
+            );
+            $this->db->where('id',$a);
             $query = $this->db->get('guarantor');
             $res   = $query->result();
             //print_r($this->db->last_query());  
