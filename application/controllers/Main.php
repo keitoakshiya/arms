@@ -128,9 +128,10 @@ $this->logout();
 		$this->form_validation->set_rules('mname','mname','required');
 		$this->form_validation->set_rules('lname','lname','required');
 		$this->form_validation->set_rules('suffix','suffix','required');
+		
 		$this->form_validation->set_rules('hospital_bill','hospital_bill','required');
 		$this->form_validation->set_rules('professional_bill','professional_bill','required');
-		$this->form_validation->set_rules('guarantor_id','guarantor_id','required');
+		
 
 		if ($this->form_validation->run()) {
 			$id = $this->input->post('id');
@@ -138,12 +139,13 @@ $this->logout();
 			$mname = $this->input->post('mname');
 			$lname = $this->input->post('lname');
 			$suffix = $this->input->post('suffix');
+			
 			$hospital_bill = $this->input->post('hospital_bill');
 			$professional_bill = $this->input->post('professional_bill');
-			$professional_bill = $this->input->post('guarantor_id');
+			
 			$this->load->model('patients_model');
 
-		$res = $this->patients_model->update_patient($id,$fname,$mname,$lname,$suffix,$hospital_bill,$professional_bill,$guarantor_id);
+		$res = $this->patients_model->update_patient($id,$fname,$mname,$lname,$suffix,$hospital_bill,$professional_bill);
 		}
 	}
 
@@ -1031,6 +1033,8 @@ $this->logout();
 			$edit_roles = $this->input->post('edit_roles');
 			$delete_or = $this->input->post('delete_or');
 			$permanently_delete = $this->input->post('permanently_delete');
+			$view_payment_history = $this->input->post('view_payment_history');
+			$edit_company = $this->input->post('edit_company');
 
 
 
@@ -1064,9 +1068,11 @@ $this->logout();
 			$edit_roles_a = $edit_roles == 'on' ? 1 : 0;
 			$delete_or_a = $delete_or == 'on' ? 1 : 0;
 			$permanently_delete_a = $permanently_delete == 'on' ? 1 : 0;
+			$view_payment_history_a = $view_payment_history == 'on' ? 1 : 0;
+			$edit_company_a = $edit_company == 'on' ? 1 : 0;
 			$this->load->model('roles_model');
 
-			$this->roles_model->update_role($id,$view_dashboard_a,$add_patient_a,$view_patients_a,$edit_patients_a,$delete_patients_a,$view_accounts_receivable_a,$view_accounts_receivable2_a,$view_payment_summary_a,$view_payment_summary2_a,$view_remaining_balance_a,$view_remaining_balance2_a,$add_official_receipt_a,$view_official_receipt_list2_a,$delete_official_receipt_list2_a,$view_company_list_official_receipt_list_a,$add_patient_to_receipt_a,$add_view_bill_by_patient_a,$view_list_company_a,$add_company_a,$view_archive_a,$delete_archive_a,$restore_archive_a,$add_account_a,$edit_roles_a,$delete_or_a,$permanently_delete_a);
+			$this->roles_model->update_role($id,$view_dashboard_a,$add_patient_a,$view_patients_a,$edit_patients_a,$delete_patients_a,$view_accounts_receivable_a,$view_accounts_receivable2_a,$view_payment_summary_a,$view_payment_summary2_a,$view_remaining_balance_a,$view_remaining_balance2_a,$add_official_receipt_a,$view_official_receipt_list2_a,$delete_official_receipt_list2_a,$view_company_list_official_receipt_list_a,$add_patient_to_receipt_a,$add_view_bill_by_patient_a,$view_list_company_a,$add_company_a,$view_archive_a,$delete_archive_a,$restore_archive_a,$add_account_a,$edit_roles_a,$delete_or_a,$permanently_delete_a,$view_payment_history_a,$edit_company_a);
 	}
 
 
@@ -1156,10 +1162,62 @@ $this->logout();
 
 	}
 
+	public function edit_company($a){
+		$this->load->model('roles_model');
+		if ($this->roles_model->edit_company()==0) {
+$this->logout();
+		}
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = 'Edit Company';
+		$data['description'] = '';
+
+		$this->load->model('list_company_model');
+		$res = $this->list_company_model->get_company($a);
+		$data2['result'] = $res;
+		$this->load->view('template/header2',$data);
+		$this->load->view('template/container_header',$data);
+        $this->load->view('edit_company',$data2);
+        $this->load->view('template/container_footer');
+		$this->load->view('template/footer2');
+
+	}
+
+		public function update_company(){
+
+		$this->load->model('roles_model');
+		if ($this->roles_model->can_edit()==0) {
+$this->logout();
+		}
+		$this->load->model('list_company_model');
+
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('type','type','required');
+		$this->form_validation->set_rules('name','name','required');
+		$this->form_validation->set_rules('address','address','required');
+		$this->form_validation->set_rules('contact_person','contact_person','required');
+		$this->form_validation->set_rules('contact_number','contact_number','required');
+		
+
+		if ($this->form_validation->run()) {
+			$id = $this->input->post('id');
+			$type = $this->input->post('type');
+			$name = $this->input->post('name');
+			$address = $this->input->post('address');
+			$contact_person = $this->input->post('contact_person');
+			$contact_number = $this->input->post('contact_number');
+			
+			
+			$this->load->model('list_company_model');
+
+		$res = $this->list_company_model->update_company($id,$type,$name,$address,$contact_person,$contact_number);
+		}
+	}
+
 			public function payment_history(){
 
 		$this->load->model('roles_model');
-		if ($this->roles_model->view_list_company()==0) {
+		if ($this->roles_model->view_payment_history()==0) {
 $this->logout();
 		}
 
@@ -1183,7 +1241,6 @@ $this->logout();
 
 	}
 
-
 		public function duplicate_error($name){
 
 		$this->load->model('roles_model');
@@ -1202,8 +1259,6 @@ $this->logout();
 		$this->load->view('template/container_header',$data);
 
         	$this->load->view('duplicate_error',$data);
-		
-
 
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');

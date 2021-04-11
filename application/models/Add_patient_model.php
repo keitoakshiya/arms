@@ -2,7 +2,7 @@
     class add_patient_model extends CI_Model {  
         public function insert_patient($firstname,$middlename,$lastname,$date,
             $hospital_bill,$professional_bill,$company,$patient_type,$suffix,$registry_no) { 
-            
+            if($this->checkDuplicateUser($registry_no)){
             $date2 = date("Y-m-d", strtotime($date));
             $data = array(
                 'first_name' => $firstname,
@@ -12,14 +12,11 @@
                 'registry_no' => $registry_no,
                 'date_created' => $date2
             );
-
             $this->db->insert('patient', $data);
             
             $insert_id = $this->db->insert_id();
 
-
-
-            $data2 = array(
+             $data2 = array(
                 'hospital_bill' => $hospital_bill,
                 'professional_bill' => $professional_bill,
                 
@@ -37,6 +34,30 @@
 
             header("Location: /arms/main/add_patient");
 
-        }      
+            }else{
+
+                header("Location: /arms/main/duplicate_error/$registry_no");
+            }
+
+
+        }    
+        public function checkDuplicateUser($registry_no) {
+
+            $this->db->where('registry_no', $registry_no);
+
+            $query = $this->db->get('patient');
+
+            $count_row = $query->num_rows();
+
+            if ($count_row > 0) {
+              //if count row return any row; that means you have already this email address in the database. so you must set false in this sense.
+                return FALSE; // here I change TRUE to false.
+                
+             } else {
+              // doesn't return any row means database doesn't have this email
+                return TRUE; // And here false to TRUE
+             }
+        }  
     }  
+
 ?>  

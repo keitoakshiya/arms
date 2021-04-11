@@ -6,10 +6,10 @@
             <tr>
                 <th>Patient ID</th>
                 <th>Company</th>
-                <th>First Name</th>
-                <th>Middle Name</th>
-                <th>Last Name</th>
+                <th>Full Name</th>
                 <th>Date Registered</th>
+                <th>Registry No.</th>
+
                 <th></th>
             </tr>
         </thead>
@@ -45,14 +45,14 @@
 					echo "<tr>";
                         echo "<td>".sprintf('%08d', $row->patient_id)."</td>";
                         echo "<td>".$row->guarantor_name."</td>";
-						echo "<td>".$row->first_name."</td>";
-						echo "<td>".$row->middle_name."</td>";
-						echo "<td>".$row->last_name."</td>";
+						echo "<td>".$row->first_name." ".$row->middle_name." ".$row->last_name."</td>";
 						echo "<td>".$row->date_created."</td>";
+                        echo "<td>".$row->registry_no."</td>";
 						echo "<td><button style='border: none;' onclick=\"location.href = 'edit_patient/".$row->patient_id."' \"><i class='fa fa-edit' 
                         style=' font-size: 16px'></i></button>
                         <button style='border: none;' onclick='archive_patient(".$row->patient_id.")'><i class='fa fa-trash' 
                         style='color: #c93434; font-size: 16px;'></i></button></td>";
+                        
 					echo "</tr>";
 				}
 			}
@@ -64,7 +64,7 @@
             <td></td>
             <td></td>
             <td></td>
-            <td></td>
+
         </tfoot>
         </tbody>
 </table>

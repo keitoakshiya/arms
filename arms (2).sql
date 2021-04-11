@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 10, 2021 at 08:37 PM
+-- Generation Time: Apr 11, 2021 at 12:41 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.15
 
@@ -60,7 +60,7 @@ INSERT INTO `bill` (`id`, `date`, `patient_id`, `guarantor_id`, `patient_type`, 
 (58, '2020-10-10', 76, 9, 3, 2000.00, '3000.00', 0),
 (60, '2021-03-08', 78, 25, 3, 4000.00, '5000.00', 0),
 (62, '2021-04-08', 80, 9, 1, 6000.00, '6000.00', 0),
-(63, '2021-04-10', 82, 25, 1, 2500.00, '2500.00', 0);
+(63, '2021-04-10', 82, 25, 1, 2300.00, '2300.00', 0);
 
 -- --------------------------------------------------------
 
@@ -140,7 +140,7 @@ INSERT INTO `patient` (`id`, `first_name`, `last_name`, `middle_name`, `suffix`,
 (78, 'This', 'This', 'T', '', '', '2021-03-07 16:00:00', 0, '2021-03-14 11:17:56'),
 (80, 'Abril', 'Smith', '', '', '', '2021-04-07 16:00:00', 0, NULL),
 (81, 'Four', 'Twentyone', 'Ten', 'Jr', '', '2021-04-09 16:00:00', 0, NULL),
-(82, 'Four', 'Twentyone', 'Ten', 'Sr', '20210410', '2021-04-09 16:00:00', 0, NULL);
+(82, 'Four', 'Twentyone', 'Ten', 'Sr', '20210410', '2021-04-09 16:00:00', 0, '2021-04-11 08:54:48');
 
 -- --------------------------------------------------------
 
@@ -270,18 +270,20 @@ CREATE TABLE `user` (
   `add_account` tinyint(1) NOT NULL DEFAULT 1,
   `edit_roles` tinyint(1) NOT NULL DEFAULT 1,
   `delete_or` tinyint(1) NOT NULL DEFAULT 1,
-  `permanently_delete` tinyint(1) NOT NULL DEFAULT 1
+  `permanently_delete` tinyint(1) NOT NULL DEFAULT 1,
+  `view_payment_history` tinyint(1) NOT NULL DEFAULT 1,
+  `edit_company` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`, `username`, `password`, `email`, `view_data`, `add_data`, `edit_data`, `delete_data`, `view_dashboard`, `add_patient`, `view_patients`, `edit_patients`, `delete_patients`, `view_accounts_receivable`, `view_accounts_receivable2`, `view_payment_summary`, `view_payment_summary2`, `view_remaining_balance`, `view_remaining_balance2`, `add_official_receipt`, `view_official_receipt_list2`, `delete_official_receipt_list2`, `view_company_list_official_receipt_list`, `add_patient_to_receipt`, `add_view_bill_by_patient`, `view_list_company`, `add_company`, `view_archive`, `delete_archive`, `restore_archive`, `add_account`, `edit_roles`, `delete_or`, `permanently_delete`) VALUES
-(1, 'admin', 'admin', 'sample@sample.com', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1),
-(2, 'user_1', 'user_1', 'sample@user1.com', 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1),
-(3, 'mis_acc', 'Mis@sample0', 'mis@sample1.com', 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-(9, 'user8', 'user8', 'sample@sample8.com', 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0);
+INSERT INTO `user` (`id`, `username`, `password`, `email`, `view_data`, `add_data`, `edit_data`, `delete_data`, `view_dashboard`, `add_patient`, `view_patients`, `edit_patients`, `delete_patients`, `view_accounts_receivable`, `view_accounts_receivable2`, `view_payment_summary`, `view_payment_summary2`, `view_remaining_balance`, `view_remaining_balance2`, `add_official_receipt`, `view_official_receipt_list2`, `delete_official_receipt_list2`, `view_company_list_official_receipt_list`, `add_patient_to_receipt`, `add_view_bill_by_patient`, `view_list_company`, `add_company`, `view_archive`, `delete_archive`, `restore_archive`, `add_account`, `edit_roles`, `delete_or`, `permanently_delete`, `view_payment_history`, `edit_company`) VALUES
+(1, 'admin', 'admin', 'sample@sample.com', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1),
+(2, 'user_1', 'user_1', 'sample@user1.com', 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1),
+(3, 'mis_acc', 'Mis@sample0', 'mis@sample1.com', 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+(9, 'user8', 'user8', 'sample@sample8.com', 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -357,7 +359,7 @@ ALTER TABLE `receipt`
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
 
 --
 -- AUTO_INCREMENT for table `user`

@@ -187,6 +187,18 @@
 				echo $row['permanently_delete'] == 0 ?  ">" :  "checked>";
 				echo "	Permanently Delete"; 
 				echo "</div>";
+
+				echo "<div class='col-md-4'>";
+				echo "<input type='checkbox' name='view_payment_history'";
+				echo $row['view_payment_history'] == 0 ?  ">" :  "checked>";
+				echo "	View Payment History"; 
+				echo "</div>";
+
+				echo "<div class='col-md-4'>";
+				echo "<input type='checkbox' name='edit_company'";
+				echo $row['edit_company'] == 0 ?  ">" :  "checked>";
+				echo "	Edit Company"; 
+				echo "</div>";
 				
 				
 

@@ -117,6 +117,8 @@
                       if ($row->view_patients==1) {
                         echo '<li><a href="../patients"><i class="fa fa-list-alt"></i>Patient List </a></li>';
                       }
+
+
                     } ?>
 
                     <li><a><i class="fa fa-table"></i>Summary<span class="fa fa-chevron-down"></span></a>
@@ -153,6 +155,11 @@
                           if ($row->view_company_list_official_receipt_list==1) {
                             echo '<li><a href="../company_list">Add Official Receipt Payment</a></li>';
                           }
+                           if ($row->view_payment_history==1) {
+                            echo '<li><a href="../payment_history">Payment History</a></li>';
+                          }
+
+
                         } ?>
 
                       </ul>
