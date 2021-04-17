@@ -5,6 +5,8 @@
         <thead>
             <tr>
                 <th>Patient ID</th>
+                <th>Patient Type</th>
+                <th>Guarantor Type</th>
                 <th>Company</th>
                 <th>Full Name</th>
                 <th>Date Registered</th>
@@ -44,8 +46,10 @@
 				foreach ($result as $key => $row) { //fat arrow
 					echo "<tr>";
                         echo "<td>".sprintf('%08d', $row->patient_id)."</td>";
+                        echo "<td>".$row->patient_type."</td>";
+                        echo "<td>".$row->guarantor_type."</td>";
                         echo "<td>".$row->guarantor_name."</td>";
-						echo "<td>".$row->first_name." ".$row->middle_name." ".$row->last_name."</td>";
+						echo "<td>".$row->first_name." ".$row->middle_name." ".$row->last_name." ".$row->suffix."</td>";
 						echo "<td>".$row->date_created."</td>";
                         echo "<td>".$row->registry_no."</td>";
 						echo "<td><button style='border: none;' onclick=\"location.href = 'edit_patient/".$row->patient_id."' \"><i class='fa fa-edit' 
@@ -58,6 +62,8 @@
 			}
 		?>
         <tfoot>
+            <td></td>
+            <td></td>
             <td></td>
             <td></td>
             <td></td>

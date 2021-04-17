@@ -128,7 +128,11 @@ $this->logout();
 		$this->form_validation->set_rules('mname','mname','required');
 		$this->form_validation->set_rules('lname','lname','required');
 		$this->form_validation->set_rules('suffix','suffix','required');
+
+		$this->form_validation->set_rules('name','name','required');
+		$this->form_validation->set_rules('type','type','required');
 		
+		$this->form_validation->set_rules('patient_type','patient_type','required');
 		$this->form_validation->set_rules('hospital_bill','hospital_bill','required');
 		$this->form_validation->set_rules('professional_bill','professional_bill','required');
 		
@@ -139,13 +143,17 @@ $this->logout();
 			$mname = $this->input->post('mname');
 			$lname = $this->input->post('lname');
 			$suffix = $this->input->post('suffix');
+
+			$name = $this->input->post('name');
+			$type = $this->input->post('type');
 			
+			$patient_type = $this->input->post('patient_type');
 			$hospital_bill = $this->input->post('hospital_bill');
 			$professional_bill = $this->input->post('professional_bill');
 			
 			$this->load->model('patients_model');
 
-		$res = $this->patients_model->update_patient($id,$fname,$mname,$lname,$suffix,$hospital_bill,$professional_bill);
+		$res = $this->patients_model->update_patient($id,$fname,$mname,$lname,$suffix,$name,$type,$patient_type,$hospital_bill,$professional_bill);
 		}
 	}
 

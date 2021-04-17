@@ -5,8 +5,8 @@
 			<select name="patient-type" class="form-control" onchange="show_guarantors(this.value)" required>
 				<option selected disabled value="">Select Guarantor Type</option>
 				<option value="1">HMO</option>
-				<option value="2">Government</option>
-				<option value="3">Corporate</option>
+				<option value="2">Corporate</option>
+				<option value="3">Government</option>
 			</select>
 			<div id="guarantor_dropdown"></div>
 		</div>

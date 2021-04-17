@@ -53,21 +53,30 @@
                 `patient`.`middle_name` as middle_name,
                 `patient`.`suffix` as suffix, 
                 
+                
+                `guarantor`.`id` as guarantor_id,
+                `guarantor`.`name` as guarantor_name,
+                `guarantor`.`type` as guarantor_type,
+                
+
+                `bill`.`patient_type`,
                 `bill`.`hospital_bill`,
                 `bill`.`professional_bill`,
+
                 
                 `patient`.`date_created` as date_created,'
             );
 
             $this->db->where('`bill`.`patient_id` =', $a);
             $this->db->join('patient', 'patient.id = patient_id');
+            $this->db->join('guarantor', 'guarantor.id = guarantor_id');
             $query = $this->db->get('bill');
             $res   = $query->result();
             //print_r($this->db->last_query());  
             return $res;
         }
 
-        public function update_patient($id,$fname,$mname,$lname,$suffix,$hospital_bill,$professional_bill){
+        public function update_patient($id,$fname,$mname,$lname,$suffix,$name,$type,$patient_type,$hospital_bill,$professional_bill){
             $this->db->set('first_name', $fname);
             $this->db->set('middle_name', $mname);
             $this->db->set('last_name', $lname);
@@ -76,7 +85,15 @@
             $this->db->where('id', $id);
             $this->db->update('patient');
 
+
+            $this->db->set('name', $name);
+            $this->db->set('type', $type);
+            
+            $this->db->where('id', $id);
+            $this->db->update('guarantor');
+
             //print_r($this->db->last_query()); 
+            $this->db->set('patient_type', $patient_type);
             $this->db->set('hospital_bill', $hospital_bill);
             $this->db->set('professional_bill', $professional_bill);
             
