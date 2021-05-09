@@ -52,7 +52,7 @@
 			
 		</div>						
 	</div>
-	Registry No. <input type="text" name="registry_no" class="form-control" minlength="3" required>
+	Registry No. <input type="text" name="registry_no" class="form-control" minlength="10" required>
 
 	Date Registered: <input type="text" name="date" class="form-control" readonly="" required="" id="selectdate">
 	

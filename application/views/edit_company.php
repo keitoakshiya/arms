@@ -1,14 +1,15 @@
 <form method="post" action="../update_company" onsubmit="return confirm('Are you sure you want to save the changes?');">
 	<?php
-		foreach ($result as $key => $row) {
+	foreach ($result as $key => $row) {
+		echo "Guarantor Type:";
 			echo '	
 				<input type="hidden" name="id" value="'.$row->guarantor_id.'">
 
 				<select name="type" class="form-control">
 					<option selected disabled value="">Select Guarantor Type</option>
-					<option value="1">HMO</option>
-					<option value="2">Corporate</option>
-					<option value="3">Government</option>
+					<option '.($row->type ? 'selected' : '').' value="1">HMO</option>
+					<option '.($row->type ? 'selected' : '').' value="2">Corporate</option>
+					<option '.($row->type ? 'selected' : '').' value="3">Government</option>
 				</select>
 
 				Company:<input type="text" class="form-control" name="name" value="'.$row->name.'">

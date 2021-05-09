@@ -128,13 +128,7 @@ $this->logout();
 		$this->form_validation->set_rules('mname','mname','required');
 		$this->form_validation->set_rules('lname','lname','required');
 		$this->form_validation->set_rules('suffix','suffix','required');
-
-		$this->form_validation->set_rules('name','name','required');
-		$this->form_validation->set_rules('type','type','required');
 		
-		$this->form_validation->set_rules('patient_type','patient_type','required');
-		$this->form_validation->set_rules('hospital_bill','hospital_bill','required');
-		$this->form_validation->set_rules('professional_bill','professional_bill','required');
 		
 
 		if ($this->form_validation->run()) {
@@ -143,17 +137,10 @@ $this->logout();
 			$mname = $this->input->post('mname');
 			$lname = $this->input->post('lname');
 			$suffix = $this->input->post('suffix');
-
-			$name = $this->input->post('name');
-			$type = $this->input->post('type');
-			
-			$patient_type = $this->input->post('patient_type');
-			$hospital_bill = $this->input->post('hospital_bill');
-			$professional_bill = $this->input->post('professional_bill');
 			
 			$this->load->model('patients_model');
 
-		$res = $this->patients_model->update_patient($id,$fname,$mname,$lname,$suffix,$name,$type,$patient_type,$hospital_bill,$professional_bill);
+		$res = $this->patients_model->update_patient($id,$fname,$mname,$lname,$suffix);
 		}
 	}
 
@@ -456,7 +443,7 @@ $this->logout();
 		$data['all_access'] = $all_access;
 		$data['title'] = $name;
 		$data['a'] = $a;
-		$data['description'] = 'Payment List';
+		$data['description'] = 'Patient Payment List';
 
 		$this->load->view('template/header2',$data);
 		$this->load->model('payment_summary_model2');
@@ -554,9 +541,9 @@ $this->logout();
 		$name =$this->get_by_id->get_company_name_by_id($a);
 		$all_access = $this->roles_model->get_all_access();
 		$data['all_access'] = $all_access;
-		$data['title'] = 'Remaining Balance';
+		$data['title'] = $name;
 		$data['a'] = $a;
-		$data['description'] = 'Company List';
+		$data['description'] = 'Patient Remaining Balance List';
 
 		$this->load->view('template/header2',$data);
 		$this->load->model('remaining_balance_model2');
@@ -1051,7 +1038,8 @@ $this->logout();
 			$edit_data2 = $edit_data == 'on' ? 1 : 0;
 			$delete_data2 = $delete_data == 'on' ? 1 : 0;*/
 			$view_dashboard_a = $view_dashboard == 'on' ? 1 : 0;
-			$add_patient_a = $add_patient == 'on' ? 1 : 0;
+			$add_patient_a = $add_patient == 'on' ? 1
+			 : 0;
 			$view_patients_a = $view_patients == 'on' ? 1 : 0;
 			$edit_patients_a = $edit_patients == 'on' ? 1 : 0;
 			$delete_patients_a = $delete_patients == 'on' ? 1 : 0;
