@@ -107,40 +107,29 @@
                     <?php foreach ($all_access as $key => $row) {
 
                       if ($row->view_dashboard==1) {
-                        echo '<li><a href="../../dashboard"><i class="fa fa-bar-chart"></i>Dashboard </a></li>';
+                        echo '<li><a href="../../dashboard"><i class="fa fa-bar-chart"></i>Dashboard</a></li>';
+                      }
+
+                      if ($row->add_company==1) {
+                        echo '<li><a href="../../add_company"><i class="fa fa-edit"></i>Add Company</a></li>';
+                      }
+
+                      if ($row->view_list_company==1) {
+                        echo '<li><a href="../../list_company"><i class="fa fa-building-o"></i>Company List</a></li>';
                       }
 
                       if ($row->add_patient==1) {
-                        echo '<li><a href="../../add_patient"><i class="fa fa-edit"></i>Register Patient </a></li>';
+                        echo '<li><a href="../../add_patient"><i class="fa fa-edit"></i>Register Patient</a></li>';
                       }
 
                       if ($row->view_patients==1) {
-                        echo '<li><a href="../../patients"><i class="fa fa-list-alt"></i>Patient List </a></li>';
+                        echo '<li><a href="../../patients"><i class="fa fa-list-alt"></i>Patient List</a></li>';
                       }
                     } ?>
 
-                    <li><a><i class="fa fa-table"></i>Summary <span class="fa fa-chevron-down"></span></a>
-                      <ul class="nav child_menu">   
+                    
 
-                        <?php foreach ($all_access as $key => $row) {
-
-                          if ($row->view_accounts_receivable==1) {
-                            echo '<li><a href="../../accounts_receivable">Accounts Receivable</a></li>';
-                          }
-
-                          if ($row->view_payment_summary==1) {
-                            echo '<li><a href="../../payment_summary">TotalPayment</a></li>';
-                          }
-
-                          if ($row->view_remaining_balance==1) {
-                            echo '<li><a href="../../remaining_balance">Remaining Balance</a></li>';
-                          }
-                        } ?>         
-
-                      </ul>
-                    </li>
-
-                    <li><a><i class="fa fa-edit"></i>Payment Application <span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-edit"></i>Cash Receipts<span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
 
                         <?php foreach ($all_access as $key => $row) {
@@ -149,10 +138,11 @@
                             echo '<li><a href="../../official_receipt">Add Official Receipts</a></li>';
                           }
 
-                          if ($row->view_company_list_official_receipt_list==1) {
-                            echo '<li><a href="../../company_list">Add Official Receipt Payment</a></li>';
+                          if ($row->view_payment_history==1) {
+                            echo '<li><a href="../../or_list">OR List</a></li>';
                           }
-                          if ($row->payment_history==1) {
+
+                          if ($row->view_payment_history==1) {
                             echo '<li><a href="../../payment_history">Payment History</a></li>';
                           }
 
@@ -170,14 +160,33 @@
 
                     <?php foreach ($all_access as $key => $row) {
 
-                      if ($row->view_list_company==1) {
-                        echo '<li><a href="../../list_company"><i class="fa fa-building-o"></i>Company List</a></li>';
-                      }
-
-                      if ($row->add_company==1) {
-                        echo '<li><a href="../../add_company"><i class="fa fa-edit"></i>Add Company</a></li>';
-                      }
+                      if ($row->view_company_list_official_receipt_list==1) {
+                            echo '<li><a href="../../company_list"><i class="fa fa-plus-square"></i>Payment Application</a></li>';
+                          }
+                      
                     } ?>
+
+
+                    <li><a><i class="fa fa-table"></i>Reports<span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">   
+
+                        <?php foreach ($all_access as $key => $row) {
+
+                          if ($row->view_accounts_receivable==1) {
+                            echo '<li><a href="../../accounts_receivable">Accounts Receivable</a></li>';
+                          }
+
+                          if ($row->view_payment_summary==1) {
+                            echo '<li><a href="../../payment_summary">Payment Summary</a></li>';
+                          }
+
+                          if ($row->view_remaining_balance==1) {
+                            echo '<li><a href="../../remaining_balance">Remaining Balance</a></li>';
+                          }
+                        } ?>         
+
+                      </ul>
+                    </li>
 
                   </ul>
                 </div>
@@ -188,15 +197,15 @@
                     <?php foreach ($all_access as $key => $row) {
 
                       if ($row->view_archive==1) {
-                        echo '<li><a href="../../Archive"><i class="fa fa-file-archive-o"></i> Archive </a></li>';
+                        echo '<li><a href="../../Archive"><i class="fa fa-file-archive-o"></i>Archive</a></li>';
                       }
 
                       if ($row->add_account==1) {
-                        echo '<li><a href="../../add_account"><i class="fa fa-edit"></i> Add Account </a></li>';
+                        echo '<li><a href="../../add_account"><i class="fa fa-edit"></i>Add Account</a></li>';
                       }
 
                       if ($row->edit_roles==1) {
-                        echo '<li><a href="../../roles"><i class="fa fa-users"></i> Manage Roles </a></li>';
+                        echo '<li><a href="../../roles"><i class="fa fa-users"></i>Manage Roles</a></li>';
                       }
 
                     } ?>

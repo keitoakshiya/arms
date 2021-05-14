@@ -93,9 +93,7 @@
                 
               </div>
               <!-- /menu profile quick info -->
-
               <br />
-
               <br>
               <!-- sidebar menu -->
               <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
@@ -109,6 +107,13 @@
                       if ($row->view_dashboard==1) {
                         echo '<li><a href="dashboard"><i class="fa fa-bar-chart"></i>Dashboard</a></li>';
                       }
+                      if ($row->add_company==1) {
+                        echo '<li><a href="add_company"><i class="fa fa-edit"></i>Add Company</a></li>';
+                      }
+
+                      if ($row->view_list_company==1) {
+                        echo '<li><a href="list_company"><i class="fa fa-building-o"></i>Company List</a></li>';
+                      }
 
                       if ($row->add_patient==1) {
                         echo '<li><a href="add_patient"><i class="fa fa-edit"></i>Register Patient</a></li>';
@@ -117,13 +122,43 @@
                       if ($row->view_patients==1) {
                         echo '<li><a href="patients"><i class="fa fa-list-alt"></i>Patient List</a></li>';
                       }
+                      
+                    } ?>
+                    
 
+                    <li><a><i class="fa fa-edit"></i>Cash Receipts<span class="fa fa-chevron-down"></span></a>
+                      <ul class="nav child_menu">
+
+                        <?php foreach ($all_access as $key => $row) {
+
+                          if ($row->add_official_receipt==1) {
+                            echo '<li><a href="official_receipt">Add Official Receipts</a></li>';
+                          }
+
+                          if ($row->view_payment_history==1) {
+                            echo '<li><a href="or_list">OR List</a></li>';
+                          }
+
+                          
+                          if ($row->view_payment_history==1) {
+                            echo '<li><a href="payment_history">Payment History</a></li>';
+                          }
+                          
+                        } ?>  
+
+                      </ul>
+                    </li>
+
+                    <?php foreach ($all_access as $key => $row) {
+
+                      if ($row->view_company_list_official_receipt_list==1) {
+                        echo '<li><a href="company_list"><i class="fa fa-plus-square"></i>Payment Application</a></li>';
+                      }
                       
                     } ?>
 
 
-                    <li><a><i class="fa fa-table"></i>Summary <span class="fa fa-chevron-down"></span></a>
-
+                    <li><a><i class="fa fa-table"></i>Reports<span class="fa fa-chevron-down"></span></a>
                       <ul class="nav child_menu">
 
                         <?php foreach ($all_access as $key => $row) {
@@ -133,7 +168,7 @@
                           }
 
                           if ($row->view_payment_summary==1) {
-                            echo '<li><a href="payment_summary">Total Payment</a></li>';
+                            echo '<li><a href="payment_summary">Payment Summary</a></li>';
                           }
 
                           if ($row->view_remaining_balance==1) {
@@ -143,38 +178,6 @@
 
                       </ul>
                     </li>
-
-                    <li><a><i class="fa fa-edit"></i>Payment Application<span class="fa fa-chevron-down"></span></a>
-                      <ul class="nav child_menu">
-
-                        <?php foreach ($all_access as $key => $row) {
-
-                          if ($row->add_official_receipt==1) {
-                            echo '<li><a href="official_receipt">Add Official Receipts</a></li>';
-                          }
-
-                          if ($row->view_company_list_official_receipt_list==1) {
-                            echo '<li><a href="company_list">Add Official Receipt Payment</a></li>';
-                          }
-                          if ($row->view_payment_history==1) {
-                            echo '<li><a href="payment_history">Payment History</a></li>';
-                          }
-                        } ?>  
-
-                      </ul>
-                    </li>
-
-                    <?php foreach ($all_access as $key => $row) {
-
-                      if ($row->view_list_company==1) {
-                        echo '<li><a href="list_company"><i class="fa fa-building-o"></i>Company List</a></li>';
-                      }
-
-                      if ($row->add_company==1) {
-                        echo '<li><a href="add_company"><i class="fa fa-edit"></i>Add Company</a></li>';
-                      }
-                    } ?>
-
                   </ul>
                 </div>
 
@@ -182,7 +185,6 @@
               <ul class="nav child_menu"> -->
                     <!-- </ul>
                     </li> -->
-
                     <div class="menu_section">
                       <ul class="nav side-menu">
 
@@ -249,8 +251,6 @@
                         <a class="dropdown-item"  href="/arms/main/logout"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                       </div>
                     </li>
-
-
                   </ul>
                 </nav>
               </div>

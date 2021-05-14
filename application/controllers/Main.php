@@ -1210,7 +1210,7 @@ $this->logout();
 		}
 	}
 
-			public function payment_history(){
+		public function payment_history(){
 
 		$this->load->model('roles_model');
 		if ($this->roles_model->view_payment_history()==0) {
@@ -1255,6 +1255,33 @@ $this->logout();
 		$this->load->view('template/container_header',$data);
 
         	$this->load->view('duplicate_error',$data);
+
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer');
+
+	}
+
+		public function or_list(){
+
+		$this->load->model('roles_model');
+		if ($this->roles_model->view_payment_history()==0) {
+$this->logout();
+		}
+
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = 'OR List';
+		$data['description'] = ' ';
+
+		$this->load->view('template/header',$data);
+		$this->load->model('or_list_model');
+		$res = $this->or_list_model->get_or();
+		$this->load->view('template/container_header',$data);
+
+		if($res){	$data2['result'] = $res;
+        	$this->load->view('or_list',$data2);
+		}
+		else {"Fail";}
 
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
