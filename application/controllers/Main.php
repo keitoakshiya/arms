@@ -257,16 +257,17 @@ $this->logout();
 
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('first-name','first-name','required');
-		/*$this->form_validation->set_rules('middle-name','middle-name','required');*/
+		$this->form_validation->set_rules('middle-name','middle-name','required');
 		$this->form_validation->set_rules('last-name','last-name','required');
+		$this->form_validation->set_rules('suffix','suffix','required');
 
 
 		$this->form_validation->set_rules('hospital_bill','hospital_bill','required');
 		$this->form_validation->set_rules('professional_bill','professional_bill','required');
 		$this->form_validation->set_rules('company','company','required');
 		$this->form_validation->set_rules('patient_type','patient_type','required');
-		$this->form_validation->set_rules('suffix','suffix','required');
 		$this->form_validation->set_rules('registry_no','registry_no','required');
+		$this->form_validation->set_rules('date','date','required');
 
 
 		
@@ -275,21 +276,22 @@ $this->logout();
 			$firstname = $this->input->post('first-name');
 			$middlename = $this->input->post('middle-name');
 			$lastname = $this->input->post('last-name');
-			
+			$suffix = $this->input->post('suffix');
 
-			$date = $this->input->post('date');
+			
 			$hospital_bill = $this->input->post('hospital_bill');
 			$professional_bill = $this->input->post('professional_bill');
 			$company = $this->input->post('company');
 			$patient_type = $this->input->post('patient_type');
-			$suffix = $this->input->post('suffix');
+			
 			$registry_no = $this->input->post('registry_no');
+			$date = $this->input->post('date');
 
 
 			$this->load->model('add_patient_model');
 
 			$this->add_patient_model->insert_patient($firstname,$middlename,
-				$lastname,$date,$hospital_bill,$professional_bill,$company,$patient_type,$suffix,$registry_no);
+				$lastname,$suffix,$hospital_bill,$professional_bill,$company,$patient_type,$registry_no,$date);
 		}
 	}
 
@@ -1285,7 +1287,33 @@ $this->logout();
 
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
+	}
 
+
+	public function or_list_patient(){
+
+		$this->load->model('roles_model');
+		if ($this->roles_model->view_payment_history()==0) {
+$this->logout();
+		}
+
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = 'OR List Patients';
+		$data['description'] = ' ';
+
+		$this->load->view('template/header',$data);
+		$this->load->model('or_list_patient_model');
+		$res = $this->or_list_patient_model->get_or_patient();
+		$this->load->view('template/container_header',$data);
+
+		if($res){	$data2['result'] = $res;
+        	$this->load->view('or_list_patient',$data2);
+		}
+		else {"Fail";}
+
+		$this->load->view('template/container_footer');
+		$this->load->view('template/footer');
 	}
 
 

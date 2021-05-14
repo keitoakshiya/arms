@@ -12,7 +12,7 @@ class add_or_model extends CI_Model {
             //print_r($this->db->last_query());
             header("Location: /arms/main/official_receipt");
         }else{
-            header("Location: /arms/main/official_receipt"); //add error message
+            header("Location: /arms/main/duplicate_error/$or_number"); //add error message
         }
     }
     public function checkDuplicateORNumber($or_number) {

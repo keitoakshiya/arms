@@ -15,7 +15,7 @@
 				foreach ($result as $key => $row) {
 					echo "<tr>";
 						echo "<td>".$row->name."</a></td>";
-						echo "<td><a style='color:blue' href='or_list_patient/".$row->receipt_id."'>".$row->or_number."</td>";
+						echo "<td>".$row->or_number."</a></td>";
 						echo "<td>".$row->or_date."</a></td>";
 						echo "<td>&#8369;".$row->or_amount."</a></td>";
 						echo "<td>&#8369;".$row->amount_applied."</a></td>";

@@ -2,7 +2,7 @@
 <form method="post" action="insert_receipt">
 				<!-- page content -->
             				Guarantor:
-            				<select name="type" class="form-control" onchange="companydropdown(this.value);" required>
+            				<select name="type" class="form-control" onchange="companydropdown(this.value);" required="" oninvalid="this.setCustomValidity('Select Guarantor Type')" oninput="this.setCustomValidity('')"/>
 			                   	<option selected disabled value="">Select Guarantor Type</option>
 								<option value="1">HMO</option>
 								<option value="2">Corporate</option>
@@ -11,8 +11,8 @@
 							<div id="companydropdown"></div>
 
 		                    OR Date:<input type="text" name="or_date" class="form-control" readonly="" required="" id="selectdate">
-            				OR Number:<input type="text" name="or_number" class="form-control" required="">
-            				OR Amount:<input type="text" name="or_amount" class="form-control" required="">
+            				OR Number:<input type="text" name="or_number" class="form-control" required="" oninvalid="this.setCustomValidity('Enter Official Receipt Number')" oninput="this.setCustomValidity('')"/>
+            				OR Amount:<input type="text" name="or_amount" class="form-control" required="" oninvalid="this.setCustomValidity('Enter Official Receipt Amount')" oninput="this.setCustomValidity('')"/>
             				&nbsp
             				<input type="submit" onclick="return submit()" name="submit" class="btn btn-success form-control">
 		        <!-- /page content -->

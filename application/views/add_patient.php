@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-6">
 			Guarantor type:
-			<select name="patient-type" class="form-control" onchange="show_guarantors(this.value)" required>
+			<select name="patient-type" class="form-control" onchange="show_guarantors(this.value)" required="" oninvalid="this.setCustomValidity('Select Guarantor Type to select Company')" oninput="this.setCustomValidity('')"/>
 				<option selected disabled value="">Select Guarantor Type</option>
 				<option value="1">HMO</option>
 				<option value="2">Corporate</option>
@@ -12,7 +12,7 @@
 		</div>
 		<div class="col-md-6">
 			Patient Type:
-			<select name="patient_type" class="form-control" required>
+			<select name="patient_type" class="form-control" required="" oninvalid="this.setCustomValidity('Select Patient Type')" oninput="this.setCustomValidity('')"/>
 				<option selected disabled value="">Select Patient Type</option>
 				<option value="1">Inpatient</option>
 				<option value="2">Outpatient</option>
@@ -23,18 +23,18 @@
 
 	<div class="row">
 		<div class="col-md-4">
-			First Name: <input type="text" name="first-name" class="form-control" minlength="2" required>
+			First Name: <input type="text" name="first-name" class="form-control" minlength="2" required="" oninvalid="this.setCustomValidity('Enter First Name')" oninput="this.setCustomValidity('')"/>
 		</div>
 		<div class="col-md-3">
-			Middle Name: <input type="text" name="middle-name" class="form-control"  minlength="2" >	
+			Middle Name: <input type="text" name="middle-name" class="form-control"  minlength="2" required="" oninvalid="this.setCustomValidity('Enter Middle Name')" oninput="this.setCustomValidity('')"/>	
 		</div>
 
 		<div class="col-md-4">
-			Last Name: <input type="text" name="last-name" class="form-control" minlength="2" required>
+			Last Name: <input type="text" name="last-name" class="form-control" minlength="2" required="" oninvalid="this.setCustomValidity('Enter Last Name')" oninput="this.setCustomValidity('')"/>
 		</div>
 
 		<div class="col-md-1">
-			Suffix: <input type="text" name="suffix" class="form-control" minlength="2" required>
+			Suffix: <input type="text" name="suffix" class="form-control">
 		</div>							
 	</div>
 
@@ -52,7 +52,7 @@
 			
 		</div>						
 	</div>
-	Registry No. <input type="text" name="registry_no" class="form-control" minlength="10" required>
+	Registry No. <input type="number" name="registry_no" class="form-control" required="" oninvalid="this.setCustomValidity('Enter Registry no. \nRegistry no. should be exactly ten digits.')" oninput="this.setCustomValidity('')"/>
 
 	Date Registered: <input type="text" name="date" class="form-control" readonly="" required="" id="selectdate">
 	
@@ -82,5 +82,3 @@
 		xhttp.send();
 	}
 </script>
-
-
