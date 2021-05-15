@@ -28,6 +28,15 @@
 		?>
 
 	</tbody>
+
+	<tfoot>
+		<td></td>
+		<td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+
+	</tfoot>
 </table>
 
 

@@ -4,10 +4,11 @@
 <table id="patient_list" class="display" style="width:100%; color: #292929;" >
         <thead>
             <tr>
-                <th>Patient ID</th>
+                <th>Registry No.</th>
                 <th>Full Name</th>
                 <th>Date Registered</th>
-                <th>Registry No.</th>
+                <th>Patient ID</th>
+                
 
                 <th></th>
             </tr>
@@ -42,10 +43,11 @@
 			else if ($result) { //query result from model of a table which then will be passed in to $row to show individual comlumns from db table
 				foreach ($result as $key => $row) { //fat arrow
 					echo "<tr>";
-                        echo "<td>".sprintf('%08d', $row->patient_id)."</td>";
+                        echo "<td>".$row->registry_no."</td>";
 						echo "<td>".$row->first_name." ".$row->middle_name." ".$row->last_name." ".$row->suffix."</td>";
 						echo "<td>".$row->date_created."</td>";
-                        echo "<td>".$row->registry_no."</td>";
+                        echo "<td>".sprintf('%08d', $row->patient_id)."</td>";
+
 						echo "<td>";
                         if ($edit == 1) {
                             # code...
@@ -87,9 +89,9 @@
         ],
 
         initComplete: function () {
-            this.api().columns([1]).every( function () {
+            this.api().columns([0]).every( function () {
                 var column = this;
-                var select = $('<select><option value="">Select Company</option></select>')
+                var select = $('<select><option value="">Select Registry No.</option></select>')
                     .appendTo( $(column.footer()).empty() )
                     .on( 'change', function () {
                         var val = $.fn.dataTable.util.escapeRegex(

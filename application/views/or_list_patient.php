@@ -4,6 +4,10 @@
 		
 		<th>Company Name</th>
 		<th>Patient Name</th>
+		<th>Date of Payment</th>
+		<th>Official Receipt</th>
+		<th>Amount Paid</th>
+
 		
 
 	</thead>
@@ -15,6 +19,9 @@
 					echo "<tr>";
 						echo "<td>".$row->name."</a></td>";
 						echo "<td>".$row->first_name." ".$row->middle_name." ".$row->last_name."</td>";
+						echo "<td>".$row->pay_date."</td>";
+						echo "<td>".$row->or_number."</td>";
+						echo "<td>&#8369;".$row->amount_applied."</a></td>";
 
 					echo "</tr>";
 				}
@@ -24,6 +31,9 @@
             <td></td>
             <td></td>
             <td></td>
+            <td></td>
+            <td></td>
+
             
 
         </tfoot>

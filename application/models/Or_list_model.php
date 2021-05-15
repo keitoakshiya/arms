@@ -17,10 +17,10 @@
                 `transaction`.`id` AS `transaction_id`,
                 `transaction`.`receipt_id`,
 
-                IFNULL((SELECT (SUM(hospital_bill_payment)+SUM(professional_bill_payment)) FROM transaction WHERE receipt_id = receipt.id),0) AS amount_applied
+                IFNULL((SELECT (SUM(hospital_bill_payment)+SUM(professional_bill_payment)) FROM transaction WHERE receipt_id = receipt.id),0) AS amount_applied,
             
             ');
-            $this->db->join('receipt', 'transaction.id = receipt.id');
+            $this->db->join('receipt', 'transaction.id = receipt.id', 'right');
             $this->db->join('guarantor', 'receipt.company = guarantor.id');
             
             $this->db->order_by('receipt.or_date', 'DESC');

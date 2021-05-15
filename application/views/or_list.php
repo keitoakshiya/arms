@@ -6,6 +6,8 @@
 		<th>Official Receipt Date</th>
 		<th>Official Receipt Amount</th>
 		<th>Amount Applied</th>
+		<th></th>
+
 
 	</thead>
 	<tbody>
@@ -19,27 +21,67 @@
 						echo "<td>".$row->or_date."</a></td>";
 						echo "<td>&#8369;".$row->or_amount."</a></td>";
 						echo "<td>&#8369;".$row->amount_applied."</a></td>";
+						echo "
+                        <button style='border: none;' onclick='archive_or(".$row->patient_id.")'><i class='fa fa-trash'
+                        style='color: #c93434; font-size: 16px;'></i></button></td>";
 					echo "</tr>";
 				}
 			}
 		?>
 
 	</tbody>
+
+	<tfoot>
+		
+		<td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+	</tfoot>
 </table>
+
 
 <script type="text/javascript">
 	$(document).ready( function () {
-	    $('#or_list').DataTable({
-	    	"order": [[ 2, "desc" ]],
+	    $('#or_list').DataTable();
+	} );
+</script> 
+
+<script type="text/javascript">
+
+
+        $('#or_list').DataTable( {
+        "order": [[ 2, "desc" ]],
 	    	dom: 'Bfrtip',
         buttons: [
             'copy', 'excel', 'pdf', 'print'
         ],
-	    });
-	} );
-</script> 
 
+        initComplete: function() {
+      this.api().columns([0,2]).every(function() {
+        var column = this;
+        //added class "mymsel"
+        var select = $('<select class="mymsel" ><option value="">Select Any</option></select>')
+          .appendTo($(column.footer()).empty())
+          .on('change', function() {
+            var vals = $('option:selected', this).map(function(index, element) {
+              return $.fn.dataTable.util.escapeRegex($(element).val());
+            }).toArray().join('|');
 
+            column
+              .search(vals.length > 0 ? '^(' + vals + ')$' : '', true, false)
+              .draw();
+          });
 
-
+        column.data().unique().sort().each(function(d, j) {
+          select.append('<option value="' + d + '">' + d + '</option>')
+        });
+      });
+      //select2 init for .mymsel class
+      $(".mymsel").select2();
+    }
+  });
+</script>
 

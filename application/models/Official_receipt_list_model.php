@@ -14,7 +14,7 @@ class official_receipt_list_model extends CI_Model {
            `guarantor`.`deleted`,
            IFNULL((SELECT (SUM(hospital_bill_payment)+SUM(professional_bill_payment)) FROM transaction WHERE receipt_id = receipt.id),0) AS amount_applied,
 
-           IF (`receipt`.`or_amount`-IFNULL((SELECT (SUM(hospital_bill_payment)+SUM(professional_bill_payment)) FROM transaction WHERE receipt_id = receipt.id), 0)!=0,"Applied","Unapplied") as applied_stat
+           IF (`receipt`.`or_amount`-IFNULL((SELECT (SUM(hospital_bill_payment)+SUM(professional_bill_payment)) FROM transaction WHERE receipt_id = receipt.id), 0)!=0,"Incomplete","Fully Paid") as applied_stat
            ');
 
 

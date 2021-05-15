@@ -149,12 +149,16 @@ $this->logout();
 
 		public function patients_filtered() {
 					$this->load->model('roles_model');
-					if ($this->roles_model->view_dashboard()==0) {
+					$edit = $this->roles_model->edit_patients();
+					$delete = $this->roles_model->delete_patients();
+					if ($this->roles_model->view_patients()==0) {
 						$this->logout();
 					}
 
 					$all_access = $this->roles_model->get_all_access();
 					$data['all_access'] = $all_access;
+					$data['edit'] = $edit;
+					$data['delete'] = $delete;
 					$data['title'] = 'Patients List';
 					$data['description'] = ' ';
 
@@ -1318,6 +1322,8 @@ $this->logout();
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer2');
 	}
+
+
 
 
 }
