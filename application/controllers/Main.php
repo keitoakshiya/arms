@@ -1302,7 +1302,7 @@ $this->logout();
 		$data['title'] = 'OR List Patients';
 		$data['description'] = ' ';
 
-		$this->load->view('template/header',$data);
+		$this->load->view('template/header2',$data);
 		$this->load->model('or_list_patient_model');
 		$res = $this->or_list_patient_model->get_or_patient();
 		$this->load->view('template/container_header',$data);
@@ -1313,7 +1313,7 @@ $this->logout();
 		else {"Fail";}
 
 		$this->load->view('template/container_footer');
-		$this->load->view('template/footer');
+		$this->load->view('template/footer2');
 	}
 
 
