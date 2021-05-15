@@ -1,7 +1,7 @@
 <?php  
 class or_list_patient_model extends CI_Model {
 
-    public function get_or_patient(){
+    public function get_or_patient($a){
 
         $this->db->select('
             bill.id,
@@ -21,12 +21,14 @@ class or_list_patient_model extends CI_Model {
             
             ');
 
-            $this->db->join('bill', 'patient.id = patient_id');
-            $this->db->join('guarantor', 'guarantor.id = guarantor_id', 'left');
+            $this->db->join('bill', 'bill.id = bill_id');
+            $this->db->join('patient', 'patient.id = transaction.patient_id');
+            $this->db->join('guarantor', 'guarantor.id = guarantor_id');
+            $this->db->join('receipt', 'receipt.id = receipt_id');
             
             $this->db->where('`patient`.`deleted` =', '0');
-            /*$this->db->where('`guarantor`.`id` =', $a);*/
-            $query = $this->db->get('patient');
+            $this->db->where('`receipt`.`or_number` =', $a);
+            $query = $this->db->get('transaction');
             $res   = $query->result();
             //print_r($this->db->last_query());  
             return $res;

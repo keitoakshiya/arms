@@ -46,10 +46,19 @@
 						echo "<td>".$row->first_name." ".$row->middle_name." ".$row->last_name." ".$row->suffix."</td>";
 						echo "<td>".$row->date_created."</td>";
                         echo "<td>".$row->registry_no."</td>";
-						echo "<td><button style='border: none;' onclick=\"location.href = 'edit_patient/".$row->patient_id."' \"><i class='fa fa-edit' 
+						echo "<td>";
+                        if ($edit == 1) {
+                            # code...
+                        echo "
+                        <button style='border: none;' onclick=\"location.href = 'edit_patient/".$row->patient_id."' \"><i class='fa fa-edit' 
                         style=' font-size: 16px'></i></button>
-                        <button style='border: none;' onclick='archive_patient(".$row->patient_id.")'><i class='fa fa-trash' 
+                        ";
+                        }
+                        if ($delete == 1) {
+                        echo "
+                        <button style='border: none;' onclick='archive_patient(".$row->patient_id.")'><i class='fa fa-trash'
                         style='color: #c93434; font-size: 16px;'></i></button></td>";
+                        }
                         
 					echo "</tr>";
 				}

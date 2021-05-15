@@ -67,7 +67,8 @@ $this->logout();
 
 		public function patients() {
 		$this->load->model('roles_model');
-
+		$edit = $this->roles_model->edit_patients();
+		$delete = $this->roles_model->delete_patients();
 		if ($this->roles_model->view_patients()==0) {
 $this->logout();
 		}
@@ -77,6 +78,8 @@ $this->logout();
 
 		$all_access = $this->roles_model->get_all_access();
 		$data['all_access'] = $all_access;
+		$data['edit'] = $edit;
+		$data['delete'] = $delete;
 		$data['title'] = 'Patients List';
 		$data['description'] = ' ';
 		
@@ -1290,7 +1293,7 @@ $this->logout();
 	}
 
 
-	public function or_list_patient(){
+	public function or_list_patient($a){
 
 		$this->load->model('roles_model');
 		if ($this->roles_model->view_payment_history()==0) {
@@ -1304,7 +1307,7 @@ $this->logout();
 
 		$this->load->view('template/header2',$data);
 		$this->load->model('or_list_patient_model');
-		$res = $this->or_list_patient_model->get_or_patient();
+		$res = $this->or_list_patient_model->get_or_patient($a);
 		$this->load->view('template/container_header',$data);
 
 		if($res){	$data2['result'] = $res;
