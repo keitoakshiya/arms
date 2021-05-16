@@ -1178,7 +1178,7 @@ $this->logout();
 		$data['description'] = '';
 
 		$this->load->model('list_company_model');
-		$res = $this->list_company_model->get_company2($a);
+		$res = $this->list_company_model->edit_company($a);
 		$data2['result'] = $res;
 		$this->load->view('template/header2',$data);
 		$this->load->view('template/container_header',$data);
@@ -1323,7 +1323,55 @@ $this->logout();
 		$this->load->view('template/footer2');
 	}
 
+		public function edit_official_receipt(){
+		$this->load->model('roles_model');
+		if ($this->roles_model->edit_company()==0) {
+$this->logout();
+		}
+		$all_access = $this->roles_model->get_all_access();
+		$data['all_access'] = $all_access;
+		$data['title'] = 'edit_or';
+		$data['description'] = '';
 
+		$this->load->model('or_list_model');
+		$res = $this->or_list_model->edit_official_receipt();
+		$data2['result'] = $res;
+		$this->load->view('template/header2',$data);
+		$this->load->view('template/container_header',$data);
+        $this->load->view('edit_official_receipt',$data2);
+        $this->load->view('template/container_footer');
+		$this->load->view('template/footer2');
+
+	}
+
+		public function update_or(){
+
+		$this->load->model('roles_model');
+		if ($this->roles_model->can_edit()==0) {
+$this->logout();
+		}
+		$this->load->model('or_list_model');
+
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('or_date','or_date','required');
+		$this->form_validation->set_rules('or_number','or_number','required');
+		$this->form_validation->set_rules('or_amount','or_amount','required');
+		$this->form_validation->set_rules('company','company','required');
+
+
+		if ($this->form_validation->run()) {
+			$id = $this->input->post('id');
+			$or_date = $this->input->post('or_date');
+			$or_number = $this->input->post('or_number');
+			$or_amount = $this->input->post('or_amount');
+			$company = $this->input->post('company');
+			
+			
+			$this->load->model('or_list_model');
+
+		$res = $this->or_list_model->update_or($id,$or_date,$or_number,$or_amount,$company);
+		}
+	}
 
 
 }

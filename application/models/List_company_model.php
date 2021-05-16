@@ -17,7 +17,7 @@
             return $res;
         }
 
-        public function get_company2($a){
+        public function edit_company($a){
 
             $this->db->select('`guarantor`.`id` as guarantor_id,
                 `guarantor`.`type`,

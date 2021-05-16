@@ -9,7 +9,7 @@
             return $res;
         }
 
-        public function update_role($id,$view_dashboard,$add_patient,$view_patients,$edit_patients,$delete_patients,$view_accounts_receivable,$view_accounts_receivable2,$view_payment_summary,$view_payment_summary2,$view_remaining_balance,$view_remaining_balance2,$add_official_receipt,$view_official_receipt_list2,$delete_official_receipt_list2,$view_company_list_official_receipt_list,$add_patient_to_receipt,$add_view_bill_by_patient,$view_list_company,$add_company,$view_archive,$delete_archive,$restore_archive,$add_account,$edit_roles,$delete_or,$permanently_delete,$view_payment_history,$edit_company){
+        public function update_role($id,$view_dashboard,$add_patient,$view_patients,$edit_patients,$delete_patients,$view_accounts_receivable,$view_accounts_receivable2,$view_payment_summary,$view_payment_summary2,$view_remaining_balance,$view_remaining_balance2,$add_official_receipt,$view_official_receipt_list2,$delete_official_receipt_list2,$view_company_list_official_receipt_list,$add_patient_to_receipt,$add_view_bill_by_patient,$view_list_company,$add_company,$view_archive,$delete_archive,$restore_archive,$add_account,$edit_roles,$delete_or,$permanently_delete,$view_payment_history,$edit_company,$edit_or){
         	/*$this->db->set('view_data', $view_data);
         	$this->db->set('add_data', $add_data);
         	$this->db->set('edit_data', $edit_data);
@@ -42,6 +42,7 @@
             $this->db->set('permanently_delete', $permanently_delete);
             $this->db->set('view_payment_history', $view_payment_history);
             $this->db->set('edit_company', $edit_company);
+            $this->db->set('edit_or', $edit_or);
             $this->db->where('id', $id);
 	   		$this->db->update('user');
 	    	header("Location: /arms/main/roles");
@@ -507,6 +508,21 @@
 
             foreach ($res as $key => $row) { 
                 $can = $row->edit_company;
+            }
+            return $can; 
+        }
+
+        public function edit_or(){
+
+            $username = $this->session->userdata('username');
+
+            $this->db->select('edit_or'); 
+            $this->db->where('username',$username); 
+            $query = $this->db->get('user'); 
+            $res   = $query->result();
+
+            foreach ($res as $key => $row) { 
+                $can = $row->edit_or;
             }
             return $can; 
         }

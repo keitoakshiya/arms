@@ -21,9 +21,9 @@
 						echo "<td>".$row->or_date."</a></td>";
 						echo "<td>&#8369;".$row->or_amount."</a></td>";
 						echo "<td>&#8369;".$row->amount_applied."</a></td>";
-						echo "
-                        <button style='border: none;' onclick='archive_or(".$row->patient_id.")'><i class='fa fa-trash'
-                        style='color: #c93434; font-size: 16px;'></i></button></td>";
+						echo "<td><button style='border: none;' onclick=\"location.href = 'edit_official_receipt/".$row->receipt_id."' \"><i class='fa fa-edit' 
+                        style=' font-size: 16px'></i></button></td>";
+
 					echo "</tr>";
 				}
 			}
