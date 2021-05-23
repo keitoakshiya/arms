@@ -20,6 +20,8 @@ class official_receipt_list_model extends CI_Model {
 
         $this->db->join('guarantor', 'receipt.company = guarantor.id');
         $this->db->where('receipt.distributed','0');
+        $not_void = array(0,2);
+        $this->db->where_in('receipt.is_void',$not_void);
         $this->db->where('guarantor.id',$a);
         //$this->db->where('(`receipt`.`or_amount`-IFNULL((SELECT (SUM(hospital_bill_payment)+SUM(professional_bill_payment)) FROM transaction WHERE receipt_id = receipt.id), 0))!=','0');
         $query = $this->db->get('receipt');

@@ -6,7 +6,8 @@
 		<th>Patient Name</th>
 		<th>Date of Payment</th>
 		<th>Official Receipt</th>
-		<th>Amount Paid</th>
+		<th>hospital_bill_payment</th>
+		<th>professional_bill_payment</th>
 
 		
 
@@ -21,7 +22,8 @@
 						echo "<td>".$row->first_name." ".$row->middle_name." ".$row->last_name."</td>";
 						echo "<td>".$row->pay_date."</td>";
 						echo "<td>".$row->or_number."</td>";
-						echo "<td>&#8369;".$row->amount_applied."</a></td>";
+						echo "<td>&#8369;".$row->hospital_bill_payment."</a></td>";
+						echo "<td>&#8369;".$row->professional_bill_payment."</a></td>";
 
 					echo "</tr>";
 				}
@@ -33,6 +35,7 @@
             <td></td>
             <td></td>
             <td></td>
+			<td></td>
 
             
 

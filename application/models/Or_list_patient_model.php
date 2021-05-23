@@ -21,8 +21,7 @@ class or_list_patient_model extends CI_Model {
 
             `guarantor`.`name`,
 
-            (SELECT DATE_FORMAT(or_date, "%b %d %Y - %h:%i %p")  FROM transaction where
-                bill_id = bill.id ORDER BY or_date DESC LIMIT 1) AS pay_date,
+            DATE_FORMAT(`transaction`.`or_date`, "%b %d %Y - %h:%i %p") AS pay_date,
 
             `receipt`.`id` AS `receipt_id`,
                 `receipt`.`company`,
@@ -30,6 +29,9 @@ class or_list_patient_model extends CI_Model {
                 `receipt`.`or_date`,
                 `receipt`.`or_amount`,
                 `receipt`.`or_number`,
+
+                hospital_bill_payment,
+                professional_bill_payment,
 
                 IFNULL((SELECT (SUM(hospital_bill_payment)+SUM(professional_bill_payment)) FROM transaction WHERE receipt_id = receipt.id),0) AS amount_applied,
             
@@ -39,7 +41,7 @@ class or_list_patient_model extends CI_Model {
             $this->db->join('patient', 'patient.id = transaction.patient_id');
             $this->db->join('guarantor', 'guarantor.id = guarantor_id');
             $this->db->join('receipt', 'receipt.id = receipt_id');
-            
+
             $this->db->where('`patient`.`deleted` =', '0');
             $this->db->where('`receipt`.`or_number` =', $a);
             $query = $this->db->get('transaction');

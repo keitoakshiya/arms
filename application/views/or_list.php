@@ -21,8 +21,23 @@
 						echo "<td>".$row->or_date."</a></td>";
 						echo "<td>&#8369;".$row->or_amount."</a></td>";
 						echo "<td>&#8369;".$row->amount_applied."</a></td>";
-						echo "<td><button style='border: none;' onclick=\"location.href = 'edit_official_receipt/".$row->receipt_id."' \"><i class='fa fa-edit' 
-                        style=' font-size: 16px'></i></button></td>";
+						echo "<td>
+                    <button style='border: none;' onclick=\"location.href = 'delete_official_receipt/".$row->receipt_id."' \"><i class='fa fa-trash' style=' font-size: 16px'></i></button>
+                    <button style='border: none;' onclick=\"location.href = 'edit_official_receipt/".$row->receipt_id."' \"><i class='fa fa-edit' style=' font-size: 16px'></i></button>";
+                  if($row->is_void == 0){
+                    echo "<button style='border: none;' onclick=\"location.href = 'void_official_receipt/".$row->or_number."' \"><i class='fa fa-ban' style=' font-size: 16px'></i></button>";
+                  }
+                  if($row->is_void == 1){
+                    echo "<button style='border: none;' onclick=\"location.href = 'unvoid_official_receipt/".$row->or_number."' \"><i class='fa fa-undo' style=' font-size: 16px'></i></button>";
+                  }
+                  if($row->is_void == 2){
+                    echo "<button style='border: none;' onclick=\"location.href = 'permavoid_official_receipt/".$row->or_number."' \"><i class='fa fa-ban' style=' font-size: 16px'></i></button>";
+                  }
+                  if($row->is_void == 3){
+                    //cannot unvoid
+                  }
+                    
+            echo "</td>";
 
 					echo "</tr>";
 				}
