@@ -50,16 +50,16 @@
 
 						echo "<td>";
                         if ($edit == 1) {
-                            # code...
                         echo "
                         <button style='border: none;' onclick=\"location.href = 'edit_patient/".$row->patient_id."' \"><i class='fa fa-edit' 
-                        style=' font-size: 16px'></i></button>
-                        ";
+                        style=' font-size: 16px'></i></button>";
                         }
                         if ($delete == 1) {
                         echo "
                         <button style='border: none;' onclick='archive_patient(".$row->patient_id.")'><i class='fa fa-trash'
-                        style='color: #c93434; font-size: 16px;'></i></button></td>";
+                        style='color: #c93434; font-size: 16px;'></i></button>
+
+                        </td>";
                         }
                         
 					echo "</tr>";

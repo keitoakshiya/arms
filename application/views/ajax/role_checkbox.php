@@ -110,16 +110,16 @@
 				echo "	Applied Official Receipt List"; 
 				echo "</div>";
 				
-				/*echo "<div class='col-md-4'>";
-				echo "<input type='checkbox' name='delete_official_receipt_list2'";
-				echo $row['delete_official_receipt_list2'] == 0 ?  ">" :  "checked>";
-				echo "	Archive OR"; 
-				echo "</div>";*/
+				echo "<div class='col-md-4'>";
+				echo "<input type='checkbox' name='delete_official_receipt'";
+				echo $row['delete_official_receipt'] == 0 ?  ">" :  "checked>";
+				echo "	Delete Official Receipt"; 
+				echo "</div>";
 				
 				echo "<div class='col-md-4'>";
 				echo "<input type='checkbox' name='view_company_list_official_receipt_list'";
 				echo $row['view_company_list_official_receipt_list'] == 0 ?  ">" :  "checked>";
-				echo "	Company Official Receipt List"; 
+				echo "	Payment Application"; 
 				echo "</div>";
 				
 				echo "<div class='col-md-4'>";
@@ -185,7 +185,13 @@
 				echo "<div class='col-md-4'>";
 				echo "<input type='checkbox' name='permanently_delete'";
 				echo $row['permanently_delete'] == 0 ?  ">" :  "checked>";
-				echo "	Permanently Delete"; 
+				echo "	Permanently Delete Patient"; 
+				echo "</div>";
+
+				echo "<div class='col-md-4'>";
+				echo "<input type='checkbox' name='edit_company'";
+				echo $row['edit_company'] == 0 ?  ">" :  "checked>";
+				echo "	Edit Company"; 
 				echo "</div>";
 
 				echo "<div class='col-md-4'>";
@@ -195,12 +201,40 @@
 				echo "</div>";
 
 				echo "<div class='col-md-4'>";
-				echo "<input type='checkbox' name='edit_company'";
-				echo $row['edit_company'] == 0 ?  ">" :  "checked>";
-				echo "	Edit Company"; 
+				echo "<input type='checkbox' name='view_or_list'";
+				echo $row['view_or_list'] == 0 ?  ">" :  "checked>";
+				echo "	View Collection Report"; 
 				echo "</div>";
-				
-				
+
+				echo "<div class='col-md-4'>";
+				echo "<input type='checkbox' name='view_or_list_patient'";
+				echo $row['view_or_list_patient'] == 0 ?  ">" :  "checked>";
+				echo "	View Patients Official Receipts"; 
+				echo "</div>";
+
+				echo "<div class='col-md-4'>";
+				echo "<input type='checkbox' name='edit_official_receipt'";
+				echo $row['edit_official_receipt'] == 0 ?  ">" :  "checked>";
+				echo "	Edit Official Receipt"; 
+				echo "</div>";
+
+				echo "<div class='col-md-4'>";
+				echo "<input type='checkbox' name='void_official_receipt'";
+				echo $row['void_official_receipt'] == 0 ?  ">" :  "checked>";
+				echo "	Void Official Receipt"; 
+				echo "</div>";
+
+				echo "<div class='col-md-4'>";
+				echo "<input type='checkbox' name='unvoid_official_receipt'";
+				echo $row['unvoid_official_receipt'] == 0 ?  ">" :  "checked>";
+				echo "	Undo Void"; 
+				echo "</div>";
+
+				echo "<div class='col-md-4'>";
+				echo "<input type='checkbox' name='permavoid_official_receipt'";
+				echo $row['permavoid_official_receipt'] == 0 ?  ">" :  "checked>";
+				echo "	Permanently Void Official Receipt"; 
+				echo "</div>";
 
 
 			}

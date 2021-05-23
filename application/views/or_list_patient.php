@@ -6,8 +6,8 @@
 		<th>Patient Name</th>
 		<th>Date of Payment</th>
 		<th>Official Receipt</th>
-		<th>hospital_bill_payment</th>
-		<th>professional_bill_payment</th>
+		<th>Hospital Bill Payment</th>
+		<th>Professional Fee Payment</th>
 
 		
 

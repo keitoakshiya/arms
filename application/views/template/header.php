@@ -136,7 +136,7 @@
                           }
 
                           if ($row->view_or_list==1) {
-                            echo '<li><a href="Collection Report">Collection Report</a></li>';
+                            echo '<li><a href="or_list">Collection Report</a></li>';
                           }
 
                           

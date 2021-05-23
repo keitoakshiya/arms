@@ -7,6 +7,7 @@
             <th>Contact Person</th>
             <th>Contact Number</th>
             <th></th>
+            
 			
 		</tr>
 	</thead>
@@ -32,8 +33,12 @@
                         echo "<td>".$row->contact_person."</td>";
                         
                         echo "<td>".$row->contact_number."</td>";
-                        echo "<td><button style='border: none;' onclick=\"location.href = 'edit_company/".$row->guarantor_id."' \"><i class='fa fa-edit' 
+
+                        echo "<td>";
+                        if ($edit == 1) {
+                        echo "<button style='border: none;' onclick=\"location.href = 'edit_company/".$row->guarantor_id."' \"><i class='fa fa-edit' 
                         style=' font-size: 16px'></i></button></td>";
+                    }
 
 					echo "</tr>";
 
@@ -44,8 +49,9 @@
 	</tbody>
 
 	<tfoot>
+		
 		<td></td>
-		<td></td>
+        <td></td>
         <td></td>
         <td></td>
         <td></td>

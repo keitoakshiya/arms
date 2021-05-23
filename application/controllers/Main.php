@@ -1084,13 +1084,13 @@ class Main extends CI_Controller
 		$permanently_delete = $this->input->post('permanently_delete');
 		$edit_company = $this->input->post('edit_company');
 		$view_payment_history = $this->input->post('view_payment_history');
-		
 		$view_or_list = $this->input->post('view_or_list');
-
 		$view_or_list_patient = $this->input->post('view_or_list_patient');
-		$edit_company = $this->input->post('edit_company');
-		$edit_company = $this->input->post('edit_company');
+		$edit_official_receipt = $this->input->post('edit_official_receipt');
 
+		$void_official_receipt = $this->input->post('void_official_receipt');
+		$unvoid_official_receipt = $this->input->post('unvoid_official_receipt');
+		$permavoid_official_receipt = $this->input->post('permavoid_official_receipt');
 
 		/*$view_data2 = $view_data == 'on' ? 1 : 0;
 			$add_data2 = $add_data == 'on' ? 1 : 0;
@@ -1202,17 +1202,20 @@ class Main extends CI_Controller
 	{
 
 		$this->load->model('roles_model');
+		$edit = $this->roles_model->edit_company();
 		if ($this->roles_model->view_list_company() == 0) {
 			$this->logout();
 		}
 
 		$all_access = $this->roles_model->get_all_access();
 		$data['all_access'] = $all_access;
+		$data['edit'] = $edit;
 		$data['title'] = 'Company List';
 		$data['description'] = ' ';
 
 		$this->load->view('template/header', $data);
 		$this->load->model('list_company_model');
+
 		$res = $this->list_company_model->get_company();
 		$this->load->view('template/container_header', $data);
 
@@ -1337,13 +1340,23 @@ class Main extends CI_Controller
 	{
 
 		$this->load->model('roles_model');
-		if ($this->roles_model->view_payment_history() == 0) {
+		$edit = $this->roles_model->edit_official_receipt();
+		$delete = $this->roles_model->delete_official_receipt();
+		$void = $this->roles_model->void_official_receipt();
+		$undo_void = $this->roles_model->unvoid_official_receipt();
+		$perma_void = $this->roles_model->permavoid_official_receipt();
+		if ($this->roles_model->view_or_list() == 0) {
 			$this->logout();
 		}
 
 		$all_access = $this->roles_model->get_all_access();
 		$data['all_access'] = $all_access;
-		$data['title'] = 'OR List';
+		$data['edit'] = $edit;
+		$data['delete'] = $delete;
+		$data['void'] = $void;
+		$data['undo_void'] = $undo_void;
+		$data['perma_void'] = $perma_void;
+		$data['title'] = 'Collection Report';
 		$data['description'] = ' ';
 
 		$this->load->view('template/header', $data);
@@ -1367,7 +1380,7 @@ class Main extends CI_Controller
 	{
 
 		$this->load->model('roles_model');
-		if ($this->roles_model->view_payment_history() == 0) {
+		if ($this->roles_model->view_or_list_patient() == 0) {
 			$this->logout();
 		}
 
@@ -1395,9 +1408,10 @@ class Main extends CI_Controller
 	public function edit_official_receipt($a)
 	{
 		$this->load->model('roles_model');
-		if ($this->roles_model->edit_company() == 0) {
+		if ($this->roles_model->edit_official_receipt() == 0) {
 			$this->logout();
 		}
+
 		$all_access = $this->roles_model->get_all_access();
 		$data['all_access'] = $all_access;
 		$data['title'] = 'Edit Official Receipt';
@@ -1462,5 +1476,6 @@ class Main extends CI_Controller
 		$this->load->model('or_list_model');
 		$res = $this->or_list_model->delete_or($or_number);
 	}
+	
 
 }

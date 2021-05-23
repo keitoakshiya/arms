@@ -551,7 +551,7 @@
             return $can; 
         }
 
-        public function edit_official_receipt(){
+         public function edit_official_receipt(){
 
             $username = $this->session->userdata('username');
 
