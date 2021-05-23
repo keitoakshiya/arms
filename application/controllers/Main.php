@@ -275,56 +275,43 @@ class Main extends CI_Controller
 		$this->load->view('template/footer3');
 	}
 
-	public function insert_patient()
-	{
+	public function insert_patient(){
 
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules('first-name', 'first-name', 'required');
-		$this->form_validation->set_rules('middle-name', 'middle-name', 'required');
-		$this->form_validation->set_rules('last-name', 'last-name', 'required');
-		$this->form_validation->set_rules('suffix', 'suffix', 'required');
+		$this->form_validation->set_rules('first-name','first-name','required');
+		/*$this->form_validation->set_rules('middle-name','middle-name','required');*/
+		$this->form_validation->set_rules('last-name','last-name','required');
 
 
-		$this->form_validation->set_rules('hospital_bill', 'hospital_bill', 'required');
-		$this->form_validation->set_rules('professional_bill', 'professional_bill', 'required');
-		$this->form_validation->set_rules('company', 'company', 'required');
-		$this->form_validation->set_rules('patient_type', 'patient_type', 'required');
-		$this->form_validation->set_rules('registry_no', 'registry_no', 'required');
-		$this->form_validation->set_rules('date', 'date', 'required');
+		$this->form_validation->set_rules('hospital_bill','hospital_bill','required');
+		$this->form_validation->set_rules('professional_bill','professional_bill','required');
+		$this->form_validation->set_rules('company','company','required');
+		$this->form_validation->set_rules('patient_type','patient_type','required');
+		/*$this->form_validation->set_rules('suffix','suffix','required');*/
+		$this->form_validation->set_rules('registry_no','registry_no','required');
 
 
-
+		
 		if ($this->form_validation->run()) {
 
 			$firstname = $this->input->post('first-name');
 			$middlename = $this->input->post('middle-name');
 			$lastname = $this->input->post('last-name');
-			$suffix = $this->input->post('suffix');
+			
 
-
+			$date = $this->input->post('date');
 			$hospital_bill = $this->input->post('hospital_bill');
 			$professional_bill = $this->input->post('professional_bill');
 			$company = $this->input->post('company');
 			$patient_type = $this->input->post('patient_type');
-
+			$suffix = $this->input->post('suffix');
 			$registry_no = $this->input->post('registry_no');
-			$date = $this->input->post('date');
 
 
 			$this->load->model('add_patient_model');
 
-			$this->add_patient_model->insert_patient(
-				$firstname,
-				$middlename,
-				$lastname,
-				$suffix,
-				$hospital_bill,
-				$professional_bill,
-				$company,
-				$patient_type,
-				$registry_no,
-				$date
-			);
+			$this->add_patient_model->insert_patient($firstname,$middlename,
+				$lastname,$date,$hospital_bill,$professional_bill,$company,$patient_type,$suffix,$registry_no);
 		}
 	}
 
@@ -1082,7 +1069,7 @@ class Main extends CI_Controller
 		$view_remaining_balance2 = $this->input->post('view_remaining_balance2');
 		$add_official_receipt = $this->input->post('add_official_receipt');
 		$view_official_receipt_list2 = $this->input->post('view_official_receipt_list2');
-		$delete_official_receipt_list2 = $this->input->post('delete_official_receipt_list2');
+		$delete_official_receipt = $this->input->post('delete_official_receipt');
 		$view_company_list_official_receipt_list = $this->input->post('view_company_list_official_receipt_list');
 		$add_patient_to_receipt = $this->input->post('add_patient_to_receipt');
 		$add_view_bill_by_patient = $this->input->post('add_view_bill_by_patient');
@@ -1095,9 +1082,14 @@ class Main extends CI_Controller
 		$edit_roles = $this->input->post('edit_roles');
 		$delete_or = $this->input->post('delete_or');
 		$permanently_delete = $this->input->post('permanently_delete');
-		$view_payment_history = $this->input->post('view_payment_history');
 		$edit_company = $this->input->post('edit_company');
+		$view_payment_history = $this->input->post('view_payment_history');
+		
+		$view_or_list = $this->input->post('view_or_list');
 
+		$view_or_list_patient = $this->input->post('view_or_list_patient');
+		$edit_company = $this->input->post('edit_company');
+		$edit_company = $this->input->post('edit_company');
 
 
 		/*$view_data2 = $view_data == 'on' ? 1 : 0;
@@ -1118,7 +1110,7 @@ class Main extends CI_Controller
 		$view_remaining_balance2_a = $view_remaining_balance2 == 'on' ? 1 : 0;
 		$add_official_receipt_a = $add_official_receipt == 'on' ? 1 : 0;
 		$view_official_receipt_list2_a = $view_official_receipt_list2 == 'on' ? 1 : 0;
-		$delete_official_receipt_list2_a = $delete_official_receipt_list2 == 'on' ? 1 : 0;
+		$delete_official_receipt = $delete_official_receipt == 'on' ? 1 : 0;
 		$view_company_list_official_receipt_list_a = $view_company_list_official_receipt_list == 'on' ? 1 : 0;
 		$add_patient_to_receipt_a = $add_patient_to_receipt == 'on' ? 1 : 0;
 		$add_view_bill_by_patient_a = $add_view_bill_by_patient == 'on' ? 1 : 0;
@@ -1131,11 +1123,19 @@ class Main extends CI_Controller
 		$edit_roles_a = $edit_roles == 'on' ? 1 : 0;
 		$delete_or_a = $delete_or == 'on' ? 1 : 0;
 		$permanently_delete_a = $permanently_delete == 'on' ? 1 : 0;
-		$view_payment_history_a = $view_payment_history == 'on' ? 1 : 0;
 		$edit_company_a = $edit_company == 'on' ? 1 : 0;
+		$view_payment_history_a = $view_payment_history == 'on' ? 1 : 0;
+		$view_or_list_a = $view_or_list == 'on' ? 1 : 0;
+		$view_or_list_patient_a = $view_or_list_patient == 'on' ? 1 : 0;
+		$edit_official_receipt_a = $edit_official_receipt == 'on' ? 1 : 0;
+
+		$void_official_receipt_a = $void_official_receipt == 'on' ? 1 : 0;
+		$unvoid_official_receipt_a = $unvoid_official_receipt == 'on' ? 1 : 0;
+		$permavoid_official_receipt_a = $permavoid_official_receipt == 'on' ? 1 : 0;
+
 		$this->load->model('roles_model');
 
-		$this->roles_model->update_role($id, $view_dashboard_a, $add_patient_a, $view_patients_a, $edit_patients_a, $delete_patients_a, $view_accounts_receivable_a, $view_accounts_receivable2_a, $view_payment_summary_a, $view_payment_summary2_a, $view_remaining_balance_a, $view_remaining_balance2_a, $add_official_receipt_a, $view_official_receipt_list2_a, $delete_official_receipt_list2_a, $view_company_list_official_receipt_list_a, $add_patient_to_receipt_a, $add_view_bill_by_patient_a, $view_list_company_a, $add_company_a, $view_archive_a, $delete_archive_a, $restore_archive_a, $add_account_a, $edit_roles_a, $delete_or_a, $permanently_delete_a, $view_payment_history_a, $edit_company_a);
+		$this->roles_model->update_role($id, $view_dashboard_a, $add_patient_a, $view_patients_a, $edit_patients_a, $delete_patients_a, $view_accounts_receivable_a, $view_accounts_receivable2_a, $view_payment_summary_a, $view_payment_summary2_a, $view_remaining_balance_a, $view_remaining_balance2_a, $add_official_receipt_a, $view_official_receipt_list2_a, $delete_official_receipt, $view_company_list_official_receipt_list_a, $add_patient_to_receipt_a, $add_view_bill_by_patient_a, $view_list_company_a, $add_company_a, $view_archive_a, $delete_archive_a, $restore_archive_a, $add_account_a, $edit_roles_a, $delete_or_a, $permanently_delete_a, $edit_company_a, $view_payment_history_a,$view_or_list_a,$view_or_list_patient_a,$edit_official_receipt_a,$void_official_receipt_a,$unvoid_official_receipt_a,$permavoid_official_receipt_a);
 	}
 
 
@@ -1313,7 +1313,7 @@ class Main extends CI_Controller
 	{
 
 		$this->load->model('roles_model');
-		if ($this->roles_model->view_list_company() == 0) {
+		if ($this->roles_model->view_dashboard() == 0) {
 			$this->logout();
 		}
 
@@ -1392,7 +1392,7 @@ class Main extends CI_Controller
 		$this->load->view('template/footer2');
 	}
 
-	public function edit_official_receipt()
+	public function edit_official_receipt($a)
 	{
 		$this->load->model('roles_model');
 		if ($this->roles_model->edit_company() == 0) {
@@ -1400,11 +1400,11 @@ class Main extends CI_Controller
 		}
 		$all_access = $this->roles_model->get_all_access();
 		$data['all_access'] = $all_access;
-		$data['title'] = 'edit_or';
+		$data['title'] = 'Edit Official Receipt';
 		$data['description'] = '';
 
 		$this->load->model('or_list_model');
-		$res = $this->or_list_model->edit_official_receipt();
+		$res = $this->or_list_model->edit_official_receipt($a);
 		$data2['result'] = $res;
 		$this->load->view('template/header2', $data);
 		$this->load->view('template/container_header', $data);
@@ -1427,6 +1427,7 @@ class Main extends CI_Controller
 		$this->form_validation->set_rules('or_number', 'or_number', 'required');
 		$this->form_validation->set_rules('or_amount', 'or_amount', 'required');
 		$this->form_validation->set_rules('company', 'company', 'required');
+		$this->form_validation->set_rules('type', 'type', 'required');
 
 
 		if ($this->form_validation->run()) {
@@ -1435,11 +1436,12 @@ class Main extends CI_Controller
 			$or_number = $this->input->post('or_number');
 			$or_amount = $this->input->post('or_amount');
 			$company = $this->input->post('company');
+			$company = $this->input->post('type');
 
 
 			$this->load->model('or_list_model');
 
-			$res = $this->or_list_model->update_or($id, $or_date, $or_number, $or_amount, $company);
+			$res = $this->or_list_model->update_or($id, $or_date, $or_number, $or_amount, $company,$type);
 		}
 	}
 

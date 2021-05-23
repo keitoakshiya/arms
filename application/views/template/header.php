@@ -135,8 +135,8 @@
                             echo '<li><a href="official_receipt">Add Official Receipts</a></li>';
                           }
 
-                          if ($row->view_payment_history==1) {
-                            echo '<li><a href="or_list">OR List</a></li>';
+                          if ($row->view_or_list==1) {
+                            echo '<li><a href="Collection Report">Collection Report</a></li>';
                           }
 
                           

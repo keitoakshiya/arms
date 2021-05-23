@@ -29,3 +29,27 @@
 
 
 </form>
+<script type="text/javascript">
+	function companydropdown(val) {
+
+
+		  var xhttp = new XMLHttpRequest();
+		  xhttp.onreadystatechange = function() {
+		    if (this.readyState == 4 && this.status == 200) {
+		     document.getElementById("companydropdown").innerHTML = this.responseText;
+		    }
+		  };
+		  xhttp.open("GET", "../application/views/ajax/guarantor_dropdown.php?value="+val, true);
+		  xhttp.send();
+			
+	}
+</script>
+
+
+<script>
+	$(function() {
+	  $('#selectdate').daterangepicker({
+	    singleDatePicker: true
+	  });
+	});
+	</script>

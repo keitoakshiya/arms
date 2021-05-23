@@ -32,7 +32,7 @@
             return $res;
         }
 
-        public function edit_official_receipt(){
+        public function edit_official_receipt($a){
 
             $this->db->select('
                 `receipt`.`id` as receipt_id,
@@ -46,7 +46,7 @@
 
                 ');
             $this->db->join('guarantor', 'receipt.company = guarantor.id');
-            
+            $this->db->where('receipt.id',$a);
             
             $query = $this->db->get('receipt');
             $res   = $query->result();

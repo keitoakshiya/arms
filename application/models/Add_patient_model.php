@@ -1,7 +1,7 @@
 <?php  
     class add_patient_model extends CI_Model {  
-        public function insert_patient($firstname,$middlename,$lastname,$suffix,
-            $hospital_bill,$professional_bill,$company,$patient_type,$registry_no,$date) { 
+        public function insert_patient($firstname,$middlename,$lastname,$date,
+            $hospital_bill,$professional_bill,$company,$patient_type,$suffix,$registry_no) { 
             if($this->checkDuplicateUser($registry_no)){
             $date2 = date("Y-m-d", strtotime($date));
             $data = array(
@@ -27,8 +27,7 @@
             );
 
             $this->db->insert('bill', $data2);
-            //print_r($this->db->last_query());
-            //print_r("<script>alert('');</script>");
+            print_r("<script>alert('');</script>");
             //print_r($this->db->insert_id());
             //insert to bill query
 

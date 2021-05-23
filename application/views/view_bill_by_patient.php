@@ -176,11 +176,11 @@
 
 		if (new_unp>=0) {
 			if (0>document.getElementById('hosp_bill').value) {
-				alert('too much hosp');
+				//alert('Payment Exceeds Hospital Bill');
 				document.getElementById('submit').setAttribute("disabled","1");
 			}
 			if (0>document.getElementById('pro_bill').value) {
-				alert('too much pro');
+				//alert('Payment Exceeds Proffesional Fee');
 				document.getElementById('submit').setAttribute("disabled","1");
 			}
 			if(0<=document.getElementById('pro_bill').value && 0<=document.getElementById('hosp_bill').value){

@@ -75,7 +75,7 @@
         ],
 
         initComplete: function() {
-      this.api().columns([0,2]).every(function() {
+      this.api().columns([0]).every(function() {
         var column = this;
         //added class "mymsel"
         var select = $('<select class="mymsel" ><option value="">Select Any</option></select>')

@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-md-6">
 			Guarantor type:
-			<select name="patient-type" class="form-control" onchange="show_guarantors(this.value)" required="" oninvalid="this.setCustomValidity('Select Guarantor Type to select Company')" oninput="this.setCustomValidity('')"/>
+			<select name="patient-type" class="form-control" onchange="show_guarantors(this.value)" required>
 				<option selected disabled value="">Select Guarantor Type</option>
 				<option value="1">HMO</option>
 				<option value="2">Corporate</option>
@@ -12,7 +12,7 @@
 		</div>
 		<div class="col-md-6">
 			Patient Type:
-			<select name="patient_type" class="form-control" required="" oninvalid="this.setCustomValidity('Select Patient Type')" oninput="this.setCustomValidity('')"/>
+			<select name="patient_type" class="form-control" required>
 				<option selected disabled value="">Select Patient Type</option>
 				<option value="1">Inpatient</option>
 				<option value="2">Outpatient</option>
@@ -23,14 +23,14 @@
 
 	<div class="row">
 		<div class="col-md-4">
-			First Name: <input type="text" name="first-name" class="form-control" minlength="2" required="" oninvalid="this.setCustomValidity('Enter First Name')" oninput="this.setCustomValidity('')"/>
+			First Name: <input type="text" name="first-name" class="form-control" minlength="2" required>
 		</div>
 		<div class="col-md-3">
-			Middle Name: <input type="text" name="middle-name" class="form-control"  minlength="2" required="" oninvalid="this.setCustomValidity('Enter Middle Name')" oninput="this.setCustomValidity('')"/>	
+			Middle Name: <input type="text" name="middle-name" class="form-control">	
 		</div>
 
 		<div class="col-md-4">
-			Last Name: <input type="text" name="last-name" class="form-control" minlength="2" required="" oninvalid="this.setCustomValidity('Enter Last Name')" oninput="this.setCustomValidity('')"/>
+			Last Name: <input type="text" name="last-name" class="form-control" minlength="2" required>
 		</div>
 
 		<div class="col-md-1">
@@ -52,7 +52,7 @@
 			
 		</div>						
 	</div>
-	Registry No. <input type="number" name="registry_no" class="form-control" required="" oninvalid="this.setCustomValidity('Enter Registry no. \nRegistry no. should be exactly ten digits.')" oninput="this.setCustomValidity('')"/>
+	Registry No. <input type="text" name="registry_no" class="form-control" minlength="8" required>
 
 	Date Registered: <input type="text" name="date" class="form-control" readonly="" required="" id="selectdate">
 	
@@ -82,3 +82,5 @@
 		xhttp.send();
 	}
 </script>
+
+

@@ -9,7 +9,7 @@
             return $res;
         }
 
-        public function update_role($id,$view_dashboard,$add_patient,$view_patients,$edit_patients,$delete_patients,$view_accounts_receivable,$view_accounts_receivable2,$view_payment_summary,$view_payment_summary2,$view_remaining_balance,$view_remaining_balance2,$add_official_receipt,$view_official_receipt_list2,$delete_official_receipt_list2,$view_company_list_official_receipt_list,$add_patient_to_receipt,$add_view_bill_by_patient,$view_list_company,$add_company,$view_archive,$delete_archive,$restore_archive,$add_account,$edit_roles,$delete_or,$permanently_delete,$view_payment_history,$edit_company,$edit_or){
+        public function update_role($id,$view_dashboard,$add_patient,$view_patients,$edit_patients,$delete_patients,$view_accounts_receivable,$view_accounts_receivable2,$view_payment_summary,$view_payment_summary2,$view_remaining_balance,$view_remaining_balance2,$add_official_receipt,$view_official_receipt_list2,$delete_official_receipt,$view_company_list_official_receipt_list,$add_patient_to_receipt,$add_view_bill_by_patient,$view_list_company,$add_company,$view_archive,$delete_archive,$restore_archive,$add_account,$edit_roles,$delete_or,$permanently_delete,$edit_company,$view_payment_history,$view_or_list,$view_or_list_patient,$edit_official_receipt,$void_official_receipt,$unvoid_official_receipt,$permavoid_official_receipt){
         	/*$this->db->set('view_data', $view_data);
         	$this->db->set('add_data', $add_data);
         	$this->db->set('edit_data', $edit_data);
@@ -27,7 +27,7 @@
             $this->db->set('view_remaining_balance2', $view_remaining_balance2);
             $this->db->set('add_official_receipt', $add_official_receipt);
             $this->db->set('view_official_receipt_list2', $view_official_receipt_list2);
-            $this->db->set('delete_official_receipt_list2', $delete_official_receipt_list2);
+            $this->db->set('delete_official_receipt', $delete_official_receipt);
             $this->db->set('view_company_list_official_receipt_list', $view_company_list_official_receipt_list);
             $this->db->set('add_patient_to_receipt', $add_patient_to_receipt);
             $this->db->set('add_view_bill_by_patient', $add_view_bill_by_patient,$view_list_company);
@@ -40,9 +40,17 @@
             $this->db->set('edit_roles', $edit_roles);
             $this->db->set('delete_or', $delete_or);
             $this->db->set('permanently_delete', $permanently_delete);
-            $this->db->set('view_payment_history', $view_payment_history);
             $this->db->set('edit_company', $edit_company);
-            $this->db->set('edit_or', $edit_or);
+            $this->db->set('view_payment_history', $view_payment_history);
+            $this->db->set('view_or_list', $view_or_list);
+            $this->db->set('view_or_list_patient', $view_or_list_patient);
+            $this->db->set('edit_official_receipt', $edit_official_receipt);
+
+            $this->db->set('void_official_receipt', $void_official_receipt);
+            $this->db->set('unvoid_official_receipt', $unvoid_official_receipt);
+            $this->db->set('permavoid_official_receipt', $permavoid_official_receipt);
+
+
             $this->db->where('id', $id);
 	   		$this->db->update('user');
 	    	header("Location: /arms/main/roles");
@@ -302,17 +310,17 @@
             return $can; 
         }
 
-        public function delete_official_receipt_list2(){
+        public function delete_official_receipt(){
 
             $username = $this->session->userdata('username');
 
-            $this->db->select('delete_official_receipt_list2'); 
+            $this->db->select('delete_official_receipt'); 
             $this->db->where('username',$username); 
             $query = $this->db->get('user'); 
             $res   = $query->result();
 
             foreach ($res as $key => $row) { 
-                $can = $row->delete_official_receipt_list2;
+                $can = $row->delete_official_receipt;
             }
             return $can; 
         }
@@ -482,21 +490,6 @@
             return $can; 
         }
 
-        public function view_payment_history(){
-
-            $username = $this->session->userdata('username');
-
-            $this->db->select('view_payment_history'); 
-            $this->db->where('username',$username); 
-            $query = $this->db->get('user'); 
-            $res   = $query->result();
-
-            foreach ($res as $key => $row) { 
-                $can = $row->view_payment_history;
-            }
-            return $can; 
-        }
-
         public function edit_company(){
 
             $username = $this->session->userdata('username');
@@ -512,17 +505,108 @@
             return $can; 
         }
 
-        public function edit_or(){
+        public function view_payment_history(){
 
             $username = $this->session->userdata('username');
 
-            $this->db->select('edit_or'); 
+            $this->db->select('view_payment_history'); 
             $this->db->where('username',$username); 
             $query = $this->db->get('user'); 
             $res   = $query->result();
 
             foreach ($res as $key => $row) { 
-                $can = $row->edit_or;
+                $can = $row->view_payment_history;
+            }
+            return $can; 
+        }
+
+
+        public function view_or_list(){
+
+            $username = $this->session->userdata('username');
+
+            $this->db->select('view_or_list'); 
+            $this->db->where('username',$username); 
+            $query = $this->db->get('user'); 
+            $res   = $query->result();
+
+            foreach ($res as $key => $row) { 
+                $can = $row->view_or_list;
+            }
+            return $can; 
+        }
+
+        public function view_or_list_patient(){
+
+            $username = $this->session->userdata('username');
+
+            $this->db->select('view_or_list_patient'); 
+            $this->db->where('username',$username); 
+            $query = $this->db->get('user'); 
+            $res   = $query->result();
+
+            foreach ($res as $key => $row) { 
+                $can = $row->view_or_list_patient;
+            }
+            return $can; 
+        }
+
+        public function edit_official_receipt(){
+
+            $username = $this->session->userdata('username');
+
+            $this->db->select('edit_official_receipt'); 
+            $this->db->where('username',$username); 
+            $query = $this->db->get('user'); 
+            $res   = $query->result();
+
+            foreach ($res as $key => $row) { 
+                $can = $row->edit_official_receipt;
+            }
+            return $can; 
+        }
+
+        public function void_official_receipt(){
+
+            $username = $this->session->userdata('username');
+
+            $this->db->select('void_official_receipt'); 
+            $this->db->where('username',$username); 
+            $query = $this->db->get('user'); 
+            $res   = $query->result();
+
+            foreach ($res as $key => $row) { 
+                $can = $row->void_official_receipt;
+            }
+            return $can; 
+        }
+
+        public function unvoid_official_receipt(){
+
+            $username = $this->session->userdata('username');
+
+            $this->db->select('unvoid_official_receipt'); 
+            $this->db->where('username',$username); 
+            $query = $this->db->get('user'); 
+            $res   = $query->result();
+
+            foreach ($res as $key => $row) { 
+                $can = $row->unvoid_official_receipt;
+            }
+            return $can; 
+        }
+
+        public function permavoid_official_receipt(){
+
+            $username = $this->session->userdata('username');
+
+            $this->db->select('permavoid_official_receipt'); 
+            $this->db->where('username',$username); 
+            $query = $this->db->get('user'); 
+            $res   = $query->result();
+
+            foreach ($res as $key => $row) { 
+                $can = $row->permavoid_official_receipt;
             }
             return $can; 
         }
