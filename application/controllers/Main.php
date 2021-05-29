@@ -1386,7 +1386,7 @@ class Main extends CI_Controller
 
 		$all_access = $this->roles_model->get_all_access();
 		$data['all_access'] = $all_access;
-		$data['title'] = 'OR List Patients';
+		$data['title'] = 'Official Receipt Patient List';
 		$data['description'] = ' ';
 
 		$this->load->view('template/header2', $data);

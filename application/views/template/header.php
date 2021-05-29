@@ -139,10 +139,7 @@
                             echo '<li><a href="or_list">Collection Report</a></li>';
                           }
 
-                          
-                          if ($row->view_payment_history==1) {
-                            echo '<li><a href="payment_history">Payment History</a></li>';
-                          }
+                         
                           
                         } ?>  
 
