@@ -8,7 +8,7 @@
         <th>Total Balance</th>
         <th>Day Count<div style="font-size:8pt;"> Latest payment up to present date</div></th>
     </thead>
-                            <script type="text/javascript">
+    <script type="text/javascript">
             <?php
                 if (isset($start)&&isset($end)) {
                     $start_time = strtotime($start); 
@@ -19,12 +19,18 @@
                     echo "
                     $(window).on('load', function() {
                         $('#daterange').data('daterangepicker').setStartDate('".$start_date."');
+                        $('#start').val('".$start_date."');
                         $('#daterange').data('daterangepicker').setEndDate('".$end_date."');
+                        $('#end').val('".$end_date."');
                     })
                     ";
                     echo "$('#daterange').val('".$start_date."'+' - '+'".$end_date."');";
                 }
-                else echo "$('#daterange').val(moment().startOf('year').calendar()+' - '+moment().format('L'));";
+                else echo "$('#daterange').val(moment().startOf('year').calendar()+' - '+moment().format('L'));
+                            $('#start').val(moment().startOf('year').format('YYYY-MM-DD'));
+                            $('#end').val(moment().format('YYYY-MM-DD'));
+                ";
+
             ?>
             </script>
     <tbody>
@@ -69,35 +75,34 @@
 <script type="text/javascript">
 
 
-        $('#remaining_balance2').DataTable( {
-                                dom: 'Bfrtip',
-        buttons: [
-            'copy', 'excel', 'pdf', 'print'
-        ],
+$('#remaining_balance2').DataTable( {
+    dom: 'Bfrtip',
+    buttons: [
+    'copy', 'excel', 'pdf', 'print'
+    ],
 
-        initComplete: function () {
-            this.api().columns([]).every( function () {
-                var column = this;
-                var select = $('<select><option value="">All</option></select>')
-                    .appendTo( $(column.footer()).empty() )
-                    .on( 'change', function () {
-                        var val = $.fn.dataTable.util.escapeRegex(
-                            $(this).val()
-                        );
- 
-                        column
-                            .search( val ? '^'+val+'$' : '', true, false )
-                            .draw();
-                    } );
- 
-                column.data().unique().sort().each( function ( d, j ) {
-                    select.append( '<option value="'+d+'">'+d+'</option>' )
-                } );
+    initComplete: function () {
+        this.api().columns([]).every( function () {
+            var column = this;
+            var select = $('<select><option value="">All</option></select>')
+            .appendTo( $(column.footer()).empty() )
+            .on( 'change', function () {
+                var val = $.fn.dataTable.util.escapeRegex(
+                    $(this).val()
+                    );
+                
+                column
+                .search( val ? '^'+val+'$' : '', true, false )
+                .draw();
             } );
-        }
-    } );
+            
+            column.data().unique().sort().each( function ( d, j ) {
+                select.append( '<option value="'+d+'">'+d+'</option>' )
+            } );
+        } );
+    }
+} );
 </script>
-
 
 <script type="text/javascript">
 

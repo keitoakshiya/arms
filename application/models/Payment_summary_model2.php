@@ -11,7 +11,7 @@ patient.first_name,patient.middle_name,patient.last_name,patient.date_created,
     IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE bill_id = bill.id),0) AS total_professional_bill_payment,
     (IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE bill_id = bill.id),0) +
     IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE bill_id = bill.id),0)) AS total_paid,
-    
+
     (bill.hospital_bill -IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE bill_id = bill.id),0)) AS hospital_balance,
     (bill.professional_bill- IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE bill_id = bill.id),0)) AS professional_balance,
     ((bill.hospital_bill+bill.professional_bill)-    (IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE bill_id = bill.id),0) +
@@ -36,7 +36,7 @@ DATEDIFF((SELECT or_date FROM transaction where
             return $res;
         }
 
-        public function get_bill_filtered($start,$end){
+        public function get_bill_filtered($start,$end,$a){
 
                         $this->db->select('guarantor.name,bill.guarantor_id,
 patient.first_name,patient.middle_name,patient.last_name,patient.date_created,
@@ -56,17 +56,23 @@ DATEDIFF((SELECT or_date FROM transaction where
  (SELECT DATE_FORMAT(or_date, "%b %d %Y")  FROM transaction where
  bill_id = bill.id ORDER BY or_date DESC LIMIT 1) AS pay_date
     
-    
 
         ');
 
-            $this->db->join('patient', 'patient.id = patient_id');
-            $this->db->join('guarantor', 'guarantor.id = guarantor_id');
-            $this->db->where('date_created >=', $start);
-            $this->db->where('date_created <=', $end);
-            $this->db->where('patient.deleted =', 0);
-            $query = $this->db->get('bill');
+        $this->db->join('patient', 'patient.id = patient_id');
+        $this->db->join('guarantor', 'guarantor.id = guarantor_id');
+
+        $this->db->distinct();
+        $this->db->where('patient.deleted =', 0);
+        $this->db->where('bill.guarantor_id =', $a);
+        $this->db->where('date_created >=', $start);
+        $this->db->where('date_created <=', $end);
+        $query = $this->db->get('bill');
+        $res   = $query->result();
             $res   = $query->result();
+            //print_r($this->db->last_query());
+
+
             return $res;
         }
 

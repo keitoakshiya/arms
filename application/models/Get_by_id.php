@@ -11,6 +11,7 @@
                 foreach ($res as $key => $row) {
                     $name = $row->name;
                 }
+                //print_r($this->db->last_query());  
             return $name; 
         }
 

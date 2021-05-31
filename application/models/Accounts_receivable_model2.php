@@ -6,18 +6,18 @@
             $this->db->select('
 patient.first_name,patient.middle_name,patient.last_name,DATE_FORMAT(`patient`.`date_created`, "%b %d %Y") as date_created,
     bill.id AS bill_id,bill.date,bill.hospital_bill,bill.professional_bill,(bill.hospital_bill+bill.professional_bill) AS total_bill,
-    
+
     IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE bill_id = bill.id),0) AS total_hospital_bill_payment,
     IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE bill_id = bill.id),0) AS total_professional_bill_payment,
     (IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE bill_id = bill.id),0) +
     IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE bill_id = bill.id),0)) AS total_payment,
-    
+
     (bill.hospital_bill -IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE bill_id = bill.id),0)) AS hospital_balance,
     (bill.professional_bill- IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE bill_id = bill.id),0)) AS professional_balance,
     ((bill.hospital_bill+bill.professional_bill)-    (IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE bill_id = bill.id),0) +
     IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE bill_id = bill.id),0))) AS total_balance
-    
-    
+
+
 
         ');
             $this->db->join('patient', 'patient.id = patient_id');
@@ -35,20 +35,20 @@ patient.first_name,patient.middle_name,patient.last_name,DATE_FORMAT(`patient`.`
 
 
              $this->db->select('
-patient.first_name,patient.middle_name,patient.last_name,DATE_FORMAT(`patient`.`date_created`, "%b %d %Y") as date_created,
+    patient.first_name,patient.middle_name,patient.last_name,DATE_FORMAT(`patient`.`date_created`, "%b %d %Y") as date_created,
     bill.id AS bill_id,bill.date,bill.hospital_bill,bill.professional_bill,(bill.hospital_bill+bill.professional_bill) AS total_bill,
-    
+
     IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE bill_id = bill.id),0) AS total_hospital_bill_payment,
     IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE bill_id = bill.id),0) AS total_professional_bill_payment,
     (IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE bill_id = bill.id),0) +
     IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE bill_id = bill.id),0)) AS total_payment,
-    
+
     (bill.hospital_bill -IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE bill_id = bill.id),0)) AS hospital_balance,
     (bill.professional_bill- IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE bill_id = bill.id),0)) AS professional_balance,
     ((bill.hospital_bill+bill.professional_bill)-    (IFNULL((SELECT SUM(hospital_bill_payment) FROM transaction WHERE bill_id = bill.id),0) +
     IFNULL((SELECT SUM(professional_bill_payment) FROM transaction WHERE bill_id = bill.id),0))) AS total_balance
-    
-    
+
+
 
         ');
             $this->db->join('patient', 'patient.id = patient_id');

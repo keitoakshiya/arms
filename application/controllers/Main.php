@@ -519,13 +519,13 @@ class Main extends CI_Controller
 
 			$start = $this->input->post('start');
 			$end = $this->input->post('end');
-			$this->load->model('payment_summary_model');
+			$this->load->model('payment_summary_model2');
 
-			$res = $this->payment_summary_model->get_bill_filtered($start, $end);
+			$res = $this->payment_summary_model2->get_bill_filtered($start, $end,$a);
 
 			$data['result'] = $res;
 			$this->load->view('template/header2', $data);
-			$this->load->view('template/container_header_daterange', $data);
+			$this->load->view('template/container_header_daterange_payment_summary', $data);
 
 			if ($res) {
 				$data2['result'] = $res;
@@ -624,9 +624,9 @@ class Main extends CI_Controller
 
 			$start = $this->input->post('start');
 			$end = $this->input->post('end');
-			$this->load->model('remaining_balance_model');
+			$this->load->model('remaining_balance_model2');
 
-			$res = $this->remaining_balance_model->get_bill_filtered($start, $end);
+			$res = $this->remaining_balance_model2->get_bill_filtered($start, $end,$a);
 			$data['result'] = $res;
 
 			$this->load->view('template/header2', $data);
@@ -634,9 +634,9 @@ class Main extends CI_Controller
 
 			if ($res) {
 				$data2['result'] = $res;
-				$this->load->view('remaining_balance', $data2);
+				$this->load->view('remaining_balance2', $data2);
 			} else {
-				$this->load->view('remaining_balance');
+				$this->load->view('remaining_balance2');
 			}
 
 			$this->load->view('template/container_footer');

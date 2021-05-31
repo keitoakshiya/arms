@@ -1,6 +1,34 @@
 <table id="payment_summary2" class="display" style="width:100%; color: #292929;">
     <thead>
 
+    
+    <script type="text/javascript">
+            <?php
+                if (isset($start)&&isset($end)) {
+                    $start_time = strtotime($start); 
+                    $end_time = strtotime($end); 
+                    $start_date = date('m/d/y', $start_time);
+                    $end_date = date('m/d/y', $end_time);
+
+                    echo "
+                    $(window).on('load', function() {
+                        $('#daterange').data('daterangepicker').setStartDate('".$start_date."');
+                        $('#start').val('".$start_date."');
+                        $('#daterange').data('daterangepicker').setEndDate('".$end_date."');
+                        $('#end').val('".$end_date."');
+                    })
+                    ";
+                    echo "$('#daterange').val('".$start_date."'+' - '+'".$end_date."');";
+                }
+                else echo "$('#daterange').val(moment().startOf('year').calendar()+' - '+moment().format('L'));
+                            $('#start').val(moment().startOf('year').format('YYYY-MM-DD'));
+                            $('#end').val(moment().format('YYYY-MM-DD'));
+                ";
+
+            ?>
+            </script>
+            
+
      <tr>
                 <!-- <th colspan="3">Bill</th>
                 <th colspan="3">Payment</th>
