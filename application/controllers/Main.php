@@ -508,6 +508,7 @@ class Main extends CI_Controller
 		$all_access = $this->roles_model->get_all_access();
 		$data['all_access'] = $all_access;
 		$data['title'] = $name;
+		
 		$data['a'] = $a;
 		$data['description'] = 'Payment List';
 
@@ -520,6 +521,8 @@ class Main extends CI_Controller
 			$start = $this->input->post('start');
 			$end = $this->input->post('end');
 			$this->load->model('payment_summary_model2');
+			$data['start'] = $start;
+			$data['end'] = $end;
 
 			$res = $this->payment_summary_model2->get_bill_filtered($start, $end,$a);
 
@@ -624,6 +627,8 @@ class Main extends CI_Controller
 
 			$start = $this->input->post('start');
 			$end = $this->input->post('end');
+			$data['start'] = $start;
+			$data['end'] = $end;
 			$this->load->model('remaining_balance_model2');
 
 			$res = $this->remaining_balance_model2->get_bill_filtered($start, $end,$a);
