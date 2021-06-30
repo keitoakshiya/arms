@@ -1,6 +1,6 @@
 <?php  
     class add_company_model extends CI_Model {
-
+    	#Insert company information to database
         public function insert_company($name, $type,$address,$contact_person,$contact_number){
         	if ($this->checkDuplicateCompany($name)) {
         		$this->db->set('name', $name);

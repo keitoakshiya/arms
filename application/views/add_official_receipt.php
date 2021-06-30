@@ -1,5 +1,5 @@
 
-<form method="post" action="insert_receipt">
+<form method="post" action="insert_receipt" onsubmit="myFunction()">
 				<!-- page content -->
             				Guarantor:
             				<select name="type" class="form-control" onchange="companydropdown(this.value);" required="" oninvalid="this.setCustomValidity('Select Guarantor Type')" oninput="this.setCustomValidity('')"/>
@@ -14,7 +14,7 @@
             				OR Number:<input type="text" name="or_number" class="form-control" required="" oninvalid="this.setCustomValidity('Enter Official Receipt Number')" oninput="this.setCustomValidity('')"/>
             				OR Amount:<input type="text" name="or_amount" class="form-control" required="" oninvalid="this.setCustomValidity('Enter Official Receipt Amount')" oninput="this.setCustomValidity('')"/>
             				&nbsp
-            				<input type="submit" onclick="return submit()" name="submit" class="btn btn-success form-control">
+            				<input type="submit" onclick="return submit()" name="submit" class="btn btn-success form-control" value="Submit">
 		        <!-- /page content -->
 </form>
 
@@ -43,4 +43,8 @@
 	});
 	</script>
 
-
+<script>
+function myFunction() {
+  alert("Successfuly Added");
+}
+</script>

@@ -1,7 +1,7 @@
 <?php  
 class add_or_model extends CI_Model {
 
-
+            #Insert official receipt to database
     public function insert_receipt($company,$or_date,$or_number,$or_amount){
         if ($this->checkDuplicateORNumber($or_number)) {
             $this->db->set('company', $company);

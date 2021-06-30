@@ -35,6 +35,7 @@ class Main extends CI_Controller
 		}
 	}
 
+	#Dashboard
 	public function dashboard()
 	{
 		$this->load->model('roles_model');
@@ -67,7 +68,7 @@ class Main extends CI_Controller
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
 	}
-
+	#Patient List
 	public function patients()
 	{
 		$this->load->model('roles_model');
@@ -102,7 +103,7 @@ class Main extends CI_Controller
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
 	}
-
+	#Edi Patient
 	public function edit_patient($a)
 	{
 		$this->load->model('roles_model');
@@ -153,7 +154,7 @@ class Main extends CI_Controller
 			$res = $this->patients_model->update_patient($id, $fname, $mname, $lname, $suffix);
 		}
 	}
-
+	#Patient List date filter
 	public function patients_filtered()
 	{
 		$this->load->model('roles_model');
@@ -192,7 +193,7 @@ class Main extends CI_Controller
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
 	}
-
+	#Register Patient
 	public function add_patient()
 	{
 
@@ -236,7 +237,7 @@ class Main extends CI_Controller
 
 		$this->load->view('template/footer');
 	}
-
+	#Adding patient to official receipt
 	public function add_patient_to_receipt($a, $b)
 	{
 		$this->load->model('roles_model');
@@ -314,7 +315,7 @@ class Main extends CI_Controller
 				$lastname,$date,$hospital_bill,$professional_bill,$company,$patient_type,$suffix,$registry_no);
 		}
 	}
-
+	#Logout
 	public function logout()
 	{
 
@@ -323,7 +324,7 @@ class Main extends CI_Controller
 		echo "<script>alert('');</script>";
 		header('Location: /arms');
 	}
-
+	#Accounts Receivable Company List
 	public function accounts_receivable()
 	{
 		$this->load->model('roles_model');
@@ -351,7 +352,7 @@ class Main extends CI_Controller
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
 	}
-
+	#Accounts Receivable Patient List
 	public function accounts_receivable2($a)
 	{
 		$this->load->model('roles_model');
@@ -385,7 +386,7 @@ class Main extends CI_Controller
 		$this->load->view('template/footer2');
 	}
 
-
+	#Accounts Receivable date filter
 	public function accounts_receivable_filtered($a)
 	{
 
@@ -435,7 +436,7 @@ class Main extends CI_Controller
 		}
 	}
 
-
+	#Payment Summary company list
 	public function payment_summary()
 	{
 		$this->load->model('roles_model');
@@ -462,7 +463,7 @@ class Main extends CI_Controller
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
 	}
-
+	#Payment Summary Patient List
 	public function payment_summary2($a)
 	{
 		$this->load->model('roles_model');
@@ -494,7 +495,7 @@ class Main extends CI_Controller
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer2');
 	}
-
+	#Payment Summary date filter
 	public function payment_summary_filtered($a)
 	{
 		$this->load->model('roles_model');
@@ -538,10 +539,10 @@ class Main extends CI_Controller
 			}
 
 			$this->load->view('template/container_footer');
-			$this->load->view('template/footer');
+			$this->load->view('template/footer2');
 		}
 	}
-
+	#Remaining Balance of Company
 	public function remaining_balance()
 	{
 		$this->load->model('roles_model');
@@ -571,7 +572,7 @@ class Main extends CI_Controller
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
 	}
-
+	#Remaining Balance of patients
 	public function remaining_balance2($a)
 	{
 		$this->load->model('roles_model');
@@ -602,7 +603,7 @@ class Main extends CI_Controller
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer2');
 	}
-
+	#Remaining Balance date filter
 	public function remaining_balance_filtered($a)
 	{
 		$this->load->model('roles_model');
@@ -645,11 +646,11 @@ class Main extends CI_Controller
 			}
 
 			$this->load->view('template/container_footer');
-			$this->load->view('template/footer');
+			$this->load->view('template/footer2');
 		}
 	}
 
-
+	#Add Payment
 	public function add_payment()
 	{
 		$this->load->model('roles_model');
@@ -675,7 +676,7 @@ class Main extends CI_Controller
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer2');
 	}
-
+	#Add payment to company
 	public function company_list()
 	{
 
@@ -705,7 +706,7 @@ class Main extends CI_Controller
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
 	}
-
+	#Official Receipt List
 	public function official_receipt_list($a)
 	{
 
@@ -739,7 +740,7 @@ class Main extends CI_Controller
 		$this->load->view('template/footer2');
 	}
 
-	public function official_receipt_list2()
+	/*public function official_receipt_list2()
 	{
 
 		$this->load->model('roles_model');
@@ -767,8 +768,9 @@ class Main extends CI_Controller
 
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
-	}
+	}*/
 
+	#Add transaction to patient
 	public function view_bill_by_patient($id, $receipt, $company_id)
 	{
 		$this->load->model('roles_model');
@@ -861,7 +863,7 @@ class Main extends CI_Controller
 
 		$this->view_bill_by_patient_model->insert_transaction($hospital_bill_payment, $professional_bill_payment, $patient_id, $bill_id, $receipt_id, $company_id);
 	}
-
+	#Register company
 	public function add_company()
 	{
 		$this->load->model('roles_model');
@@ -903,7 +905,7 @@ class Main extends CI_Controller
 		}
 	}
 
-
+	#Register user account
 	public function add_account()
 	{
 		$this->load->model('roles_model');
@@ -942,7 +944,7 @@ class Main extends CI_Controller
 		}
 	}
 
-
+	#Archive module
 	public function archive()
 	{
 		$this->load->model('roles_model');
@@ -1024,6 +1026,7 @@ class Main extends CI_Controller
 		}
 	}
 
+	#Roles Module
 	public function roles()
 	{
 		$this->load->model('roles_model');
@@ -1143,7 +1146,7 @@ class Main extends CI_Controller
 		$this->roles_model->update_role($id, $view_dashboard_a, $add_patient_a, $view_patients_a, $edit_patients_a, $delete_patients_a, $view_accounts_receivable_a, $view_accounts_receivable2_a, $view_payment_summary_a, $view_payment_summary2_a, $view_remaining_balance_a, $view_remaining_balance2_a, $add_official_receipt_a, $view_official_receipt_list2_a, $delete_official_receipt, $view_company_list_official_receipt_list_a, $add_patient_to_receipt_a, $add_view_bill_by_patient_a, $view_list_company_a, $add_company_a, $view_archive_a, $delete_archive_a, $restore_archive_a, $add_account_a, $edit_roles_a, $delete_or_a, $permanently_delete_a, $edit_company_a, $view_payment_history_a,$view_or_list_a,$view_or_list_patient_a,$edit_official_receipt_a,$void_official_receipt_a,$unvoid_official_receipt_a,$permavoid_official_receipt_a);
 	}
 
-
+	#Official Receipt List
 	public function official_receipt()
 	{
 		$this->load->model('roles_model');
@@ -1203,6 +1206,7 @@ class Main extends CI_Controller
 		}
 	}
 
+	#Company List
 	public function list_company()
 	{
 
@@ -1235,6 +1239,7 @@ class Main extends CI_Controller
 		$this->load->view('template/footer');
 	}
 
+	#Edit company information
 	public function edit_company($a)
 	{
 		$this->load->model('roles_model');
@@ -1288,7 +1293,7 @@ class Main extends CI_Controller
 		}
 	}
 
-	public function payment_history()
+	/*public function payment_history()
 	{
 
 		$this->load->model('roles_model');
@@ -1315,8 +1320,8 @@ class Main extends CI_Controller
 
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
-	}
-
+	}*/
+	#Data duplicate error
 	public function duplicate_error($name)
 	{
 
@@ -1340,7 +1345,7 @@ class Main extends CI_Controller
 		$this->load->view('template/container_footer');
 		$this->load->view('template/footer');
 	}
-
+	#Official Receipt List
 	public function or_list()
 	{
 
@@ -1380,7 +1385,7 @@ class Main extends CI_Controller
 		$this->load->view('template/footer');
 	}
 
-
+	#Official Receipt Patient List
 	public function or_list_patient($a)
 	{
 
@@ -1463,7 +1468,7 @@ class Main extends CI_Controller
 			$res = $this->or_list_model->update_or($id, $or_date, $or_number, $or_amount, $company,$type);
 		}
 	}
-
+	#Void official receipt
 	public function void_official_receipt($or_number){
 		$this->load->model('or_list_model');
 		$res = $this->or_list_model->void_or($or_number);

@@ -4,21 +4,21 @@
         public function get_recent_registered(){
             $data = array();
             $this->db->select('
-bill.id,
-bill.date,
-bill.patient_id,
-bill.guarantor_id,
-bill.patient_type,
-bill.hospital_bill,
-bill.professional_bill,
-bill.deleted as bill_deleted,
-patient.id as patient_id2,
-patient.first_name,
-patient.last_name,
-patient.middle_name,
-patient.date_created,
-patient.deleted as patient_deleted,
-');
+            bill.id,
+            bill.date,
+            bill.patient_id,
+            bill.guarantor_id,
+            bill.patient_type,
+            bill.hospital_bill,
+            bill.professional_bill,
+            bill.deleted as bill_deleted,
+            patient.id as patient_id2,
+            patient.first_name,
+            patient.last_name,
+            patient.middle_name,
+            patient.date_created,
+            patient.deleted as patient_deleted,
+            ');
             $this->db->where('hospital_bill', '0.00');
             $this->db->where('professional_bill', '0.00');
             $this->db->order_by('date_created', 'DESC');
@@ -28,7 +28,7 @@ patient.deleted as patient_deleted,
             $res   = $query->result();
             return $res;
         }
-
+        #Insert patient and bill information to database
         public function insert_bill($hospital_bill,$professional_bill,$company,$patient_type,$id){
             $this->db->set('hospital_bill', $hospital_bill);
             $this->db->set('professional_bill', $professional_bill);

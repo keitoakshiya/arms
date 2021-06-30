@@ -51,7 +51,7 @@ AS total_balance
             //print_r($this->db->last_query());
             return $res;
         }
-
+        
         public function get_bill_filtered($start,$end){
 
             $this->db->join('patient', 'patient.id = patient_id');

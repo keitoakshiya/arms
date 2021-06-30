@@ -26,7 +26,7 @@ class patients_model extends CI_Model {
             //print_r($this->db->last_query());  
         return $res;
     }
-
+    #Date filter of patients
     public function get_patients_filtered($start,$end){
 
         $this->db->select('`patient`.`id` as patient_id,

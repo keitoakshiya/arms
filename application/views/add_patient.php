@@ -1,4 +1,4 @@
-<form method="post" action="/arms/main/insert_patient">
+<form method="post" action="/arms/main/insert_patient" onsubmit="myFunction()">
 	<div class="row">
 		<div class="col-md-6">
 			Guarantor type:
@@ -56,7 +56,7 @@
 
 	Date Registered: <input type="text" name="date" class="form-control" readonly="" required="" id="selectdate">
 	
-	<input type="submit" name="submit" class="form-control btn btn-success submit-btn">
+	<input type="submit" name="submit" class="form-control btn btn-success submit-btn" value="Submit">
 </form>
 
 
@@ -81,6 +81,11 @@
 		xhttp.open("GET", "../application/views/ajax/guarantor_dropdown.php?value="+val, true);
 		xhttp.send();
 	}
+</script>
+<script>
+function myFunction() {
+  alert("Successfuly Added");
+}
 </script>
 
 

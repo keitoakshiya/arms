@@ -28,10 +28,10 @@
             echo "
                     <button style='border: none; background-color: Transparent; background-repeat:no-repeat; overflow: hidden; outline:none;' onclick=\"location.href = 'delete_official_receipt/".$row->receipt_id."' \"><i class='fa fa-trash' style='color:red; font-size: 16px'></i></button>";
                   }
-             if ($edit == 1) {
+             /*if ($edit == 1) {
                         echo "
                     <button style='border: none; background-color: Transparent; background-repeat:no-repeat; overflow: hidden; outline:none;' onclick=\"location.href = 'edit_official_receipt/".$row->receipt_id."' \"><i class='fa fa-edit' style=' font-size: 16px'></i></button>";
-                  }
+                  }*/
               if ($void == 1) {
 
                   if($row->is_void == 0){ //User can void Official Receipt
