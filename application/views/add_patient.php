@@ -1,4 +1,4 @@
-<form method="post" action="/arms/main/insert_patient" onsubmit="myFunction()">
+<form method="post" action="/arms/main/insert_patient" onsubmit="sub()">
 	<div class="row">
 		<div class="col-md-6">
 			Guarantor type:
@@ -52,11 +52,12 @@
 			
 		</div>						
 	</div>
-	Registry No. <input type="text" name="registry_no" class="form-control" minlength="8" required>
+	Registry No. <a id="p1" style="color: red; display: none;">This Registry No. already exist *</a> 
+	<input type="text" name="registry_no" class="form-control" minlength="8" required="" onkeyup="checkduplicate(this.value)">
 
 	Date Registered: <input type="text" name="date" class="form-control" readonly="" required="" id="selectdate">
 	
-	<input type="submit" name="submit" class="form-control btn btn-success submit-btn" value="Submit">
+	<input type="submit" name="submit" class="form-control btn btn-success submit-btn" value="Submit" id="submit">
 </form>
 
 
@@ -82,10 +83,32 @@
 		xhttp.send();
 	}
 </script>
+
 <script>
-function myFunction() {
-  alert("Successfuly Added");
+function checkduplicate(name1) {
+  //alert("Successfuly Added");
+  var table = 'patient';
+  var column = 'registry_no';
+  $.ajax({url: "../application/views/ajax/check_duplicate.php?table="+table+"&column="+column+"&name="+name1, success: function(result){
+      if (result==1){
+      	$("#submit").attr("disabled", "disabled");
+      	$("#submit").addClass("btn-danger");
+      	$("#submit").removeClass("btn-success");
+      	$("#p1").show();
+      }
+      else {
+      	$("#submit").removeAttr("disabled", "disabled");
+      	$("#submit").addClass("btn-success");
+      	$("#submit").removeClass("btn-danger");
+      	$("#p1").hide();
+      }
+    }});
+
 }
 </script>
 
-
+<script>
+function sub() {
+  alert("Successfuly Added");
+}
+</script>

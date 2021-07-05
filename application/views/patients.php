@@ -130,15 +130,14 @@ $(function() {
 
 <script type="text/javascript">
     function archive_patient(id) {
-          var r = confirm("Are you sure you want to delete this patient? \nBills of this patient will also be deleted.");
-          var r = confirm("Are you sure you want to continue?");
-  if (r == true) {
-    window.location.href ="archive_patient/"+id ;
-  } else {
+      var r = confirm("Are you sure you want to delete this patient? \nBills of this patient will also be deleted.");
+      var r = confirm("Are you sure you want to continue?");
+      if (r == true) {
+        window.location.href ="archive_patient/"+id ;
+    } else {
     //window.location.href ="patients";
-  }
-    }
-
+}
+}
 
 </script>
 

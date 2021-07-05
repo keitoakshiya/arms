@@ -3,10 +3,10 @@
 <div class="row" style="padding-top: 10px; font-family:verdana; font-size: 14px" >
 
 	<?php
-
+	include '../../config/database2.php';
 		if($_GET['value']){
 			$sql = "SELECT * FROM `user` WHERE id = '".$_GET['value']."'";
-			$con = mysqli_connect('localhost','root','','arms');
+			
 			//By default, password is blank
 			$query = mysqli_query($con,$sql); 
 

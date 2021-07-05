@@ -26,7 +26,7 @@
 
             if ($delete == 1) {
             echo "
-                    <button style='border: none; background-color: Transparent; background-repeat:no-repeat; overflow: hidden; outline:none;' onclick=\"location.href = 'delete_official_receipt/".$row->receipt_id."' \"><i class='fa fa-trash' style='color:red; font-size: 16px'></i></button>";
+                    <button style='border: none; background-color: Transparent; background-repeat:no-repeat; overflow: hidden; outline:none;' onclick='delete_official_receipt(".$row->receipt_id.")'><i class='fa fa-trash' style='color:red; font-size: 16px'></i></button>";
                   }
              /*if ($edit == 1) {
                         echo "
@@ -109,3 +109,15 @@
   });
 </script>
 
+<script type="text/javascript">
+    function delete_official_receipt(id) {
+      var r = confirm("Are you sure you want to permanently delete this Official Receipt?");
+      var r = confirm("Are you sure you want to continue?");
+      if (r == true) {
+        window.location.href ="delete_official_receipt/"+id ;
+    } else {
+    //window.location.href ="patients";
+}
+}
+
+</script>

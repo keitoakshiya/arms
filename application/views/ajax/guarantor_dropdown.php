@@ -1,12 +1,12 @@
 <?php
-	
+	include '../../config/database2.php';
 			echo "
 		Company:
 		<select class='form-control' name='company' required>
 			<option selected disabled value=''>Select Company</option>";
 			if($_GET['value']){
 				$sql = "SELECT * FROM guarantor WHERE type=".$_GET['value'];
-				$con = mysqli_connect('localhost','root','','arms'); 
+				
 				//By default, password is blank
 				$query = mysqli_query($con,$sql); 
 

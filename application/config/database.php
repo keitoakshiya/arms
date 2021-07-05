@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
+	'hostname' => 'localhost', //DO NOT FORGET TO UPDATE database2.php AS WELL
 	'username' => 'root',
 	'password' => '',
 	//By default, password is blank
